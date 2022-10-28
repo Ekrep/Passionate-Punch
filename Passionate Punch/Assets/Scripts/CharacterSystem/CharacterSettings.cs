@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Interfaces;
 
-public class CharacterSettings : MonoBehaviour
+namespace CharacterSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class CharacterSettings : ScriptableObject, IHealth
     {
+        public string characterName;
+        public Sprite characterImage;
+        public float health;
+        public float attackDamage;
+        public float attackSpeed;
+        public float mana;
+        public float moveSpeed;
+        public float defence;
+        public float range;
+        public float recoveryTime;
+        public float experience;
+
+        public enum CharacterClassType
+        {
+            Assasin,
+            Monk,
+            Ranger
+        }
         
+        public abstract void DecreaseHealth(float amount);
+        public abstract void KillSelf();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
