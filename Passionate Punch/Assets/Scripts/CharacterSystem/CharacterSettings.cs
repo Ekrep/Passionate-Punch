@@ -17,13 +17,15 @@ namespace CharacterSystem
         public float recoveryTime;
         public float experience;
 
+        public CharacterClassType characterClass;
+
         public enum CharacterClassType
         {
             Assasin,
             Monk,
             Ranger
         }
-        
+
         public abstract void DecreaseHealth(float amount);
         public abstract void KillSelf();
     }
