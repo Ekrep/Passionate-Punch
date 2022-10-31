@@ -9,7 +9,7 @@ using Items;
     public class Inventory : MonoBehaviour
     {
         public static int inventorySize = 16; //can be changed later.
-        public static IDictionary<ItemSettings, String> inventory = new Dictionary<ItemSettings, String>(inventorySize);
+        public static IDictionary<ItemSettings, String> inventoryDict = new Dictionary<ItemSettings, String>(inventorySize);
         public static event Action onItemPickedUp;
         // Start is called before the first frame update
         void Start()
@@ -25,7 +25,7 @@ using Items;
 
         void CheckInventory()
         {
-            if(inventory.Count < inventorySize)
+            if(inventoryDict.Count < inventorySize)
             {
                 onItemPickedUp?.Invoke();
             }

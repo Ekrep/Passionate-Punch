@@ -10,6 +10,7 @@ namespace Classes
 
     public class Monk : CharacterSettings
     {
+
         public override void DecreaseHealth(float amount)
         {
             throw new System.NotImplementedException();
