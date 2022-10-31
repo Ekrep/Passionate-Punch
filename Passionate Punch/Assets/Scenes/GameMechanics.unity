@@ -780,4 +780,4 @@ MonoBehaviour:
   characterMovementSpeed: 1
   _rb: {fileID: 1467415346}
   _smoothTime: 2
-  _smoothSpeed: 2
+  _smoothSpeed: 5
