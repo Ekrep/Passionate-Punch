@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InventorySystem;
 
 namespace Items
 {
@@ -22,6 +23,8 @@ namespace Items
 
         public override void PickedUp()
         {
+            Inventory.inventory.Add(this, this.itemTitle);
+
             Destroy(this.item);
         }
     }
