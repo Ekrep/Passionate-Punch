@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InventorySystem;
 
 namespace Items
 {
@@ -12,7 +13,6 @@ namespace Items
         public float effectAmount;
         public float inventorySize;
 
-        public bool hasPickedUp;
         public ItemClassType itemType;
         public enum ItemClassType
         {
@@ -20,6 +20,16 @@ namespace Items
             Monk,
             Ranger,
             All
+        }
+
+        void OnEnable()
+        {
+            Inventory.onItemPickedUp += PickedUp;
+        }
+
+        void OnDisable()
+        {
+            Inventory.onItemPickedUp -= PickedUp;
         }
         public abstract void ApplyItemEffect(float amount);
 

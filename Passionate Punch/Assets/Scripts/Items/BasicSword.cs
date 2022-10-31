@@ -22,10 +22,7 @@ namespace Items
 
         public override void PickedUp()
         {
-            if(hasPickedUp)
-            {
-                Destroy(this.item);
-            }
+            Destroy(this.item);
         }
     }
 
