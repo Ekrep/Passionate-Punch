@@ -5,6 +5,9 @@ using System;
 using Items;
 
 
+namespace InventorySystem
+{
+
 
     public class Inventory : MonoBehaviour
     {
@@ -25,11 +28,12 @@ using Items;
 
         void CheckInventory()
         {
-            if(inventoryDict.Count < inventorySize)
+            if (inventoryDict.Count < inventorySize)
             {
                 onItemPickedUp?.Invoke();
             }
         }
     }
+}
 
 
