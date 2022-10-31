@@ -9,6 +9,7 @@ namespace Classes
 
     public class Ranger : CharacterSettings
     {
+
         public override void DecreaseHealth(float amount)
         {
             throw new System.NotImplementedException();
