@@ -11,15 +11,19 @@ namespace Items
         public string itemDescription;
         public float effectAmount;
         public float inventorySize;
+
+        public bool hasPickedUp;
         public ItemClassType itemType;
         public enum ItemClassType
         {
-            Monk,
             Assasin,
+            Monk,
             Ranger,
             All
         }
         public abstract void ApplyItemEffect(float amount);
+
+        public abstract void PickedUp();
     }
 
 
