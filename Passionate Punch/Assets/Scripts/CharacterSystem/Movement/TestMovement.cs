@@ -57,8 +57,16 @@ public class TestMovement : MonoBehaviour
 
             angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
             Quaternion quaternion = Quaternion.Euler(gameObject.transform.rotation.x, angleX, gameObject.transform.rotation.z);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, quaternion, _smoothSpeed * Time.fixedDeltaTime);
+            if (Vector3.Distance(transform.rotation.eulerAngles,quaternion.eulerAngles)>0.1f)
+            {
+                
+                Debug.Log("lerping");
+                transform.rotation = Quaternion.Lerp(transform.rotation, quaternion, _smoothSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                transform.rotation = quaternion;
+            }
         }
        
        
