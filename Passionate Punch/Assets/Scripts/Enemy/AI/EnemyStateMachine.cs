@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
+    EnemyBaseState currentEnemyState;
     void Start()
     {
-        
+        currentEnemyState = GetInitialState();
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.Enter();
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.UpdateLogic();
+        }
+    }
+    private void LateUpdate()
+    {
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.UpdatePhysics();
+        }
+    }
+    public void ChangeState(EnemyBaseState newState)
+    {
+        currentEnemyState.Exit();
+        currentEnemyState = newState;
+        currentEnemyState.Enter();
+    }
+    protected virtual EnemyBaseState GetInitialState()
+    {
+        return null;
     }
 }
