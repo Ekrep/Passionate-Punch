@@ -12,26 +12,21 @@ namespace InventorySystem
     public class Inventory : MonoBehaviour
     {
         public static int inventorySize = 16; //can be changed later.
-        public static IDictionary<ItemSettings, String> inventoryDict = new Dictionary<ItemSettings, String>(inventorySize);
-        public static event Action onItemPickedUp;
-        // Start is called before the first frame update
-        void Start()
+        public static IDictionary<Item, String> inventoryDict = new Dictionary<Item, String>(inventorySize);
+
+        public void AddInventory(Item item)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        void CheckInventory()
-        {
-            if (inventoryDict.Count < inventorySize)
+            if (CheckInventorySize())
             {
-                onItemPickedUp?.Invoke();
+                inventoryDict.Add(item, item.GetComponent<ItemSettings>().itemTitle);
+                item.PickedUp();
+
             }
+        }
+
+        public bool CheckInventorySize()
+        {
+            return inventoryDict.Count < inventorySize;
         }
     }
 }

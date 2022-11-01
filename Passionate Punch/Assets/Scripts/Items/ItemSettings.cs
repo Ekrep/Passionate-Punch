@@ -7,12 +7,11 @@ namespace Items
 {
     public abstract class ItemSettings : ScriptableObject
     {
+        //This is an abstract scriptable class that holds pure data about items. 
         public string itemTitle;
         public Sprite itemImage;
         public string itemDescription;
         public float effectAmount;
-        public float inventorySize;
-
         public ItemClassType itemType;
         public enum ItemClassType
         {
@@ -21,20 +20,6 @@ namespace Items
             Ranger,
             All
         }
-
-        void OnEnable()
-        {
-            Inventory.onItemPickedUp += PickedUp;
-        }
-
-        void OnDisable()
-        {
-            Inventory.onItemPickedUp -= PickedUp;
-        }
         public abstract void ApplyItemEffect(float amount);
-
-        public abstract void PickedUp();
     }
-
-
 }
