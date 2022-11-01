@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CharacterSystem;
 
 
-[RequireComponent(typeof(Rigidbody))]
 public class TestMovement : MonoBehaviour
 {
-    public float characterMovementSpeed;
-   [SerializeField]
-    private Rigidbody _rb;
 
-    [SerializeField]
-    private float _smoothTime;
+
+    public CharacterSettings characterStats;
+    private float _characterMovementSpeed;
+
 
     [SerializeField]
     private float _smoothSpeed;
@@ -21,7 +20,7 @@ public class TestMovement : MonoBehaviour
     Vector3 deltaPos;
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _characterMovementSpeed = characterStats.moveSpeed;
         firstPos = Vector3.zero;
     }
     private void Update()
@@ -52,7 +51,7 @@ public class TestMovement : MonoBehaviour
             xInput = Input.GetAxis("Horizontal");
             zInput = Input.GetAxis("Vertical");
 
-            transform.position = new Vector3(gameObject.transform.position.x + xInput * characterMovementSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + zInput * characterMovementSpeed * Time.fixedDeltaTime);
+            transform.position = new Vector3(gameObject.transform.position.x + xInput * _characterMovementSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + zInput * _characterMovementSpeed * Time.fixedDeltaTime);
             float angleX;
 
             angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
