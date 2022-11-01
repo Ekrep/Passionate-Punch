@@ -7,7 +7,7 @@ public class CharacterStateMachine : MonoBehaviour
     CharacterBaseState currentState;
     private void Start()
     {
-        currentState = GetInýtialState();
+        currentState = GetInitialState();
         if (currentState!=null)
         {
             currentState.Enter();
@@ -92,7 +92,7 @@ public class CharacterStateMachine : MonoBehaviour
 
 
 
-    protected virtual CharacterBaseState GetInýtialState()
+    protected virtual CharacterBaseState GetInitialState()
     {
         return null;
     }
