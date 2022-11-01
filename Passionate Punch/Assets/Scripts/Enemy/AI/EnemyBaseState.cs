@@ -12,20 +12,8 @@ public class EnemyBaseState
         this.name = name;
         this.enemyStateMachine = enemyStateMachine;
     }
-    public virtual void Enter()
-    {
-
-    }
-    public virtual void UpdateLogic()
-    {
-
-    }
-    public virtual void UpdatePhysics()
-    {
-
-    }
-    public virtual void Exit()
-    {
-
-    }
+    public virtual void Enter(){}
+    public virtual void UpdateLogic(){}
+    public virtual void UpdatePhysics(){}
+    public virtual void Exit(){}
 }
