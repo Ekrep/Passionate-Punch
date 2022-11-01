@@ -7,8 +7,6 @@ using Items;
 
 namespace InventorySystem
 {
-
-
     public class Inventory : MonoBehaviour
     {
         public static int inventorySize = 16; //can be changed later.
