@@ -43,13 +43,14 @@ public class TestMovement : MonoBehaviour
 
     private void Move()
     {
+
+        float xInput = 0;
+        float zInput = 0;
+        xInput = Input.GetAxis("Horizontal");
+        zInput = Input.GetAxis("Vertical");
         //UI Input geldiginde degisecek
-        if (Input.anyKey)
+        if (Mathf.Abs(xInput)>0||Mathf.Abs(zInput)>0)
         {
-            float xInput = 0;
-            float zInput = 0;
-            xInput = Input.GetAxis("Horizontal");
-            zInput = Input.GetAxis("Vertical");
 
             transform.position = new Vector3(gameObject.transform.position.x + xInput * _characterMovementSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + zInput * _characterMovementSpeed * Time.fixedDeltaTime);
             float angleX;
