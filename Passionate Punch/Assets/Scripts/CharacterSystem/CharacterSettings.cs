@@ -7,7 +7,6 @@ namespace CharacterSystem
     {
         public string characterName;
         public Sprite characterImage;
-        public float health;
         public float attackDamage;
         public float attackSpeed;
         public float mana;
@@ -18,6 +17,8 @@ namespace CharacterSystem
         public float experience;
 
         public CharacterClassType characterClass;
+
+        public float Health => Health;
 
         public enum CharacterClassType
         {

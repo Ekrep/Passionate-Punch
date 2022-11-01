@@ -7,6 +7,11 @@ namespace Interfaces
 
     public interface IHealth
     {
+        float Health
+        {
+            get;
+        }
+
         void DecreaseHealth(float amount);
         void KillSelf();
     }
