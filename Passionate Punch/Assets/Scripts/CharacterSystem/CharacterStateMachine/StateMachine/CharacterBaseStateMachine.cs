@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CharacterSystem;
 
 public class CharacterBaseStateMachine : CharacterStateMachine
 {
@@ -17,6 +18,21 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     [HideInInspector]
     public CharacterDeadState characterDeadState;
 
+
+
+
+    public CharacterSettings characterStats;
+
+    public Animator anim;
+
+
+    [HideInInspector]
+    public float characterMovementSpeed;
+
+
+   
+    public float turnSmoothSpeed;
+
     private void Awake()
     {
         characterIdleState = new CharacterIdleState(this);
@@ -25,6 +41,10 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterRecoveryState = new CharacterRecoveryState(this);
         characterSkillCastState = new CharacterSkillCastState(this);
         characterDeadState = new CharacterDeadState(this);
+
+
+
+        characterMovementSpeed = characterStats.moveSpeed;
     }
 
 
