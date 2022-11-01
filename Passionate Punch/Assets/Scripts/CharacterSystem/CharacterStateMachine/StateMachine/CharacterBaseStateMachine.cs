@@ -26,4 +26,11 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterSkillCastState = new CharacterSkillCastState(this);
         characterDeadState = new CharacterDeadState(this);
     }
+
+
+
+    protected override CharacterBaseState GetInitialState()
+    {
+        return characterIdleState;
+    }
 }

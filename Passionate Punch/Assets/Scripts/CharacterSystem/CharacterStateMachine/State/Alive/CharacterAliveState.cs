@@ -10,4 +10,20 @@ public class CharacterAliveState : CharacterBaseState
     {
         sm = (CharacterBaseStateMachine)this.stateMachine;
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        Debug.Log("enter");
+        
+    }
+
+
+
+
+
+
+
+
+
 }

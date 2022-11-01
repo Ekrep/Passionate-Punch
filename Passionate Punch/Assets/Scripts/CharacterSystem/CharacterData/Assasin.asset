@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterImage: {fileID: 0}
-  health: 0
   attackDamage: 0
   attackSpeed: 0
   mana: 0
-  moveSpeed: 0
+  moveSpeed: 3
   defence: 0
   range: 0
   recoveryTime: 0

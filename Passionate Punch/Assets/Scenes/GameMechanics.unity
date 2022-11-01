@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18381624, g: 0.22911012, b: 0.30400872, a: 1}
+  m_IndirectSpecularColor: {r: 0.18381578, g: 0.2291095, b: 0.3040076, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 1467415346}
   - component: {fileID: 1467415347}
   - component: {fileID: 1467415348}
+  - component: {fileID: 1467415349}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -777,7 +778,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aea4585f93b1d14996219516e4da92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterMovementSpeed: 1
-  _rb: {fileID: 1467415346}
-  _smoothTime: 2
+  characterStats: {fileID: 11400000, guid: 467fae4c46233904fb7ab916c0cd52bb, type: 2}
   _smoothSpeed: 5
+--- !u!114 &1467415349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467415341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15231e7b7eca42a468bab0f49add906e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

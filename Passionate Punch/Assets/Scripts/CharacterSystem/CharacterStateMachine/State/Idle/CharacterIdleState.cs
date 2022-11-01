@@ -10,4 +10,9 @@ public class CharacterIdleState : CharacterAliveState
     {
 
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
 }
