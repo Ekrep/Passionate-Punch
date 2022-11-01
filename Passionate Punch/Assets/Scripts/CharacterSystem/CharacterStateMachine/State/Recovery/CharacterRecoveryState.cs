@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterRecoveryState : CharacterAliveState
 {
-    public CharacterRecoveryState(string name, CharacterBaseStateMachine stateMachine) : base("Recovery", stateMachine)
+    public CharacterRecoveryState( CharacterBaseStateMachine stateMachine) : base("Recovery", stateMachine)
     {
 
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterDeadState : CharacterAliveState
 {
-    public CharacterDeadState(string name, CharacterBaseStateMachine stateMachine) : base("Dead", stateMachine)
+    public CharacterDeadState( CharacterBaseStateMachine stateMachine) : base("Dead", stateMachine)
     {
 
     }

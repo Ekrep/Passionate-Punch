@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMovingState : CharacterAliveState
 {
-    public CharacterMovingState(string name, CharacterBaseStateMachine stateMachine) : base("Moving", stateMachine)
+    public CharacterMovingState( CharacterBaseStateMachine stateMachine) : base("Moving", stateMachine)
     {
 
     }

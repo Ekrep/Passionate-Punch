@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAttackingState : CharacterAliveState
 {
-    public CharacterAttackingState(string name, CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
+    public CharacterAttackingState( CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
 
     }

@@ -6,7 +6,7 @@ public class CharacterIdleState : CharacterAliveState
 {
     
 
-    public CharacterIdleState(string name,CharacterBaseStateMachine stateMachine) : base("Idle", stateMachine)
+    public CharacterIdleState(CharacterBaseStateMachine stateMachine) : base("Idle", stateMachine)
     {
 
     }

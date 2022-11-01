@@ -26,12 +26,12 @@ public class TestMovement : MonoBehaviour
     private void Update()
     {
         currentPos = gameObject.transform.position;
-        
+
     }
 
     void FixedUpdate()
     {
-        
+
     }
     private void LateUpdate()
     {
@@ -49,7 +49,7 @@ public class TestMovement : MonoBehaviour
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
         //UI Input geldiginde degisecek
-        if (Mathf.Abs(xInput)>0||Mathf.Abs(zInput)>0)
+        if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
 
             transform.position = new Vector3(gameObject.transform.position.x + xInput * _characterMovementSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + zInput * _characterMovementSpeed * Time.fixedDeltaTime);
@@ -57,9 +57,9 @@ public class TestMovement : MonoBehaviour
 
             angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
             Quaternion quaternion = Quaternion.Euler(gameObject.transform.rotation.x, angleX, gameObject.transform.rotation.z);
-            if (Vector3.Distance(transform.rotation.eulerAngles,quaternion.eulerAngles)>0.1f)
+            if (Vector3.Distance(transform.rotation.eulerAngles, quaternion.eulerAngles) > 0.1f)
             {
-                
+
                 Debug.Log("lerping");
                 transform.rotation = Quaternion.Lerp(transform.rotation, quaternion, _smoothSpeed * Time.fixedDeltaTime);
             }
@@ -68,18 +68,10 @@ public class TestMovement : MonoBehaviour
                 transform.rotation = quaternion;
             }
         }
-       
-       
-           
-        
-        
-        
-        
-       
-       
 
 
-        
+
+
     }
 
 }

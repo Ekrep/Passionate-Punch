@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSkillCastState : CharacterAliveState
 {
-    public CharacterSkillCastState(string name, CharacterBaseStateMachine stateMachine) : base("SkillCast", stateMachine)
+    public CharacterSkillCastState( CharacterBaseStateMachine stateMachine) : base("SkillCast", stateMachine)
     {
 
     }
