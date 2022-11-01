@@ -17,15 +17,19 @@ public class CharacterMovingState : CharacterAliveState
     {
         base.Enter();
         firstPos = Vector3.zero;
-        sm.anim.SetBool("Moving", true);
+        
     }
 
-
+   
     public override void Update()
     {
         base.Update();
         currentPos = sm.gameObject.transform.position;
         CheckMovement();
+
+
+
+
     }
     public override void LateUpdate()
     {
@@ -33,12 +37,22 @@ public class CharacterMovingState : CharacterAliveState
         deltaPos = currentPos - firstPos;
         firstPos = sm.gameObject.transform.position;
         Move();
-
+        
+        Debug.Log(deltaPos.magnitude + "mag00");
+        if (deltaPos.magnitude>0)
+        {
+            sm.anim.SetBool("Moving", true);
+        }
+        else
+        {
+            sm.anim.SetBool("Moving", false);
+        }
+        
     }
     public override void Exit()
     {
         base.Exit();
-        sm.anim.SetBool("Moving", false);
+        
 
     }
 
@@ -54,7 +68,7 @@ public class CharacterMovingState : CharacterAliveState
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
 
-            sm.transform.position = new Vector3(sm.transform.position.x + xInput * sm.characterMovementSpeed * Time.fixedDeltaTime, sm.transform.position.y, sm.transform.position.z + zInput * sm.characterMovementSpeed * Time.fixedDeltaTime);
+            sm.transform.position = new Vector3(sm.transform.position.x + xInput * sm.characterMovementSpeed * Time.deltaTime, sm.transform.position.y, sm.transform.position.z + zInput * sm.characterMovementSpeed * Time.deltaTime);
             float angleX;
 
             angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
@@ -63,7 +77,7 @@ public class CharacterMovingState : CharacterAliveState
             {
 
                 Debug.Log("lerping");
-                sm.transform.rotation = Quaternion.Lerp(sm.transform.rotation, quaternion, sm.turnSmoothSpeed * Time.fixedDeltaTime);
+                sm.transform.rotation = Quaternion.Lerp(sm.transform.rotation, quaternion, sm.turnSmoothSpeed * Time.deltaTime);
             }
             else
             {
@@ -79,11 +93,7 @@ public class CharacterMovingState : CharacterAliveState
 
     private void CheckMovement()
     {
-        float xInput = 0;
-        float zInput = 0;
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
-        if (Mathf.Abs(xInput) == 0 && Mathf.Abs(zInput) == 0)
+        if (deltaPos.magnitude==0)
         {
             sm.ChangeState(sm.characterIdleState);
         }
