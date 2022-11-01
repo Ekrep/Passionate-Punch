@@ -44,21 +44,24 @@ public class TestMovement : MonoBehaviour
 
     private void Move()
     {
-      
-        
-       
-        float xInput=0;
-        float zInput=0;
-        xInput=Input.GetAxis("Horizontal");
-        zInput=Input.GetAxis("Vertical");
+        //UI Input geldiginde degisecek
+        if (Input.anyKey)
+        {
+            float xInput = 0;
+            float zInput = 0;
+            xInput = Input.GetAxis("Horizontal");
+            zInput = Input.GetAxis("Vertical");
 
-        transform.position=new Vector3(gameObject.transform.position.x+xInput*characterMovementSpeed*Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z +zInput *characterMovementSpeed * Time.fixedDeltaTime);
-        float angleX;
-        
-        angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
-       Quaternion quaternion = Quaternion.Euler(gameObject.transform.rotation.x,angleX, gameObject.transform.rotation.z);
+            transform.position = new Vector3(gameObject.transform.position.x + xInput * characterMovementSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + zInput * characterMovementSpeed * Time.fixedDeltaTime);
+            float angleX;
+
+            angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
+            Quaternion quaternion = Quaternion.Euler(gameObject.transform.rotation.x, angleX, gameObject.transform.rotation.z);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, quaternion, _smoothSpeed * Time.fixedDeltaTime);
+        }
        
-       transform.rotation = Quaternion.Lerp(transform.rotation, quaternion, _smoothSpeed * Time.fixedDeltaTime);
+       
            
         
         
