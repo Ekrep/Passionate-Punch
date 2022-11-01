@@ -27,6 +27,13 @@ public class EnemyStateMachine : MonoBehaviour
             currentEnemyState.UpdatePhysics();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.EnemyOnCollisionEnter(collision);
+        }
+    }
     public void ChangeState(EnemyBaseState newState)
     {
         currentEnemyState.Exit();

@@ -26,6 +26,15 @@ public class EnemyMovingState : EnemyBaseState
             enemyStateMachine.ChangeState(enemyMovementSM.enemyIdleState);
         }
     }
+    // Collision Enter on Moving State
+    public override void EnemyOnCollisionEnter(Collision collision)
+    {
+        base.EnemyOnCollisionEnter(collision);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collision with Player Occured on Moving State");
+        }
+    }
     public override void Exit()
     {
         base.Exit();

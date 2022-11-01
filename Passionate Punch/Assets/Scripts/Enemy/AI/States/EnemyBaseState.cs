@@ -15,5 +15,6 @@ public class EnemyBaseState
     public virtual void Enter(){}
     public virtual void UpdateLogic(){}
     public virtual void UpdatePhysics(){}
+    public virtual void EnemyOnCollisionEnter(Collision collision){}
     public virtual void Exit(){}
 }

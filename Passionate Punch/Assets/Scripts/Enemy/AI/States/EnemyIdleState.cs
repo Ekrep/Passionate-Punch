@@ -26,6 +26,15 @@ public class EnemyIdleState : EnemyBaseState
             enemyStateMachine.ChangeState(enemyMovementSM.enemyMovingState);
         }
     }
+    // Collision Enter on Idle State
+    public override void EnemyOnCollisionEnter(Collision collision)
+    {
+        base.EnemyOnCollisionEnter(collision);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collision with Player Occured On Idle State");
+        }
+    }
     public override void Exit()
     {
         base.Exit();
