@@ -12,15 +12,18 @@ namespace Items
         //This increases AD 5 unit.
         [SerializeField] private CharacterSettings player;
 
-        void Start()
-        {
-        }
-
         public override void ApplyItemEffect(float amount)
         {
             //Will be called when player attach the item to her inventory.
-            player.attackDamage += effectAmount;
+            player.attackDamage += amount;
         }
+        
+        public override void RevertItemEffect(float amount)
+        {
+            //A method for undo effect when an item has been unequipped
+            player.attackDamage -= amount;
+        }
+
     }
 
 }

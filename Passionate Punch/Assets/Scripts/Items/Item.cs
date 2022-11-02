@@ -15,10 +15,9 @@ namespace Items
         
         void OnTriggerEnter(Collider collider)
         {
-            collider.gameObject.GetComponent<Inventory>().AddInventory(this.gameObject.GetComponent<Item>());         
+            collider.gameObject.GetComponent<Inventory>().AddItem(this.gameObject.GetComponent<Item>());         
         }
 
-        
         public void PickedUp()
         {
             Destroy(this.gameObject);

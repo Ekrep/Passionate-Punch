@@ -12,6 +12,9 @@ namespace Items
         public Sprite itemImage;
         public string itemDescription;
         public float effectAmount;
+        public bool isStackable;
+        public bool isApplied;
+        public int countInInventory;
         public ItemClassType itemType;
         public enum ItemClassType
         {
@@ -21,5 +24,6 @@ namespace Items
             All
         }
         public abstract void ApplyItemEffect(float amount);
+        public abstract void RevertItemEffect(float amount);
     }
 }
