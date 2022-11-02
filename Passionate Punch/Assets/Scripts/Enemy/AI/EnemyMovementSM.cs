@@ -8,10 +8,13 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyIdleState enemyIdleState;
     [HideInInspector]
     public EnemyMovingState enemyMovingState;
+    [HideInInspector]
+    public EnemyChasingState enemyChasingState;
     private void Awake()
     {
         enemyIdleState = new EnemyIdleState(this);
         enemyMovingState = new EnemyMovingState(this);
+        enemyChasingState = new EnemyChasingState(this);
     }
     protected override EnemyBaseState GetInitialState()
     {
