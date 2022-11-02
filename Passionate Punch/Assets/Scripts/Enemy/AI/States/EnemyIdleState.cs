@@ -35,9 +35,18 @@ public class EnemyIdleState : EnemyBaseState
             Debug.Log("Collision with Player Occured On Idle State");
         }
     }
+    // IF the player enters the trigger of the enemy, enemy starts to chasing him. (After some preparation time)
+    public override void EnemyTriggerEnter(Collider other)
+    {
+        base.EnemyTriggerEnter(other);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
+        }
+    }
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("State has been changed to ==> Moving");
+        Debug.Log("Exit Idle State");
     }
 }
