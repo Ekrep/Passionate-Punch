@@ -20,6 +20,7 @@ public class CharacterAliveState : CharacterBaseState
         Debug.Log("enter");
         
     }
+    
 
 
 

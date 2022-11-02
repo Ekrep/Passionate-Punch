@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovingState : CharacterAliveState
+public class CharacterMovingState : CharacterCanAttackableState
 {
 
     Vector3 currentPos;
@@ -17,7 +17,7 @@ public class CharacterMovingState : CharacterAliveState
     {
         base.Enter();
         firstPos = Vector3.zero;
-        
+        sm.anim.SetBool("Moving", true);
     }
 
    
@@ -38,21 +38,14 @@ public class CharacterMovingState : CharacterAliveState
         firstPos = sm.gameObject.transform.position;
         Move();
         
-        Debug.Log(deltaPos.magnitude + "mag00");
-        if (deltaPos.magnitude>0)
-        {
-            sm.anim.SetBool("Moving", true);
-        }
-        else
-        {
-            sm.anim.SetBool("Moving", false);
-        }
+       
+      
         
     }
     public override void Exit()
     {
         base.Exit();
-        
+        sm.anim.SetBool("Moving", false);
 
     }
 
@@ -76,7 +69,7 @@ public class CharacterMovingState : CharacterAliveState
             if (Vector3.Distance(sm.transform.rotation.eulerAngles, quaternion.eulerAngles) > 0.1f)
             {
 
-                Debug.Log("lerping");
+               
                 sm.transform.rotation = Quaternion.Lerp(sm.transform.rotation, quaternion, sm.turnSmoothSpeed * Time.deltaTime);
             }
             else
