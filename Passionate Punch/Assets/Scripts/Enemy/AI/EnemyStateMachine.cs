@@ -27,6 +27,20 @@ public class EnemyStateMachine : MonoBehaviour
             currentEnemyState.UpdatePhysics();
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.EnemyTriggerEnter(other);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.EnemyTriggerExit(other);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (currentEnemyState != null)
