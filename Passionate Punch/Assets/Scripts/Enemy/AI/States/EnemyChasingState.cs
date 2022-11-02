@@ -16,7 +16,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the chasing state");
-        awakeTime = 1f;
+        awakeTime = .75f;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
@@ -32,13 +32,13 @@ public class EnemyChasingState : EnemyBaseState
             ChasePlayer();
         }     
     }
-    // IF player exits from the enemy's trigger, enemy returns to its idle state
+    // IF player exits from the enemy's trigger, enemy returns to its position (Return State)
     public override void EnemyTriggerExit(Collider other)
     {
         base.EnemyTriggerExit(other);
         if (other.gameObject.CompareTag("Player"))
-        {       
-            enemyStateMachine.ChangeState(enemyMovementSM.enemyIdleState);
+        {
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
         }
     }
     public override void Exit()
