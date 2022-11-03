@@ -571,6 +571,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5129122225263160672, guid: 5462bedc667996a45806bdb6dd4e8161,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5129122225263160703, guid: 5462bedc667996a45806bdb6dd4e8161,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -591,6 +596,12 @@ PrefabInstance:
       propertyPath: enemyMovementSpeed
       value: 
       objectReference: {fileID: 11400000, guid: cc7a2aec29033cd409977acf9cb6ade2,
+        type: 2}
+    - target: {fileID: 5129122226755759710, guid: 5462bedc667996a45806bdb6dd4e8161,
+        type: 3}
+      propertyPath: enemyAttackDistance
+      value: 
+      objectReference: {fileID: 11400000, guid: 0de0a12aa431a8549877d4e9f232fea1,
         type: 2}
     - target: {fileID: 5129122226755759711, guid: 5462bedc667996a45806bdb6dd4e8161,
         type: 3}
