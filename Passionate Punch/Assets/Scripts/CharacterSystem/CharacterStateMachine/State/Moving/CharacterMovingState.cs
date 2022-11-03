@@ -88,6 +88,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         if (deltaPos.magnitude==0)
         {
+           
             sm.ChangeState(sm.characterIdleState);
         }
     }

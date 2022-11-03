@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: 
   characterImage: {fileID: 0}
   attackDamage: 0
-  attackSpeed: 0
+  attackSpeed: 1
   mana: 0
   moveSpeed: 3
   defence: 0
