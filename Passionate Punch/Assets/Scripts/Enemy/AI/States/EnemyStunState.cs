@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyBaseState
+public class EnemyStunState : EnemyBaseState
 {
     private EnemyMovementSM enemyMovementSM;
+    float stunTime;
     float distance;
     GameObject player, enemy;
     Vector3 enemyPos, playerPos;
-    public EnemyAttackState(EnemyMovementSM enemyStateMachine) : base("Attack", enemyStateMachine)
+    public EnemyStunState(EnemyMovementSM enemyStateMachine) : base("Stun", enemyStateMachine)
     {
         enemyMovementSM = enemyStateMachine;
     }
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered Attack State");
+        Debug.Log("Entered Stun State");
+        stunTime = 3f;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
@@ -24,30 +26,40 @@ public class EnemyAttackState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        stunTime -= Time.deltaTime;
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
-        CalculateDistanceAndAttack();
+        // When enemy exits from stun, it will attack or chase the player with respect to its distance to player
+        if (stunTime <= 0)
+        {
+            Debug.Log("Exits Stun");
+            AttackOrChase();
+        }
+    }
+    // IF player exits the trigger while enemy is in the stun, Enemy will return to its returning state. 
+    public override void EnemyTriggerExit(Collider other)
+    {
+        base.EnemyTriggerExit(other);
+        Debug.Log("Target lost");
+        enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
     }
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Attack State");
+        Debug.Log("Exit Stun State");
     }
-    void CalculateDistanceAndAttack()
+    void AttackOrChase()
     {
         distance = Vector3.Distance(enemyPos, playerPos);
+        // If player too far from enemy, then enemy will chase him.
         if (distance > enemyMovementSM.enemyAttackDistance.value)
         {
             enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
         }
+        // If player is close to the enemy, enemy will return to his attack state
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
-            // Attack to the player
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Enemy Stunned");
-                enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
-            }
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
         }
     }
 }
