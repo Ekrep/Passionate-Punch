@@ -10,6 +10,7 @@ namespace Interfaces
         float Health
         {
             get;
+            set;
         }
 
         void DecreaseHealth(float amount);

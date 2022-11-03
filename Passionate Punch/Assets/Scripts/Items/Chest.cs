@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace Items
 {
-
-
-
     public class Chest : MonoBehaviour
     {
         public int itemIndex;
@@ -34,8 +31,9 @@ namespace Items
                 itemIndex = Random.Range(0, allItems.Count);
                 ItemSettings tempItem = allItems[itemIndex];
                 chestList.Add(tempItem);
-                
             }
         }
+
+
     }
 }

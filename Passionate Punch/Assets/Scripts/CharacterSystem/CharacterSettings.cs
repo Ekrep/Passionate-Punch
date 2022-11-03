@@ -3,7 +3,9 @@ using Interfaces;
 
 namespace CharacterSystem
 {
-    public abstract class CharacterSettings : ScriptableObject, IHealth
+    [CreateAssetMenu(menuName = "Scriptables/Classes/Character")]
+
+    public abstract class CharacterSettings : ScriptableObject
     {
         public string characterName;
         public Sprite characterImage;
@@ -14,22 +16,17 @@ namespace CharacterSystem
         public float defence;
         public float range;
         public float recoveryTime;
+        public float recoveryPeriod;
+        public float recoveryAmount;
         public float experience;
 
         public CharacterClassType characterClass;
-
-        public float Health => Health;
-
         public enum CharacterClassType
         {
             Assasin,
             Monk,
             Ranger
         }
-
-        public abstract void DecreaseHealth(float amount);
-        public abstract void KillSelf();
     }
-
 }
 
