@@ -68,7 +68,7 @@ public class CharacterAttackingState : CharacterCanAttackableState
             sm.ChangeState(sm.characterIdleState);
         }
 
-        if (_attackCount > 2f)
+        if (_attackCount > 1.5f)
         {
             _attackCount = 0;
         }
