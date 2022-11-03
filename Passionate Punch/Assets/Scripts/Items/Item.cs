@@ -9,13 +9,14 @@ namespace Items
     public class Item : MonoBehaviour
     {
         //The purpose of this class is to handle various functionalities that items will have apart form data class. 
-        [SerializeField] private ItemSettings itemSettings;
+        [SerializeField] public ItemSettings itemSettings;
         [SerializeField] private Rigidbody rigidBody;
         public Rigidbody Rigidbody => rigidBody;
         
         void OnTriggerEnter(Collider collider)
         {
-            collider.gameObject.GetComponent<Inventory>().AddItem(this.gameObject.GetComponent<Item>());         
+           if(collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
+                PickedUp();       
         }
 
         public void PickedUp()

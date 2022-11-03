@@ -13,8 +13,8 @@ namespace InventorySystem
         [SerializeField] private CharacterSettings character;
         public static int equipmentSize = 5;
 
-        public List<Item> equipmentList = new List<Item>(equipmentSize);
-        public void EquipItem(Item item)
+        public List<ItemSettings> equipmentList = new List<ItemSettings>(equipmentSize);
+        public void EquipItem(ItemSettings item)
         {
             if (equipmentList.Count < equipmentSize && CheckItemFit(item))
             {
@@ -24,33 +24,31 @@ namespace InventorySystem
             }
         }
 
-        public void UnclotheItem(Item item)
+        public void UnclotheItem(ItemSettings item)
         {
-            ItemSettings itemTemp = item.GetComponent<ItemSettings>();
             if (equipmentList.Contains(item))
             {
-                itemTemp.isApplied = false;
-                itemTemp.RevertItemEffect(itemTemp.effectAmount);
+                item.isApplied = false;
+                item.RevertItemEffect(item.effectAmount);
                 inventory.AddItem(item);
                 equipmentList.Remove(item);
                 ApplyItemEffects(equipmentList);
             }
         }
 
-        public bool CheckItemFit(Item item)
+        public bool CheckItemFit(ItemSettings item)
         {
-            return character.characterClass.Equals(item.GetComponent<ItemSettings>().itemType);
+            return character.characterClass.Equals(item.itemType);
         }
 
-        public void ApplyItemEffects(List<Item> itemList)
+        public void ApplyItemEffects(List<ItemSettings> itemList)
         {
-            foreach (Item item in itemList)
+            foreach (ItemSettings item in itemList)
             {
-                ItemSettings temp = item.GetComponent<ItemSettings>();
-                if (!temp.isApplied)
+                if (!item.isApplied)
                 {
-                    temp.ApplyItemEffect(temp.effectAmount);
-                    temp.isApplied = true;
+                    item.ApplyItemEffect(item.effectAmount);
+                    item.isApplied = true;
                 }
             }
         }

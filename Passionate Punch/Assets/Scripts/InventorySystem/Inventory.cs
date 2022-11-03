@@ -11,18 +11,19 @@ namespace InventorySystem
     {
         public static int inventorySize = 16; //can be changed later.
         //public static IDictionary<Item, ItemSettings> inventoryDict = new Dictionary<Item, ItemSettings>(inventorySize);
-        public static List<Item> inventoryList = new List<Item>(inventorySize); 
-        public void AddItem(Item item)
+        public static List<ItemSettings> inventoryList = new List<ItemSettings>(inventorySize); 
+        public bool AddItem(ItemSettings item)
         {
             if (CheckInventorySize())
             {
                 inventoryList.Add(item);
                 //inventoryDict.Add(item, item.GetComponent<ItemSettings>());
-                item.PickedUp();
+                return true;
             }
+            return false;
         }
 
-        public void RemoveItem(Item item)
+        public void RemoveItem(ItemSettings item)
         {
             if(inventoryList.Contains(item))
             {
