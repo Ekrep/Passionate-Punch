@@ -11,20 +11,22 @@ namespace CharacterSystem
     {
         [SerializeField] CharacterSettings character;
         private float health;
-        public float Health { get => health; set => health = value;}
-        public float lastDamageTakenTime;
+        public float Health { get => health; set => health = value; }
+        public float lastDamageTakenTime; //This variable needs to be updated when player gets in a fight.
         public float lastRecoveredTime;
-        public bool canRecover => Time.time >= lastDamageTakenTime + character.recoveryTime;
-        public bool isPeriodPassed => Time.time > lastRecoveredTime + character.recoveryPeriod;
+        public bool canRecover => Time.time >= lastDamageTakenTime + character.healthRecoveryTime;
+        public bool isPeriodPassed => Time.time > lastRecoveredTime + character.healthRecoveryPeriod;
 
-        void IHealth.DecreaseHealth(float amount)
+        public void DecreaseHealth(float amount)
         {
-            throw new System.NotImplementedException();
+            this.Health -= amount;
+            if (this.Health <= 0)
+                KillSelf();
         }
 
-        void IHealth.KillSelf()
+        public void KillSelf()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("YOU DIED");
         }
 
         // Start is called before the first frame update
@@ -36,10 +38,11 @@ namespace CharacterSystem
         // Update is called once per frame
         void Update()
         {
-            if(canRecover)
+            if (canRecover && this.Health < character.maxHealth)
             {
-                if(isPeriodPassed)
-                    this.Health += character.recoveryAmount;
+                if (isPeriodPassed)
+                    this.Health += character.healthRecoveryAmount;
+                    lastRecoveredTime = Time.time;
             }
         }
     }

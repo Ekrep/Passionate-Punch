@@ -13,7 +13,7 @@ namespace Interfaces
             set;
         }
 
-        void DecreaseHealth(float amount);
-        void KillSelf();
+        public void DecreaseHealth(float amount);
+        public void KillSelf();
     }
 }

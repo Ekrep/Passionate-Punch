@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b854bc8742fdad4195e4a6641522f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a27c51f40e5aad4f872cfffb750a5b5, type: 3}
   m_Name: Assasin
   m_EditorClassIdentifier: 
   characterName: 
   characterImage: {fileID: 0}
-  health: 0
   attackDamage: 0
   attackSpeed: 0
   mana: 0
@@ -22,4 +21,7 @@ MonoBehaviour:
   defence: 0
   range: 0
   recoveryTime: 0
+  recoveryPeriod: 0
+  recoveryAmount: 0
   experience: 0
+  characterClass: 0

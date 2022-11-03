@@ -16,7 +16,7 @@ namespace Items
         void OnTriggerEnter(Collider collider)
         {
            if(collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
-                PickedUp();       
+                PickedUp();
         }
 
         public void PickedUp()
