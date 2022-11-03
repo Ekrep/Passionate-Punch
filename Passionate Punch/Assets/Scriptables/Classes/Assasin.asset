@@ -16,12 +16,17 @@ MonoBehaviour:
   characterImage: {fileID: 0}
   attackDamage: 0
   attackSpeed: 0
+  maxHealth: 0
   mana: 0
-  moveSpeed: 0
+  maxMana: 0
+  moveSpeed: 3
   defence: 0
   range: 0
-  recoveryTime: 0
-  recoveryPeriod: 0
-  recoveryAmount: 0
+  healthRecoveryTime: 0
+  healthRecoveryPeriod: 0
+  healthRecoveryAmount: 0
+  manaRecoveryTime: 0
+  manaRecoveryPeriod: 0
+  manaRecoveryAmount: 0
   experience: 0
   characterClass: 0
