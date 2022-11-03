@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterAttackingState : CharacterAliveState
 {
 
+    private float _timer=0.5f;
+    private float _timerflag;
 
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
@@ -14,10 +16,10 @@ public class CharacterAttackingState : CharacterAliveState
     public override void Enter()
     {
         base.Enter();
-
+        _timerflag = _timer;
         sm.anim.SetBool("Attack", true);
         Debug.Log("enabled");
-        sm.testObject.SetActive(true);
+      
       
 
 
@@ -36,9 +38,10 @@ public class CharacterAttackingState : CharacterAliveState
             {
                 sm.ChangeState(sm.characterIdleState);
             }
+
             
-            sm.testObject.SetActive(false);
         }
+        
 
     }
 
@@ -51,21 +54,17 @@ public class CharacterAttackingState : CharacterAliveState
 
         Debug.Log("exx");
         sm.anim.SetBool("Attack", false);
-      
-        sm.StopCoroutine(WaitForFrame(0.5f));
-        
+       
+
+
 
 
 
     }
 
-  
+ 
 
-    IEnumerator WaitForFrame(float timeX)
-    {
-        yield return new WaitForSecondsRealtime(timeX);
-        sm.ChangeState(sm.characterIdleState);
-    }
+   
 
 
 
