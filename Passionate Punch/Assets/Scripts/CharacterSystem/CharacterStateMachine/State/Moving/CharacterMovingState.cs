@@ -17,7 +17,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Enter();
         firstPos = Vector3.zero;
-        sm.anim.SetBool("Moving", true);
+       
     }
 
    
@@ -37,10 +37,10 @@ public class CharacterMovingState : CharacterCanAttackableState
         deltaPos = currentPos - firstPos;
         firstPos = sm.gameObject.transform.position;
         Move();
-        
        
-      
-        
+
+
+
     }
     public override void Exit()
     {
@@ -90,6 +90,10 @@ public class CharacterMovingState : CharacterCanAttackableState
         {
            
             sm.ChangeState(sm.characterIdleState);
+        }
+        else
+        {
+             sm.anim.SetBool("Moving", true);
         }
     }
 }

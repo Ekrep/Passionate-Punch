@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAttackingState : CharacterCanAttackableState
 {
-    private float _attackCount;
+    
 
     private bool _isAttacking;
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
@@ -16,22 +16,14 @@ public class CharacterAttackingState : CharacterCanAttackableState
     {
         base.Enter();
 
-
+        sm.anim.SetBool("Attack", true);
+       
 
 
     }
     public override void Update()
     {
         base.Update();
-
-        Debug.Log(sm.anim.GetCurrentAnimatorStateInfo(0).length);
-        if (!_isAttacking)
-        {
-            Debug.Log(_attackCount);
-            sm.StartCoroutine(AttackCount());
-
-            _isAttacking = true;
-        }
 
 
     }
@@ -41,56 +33,20 @@ public class CharacterAttackingState : CharacterCanAttackableState
     {
 
         base.Exit();
-        _attackCount = 0;
-        sm.anim.SetFloat("AttackCount", _attackCount);
+        
+     
         Debug.Log("exx");
         sm.anim.SetBool("Attack", false);
-        sm.StopCoroutine(AttackCount());
-
-
-    }
-
-
-
-    IEnumerator AttackCount()
-    {
-        Debug.Log("corot");
-        sm.anim.SetBool("Attack", true);
-
-        sm.anim.SetFloat("AttackCount", _attackCount);
-        
-        yield return new WaitForSeconds(sm.anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        _attackCount += 0.5f;
-
-        if (!stillPressingAttack)
-        {
-            Debug.Log("girdimkeyup");
-            sm.ChangeState(sm.characterIdleState);
-        }
-
-        if (_attackCount > 1.5f)
-        {
-            _attackCount = 0;
-        }
        
 
 
 
-        /* else
-         {
-             sm.StartCoroutine(AttackCount());
-         }*/
-        _isAttacking = false;
-
-
-
-
-
-
-
-
-
     }
+
+ 
+
+
+
 
 
 

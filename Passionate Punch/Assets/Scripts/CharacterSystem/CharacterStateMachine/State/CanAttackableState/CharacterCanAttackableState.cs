@@ -39,7 +39,7 @@ public class CharacterCanAttackableState : CharacterAliveState
         {
             
            stillPressingAttack = false;
-            //sm.ChangeState(sm.characterIdleState);
+            sm.ChangeState(sm.characterIdleState);
         }
        
 
