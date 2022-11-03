@@ -20,6 +20,8 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyReturnState enemyReturnState;
     [HideInInspector]
     public EnemyAttackState enemyAttackState;
+    [HideInInspector]
+    public EnemyStunState enemyStunState;
     private void Awake()
     {
         enemy = this.gameObject;
@@ -28,6 +30,7 @@ public class EnemyMovementSM : EnemyStateMachine
         enemyChasingState = new EnemyChasingState(this);
         enemyReturnState = new EnemyReturnState(this);
         enemyAttackState = new EnemyAttackState(this);
+        enemyStunState = new EnemyStunState(this);
     }
     protected override EnemyBaseState GetInitialState()
     {
