@@ -8,6 +8,7 @@ public class EnemyChasingState : EnemyBaseState
     GameObject player, enemy;
     Vector3 enemyPos, playerPos;
     float chaseSpeed, awakeTime;
+    public float distanceToPlayer;
     public EnemyChasingState(EnemyMovementSM enemyStateMachine) : base("Chasing", enemyStateMachine)
     {
         enemyMovementSM = enemyStateMachine;
@@ -30,6 +31,7 @@ public class EnemyChasingState : EnemyBaseState
         if (awakeTime <= 0)
         {
             ChasePlayer();
+            CalculateDistanceToPlayer();
         }     
     }
     // IF player exits from the enemy's trigger, enemy returns to its position (Return State)
@@ -51,5 +53,14 @@ public class EnemyChasingState : EnemyBaseState
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
         enemy.transform.position = Vector3.MoveTowards(enemyPos, playerPos, chaseSpeed);
+    }
+    void CalculateDistanceToPlayer()
+    {
+        distanceToPlayer = Vector3.Distance(enemyPos, playerPos);
+        if (distanceToPlayer <= enemyMovementSM.enemyAttackDistance.value)
+        {
+            // Change state to attack
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
+        }
     }
 }
