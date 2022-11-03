@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovementSM : EnemyStateMachine
 {
-    public ScriptableFloat enemyMovementSpeed;
+    public ScriptableFloat enemyMovementSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     // Our enemy game object
     [HideInInspector]
@@ -18,6 +18,8 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyChasingState enemyChasingState;
     [HideInInspector]
     public EnemyReturnState enemyReturnState;
+    [HideInInspector]
+    public EnemyAttackState enemyAttackState;
     private void Awake()
     {
         enemy = this.gameObject;
@@ -25,6 +27,7 @@ public class EnemyMovementSM : EnemyStateMachine
         enemyMovingState = new EnemyMovingState(this);
         enemyChasingState = new EnemyChasingState(this);
         enemyReturnState = new EnemyReturnState(this);
+        enemyAttackState = new EnemyAttackState(this);
     }
     protected override EnemyBaseState GetInitialState()
     {
