@@ -43,5 +43,11 @@ public class CharacterIdleState : CharacterCanAttackableState
         }
     }
 
+    IEnumerator WaitForFrame(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+       
+    }
+
    
 }

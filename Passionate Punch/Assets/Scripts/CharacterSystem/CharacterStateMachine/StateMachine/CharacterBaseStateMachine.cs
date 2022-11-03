@@ -32,6 +32,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
    
     public float turnSmoothSpeed;
+    public GameObject testObject;
 
     private void Awake()
     {
@@ -53,4 +54,5 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     {
         return characterIdleState;
     }
+    
 }
