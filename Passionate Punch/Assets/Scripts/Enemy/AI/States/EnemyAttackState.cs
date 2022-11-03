@@ -43,6 +43,11 @@ public class EnemyAttackState : EnemyBaseState
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
             // Attack to the player
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Enemy Stunned");
+                enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
+            }
         }
     }
 }
