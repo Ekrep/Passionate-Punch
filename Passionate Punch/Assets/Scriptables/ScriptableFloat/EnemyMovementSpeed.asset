@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b854bc8742fdad4195e4a6641522f92, type: 3}
-  m_Name: Assasin
+  m_Script: {fileID: 11500000, guid: 90a6e60440e3fdf41b6f80f882c50664, type: 3}
+  m_Name: EnemyMovementSpeed
   m_EditorClassIdentifier: 
-  characterName: 
-  characterImage: {fileID: 0}
-  attackDamage: 0
-  attackSpeed: 1
-  mana: 0
-  moveSpeed: 3
-  defence: 0
-  range: 0
-  recoveryTime: 0
-  experience: 0
-  characterClass: 0
+  value: 2.5
