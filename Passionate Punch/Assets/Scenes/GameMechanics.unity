@@ -1218,6 +1218,12 @@ PrefabInstance:
       objectReference: {fileID: 917075763}
     - target: {fileID: 7011180708296619034, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
+      propertyPath: characterStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 7011180708296619034, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
       propertyPath: turnSmoothSpeed
       value: 10
       objectReference: {fileID: 0}
