@@ -25,7 +25,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Update();
         currentPos = sm.gameObject.transform.position;
-        CheckMovement();
+       
 
 
 
@@ -77,20 +77,16 @@ public class CharacterMovingState : CharacterCanAttackableState
                 sm.transform.rotation = quaternion;
             }
         }
-
-
-
-
-    }
-
-
-    private void CheckMovement()
-    {
-        if (deltaPos.magnitude==0)
+        if (xInput==0&&zInput==0)
         {
-           
             sm.ChangeState(sm.characterIdleState);
         }
-       
+
+
+
+
     }
+
+
+   
 }
