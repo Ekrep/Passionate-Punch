@@ -6,6 +6,10 @@ public class EnemyMovementSM : EnemyStateMachine
 {
     public ScriptableFloat enemyMovementSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
+    public List<Transform> patrolPositions;
+    int empty = 0;
+    [HideInInspector]
+    public bool isPatrollingEnemy;
     // Our enemy game object
     [HideInInspector]
     public GameObject enemy;
@@ -22,6 +26,8 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyAttackState enemyAttackState;
     [HideInInspector]
     public EnemyStunState enemyStunState;
+    [HideInInspector]
+    public EnemyPatrollingState enemyPatrollingState;
     private void Awake()
     {
         enemy = this.gameObject;
@@ -31,9 +37,19 @@ public class EnemyMovementSM : EnemyStateMachine
         enemyReturnState = new EnemyReturnState(this);
         enemyAttackState = new EnemyAttackState(this);
         enemyStunState = new EnemyStunState(this);
+        enemyPatrollingState = new EnemyPatrollingState(this);
     }
     protected override EnemyBaseState GetInitialState()
     {
-        return enemyIdleState;
+        if (patrolPositions.Count > empty)
+        {
+            isPatrollingEnemy = true;
+            return enemyPatrollingState;
+        }
+        else
+        {
+            isPatrollingEnemy = false;
+            return enemyIdleState;
+        }
     }
 }
