@@ -1681,7 +1681,7 @@ PrefabInstance:
     - target: {fileID: 7011180708296619034, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
       propertyPath: turnSmoothSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
