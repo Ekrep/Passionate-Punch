@@ -33,7 +33,5 @@ namespace Items
                 chestList.Add(tempItem);
             }
         }
-
-
     }
 }

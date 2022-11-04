@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem;
+using CharacterSystem;
 
 namespace Items
 {
     public abstract class ItemSettings : ScriptableObject
     {
         //This is an abstract scriptable class that holds pure data about items. 
+        public CharacterSettings player;
         public string itemTitle;
         public Sprite itemImage;
         public string itemDescription;
