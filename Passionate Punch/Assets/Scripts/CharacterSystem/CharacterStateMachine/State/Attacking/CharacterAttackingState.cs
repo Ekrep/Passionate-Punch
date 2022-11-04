@@ -41,7 +41,20 @@ public class CharacterAttackingState : CharacterAliveState
 
             
         }
-        
+        if (!UIManager.Instance.isAttackPress)
+        {
+            if (CheckMovementInput())
+            {
+                sm.ChangeState(sm.characterMovingState);
+            }
+            else
+            {
+                sm.ChangeState(sm.characterIdleState);
+            }
+
+
+        }
+
 
     }
 

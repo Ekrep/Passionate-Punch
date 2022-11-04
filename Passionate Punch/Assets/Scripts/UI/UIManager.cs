@@ -12,9 +12,17 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public float joystickVerticalInput;
 
+    [HideInInspector]
+    public bool isAttackPress;
+
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        Debug.Log(isAttackPress);
     }
 }

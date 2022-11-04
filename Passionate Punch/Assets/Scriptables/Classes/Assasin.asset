@@ -19,7 +19,7 @@ MonoBehaviour:
   maxHealth: 0
   mana: 0
   maxMana: 0
-  moveSpeed: 3
+  moveSpeed: 5
   defence: 0
   range: 0
   healthRecoveryTime: 0

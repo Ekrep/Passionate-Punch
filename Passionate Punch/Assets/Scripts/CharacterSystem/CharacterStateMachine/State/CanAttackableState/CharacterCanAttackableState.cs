@@ -39,6 +39,11 @@ public class CharacterCanAttackableState : CharacterAliveState
 
 
         }
+        if (UIManager.Instance.isAttackPress&&!stillPressingAttack)
+        {
+            stillPressingAttack = true;
+            sm.ChangeState(sm.characterAttackingState);
+        }
        
 
 
