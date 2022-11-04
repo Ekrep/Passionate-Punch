@@ -21,8 +21,5 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
-    {
-        Debug.Log(isAttackPress);
-    }
+    
 }
