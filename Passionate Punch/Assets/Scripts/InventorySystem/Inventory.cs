@@ -11,7 +11,8 @@ namespace InventorySystem
     {
         public static int inventorySize = 16; //can be changed later.
         //public static IDictionary<Item, ItemSettings> inventoryDict = new Dictionary<Item, ItemSettings>(inventorySize);
-        public static List<ItemSettings> inventoryList = new List<ItemSettings>(inventorySize); 
+        
+        public List<ItemSettings> inventoryList = new List<ItemSettings>(inventorySize); 
         public bool AddItem(ItemSettings item)
         {
             if (CheckInventorySize())

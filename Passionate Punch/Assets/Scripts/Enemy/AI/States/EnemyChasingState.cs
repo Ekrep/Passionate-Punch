@@ -32,7 +32,7 @@ public class EnemyChasingState : EnemyBaseState
         {
             ChasePlayer();
             CalculateDistanceToPlayer();
-        }     
+        }
     }
     // IF player exits from the enemy's trigger, enemy returns to its position (Return State)
     public override void EnemyTriggerExit(Collider other)

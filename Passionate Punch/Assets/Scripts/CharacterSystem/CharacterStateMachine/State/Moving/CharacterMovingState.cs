@@ -17,7 +17,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Enter();
         firstPos = Vector3.zero;
-       
+        sm.anim.SetBool("Moving", true);
     }
 
    
@@ -25,7 +25,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Update();
         currentPos = sm.gameObject.transform.position;
-        CheckMovement();
+       
 
 
 
@@ -55,8 +55,19 @@ public class CharacterMovingState : CharacterCanAttackableState
 
         float xInput = 0;
         float zInput = 0;
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        switch (Application.platform)
+        {
+            case RuntimePlatform.Android:
+                xInput = UIManager.Instance.joystickHorizontalInput;
+                zInput = UIManager.Instance.joystickVerticalInput;
+                break;
+
+            case RuntimePlatform.WindowsEditor:
+                xInput = Input.GetAxis("Horizontal");
+                zInput = Input.GetAxis("Vertical");
+                break;
+        }
+       
         //UI Input geldiginde degisecek
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
@@ -77,23 +88,16 @@ public class CharacterMovingState : CharacterCanAttackableState
                 sm.transform.rotation = quaternion;
             }
         }
-
-
-
-
-    }
-
-
-    private void CheckMovement()
-    {
-        if (deltaPos.magnitude==0)
+        if (xInput==0&&zInput==0)
         {
-           
             sm.ChangeState(sm.characterIdleState);
         }
-        else
-        {
-             sm.anim.SetBool("Moving", true);
-        }
+
+
+
+
     }
+
+
+   
 }
