@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 917075763}
   m_LocalRotation: {x: 0.000000014901159, y: -0.000000029802319, z: -0.000000014901159,
     w: 1}
-  m_LocalPosition: {x: -0.7996321, y: 1.3609414, z: -0.034173727}
-  m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.20000003}
+  m_LocalPosition: {x: 0, y: 1.188, z: 0.376}
+  m_LocalScale: {x: 0.8, y: 0.96, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7009483183499396343}
@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 7011180708296619032}
   - component: {fileID: 7011180708296619033}
   - component: {fileID: 7011180708296619034}
+  - component: {fileID: 1124418673}
   m_Layer: 0
   m_Name: Assasin
   m_TagString: Untagged
@@ -584,6 +585,19 @@ MonoBehaviour:
   characterMovementSpeed: 0
   turnSmoothSpeed: 10
   testObject: {fileID: 917075763}
+--- !u!114 &1124418673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52cca45b60a56d44a8a36c05b527e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryList: []
 --- !u!1 &7011264710593025413
 GameObject:
   m_ObjectHideFlags: 0
