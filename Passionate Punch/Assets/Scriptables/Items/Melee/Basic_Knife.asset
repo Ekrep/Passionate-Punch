@@ -16,8 +16,10 @@ MonoBehaviour:
   itemTitle: Basic Knife
   itemImage: {fileID: 21300000, guid: afaf07cc37b334c4aa4a87025f80ce36, type: 3}
   itemDescription: 
-  effectAmount: 0
+  effectAmount: 15
+  worth: 50
   isStackable: 0
   isApplied: 0
   countInInventory: 0
   itemType: 0
+  speedEffectAmount: 0.3

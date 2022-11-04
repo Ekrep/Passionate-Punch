@@ -14,6 +14,7 @@ namespace Items
         public Sprite itemImage;
         public string itemDescription;
         public float effectAmount;
+        public float worth;
         public bool isStackable;
         public bool isApplied;
         public int countInInventory;
