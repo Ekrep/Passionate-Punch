@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CharacterSystem;
+using Items;
 
 public class CharacterBaseStateMachine : CharacterStateMachine
 {
@@ -47,7 +48,13 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
         characterMovementSpeed = characterStats.moveSpeed;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<Chest>(out Chest chest))
+        {
+            chest.Open();
+        }
+    }
 
 
     protected override CharacterBaseState GetInitialState()
