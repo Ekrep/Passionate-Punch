@@ -7,7 +7,8 @@ public class EnemyMovementSM : EnemyStateMachine
     public ScriptableFloat enemyMovementSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
-    public GameObject stunParticles;
+    public GameObject stunParticles, warnEnemy;
+    public Animator enemyCanvasAnimator;
     int empty = 0;
     [HideInInspector]
     public bool isPatrollingEnemy;
@@ -31,8 +32,10 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyPatrollingState enemyPatrollingState;
     private void Awake()
     {
-        // Set pasive the stun particles
+        // Set pasive the stun particles & Warn enemy canvas
         stunParticles.gameObject.SetActive(false);
+        warnEnemy.gameObject.SetActive(false);
+        ////////////////////////////////////////////////////
         enemy = this.gameObject;
         enemyIdleState = new EnemyIdleState(this);
         enemyMovingState = new EnemyMovingState(this);

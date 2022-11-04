@@ -30,6 +30,8 @@ public class EnemyPatrollingState : EnemyBaseState
         isCloseEnough = .1f;
         // Last Index of patrolling positions
         lastIndex = enemyMovementSM.patrolPositions.Count;
+        // When enemy enters the Idle state, the warning canvas will be passive
+        enemyMovementSM.warnEnemy.gameObject.SetActive(false);
     }
     public override void UpdateLogic()
     {
@@ -50,6 +52,7 @@ public class EnemyPatrollingState : EnemyBaseState
         base.EnemyTriggerEnter(other);
         if (other.gameObject.CompareTag("Player"))
         {
+            enemyMovementSM.warnEnemy.gameObject.SetActive(true);
             enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
         }
     }

@@ -13,6 +13,8 @@ public class EnemyIdleState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the Idle State");
+        // When enemy enters the Idle state, the warning canvas will be passive
+        enemyMovementSM.warnEnemy.gameObject.SetActive(false);
     }
     public override void UpdateLogic()
     {
@@ -41,6 +43,7 @@ public class EnemyIdleState : EnemyBaseState
         base.EnemyTriggerEnter(other);
         if (other.gameObject.CompareTag("Player"))
         {
+            enemyMovementSM.warnEnemy.gameObject.SetActive(true);
             enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
         }
     }

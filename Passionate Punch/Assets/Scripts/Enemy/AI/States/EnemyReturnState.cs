@@ -21,6 +21,7 @@ public class EnemyReturnState : EnemyBaseState
         enemy = enemyMovementSM.enemy.gameObject;
         enemyPos = enemy.transform.position;
         returnSpeed = enemyMovementSM.enemyMovementSpeed.value * Time.deltaTime; // May decrease the value in the future
+        enemyMovementSM.enemyCanvasAnimator.SetTrigger("QuitWarning");
     }
     public override void UpdateLogic()
     {
@@ -36,6 +37,7 @@ public class EnemyReturnState : EnemyBaseState
         base.EnemyTriggerEnter(other);
         if (other.gameObject.CompareTag("Player"))
         {
+            enemyMovementSM.enemyCanvasAnimator.SetTrigger("EnterWarning");
             enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
         }
     }
