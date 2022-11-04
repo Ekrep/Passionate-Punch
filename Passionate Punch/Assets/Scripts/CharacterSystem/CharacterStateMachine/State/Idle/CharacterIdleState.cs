@@ -35,8 +35,19 @@ public class CharacterIdleState : CharacterCanAttackableState
     {
         float xInput = 0;
         float zInput = 0;
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        switch (Application.platform)
+        {
+            case RuntimePlatform.Android:
+                xInput = UIManager.Instance.joystickHorizontalInput;
+                zInput = UIManager.Instance.joystickVerticalInput;
+                break;
+
+            case RuntimePlatform.WindowsEditor:
+                xInput = Input.GetAxis("Horizontal");
+                zInput = Input.GetAxis("Vertical");
+                break;
+        }
+      
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
             sm.ChangeState(sm.characterMovingState);

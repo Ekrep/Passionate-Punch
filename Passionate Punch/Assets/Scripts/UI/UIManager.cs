@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static UIManager Instance;
 
-    // Update is called once per frame
-    void Update()
+
+    [HideInInspector]
+    public float joystickHorizontalInput;
+    [HideInInspector]
+    public float joystickVerticalInput;
+
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 }
