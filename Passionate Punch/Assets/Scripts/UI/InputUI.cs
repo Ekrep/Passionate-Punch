@@ -5,9 +5,13 @@ using UnityEngine;
 public class InputUI : MonoBehaviour
 {
     public FixedJoystick joystick;
+
    
-   public void Debugger()
+  public void SendJoyStickInput()
     {
-        Debug.Log("dedededed");
+        UIManager.Instance.joystickHorizontalInput = joystick.Horizontal;
+        UIManager.Instance.joystickVerticalInput = joystick.Vertical;
+        
+          
     }
 }

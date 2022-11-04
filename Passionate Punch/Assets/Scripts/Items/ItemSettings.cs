@@ -19,7 +19,6 @@ namespace Items
         public enum ItemClassType
         {
             Assasin,
-            Monk,
             Ranger,
             All
         }
