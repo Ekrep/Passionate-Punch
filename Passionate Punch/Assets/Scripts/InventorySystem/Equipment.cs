@@ -24,7 +24,7 @@ namespace InventorySystem
             }
         }
 
-        public void UnclotheItem(ItemSettings item)
+        public void UnEquipItem(ItemSettings item)
         {
             if (equipmentList.Contains(item))
             {
