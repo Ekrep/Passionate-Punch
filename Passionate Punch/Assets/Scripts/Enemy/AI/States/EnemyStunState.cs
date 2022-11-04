@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyStunState : EnemyBaseState
 {
     private EnemyMovementSM enemyMovementSM;
-    float stunTime;
-    float distance;
     GameObject player, enemy;
     Vector3 enemyPos, playerPos;
+    bool isOut;
+    float stunTime;
+    float distance;
     public EnemyStunState(EnemyMovementSM enemyStateMachine) : base("Stun", enemyStateMachine)
     {
         enemyMovementSM = enemyStateMachine;
@@ -17,11 +18,14 @@ public class EnemyStunState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered Stun State");
+        // Stun particles activation
+        enemyMovementSM.stunParticles.gameObject.SetActive(true);
         stunTime = 3f;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
         enemyPos = enemy.transform.position;
+        isOut = false;
     }
     public override void UpdateLogic()
     {
@@ -30,10 +34,14 @@ public class EnemyStunState : EnemyBaseState
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
         // When enemy exits from stun, it will attack or chase the player with respect to its distance to player
-        if (stunTime <= 0)
+        if (stunTime <= 0 && !isOut)
         {
             Debug.Log("Exits Stun");
             AttackOrChase();
+        }
+        else if (isOut && stunTime <= 0)
+        {
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
         }
     }
     // IF player exits the trigger while enemy is in the stun, Enemy will return to its returning state. 
@@ -41,12 +49,18 @@ public class EnemyStunState : EnemyBaseState
     {
         base.EnemyTriggerExit(other);
         Debug.Log("Target lost");
-        enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isOut = true;
+        }
     }
     public override void Exit()
     {
         base.Exit();
         Debug.Log("Exit Stun State");
+        isOut = false;
+        // Stun particles object passive
+        enemyMovementSM.stunParticles.gameObject.SetActive(false);
     }
     void AttackOrChase()
     {

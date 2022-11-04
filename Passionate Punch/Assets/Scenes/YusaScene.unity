@@ -530,6 +530,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7011180708296619033, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7011180708296619034, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
       propertyPath: characterStats
@@ -728,6 +733,12 @@ Transform:
   m_Father: {fileID: 491801044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1483699524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6090489643519856123, guid: 5462bedc667996a45806bdb6dd4e8161,
+    type: 3}
+  m_PrefabInstance: {fileID: 5129122226933217743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1672130072
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +974,11 @@ PrefabInstance:
       propertyPath: enemyCampPos
       value: 
       objectReference: {fileID: 606511134}
+    - target: {fileID: 5129122226755759710, guid: 5462bedc667996a45806bdb6dd4e8161,
+        type: 3}
+      propertyPath: stunParticles
+      value: 
+      objectReference: {fileID: 1483699524}
     - target: {fileID: 5129122226755759711, guid: 5462bedc667996a45806bdb6dd4e8161,
         type: 3}
       propertyPath: m_RootOrder
