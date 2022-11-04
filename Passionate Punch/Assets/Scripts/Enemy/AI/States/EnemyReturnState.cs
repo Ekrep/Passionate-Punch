@@ -50,9 +50,13 @@ public class EnemyReturnState : EnemyBaseState
         enemyPos = enemy.transform.position;
         enemy.transform.position = Vector3.MoveTowards(enemyPos, enemyMovementSM.enemyCampPos.position, returnSpeed);
         distanceToTarget = Vector3.Distance(enemyPos, enemyMovementSM.enemyCampPos.position);
-        if (distanceToTarget <= isReached)
+        if (distanceToTarget <= isReached && !enemyMovementSM.isPatrollingEnemy)
         {
             enemyStateMachine.ChangeState(enemyMovementSM.enemyIdleState);
+        }
+        else if (distanceToTarget <= isReached && enemyMovementSM.isPatrollingEnemy)
+        {
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyPatrollingState);
         }
     }
 }
