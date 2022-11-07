@@ -20,7 +20,10 @@ public class EnemyReturnState : EnemyBaseState
         timeToStartReturning = 1f;
         enemy = enemyMovementSM.enemy.gameObject;
         enemyPos = enemy.transform.position;
-        returnSpeed = enemyMovementSM.enemyMovementSpeed.value * Time.deltaTime; // May decrease the value in the future
+        // Setting the returnin speed of the enemy
+        returnSpeed = enemyMovementSM.enemyReturningSpeed.value; // May decrease the value in the future
+        enemyMovementSM.enemyNavMesh.speed = returnSpeed;
+        ////////////////////////////////////////////////////////
         enemyMovementSM.enemyCanvasAnimator.SetTrigger("QuitWarning");
     }
     public override void UpdateLogic()

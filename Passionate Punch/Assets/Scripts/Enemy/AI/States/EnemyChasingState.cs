@@ -22,7 +22,8 @@ public class EnemyChasingState : EnemyBaseState
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
         enemyPos = enemy.transform.position;
-        chaseSpeed = enemyMovementSM.enemyMovementSpeed.value * Time.deltaTime;
+        chaseSpeed = enemyMovementSM.enemyMovementSpeed.value;
+        enemyMovementSM.enemyNavMesh.speed = chaseSpeed;
     }
     public override void UpdateLogic()
     {

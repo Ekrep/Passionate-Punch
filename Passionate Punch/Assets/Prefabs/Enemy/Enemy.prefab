@@ -314,6 +314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMovementSpeed: {fileID: 11400000, guid: cc7a2aec29033cd409977acf9cb6ade2, type: 2}
+  enemyReturningSpeed: {fileID: 11400000, guid: de7e423170081714996d205e29892f12,
+    type: 2}
+  enemyPatrollingSpeed: {fileID: 11400000, guid: edeb5af75927eae4fb270ee8eb3c6e96,
+    type: 2}
   enemyAttackDistance: {fileID: 11400000, guid: 0de0a12aa431a8549877d4e9f232fea1,
     type: 2}
   enemyCampPos: {fileID: 0}
