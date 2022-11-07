@@ -13,6 +13,8 @@ namespace Items
         [SerializeField]
         private float _lidDissappearTime;
 
+        private bool _isOpened;
+
 
         [Header("Parameters")]
         public int itemIndex;
@@ -46,7 +48,11 @@ namespace Items
 
         public void Open()
         {
-            OpenChestX();
+            if (!_isOpened)
+            {
+                OpenChestX();
+            }
+            
         }
 
 
@@ -58,6 +64,7 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
+            _isOpened = true;
 
 
            
@@ -74,6 +81,7 @@ namespace Items
         {
             yield return new WaitForSeconds(dissappearTime);
             chestLid.SetActive(false);
+            this.enabled = false;
 
 
         }

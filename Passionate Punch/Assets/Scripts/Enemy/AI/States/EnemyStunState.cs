@@ -30,6 +30,7 @@ public class EnemyStunState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
         stunTime -= Time.deltaTime;
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;

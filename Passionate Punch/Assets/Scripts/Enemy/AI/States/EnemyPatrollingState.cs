@@ -8,7 +8,7 @@ public class EnemyPatrollingState : EnemyBaseState
     GameObject enemy;
     Vector3 enemyCurrentPos, targetPos;
     int currentPatrolPosIndex, lastIndex;
-    float patrolMoveSpeed, distance, isCloseEnough;
+    float patrolMoveSpeed, distance, isCloseEnough, stopDistance;
     bool isPatrolling;
     public EnemyPatrollingState(EnemyMovementSM enemyStateMachine) : base("Patrolling", enemyStateMachine)
     {
@@ -21,9 +21,12 @@ public class EnemyPatrollingState : EnemyBaseState
         // 1.5 unit per frame
         patrolMoveSpeed = enemyMovementSM.enemyPatrollingSpeed.value;
         enemyMovementSM.enemyNavMesh.speed = patrolMoveSpeed;
-        /////////////////////
+        // Stop distance between patrolling points
         isCloseEnough = .05f;
         enemyMovementSM.enemyNavMesh.stoppingDistance = isCloseEnough;
+        // Stop distance between player and enemy
+        stopDistance = 2f;
+        /////////////////////////////////////////
         // Enemy object
         enemy = enemyMovementSM.enemy.gameObject;
         // Our Starting position of enemy
@@ -63,6 +66,7 @@ public class EnemyPatrollingState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Patrolling State");
+        enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
     }
     void PatrolBetweenPoints()
     {

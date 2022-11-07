@@ -24,6 +24,7 @@ public class EnemyAttackState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
         CalculateDistanceAndAttack();
