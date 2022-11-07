@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Money
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  itemTitle: 
+  itemTitle: Money
   itemImage: {fileID: 0}
-  itemDescription: 
+  itemDescription: Money
   effectAmount: 0
   worth: 0
   radius: 0
-  isStackable: 0
+  isStackable: 1
   isApplied: 0
   countInInventory: 0
-  itemType: 0
+  itemType: 2

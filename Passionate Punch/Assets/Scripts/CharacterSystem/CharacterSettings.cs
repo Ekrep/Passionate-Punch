@@ -26,7 +26,7 @@ namespace CharacterSystem
         public float manaRecoveryPeriod;
         public float manaRecoveryAmount;
         public float experience;
-
+        public int money;
         public CharacterClassType characterClass;
         public enum CharacterClassType
         {

@@ -11,11 +11,11 @@ namespace ItemCategories
         public int upperBound;
         public override void ApplyItemEffect(float amount)
         {
-            throw new System.NotImplementedException();
+            player.money += (int)amount;
         }
         public override void RevertItemEffect(float amount)
         {
-            throw new System.NotImplementedException();
+            player.money -= (int)amount;
         }
 
         void Start()
