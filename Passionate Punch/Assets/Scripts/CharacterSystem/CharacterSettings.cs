@@ -17,6 +17,7 @@ namespace CharacterSystem
         public float moveSpeed;
         public float defence;
         public float range;
+        public float AEORange; 
         public float healthRecoveryTime;
         public float healthRecoveryPeriod;
         public float healthRecoveryAmount;

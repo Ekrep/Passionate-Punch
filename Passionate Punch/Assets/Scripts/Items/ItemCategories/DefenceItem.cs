@@ -15,7 +15,6 @@ namespace ItemCategories
         {
             player.maxHealth += amount;
             player.defence += amount;
-            
         }
 
         public override void RevertItemEffect(float amount)
