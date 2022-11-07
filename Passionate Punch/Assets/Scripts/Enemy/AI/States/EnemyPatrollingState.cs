@@ -19,7 +19,11 @@ public class EnemyPatrollingState : EnemyBaseState
         base.Enter();
         Debug.Log("Entered the Patrolling State");
         // 1.5 unit per frame
-        patrolMoveSpeed = 1.5f * Time.deltaTime;
+        patrolMoveSpeed = 1.5f;
+        enemyMovementSM.enemyNavMesh.speed = patrolMoveSpeed;
+        /////////////////////
+        isCloseEnough = .05f;
+        enemyMovementSM.enemyNavMesh.stoppingDistance = isCloseEnough;
         // Enemy object
         enemy = enemyMovementSM.enemy.gameObject;
         // Our Starting position of enemy
@@ -27,7 +31,6 @@ public class EnemyPatrollingState : EnemyBaseState
         // Our index of the patrol points
         currentPatrolPosIndex = 0;
         isPatrolling = false;
-        isCloseEnough = .1f;
         // Last Index of patrolling positions
         lastIndex = enemyMovementSM.patrolPositions.Count;
         // When enemy enters the Idle state, the warning canvas will be passive
@@ -63,7 +66,8 @@ public class EnemyPatrollingState : EnemyBaseState
     }
     void PatrolBetweenPoints()
     {
-        enemy.transform.position = Vector3.MoveTowards(enemyCurrentPos, targetPos, patrolMoveSpeed);
+        //enemy.transform.position = Vector3.MoveTowards(enemyCurrentPos, targetPos, patrolMoveSpeed); (OLD SYSTEM)
+        enemyMovementSM.enemyNavMesh.SetDestination(targetPos);
     }
     void ArriveControl()
     {

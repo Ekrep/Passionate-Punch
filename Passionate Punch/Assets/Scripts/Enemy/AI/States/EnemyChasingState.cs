@@ -52,7 +52,8 @@ public class EnemyChasingState : EnemyBaseState
     {
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
-        enemy.transform.position = Vector3.MoveTowards(enemyPos, playerPos, chaseSpeed);
+        //enemy.transform.position = Vector3.MoveTowards(enemyPos, playerPos, chaseSpeed);
+        enemyMovementSM.enemyNavMesh.SetDestination(playerPos);
     }
     void CalculateDistanceToPlayer()
     {

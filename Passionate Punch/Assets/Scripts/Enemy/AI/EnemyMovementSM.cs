@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovementSM : EnemyStateMachine
 {
@@ -12,14 +13,14 @@ public class EnemyMovementSM : EnemyStateMachine
     int empty = 0;
     [HideInInspector]
     public bool isPatrollingEnemy;
+    [HideInInspector]
+    public NavMeshAgent enemyNavMesh;
     // Our enemy game object
     [HideInInspector]
     public GameObject enemy;
     ////////////////////////
     [HideInInspector]
     public EnemyIdleState enemyIdleState;
-    [HideInInspector]
-    public EnemyMovingState enemyMovingState;
     [HideInInspector]
     public EnemyChasingState enemyChasingState;
     [HideInInspector]
@@ -32,13 +33,13 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyPatrollingState enemyPatrollingState;
     private void Awake()
     {
+        enemyNavMesh = GetComponent<NavMeshAgent>();
         // Set pasive the stun particles & Warn enemy canvas
         stunParticles.gameObject.SetActive(false);
         warnEnemy.gameObject.SetActive(false);
         ////////////////////////////////////////////////////
         enemy = this.gameObject;
         enemyIdleState = new EnemyIdleState(this);
-        enemyMovingState = new EnemyMovingState(this);
         enemyChasingState = new EnemyChasingState(this);
         enemyReturnState = new EnemyReturnState(this);
         enemyAttackState = new EnemyAttackState(this);
