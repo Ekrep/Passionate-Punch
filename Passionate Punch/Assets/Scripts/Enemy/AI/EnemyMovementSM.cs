@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovementSM : EnemyStateMachine
 {
-    public ScriptableFloat enemyMovementSpeed, enemyAttackDistance;
+    public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
     public GameObject stunParticles, warnEnemy;

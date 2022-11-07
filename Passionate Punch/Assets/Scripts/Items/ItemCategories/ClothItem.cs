@@ -9,7 +9,7 @@ namespace ItemCategories
 
     public class ClothItem : ItemSettings
     {
-        //Cloth items decrease player's health and mana recovery amount, increases movespeed.
+        //Cloth items decrease player's health and mana recovery amount, increase move speed.
         public override void ApplyItemEffect(float amount)
         {
             player.healthRecoveryAmount += amount;
