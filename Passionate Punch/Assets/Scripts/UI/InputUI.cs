@@ -14,6 +14,7 @@ public class InputUI : MonoBehaviour
     {
         UIManager.Instance.joystickHorizontalInput = joystick.Horizontal;
         UIManager.Instance.joystickVerticalInput = joystick.Vertical;
+        
     }
 
 

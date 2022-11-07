@@ -71,7 +71,10 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterAttackingState.Attack();
     }
   
-
+    public void CallAttackStateChangeFunction()
+    {
+        characterAttackingState.ChangeAttackState();
+    }
 
 
 }

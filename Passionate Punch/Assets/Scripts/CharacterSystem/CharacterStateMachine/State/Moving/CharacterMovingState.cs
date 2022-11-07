@@ -55,6 +55,7 @@ public class CharacterMovingState : CharacterCanAttackableState
 
         float xInput = 0;
         float zInput = 0;
+        
         switch (Application.platform)
         {
             case RuntimePlatform.Android:

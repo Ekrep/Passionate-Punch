@@ -35,6 +35,7 @@ public class CharacterIdleState : CharacterCanAttackableState
     {
         float xInput = 0;
         float zInput = 0;
+        
         switch (Application.platform)
         {
             case RuntimePlatform.Android:
@@ -48,7 +49,7 @@ public class CharacterIdleState : CharacterCanAttackableState
                 break;
         }
       
-        if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
+        if (Mathf.Abs(xInput) > 0.4f || Mathf.Abs(zInput) > 0.4f)
         {
             sm.ChangeState(sm.characterMovingState);
         }

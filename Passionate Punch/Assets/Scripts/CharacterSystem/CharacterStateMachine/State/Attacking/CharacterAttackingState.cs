@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Items;
 
 public class CharacterAttackingState : CharacterAliveState
 {
@@ -17,7 +18,7 @@ public class CharacterAttackingState : CharacterAliveState
         base.Enter();
         sm.anim.SetBool("Attack", true);
         Debug.Log("enabled");
-        Attack();
+       
       
 
 
@@ -26,7 +27,8 @@ public class CharacterAttackingState : CharacterAliveState
     public override void Update()
     {
         base.Update();
-        if (Input.GetKeyUp(KeyCode.Space))
+        SetRotationWhileAttacking();
+       /* if (Input.GetKeyUp(KeyCode.Space))
         {
             if (CheckMovementInput())
             {
@@ -51,9 +53,26 @@ public class CharacterAttackingState : CharacterAliveState
             }
 
 
+        }*/
+
+
+    }
+
+    public void ChangeAttackState()
+    {
+        if (!UIManager.Instance.isAttackPress)
+        {
+            if (CheckMovementInput())
+            {
+                sm.ChangeState(sm.characterMovingState);
+            }
+            else
+            {
+                sm.ChangeState(sm.characterIdleState);
+            }
+
+
         }
-
-
     }
 
     public void Attack()
@@ -61,16 +80,22 @@ public class CharacterAttackingState : CharacterAliveState
         RaycastHit[] raycastHits=new RaycastHit[1];
         Physics.RaycastNonAlloc(sm.transform.position, sm.transform.forward, raycastHits, sm.characterStats.range);
         Debug.DrawRay(sm.transform.position, sm.transform.forward, Color.red, 20);
-        if (raycastHits.Length!=0)
+        if (raycastHits[0].collider != null)
         {
             
             Collider[] colliders=new Collider[50];
             int count=0;
-            Debug.Log(raycastHits[0].collider.gameObject.name);
-            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, 10, colliders);
+            
+                Debug.Log(raycastHits[0].collider.gameObject.name);
+            
+            
+            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, sm.characterStats.AEORange, colliders);
             for (int i = 0; i <count ; i++)
             {
-                Debug.Log(colliders[i].gameObject.name);
+                if (colliders[i].gameObject.TryGetComponent<Chest>(out Chest chest))
+                {
+                    Debug.Log("collision");
+                }
                 
             }
             
@@ -93,7 +118,21 @@ public class CharacterAttackingState : CharacterAliveState
 
  
 
-   
+   public void SetRotationWhileAttacking()
+    {
+        //float xInput = UIManager.Instance.joystickHorizontalInput;
+        //float zInput = UIManager.Instance.joystickVerticalInput;
+        float xInput = 0;
+        float zInput = 0;
+        xInput = Input.GetAxis("Horizontal");
+        zInput = Input.GetAxis("Vertical");
+
+        sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, sm.gameObject.transform.rotation.y+(xInput*10), sm.gameObject.transform.rotation.z);
+        
+        
+        
+
+    }
 
 
 
