@@ -15,6 +15,7 @@ namespace Items
         public string itemDescription;
         public float effectAmount;
         public float worth;
+        public float radius;
         public bool isStackable;
         public bool isApplied;
         public int countInInventory;
