@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a6e60440e3fdf41b6f80f882c50664, type: 3}
-  m_Name: EnemyMovementSpeed
+  m_Name: EnemyReturningSpeed
   m_EditorClassIdentifier: 
-  value: 3.5
+  value: 2.5
