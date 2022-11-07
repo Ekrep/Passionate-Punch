@@ -26,6 +26,7 @@ public class EnemyChasingState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
         awakeTime -= Time.deltaTime;        
         if (awakeTime <= 0)
         {

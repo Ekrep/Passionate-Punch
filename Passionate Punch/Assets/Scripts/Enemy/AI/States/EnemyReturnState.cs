@@ -29,6 +29,7 @@ public class EnemyReturnState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
         timeToStartReturning -= Time.deltaTime;
         if (timeToStartReturning <= 0)
         {
