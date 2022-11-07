@@ -21,7 +21,6 @@ namespace Items
             GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
         }
 
-
         void Update()
         {
             CheckDistance();
@@ -34,7 +33,6 @@ namespace Items
                 if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
                 {
                     PickedUp();
-                    Debug.Log("picked up");
                 }    
             }
         }
