@@ -7,7 +7,7 @@ public class EnemyReturnState : EnemyBaseState
     private EnemyMovementSM enemyMovementSM;
     GameObject enemy;
     Vector3 enemyPos;
-    float timeToStartReturning, returnSpeed, distanceToTarget, isReached;
+    float timeToStartReturning, returnSpeed, distanceToTarget, isReached, stopDistance;
     public EnemyReturnState(EnemyMovementSM enemyStateMachine) : base("Return", enemyStateMachine)
     {
         enemyMovementSM = enemyStateMachine;
@@ -16,6 +16,10 @@ public class EnemyReturnState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the Returning state");
+        // Enemy stop distance between camp pos & enemy rearranged
+        stopDistance = .05f;
+        enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
+        //////////////////////////////////////////////////////////
         isReached = 0.1f;
         timeToStartReturning = 1f;
         enemy = enemyMovementSM.enemy.gameObject;
