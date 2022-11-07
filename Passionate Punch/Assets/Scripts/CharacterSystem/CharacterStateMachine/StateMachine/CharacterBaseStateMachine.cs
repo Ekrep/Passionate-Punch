@@ -57,10 +57,21 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     }
 
 
+   
+
+
     protected override CharacterBaseState GetInitialState()
     {
         return characterIdleState;
     }
     
+
+    public void CallAttackFunction()
+    {
+        characterAttackingState.Attack();
+    }
+  
+
+
 
 }

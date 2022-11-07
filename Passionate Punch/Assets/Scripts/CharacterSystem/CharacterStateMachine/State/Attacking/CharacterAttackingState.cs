@@ -5,8 +5,7 @@ using UnityEngine;
 public class CharacterAttackingState : CharacterAliveState
 {
 
-    private float _timer=0.5f;
-    private float _timerflag;
+    
 
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
@@ -16,10 +15,9 @@ public class CharacterAttackingState : CharacterAliveState
     public override void Enter()
     {
         base.Enter();
-        _timerflag = _timer;
         sm.anim.SetBool("Attack", true);
         Debug.Log("enabled");
-      
+        Attack();
       
 
 
@@ -58,7 +56,28 @@ public class CharacterAttackingState : CharacterAliveState
 
     }
 
-
+    public void Attack()
+    {
+        RaycastHit[] raycastHits=new RaycastHit[0];
+        Physics.RaycastNonAlloc(sm.transform.position, sm.transform.forward, raycastHits, sm.characterStats.range);
+        Debug.DrawRay(sm.transform.position, sm.transform.forward, Color.red, 20);
+        if (raycastHits.Length!=0)
+        {
+            Collider[] colliders=new Collider[50];
+            int count=0;
+            Debug.Log(raycastHits[0].collider.gameObject.name);
+            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, 50, colliders);
+            for (int i = 0; i <count ; i++)
+            {
+                Debug.Log(colliders[i].gameObject.name);
+                
+            }
+            
+            
+        }
+     
+    }
+    
     public override void Exit()
     {
 
@@ -68,10 +87,6 @@ public class CharacterAttackingState : CharacterAliveState
         Debug.Log("exx");
         sm.anim.SetBool("Attack", false);
        
-
-
-
-
 
     }
 

@@ -8,8 +8,10 @@ namespace Items
     {
         [Header("Lid")]
         public GameObject chestLid;
-        public float lidOpenSpeed;
-        [SerializeField] private float _lidOpenAngle;
+        [SerializeField]
+        private float _explosionForce;
+        [SerializeField]
+        private float _lidDissappearTime;
 
 
         [Header("Parameters")]
@@ -44,38 +46,40 @@ namespace Items
 
         public void Open()
         {
-            StartCoroutine(ChestOpener());
-        }
-
-
-        IEnumerator ChestOpener()
-        {
-            yield return new WaitForEndOfFrame();
             OpenChestX();
-
-
         }
+
+
+       
 
         public void OpenChestX()
         {
             Debug.Log(chestLid.transform.rotation);
-            
-            chestLid.transform.rotation = Quaternion.RotateTowards(chestLid.transform.rotation, Quaternion.Euler(_lidOpenAngle, 0, 0), lidOpenSpeed * Time.deltaTime);
-            if (chestLid.gameObject.transform.rotation.x>-0.7f)
-            {
-                StartCoroutine(ChestOpener());
-            }
-            else 
-            {
-                StopCoroutine(ChestOpener());
-                this.enabled = false;
-            }
+            chestLid.GetComponent<Rigidbody>().isKinematic = false;
+            chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
+            StartCoroutine(ChestLidDissappear(_lidDissappearTime));
+
+
+           
             
 
         }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(gameObject.transform.position, 2f);
+        }
 
-       
-       
+        IEnumerator ChestLidDissappear(float dissappearTime)
+        {
+            yield return new WaitForSeconds(dissappearTime);
+            chestLid.SetActive(false);
+
+
+        }
+
+
+
 
 
     }

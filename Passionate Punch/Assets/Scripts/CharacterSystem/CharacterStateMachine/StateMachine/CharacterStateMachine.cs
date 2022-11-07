@@ -89,7 +89,7 @@ public class CharacterStateMachine : MonoBehaviour
         newState.Enter();
     }
 
-
+   
 
 
     protected virtual CharacterBaseState GetInitialState()
