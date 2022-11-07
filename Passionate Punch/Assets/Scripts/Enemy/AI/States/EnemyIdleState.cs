@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyIdleState : EnemyBaseState
 {
     private EnemyMovementSM enemyMovementSM;
+    float stopDistance;
     public EnemyIdleState(EnemyMovementSM enemyStateMachine) : base("Idle", enemyStateMachine)
     {
         enemyMovementSM = enemyStateMachine;
@@ -13,6 +14,7 @@ public class EnemyIdleState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the Idle State");
+        stopDistance = 2f;
         // When enemy enters the Idle state, the warning canvas will be passive
         enemyMovementSM.warnEnemy.gameObject.SetActive(false);
     }
@@ -39,5 +41,6 @@ public class EnemyIdleState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Idle State");
+        enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
     }
 }

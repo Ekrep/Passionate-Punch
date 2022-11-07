@@ -7,7 +7,7 @@ public class EnemyChasingState : EnemyBaseState
     private EnemyMovementSM enemyMovementSM;
     GameObject player, enemy;
     Vector3 enemyPos, playerPos;
-    float chaseSpeed, awakeTime;
+    float chaseSpeed, awakeTime, stopDistance;
     public float distanceToPlayer;
     public EnemyChasingState(EnemyMovementSM enemyStateMachine) : base("Chasing", enemyStateMachine)
     {
@@ -17,6 +17,10 @@ public class EnemyChasingState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the chasing state");
+        // Stop distance rearrange when player chasing by an enemy
+        stopDistance = 2f;
+        enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
+        /////////////////////////////////////////////////////////
         awakeTime = .75f;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
