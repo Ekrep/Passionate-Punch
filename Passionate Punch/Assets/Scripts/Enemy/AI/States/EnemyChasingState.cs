@@ -22,13 +22,11 @@ public class EnemyChasingState : EnemyBaseState
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
         enemyPos = enemy.transform.position;
-        chaseSpeed = enemyMovementSM.enemyMovementSpeed.value;
-        enemyMovementSM.enemyNavMesh.speed = chaseSpeed;
     }
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        awakeTime -= Time.deltaTime;
+        awakeTime -= Time.deltaTime;        
         if (awakeTime <= 0)
         {
             ChasePlayer();
@@ -51,6 +49,8 @@ public class EnemyChasingState : EnemyBaseState
     }
     void ChasePlayer()
     {
+        chaseSpeed = enemyMovementSM.enemyMovementSpeed.value;
+        enemyMovementSM.enemyNavMesh.speed = chaseSpeed;
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
         //enemy.transform.position = Vector3.MoveTowards(enemyPos, playerPos, chaseSpeed);
