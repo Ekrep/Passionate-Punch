@@ -22,6 +22,7 @@ MonoBehaviour:
   moveSpeed: 5
   defence: 0
   range: 5
+  AEORange: 5
   healthRecoveryTime: 0
   healthRecoveryPeriod: 0
   healthRecoveryAmount: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   manaRecoveryPeriod: 0
   manaRecoveryAmount: 0
   experience: 0
+  money: 0
   characterClass: 0
