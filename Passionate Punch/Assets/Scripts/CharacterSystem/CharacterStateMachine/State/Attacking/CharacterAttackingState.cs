@@ -58,15 +58,16 @@ public class CharacterAttackingState : CharacterAliveState
 
     public void Attack()
     {
-        RaycastHit[] raycastHits=new RaycastHit[0];
+        RaycastHit[] raycastHits=new RaycastHit[1];
         Physics.RaycastNonAlloc(sm.transform.position, sm.transform.forward, raycastHits, sm.characterStats.range);
         Debug.DrawRay(sm.transform.position, sm.transform.forward, Color.red, 20);
         if (raycastHits.Length!=0)
         {
+            
             Collider[] colliders=new Collider[50];
             int count=0;
             Debug.Log(raycastHits[0].collider.gameObject.name);
-            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, 50, colliders);
+            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, 10, colliders);
             for (int i = 0; i <count ; i++)
             {
                 Debug.Log(colliders[i].gameObject.name);
