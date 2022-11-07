@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 5129122226755759682}
   - component: {fileID: 5129122226755759710}
   - component: {fileID: 5129122226755759709}
+  - component: {fileID: 5864727699244812673}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -321,6 +322,7 @@ MonoBehaviour:
   warnEnemy: {fileID: 7919941716364773507}
   enemyCanvasAnimator: {fileID: 4618004472093172935}
   isPatrollingEnemy: 0
+  enemyNavMesh: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!54 &5129122226755759709
 Rigidbody:
@@ -338,6 +340,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!195 &5864727699244812673
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129122226755759683}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6090489643519856123
 GameObject:
   m_ObjectHideFlags: 0
