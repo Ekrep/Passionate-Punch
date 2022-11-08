@@ -126,9 +126,13 @@ public class CharacterAttackingState : CharacterAliveState
         float zInput = 0;
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
+        /*if (Mathf.Abs(xInput)>0|| Mathf.Abs(zInput) > 0)
+        {
+            sm.gameObject.transform.eulerAngles += new Vector3(sm.gameObject.transform.eulerAngles.x, sm.gameObject.transform.eulerAngles.y + (xInput+zInput)*5, sm.gameObject.transform.eulerAngles.z) * Time.deltaTime;
+        }*/
 
-        sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, sm.gameObject.transform.rotation.y+(xInput*10), sm.gameObject.transform.rotation.z);
-        
+        Debug.Log(xInput+"x");
+        Debug.Log(zInput+"z");
         
         
 
