@@ -9,16 +9,15 @@ namespace InventorySystem
 {
     public class Inventory : MonoBehaviour
     {
-        public static int inventorySize = 16; //can be changed later.
-        //public static IDictionary<Item, ItemSettings> inventoryDict = new Dictionary<Item, ItemSettings>(inventorySize);
-        
+        public static int inventorySize = 16; //can be changed later.        
         public List<ItemSettings> inventoryList = new List<ItemSettings>(inventorySize); 
+        public static event Action onItemPickedUp;
         public bool AddItem(ItemSettings item)
         {
             if (CheckInventorySize())
             {
                 inventoryList.Add(item);
-                //inventoryDict.Add(item, item.GetComponent<ItemSettings>());
+                onItemPickedUp?.Invoke();
                 return true;
             }
             return false;
