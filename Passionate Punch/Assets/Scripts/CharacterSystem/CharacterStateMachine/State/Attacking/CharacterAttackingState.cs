@@ -12,6 +12,10 @@ public class CharacterAttackingState : CharacterAliveState
 
     private float _pressTime;
 
+    private float _pressCount;
+
+    private bool _isPress;
+
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
 
@@ -21,9 +25,9 @@ public class CharacterAttackingState : CharacterAliveState
     {
         base.Enter();
         sm.anim.SetBool("Attack", true);
-        Debug.Log("enabled");
-       
-      
+        _isPress = false;
+
+
 
 
 
@@ -31,42 +35,19 @@ public class CharacterAttackingState : CharacterAliveState
     public override void Update()
     {
         base.Update();
+        Debug.Log(_pressCount);
+        //ControlPressCount();
         SetRotationWhileAttacking();
         ControlStuck();
-       /* if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if (CheckMovementInput())
-            {
-                sm.ChangeState(sm.characterMovingState);
-            }
-            else
-            {
-                sm.ChangeState(sm.characterIdleState);
-            }
 
-            
-        }
-        if (!UIManager.Instance.isAttackPress)
-        {
-            if (CheckMovementInput())
-            {
-                sm.ChangeState(sm.characterMovingState);
-            }
-            else
-            {
-                sm.ChangeState(sm.characterIdleState);
-            }
-
-
-        }*/
 
 
     }
 
     public void ChangeAttackState()
     {
-        
-        if (!UIManager.Instance.isAttackPress&&!_stuckItHere)
+
+        if (!UIManager.Instance.isAttackPress && !_stuckItHere)
         {
             if (CheckMovementInput())
             {
@@ -79,11 +60,11 @@ public class CharacterAttackingState : CharacterAliveState
 
 
         }
-       
+
     }
     private void ControlStuck()
     {
-        Debug.Log(_stuckTime);
+       // Debug.Log(_stuckTime);
         if (UIManager.Instance.isAttackPress)
         {
             _stuckItHere = true;
@@ -92,8 +73,8 @@ public class CharacterAttackingState : CharacterAliveState
         }
         else
         {
-            
-            if (_stuckTime<=0||_pressTime>0.5f)
+         
+            if (_stuckTime <= 0 || _pressTime > 0.5f)
             {
                 _stuckItHere = false;
             }
@@ -105,35 +86,50 @@ public class CharacterAttackingState : CharacterAliveState
 
         }
     }
+  
+    public void ControlPressCount()
+    {
+        if (UIManager.Instance.isAttackPress&&!_isPress)
+        {
+            _isPress = true;
+            _pressCount++;
+            
+        }
+        if (!UIManager.Instance.isAttackPress)
+        {
+            _isPress = false;
+        }
+
+    }
     public void Attack()
     {
-        RaycastHit[] raycastHits=new RaycastHit[1];
+        RaycastHit[] raycastHits = new RaycastHit[1];
         Physics.RaycastNonAlloc(sm.transform.position, sm.transform.forward, raycastHits, sm.characterStats.range);
         Debug.DrawRay(sm.transform.position, sm.transform.forward, Color.red, 20);
         if (raycastHits[0].collider != null)
         {
-            
-            Collider[] colliders=new Collider[50];
-            int count=0;
-            
-                Debug.Log(raycastHits[0].collider.gameObject.name);
-            
-            
-            count=Physics.OverlapSphereNonAlloc(raycastHits[0].point, sm.characterStats.AEORange, colliders);
-            for (int i = 0; i <count ; i++)
+
+            Collider[] colliders = new Collider[50];
+            int count = 0;
+
+            Debug.Log(raycastHits[0].collider.gameObject.name);
+
+
+            count = Physics.OverlapSphereNonAlloc(raycastHits[0].point, sm.characterStats.AEORange, colliders);
+            for (int i = 0; i < count; i++)
             {
                 if (colliders[i].gameObject.TryGetComponent<Chest>(out Chest chest))
                 {
                     Debug.Log("collision");
                 }
-                
+
             }
-            
-            
+
+
         }
-     
+
     }
-    
+
     public override void Exit()
     {
 
@@ -142,13 +138,13 @@ public class CharacterAttackingState : CharacterAliveState
 
         Debug.Log("exx");
         sm.anim.SetBool("Attack", false);
-       
+
 
     }
 
- 
 
-   public void SetRotationWhileAttacking()
+
+    public void SetRotationWhileAttacking()
     {
         //float xInput = UIManager.Instance.joystickHorizontalInput;
         //float zInput = UIManager.Instance.joystickVerticalInput;
@@ -161,10 +157,9 @@ public class CharacterAttackingState : CharacterAliveState
             sm.gameObject.transform.eulerAngles += new Vector3(sm.gameObject.transform.eulerAngles.x, sm.gameObject.transform.eulerAngles.y + (xInput+zInput)*5, sm.gameObject.transform.eulerAngles.z) * Time.deltaTime;
         }*/
 
-        Debug.Log(xInput+"x");
-        Debug.Log(zInput+"z");
-        
-        
+       
+
+
 
     }
 
