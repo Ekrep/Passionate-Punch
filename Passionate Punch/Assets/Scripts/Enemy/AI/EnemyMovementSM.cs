@@ -10,6 +10,7 @@ public class EnemyMovementSM : EnemyStateMachine
     public List<Transform> patrolPositions;
     public GameObject stunParticles, warnEnemy;
     public Animator enemyCanvasAnimator;
+    public Animator enemyAnimator;
     int empty = 0;
     [HideInInspector]
     public bool isPatrollingEnemy;
