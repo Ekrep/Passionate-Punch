@@ -6,7 +6,11 @@ using Items;
 public class CharacterAttackingState : CharacterAliveState
 {
 
-    
+    private bool _stuckItHere;
+
+    private float _stuckTime;
+
+    private float _pressTime;
 
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
@@ -28,6 +32,7 @@ public class CharacterAttackingState : CharacterAliveState
     {
         base.Update();
         SetRotationWhileAttacking();
+        ControlStuck();
        /* if (Input.GetKeyUp(KeyCode.Space))
         {
             if (CheckMovementInput())
@@ -60,7 +65,8 @@ public class CharacterAttackingState : CharacterAliveState
 
     public void ChangeAttackState()
     {
-        if (!UIManager.Instance.isAttackPress)
+        
+        if (!UIManager.Instance.isAttackPress&&!_stuckItHere)
         {
             if (CheckMovementInput())
             {
@@ -75,7 +81,30 @@ public class CharacterAttackingState : CharacterAliveState
         }
        
     }
+    private void ControlStuck()
+    {
+        Debug.Log(_stuckTime);
+        if (UIManager.Instance.isAttackPress)
+        {
+            _stuckItHere = true;
+            _stuckTime = 0.7f;
+            _pressTime += Time.deltaTime;
+        }
+        else
+        {
+            
+            if (_stuckTime<=0||_pressTime>0.5f)
+            {
+                _stuckItHere = false;
+            }
+            else
+            {
+                _stuckTime -= Time.deltaTime * sm.anim.GetFloat("AttackSpeed"); ;
+            }
+            _pressTime = 0;
 
+        }
+    }
     public void Attack()
     {
         RaycastHit[] raycastHits=new RaycastHit[1];
