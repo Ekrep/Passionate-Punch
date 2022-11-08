@@ -15,11 +15,12 @@ MonoBehaviour:
   player: {fileID: 0}
   itemTitle: Angel Axe
   itemImage: {fileID: 21300000, guid: 8f51476818c45fc458de367facfc2d96, type: 3}
-  itemDescription: 
+  itemDescription: +75 AD +0.25 Attack Speed
   effectAmount: 75
   worth: 250
+  radius: 0
   isStackable: 0
   isApplied: 0
   countInInventory: 0
-  itemType: 0
+  itemType: 1
   speedEffectAmount: 0.25

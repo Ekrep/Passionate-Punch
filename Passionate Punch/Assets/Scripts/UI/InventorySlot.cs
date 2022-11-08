@@ -7,7 +7,8 @@ namespace UI
 
     public class InventorySlot : MonoBehaviour
     {
-        [SerializeField] public Image slotIcon;
+        [SerializeField] private Image slotIcon;
+        [SerializeField] private ItemSelectionUI selectionUI;
         public ItemSettings item;
 
         public void DisplayItem(ItemSettings newItem)
@@ -20,6 +21,13 @@ namespace UI
         public void DiscardItem()
         {
 
+        }
+
+        public void onItemChoose()
+        {
+            if(item != null){
+                selectionUI.DesignSelectionScreen(item);
+            }
         }
     }
 }

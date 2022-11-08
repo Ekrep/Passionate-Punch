@@ -41,5 +41,10 @@ namespace UI
                 }
             }
         }
+
+        public void ClosePanel()
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }
