@@ -38,6 +38,13 @@ public class EnemyReturnState : EnemyBaseState
         if (timeToStartReturning <= 0)
         {
             ReturnToCamp();
+            enemyMovementSM.enemyAnimator.SetTrigger("Walk");
+        }
+        else
+        {
+            // The time before enemy turn back
+            // This Idle will be changed with "lost player" animation 
+            enemyMovementSM.enemyAnimator.SetTrigger("Idle");
         }
     }
     public override void EnemyTriggerEnter(Collider other)

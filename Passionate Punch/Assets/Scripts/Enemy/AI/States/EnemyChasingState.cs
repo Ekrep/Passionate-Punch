@@ -36,6 +36,13 @@ public class EnemyChasingState : EnemyBaseState
         {
             ChasePlayer();
             CalculateDistanceToPlayer();
+            enemyMovementSM.enemyAnimator.SetTrigger("Run");
+        }
+        else
+        {
+            // The time before enemy wake up
+            // This Idle will be changed with "warned" animation
+            enemyMovementSM.enemyAnimator.SetTrigger("Idle");
         }
     }
     // IF player exits from the enemy's trigger, enemy returns to its position (Return State)
