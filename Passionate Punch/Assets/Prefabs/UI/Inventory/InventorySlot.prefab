@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3788261891594599101}
   - component: {fileID: 3788261891594599100}
   - component: {fileID: 3788261891594599107}
-  - component: {fileID: 2080886515057900027}
+  - component: {fileID: 6348170138132092375}
   m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2080886515057900027
+--- !u!114 &6348170138132092375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57be09c627b6c054f9b2e540e3315c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIcon: {fileID: 3788261891594599100}
+  item: {fileID: 0}
 --- !u!1 &3788261892800640895
 GameObject:
   m_ObjectHideFlags: 0

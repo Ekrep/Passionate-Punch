@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using Items;
 
-public class InventorySlot : MonoBehaviour
+namespace UI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class InventorySlot : MonoBehaviour
     {
-        
+        [SerializeField] public Image slotIcon;
+        public ItemSettings item;
+
+        public void DisplayItem(ItemSettings newItem)
+        {
+            item = newItem;
+            slotIcon.sprite = item.itemImage;
+            slotIcon.enabled = true;
+        }
+
+        public void DiscardItem()
+        {
+
+        }
     }
 }
