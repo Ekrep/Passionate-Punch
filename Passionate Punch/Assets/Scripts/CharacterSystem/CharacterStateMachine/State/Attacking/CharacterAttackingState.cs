@@ -73,6 +73,7 @@ public class CharacterAttackingState : CharacterAliveState
 
 
         }
+       
     }
 
     public void Attack()
