@@ -10,6 +10,8 @@ public class CharacterAttackingState : CharacterAliveState
 
     private float _stuckTime;
 
+    private float _pressTime;
+
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
 
@@ -86,11 +88,12 @@ public class CharacterAttackingState : CharacterAliveState
         {
             _stuckItHere = true;
             _stuckTime = 0.7f;
+            _pressTime += Time.deltaTime;
         }
         else
         {
             
-            if (_stuckTime<=0)
+            if (_stuckTime<=0||_pressTime>0.5f)
             {
                 _stuckItHere = false;
             }
@@ -98,6 +101,7 @@ public class CharacterAttackingState : CharacterAliveState
             {
                 _stuckTime -= Time.deltaTime * sm.anim.GetFloat("AttackSpeed"); ;
             }
+            _pressTime = 0;
 
         }
     }
