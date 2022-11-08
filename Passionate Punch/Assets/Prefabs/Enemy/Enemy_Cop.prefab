@@ -5442,7 +5442,7 @@ Animator:
   m_GameObject: {fileID: 7642943200961913062}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f13349cc09b03d447a26b54d406aaa8e, type: 3}
-  m_Controller: {fileID: 9100000, guid: e50cfb73385f353408802efc73403627, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -5528,7 +5528,6 @@ MonoBehaviour:
   stunParticles: {fileID: 4220714119018302922}
   warnEnemy: {fileID: 7835712379214785336}
   enemyCanvasAnimator: {fileID: 8960453267060345014}
-  enemyAnimator: {fileID: 7729999935695124312}
   isPatrollingEnemy: 0
   enemyNavMesh: {fileID: 0}
   enemy: {fileID: 0}

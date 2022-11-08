@@ -18,7 +18,6 @@ public class EnemyPatrollingState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the Patrolling State");
-        enemyMovementSM.enemyAnimator.SetTrigger("Patrol");
         // 1.5 unit per frame
         patrolMoveSpeed = enemyMovementSM.enemyPatrollingSpeed.value;
         enemyMovementSM.enemyNavMesh.speed = patrolMoveSpeed;

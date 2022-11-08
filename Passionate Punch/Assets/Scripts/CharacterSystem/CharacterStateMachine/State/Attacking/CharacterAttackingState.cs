@@ -28,7 +28,6 @@ public class CharacterAttackingState : CharacterAliveState
     {
         base.Update();
         SetRotationWhileAttacking();
-        
        /* if (Input.GetKeyUp(KeyCode.Space))
         {
             if (CheckMovementInput())
@@ -149,7 +148,7 @@ public class CharacterAttackingState : CharacterAliveState
         zInput = Input.GetAxis("Vertical");
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
-            
+            sm.ChangeState(sm.characterMovingState);
             return true;
         }
         else
@@ -158,7 +157,6 @@ public class CharacterAttackingState : CharacterAliveState
         }
     }
 
-   
 
 
 
