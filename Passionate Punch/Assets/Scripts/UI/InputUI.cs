@@ -1,30 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-public class InputUI : MonoBehaviour
+
+namespace UI
 {
-    public FixedJoystick joystick;
 
-    public Button attackButton;
-
-
-    public void SendJoyStickInput()
+    public class InputUI : MonoBehaviour
     {
-        UIManager.Instance.joystickHorizontalInput = joystick.Horizontal;
-        UIManager.Instance.joystickVerticalInput = joystick.Vertical;
-        
-    }
+        public FixedJoystick joystick;
+        public InventoryUI inventory;
+
+        public Button attackButton;
+
+
+        public void SendJoyStickInput()
+        {
+            UIManager.Instance.joystickHorizontalInput = joystick.Horizontal;
+            UIManager.Instance.joystickVerticalInput = joystick.Vertical;
+
+        }
 
 
 
-    public void SetAttackTrue()
-    {
-        UIManager.Instance.isAttackPress = true;
-    }
-    public void SetAttackFalse()
-    {
-        UIManager.Instance.isAttackPress = false;
+        public void SetAttackTrue()
+        {
+            UIManager.Instance.isAttackPress = true;
+        }
+        public void SetAttackFalse()
+        {
+            UIManager.Instance.isAttackPress = false;
+        }
+
+        public void DisplayInventory()
+        {
+            inventory.gameObject.SetActive(true);
+        }
     }
 }

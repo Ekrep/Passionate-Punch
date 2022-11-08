@@ -27,7 +27,7 @@ public class ItemSelectionUI : MonoBehaviour
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
         if(!player.characterClass.ToString().Equals(item.itemType.ToString()))
-            warningText.enabled = true;
+            warningText.enabled = true; //equipe taşınacak.
         this.gameObject.SetActive(true);
     }
 }
