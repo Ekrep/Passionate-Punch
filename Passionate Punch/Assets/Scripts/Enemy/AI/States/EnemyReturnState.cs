@@ -16,6 +16,7 @@ public class EnemyReturnState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered the Returning state");
+        enemyMovementSM.enemyAnimator.SetTrigger("Idle");
         // Enemy stop distance between camp pos & enemy rearranged
         stopDistance = .05f;
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
