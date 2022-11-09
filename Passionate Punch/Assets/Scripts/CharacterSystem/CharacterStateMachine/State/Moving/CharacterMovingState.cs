@@ -77,7 +77,7 @@ public class CharacterMovingState : CharacterCanAttackableState
             float angleX;
 
             angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
-            Debug.Log(deltaPos);
+            //Debug.Log(deltaPos);
             Quaternion quaternion = Quaternion.Euler(sm.transform.rotation.x, angleX, sm.transform.rotation.z);
             if (Vector3.Distance(sm.transform.rotation.eulerAngles, quaternion.eulerAngles) > 0.1f)
             {
