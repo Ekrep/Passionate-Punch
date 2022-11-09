@@ -11,7 +11,7 @@ namespace InventorySystem
     {
         public static int inventorySize = 16; //can be changed later.        
         public static List<ItemSettings> inventoryList; 
-        public static event Action onItemPickedUp;
+        public static event Action OnItemPickedUp;
 
         void Start()
         {
@@ -22,7 +22,7 @@ namespace InventorySystem
             if (CheckInventorySize())
             {
                 inventoryList.Add(item);
-                onItemPickedUp?.Invoke();
+                OnItemPickedUp?.Invoke();
                 return true;
             }
             return false;

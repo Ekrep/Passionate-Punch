@@ -9,6 +9,7 @@ namespace CharacterSystem
     {
         public string characterName;
         public Sprite characterImage;
+        public Sprite inventorySprite;
         public float attackDamage;
         public float attackSpeed;
         public float maxHealth;

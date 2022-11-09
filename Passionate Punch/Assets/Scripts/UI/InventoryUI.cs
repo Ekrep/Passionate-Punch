@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem;
-using Items;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,34 +8,39 @@ namespace UI
     {
         public Transform itemsParent;
         InventorySlot[] slots;
+        [SerializeField] public Image playerImageField;
+        [SerializeField] public Sprite playerImage;
 
         void Start()
         {
             slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        }
-
-        void Update()
-        {
-
+            playerImageField.sprite = playerImage;
         }
 
         void OnEnable()
         {
-            Inventory.onItemPickedUp += UpdateUI;
+            Inventory.OnItemPickedUp += UpdateUI;
+            Equipment.OnEquipmentHappened += UpdateUI;
         }
 
         void OnDisable()
         {
-            Inventory.onItemPickedUp -= UpdateUI;
+            Inventory.OnItemPickedUp -= UpdateUI;
+            Equipment.OnEquipmentHappened -= UpdateUI;
         }
 
         void UpdateUI()
         {
-            for(int i = 0; i < slots.Length; i++)
+            for (int i = 0; i < slots.Length; i++)
             {
-                if(i < Inventory.inventoryList.Count)
+                if (i < Inventory.inventoryList.Count)
                 {
+                    Debug.Log(Inventory.inventoryList[i]);
                     slots[i].DisplayItem(Inventory.inventoryList[i]);
+                }
+                else
+                {
+                    slots[i].ClearSlot();
                 }
             }
         }

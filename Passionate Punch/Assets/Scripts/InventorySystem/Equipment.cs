@@ -1,8 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using CharacterSystem;
 using Items;
+using UI;
 
 namespace InventorySystem
 {
@@ -12,14 +13,31 @@ namespace InventorySystem
         [SerializeField] private Inventory inventory;
         [SerializeField] private CharacterSettings character;
         public static int equipmentSize = 5;
+        public static List<ItemSettings> equipmentList;
+        public static event Action OnEquipmentHappened;
 
-        public List<ItemSettings> equipmentList = new List<ItemSettings>(equipmentSize);
+        void Start()
+        {
+            equipmentList = new List<ItemSettings>(equipmentSize);
+        }
+
+        void OnEnable()
+        {
+            InventorySlot.OnItemEquip += EquipItem;
+        }
+
+        void OnDisable()
+        {
+            InventorySlot.OnItemEquip -= EquipItem;
+        }
+
         public void EquipItem(ItemSettings item)
         {
-            if (equipmentList.Count < equipmentSize && CheckItemFit(item))
+            if (equipmentList.Count < equipmentSize)
             {
                 equipmentList.Add(item);
-                inventory.RemoveItem(item);
+                Inventory.inventoryList.Remove(item);
+                OnEquipmentHappened?.Invoke();
                 ApplyItemEffects(equipmentList);
             }
         }

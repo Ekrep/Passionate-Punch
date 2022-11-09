@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3788261891594599100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6348170138132092375}
+        m_TargetAssemblyTypeName: UI.InventorySlot, Assembly-CSharp
+        m_MethodName: OnItemChoose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6348170138132092375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotIcon: {fileID: 3788261891594599100}
+  selectionUI: {fileID: 0}
+  defaultImage: {fileID: 21300000, guid: 804bf1139a837534f89c58da52d86028, type: 3}
   item: {fileID: 0}
 --- !u!1 &3788261892800640895
 GameObject:

@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using Items;
+using System;
 
 namespace UI
 {
@@ -9,25 +10,48 @@ namespace UI
     {
         [SerializeField] private Image slotIcon;
         [SerializeField] private ItemSelectionUI selectionUI;
+        public Sprite defaultImage;
         public ItemSettings item;
+        public static event Action<ItemSettings> OnItemEquip;
 
         public void DisplayItem(ItemSettings newItem)
         {
-            item = newItem;
-            slotIcon.sprite = item.itemImage;
-            slotIcon.enabled = true;
+            if (newItem != null)
+            {
+                item = newItem;
+                slotIcon.sprite = item.itemImage;
+                slotIcon.enabled = true;
+            }
+
         }
 
         public void DiscardItem()
         {
-
+            item = null;
+            slotIcon.sprite = defaultImage;
+            slotIcon.enabled = true;
+            selectionUI.gameObject.SetActive(false);
         }
 
-        public void onItemChoose()
+        public void ClearSlot()
         {
-            if(item != null){
+            item = null;
+            slotIcon.sprite = defaultImage;
+            slotIcon.enabled = true;
+            selectionUI.gameObject.SetActive(false);
+        }
+
+        public void OnItemChoose()
+        {
+            if (item != null)
+            {
                 selectionUI.DesignSelectionScreen(item);
             }
+        }
+
+        public void OnEquipButtonPressed()
+        {
+            OnItemEquip?.Invoke(item);
         }
     }
 }

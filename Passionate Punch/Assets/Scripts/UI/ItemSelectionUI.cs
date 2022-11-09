@@ -10,6 +10,7 @@ public class ItemSelectionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI warningText;
+    
     // Start is called before the first frame update
     void Start()
     {
