@@ -24,11 +24,13 @@ namespace InventorySystem
         void OnEnable()
         {
             InventorySlot.OnItemEquip += EquipItem;
+            InventorySlot.OnItemUnequip += UnEquipItem;
         }
 
         void OnDisable()
         {
             InventorySlot.OnItemEquip -= EquipItem;
+            InventorySlot.OnItemUnequip -= UnEquipItem;
         }
 
         public void EquipItem(ItemSettings item)
@@ -50,6 +52,7 @@ namespace InventorySystem
                 item.RevertItemEffect(item.effectAmount);
                 inventory.AddItem(item);
                 equipmentList.Remove(item);
+                OnEquipmentHappened?.Invoke();
                 ApplyItemEffects(equipmentList);
             }
         }

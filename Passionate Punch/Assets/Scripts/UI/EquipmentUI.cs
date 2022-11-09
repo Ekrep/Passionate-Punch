@@ -24,11 +24,15 @@ namespace UI
 
         void UpdateUI()
         {
-            for(int i = 0; i < equipmentSlots.Length; i++)
+            for (int i = 0; i < equipmentSlots.Length; i++)
             {
-                if(i < Equipment.equipmentList.Count)
+                if (i < Equipment.equipmentList.Count)
                 {
                     equipmentSlots[i].DisplayItem(Equipment.equipmentList[i]);
+                }
+                else
+                {
+                    equipmentSlots[i].ClearSlot();
                 }
             }
         }
