@@ -16,6 +16,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered Attack State");
+        enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
         enemy = enemyMovementSM.enemy.gameObject;
@@ -24,9 +25,12 @@ public class EnemyAttackState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        // Enemy's warning UI must always looks at to the camera
         enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
+        // Update player's and enemy's positions in every frame
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
+        // Enemy attacks to the player with respect to distance.
         CalculateDistanceAndAttack();
     }
     public override void Exit()
@@ -43,6 +47,8 @@ public class EnemyAttackState : EnemyBaseState
         }
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
+            enemyMovementSM.enemyAnimator.SetTrigger("Attack");
+            enemyMovementSM.enemy.transform.LookAt(player.transform);
             // Attack to the player
             if (Input.GetMouseButtonDown(0))
             {
