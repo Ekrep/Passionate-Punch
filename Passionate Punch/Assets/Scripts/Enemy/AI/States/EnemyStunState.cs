@@ -80,8 +80,8 @@ public class EnemyStunState : EnemyBaseState
         // If player is close to the enemy, enemy will return to his attack state
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
-            enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
             enemyMovementSM.enemyAnimator.SetTrigger("Attack");
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
         }
     }
 }

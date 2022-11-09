@@ -25,6 +25,7 @@ public class EnemyAttackState : EnemyBaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         // Enemy's warning UI must always looks at to the camera
         enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);
         // Update player's and enemy's positions in every frame
@@ -47,7 +48,6 @@ public class EnemyAttackState : EnemyBaseState
         }
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
-            enemyMovementSM.enemyAnimator.SetTrigger("Attack");
             enemyMovementSM.enemy.transform.LookAt(player.transform);
             // Attack to the player
             if (Input.GetMouseButtonDown(0))
