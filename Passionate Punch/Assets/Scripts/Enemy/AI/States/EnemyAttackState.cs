@@ -55,6 +55,12 @@ public class EnemyAttackState : EnemyBaseState
                 Debug.Log("Enemy Stunned");
                 enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
             }
+            // Dying state. IF enemy dies while its attacking. Enter the dying state here
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Enemy Killed");
+                enemyMovementSM.enemyAnimator.SetTrigger("Die");
+            }
         }
     }
 }

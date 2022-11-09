@@ -42,6 +42,7 @@ public class EnemyStunState : EnemyBaseState
         }
         else if (isOut && stunTime <= 0)
         {
+            enemyMovementSM.enemyAnimator.SetTrigger("Idle");
             enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
         }
     }
