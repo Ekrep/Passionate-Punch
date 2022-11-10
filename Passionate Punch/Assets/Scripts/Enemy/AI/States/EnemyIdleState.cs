@@ -13,7 +13,6 @@ public class EnemyIdleState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered the Idle State");
         enemyMovementSM.enemyAnimator.SetTrigger("Idle");
         stopDistance = 2f;
         // When enemy enters the Idle state, the warning canvas will be passive
@@ -42,7 +41,6 @@ public class EnemyIdleState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Idle State");
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
         enemyMovementSM.enemyAnimator.ResetTrigger("Idle");
     }

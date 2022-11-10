@@ -13,7 +13,6 @@ public class EnemyDieState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered Die State");
         cleanUpTime = 3f;
         enemyMovementSM.enemyAnimator.SetTrigger("Die");
         enemyMovementSM.warnEnemy.gameObject.SetActive(false);
@@ -31,7 +30,6 @@ public class EnemyDieState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Die State");
     }
     void CleanUpBody()
     {

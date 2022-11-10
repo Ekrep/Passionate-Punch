@@ -16,7 +16,6 @@ public class EnemyChasingState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered the chasing state");
         // Stop distance rearrange when player chasing by an enemy
         stopDistance = 2f;
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
@@ -58,7 +57,6 @@ public class EnemyChasingState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Chasing State");
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
     }
     void ChasePlayer()

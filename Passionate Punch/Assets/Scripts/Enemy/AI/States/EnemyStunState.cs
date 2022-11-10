@@ -17,7 +17,6 @@ public class EnemyStunState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered Stun State");
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
         // Stun particles activation
@@ -39,7 +38,6 @@ public class EnemyStunState : EnemyBaseState
         // When enemy exits from stun, it will attack or chase the player with respect to its distance to player
         if (stunTime <= 0 && !isOut)
         {
-            Debug.Log("Exits Stun");
             AttackOrChase();
         }
         else if (isOut && stunTime <= 0)
@@ -56,7 +54,6 @@ public class EnemyStunState : EnemyBaseState
     public override void EnemyTriggerExit(Collider other)
     {
         base.EnemyTriggerExit(other);
-        Debug.Log("Target lost");
         if (other.gameObject.CompareTag("Player"))
         {
             isOut = true;
@@ -65,7 +62,6 @@ public class EnemyStunState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Stun State");
         enemyMovementSM.enemyAnimator.ResetTrigger("Stun");
         isOut = false;
         // Stun particles object passive

@@ -17,7 +17,6 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered the Patrolling State");
         enemyMovementSM.enemyAnimator.SetTrigger("Walk");
         // 1.5 unit per frame
         patrolMoveSpeed = enemyMovementSM.enemyPatrollingSpeed.value;
@@ -67,7 +66,6 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Patrolling State");
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
         enemyMovementSM.enemyAnimator.ResetTrigger("Walk");
     }

@@ -15,7 +15,6 @@ public class EnemyAttackState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered Attack State");
         enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
@@ -37,7 +36,6 @@ public class EnemyAttackState : EnemyBaseState
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Exit Attack State");
         enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
     }
     void CalculateDistanceAndAttack()
@@ -53,13 +51,11 @@ public class EnemyAttackState : EnemyBaseState
             // Attack to the player
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Enemy Stunned");
                 enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
             }
             // Dying state. IF enemy dies while its attacking. Enter the dying state here
             if (Input.GetMouseButtonDown(1))
             {
-                Debug.Log("Enemy Killed");
                 enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
                 enemyMovementSM.ChangeState(enemyMovementSM.enemyDieState);
             }
