@@ -18,6 +18,7 @@ public class EnemyStunState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered Stun State");
+        enemyMovementSM.enemyAnimator.SetTrigger("Stun");
         // Stun particles activation
         enemyMovementSM.stunParticles.gameObject.SetActive(true);
         stunTime = 3f;
@@ -42,7 +43,12 @@ public class EnemyStunState : EnemyBaseState
         }
         else if (isOut && stunTime <= 0)
         {
+            enemyMovementSM.enemyAnimator.SetTrigger("Idle");
             enemyStateMachine.ChangeState(enemyMovementSM.enemyReturnState);
+        }
+        else
+        {
+            enemyMovementSM.enemyAnimator.SetTrigger("Stun");
         }
     }
     // IF player exits the trigger while enemy is in the stun, Enemy will return to its returning state. 
@@ -74,6 +80,7 @@ public class EnemyStunState : EnemyBaseState
         // If player is close to the enemy, enemy will return to his attack state
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
+            enemyMovementSM.enemyAnimator.SetTrigger("Attack");
             enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
         }
     }
