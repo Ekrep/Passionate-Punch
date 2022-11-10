@@ -31,6 +31,8 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyStunState enemyStunState;
     [HideInInspector]
     public EnemyPatrollingState enemyPatrollingState;
+    [HideInInspector]
+    public EnemyDieState enemyDieState;
     private void Awake()
     {
         enemyNavMesh = GetComponent<NavMeshAgent>();
@@ -45,6 +47,7 @@ public class EnemyMovementSM : EnemyStateMachine
         enemyAttackState = new EnemyAttackState(this);
         enemyStunState = new EnemyStunState(this);
         enemyPatrollingState = new EnemyPatrollingState(this);
+        enemyDieState = new EnemyDieState(this);
     }
     protected override EnemyBaseState GetInitialState()
     {
