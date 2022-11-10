@@ -48,12 +48,13 @@ namespace InventorySystem
         {
             if (equipmentList.Contains(item))
             {
-                item.isApplied = false;
+                
                 item.RevertItemEffect(item.effectAmount);
                 inventory.AddItem(item);
                 equipmentList.Remove(item);
                 OnEquipmentHappened?.Invoke();
                 ApplyItemEffects(equipmentList);
+                item.isApplied = false;
             }
         }
 

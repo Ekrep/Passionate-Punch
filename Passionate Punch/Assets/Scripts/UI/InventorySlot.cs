@@ -29,7 +29,13 @@ namespace UI
 
         public void DiscardItem()
         {
-            item.RevertItemEffect(item.effectAmount);
+            if (item.isApplied)
+            {
+                item.RevertItemEffect(item.effectAmount);
+                item.isApplied = false;
+            }
+
+
             item = null;
             slotIcon.sprite = defaultImage;
             slotIcon.enabled = true;

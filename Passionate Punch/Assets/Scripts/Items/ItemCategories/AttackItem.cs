@@ -20,8 +20,8 @@ namespace ItemCategories
 
         public override void RevertItemEffect(float amount)
         {
-            player.attackDamage -= amount;
-            player.attackSpeed -= speedEffectAmount;
+                player.attackDamage -= amount;
+                player.attackSpeed -= speedEffectAmount;
         }
 
     }
