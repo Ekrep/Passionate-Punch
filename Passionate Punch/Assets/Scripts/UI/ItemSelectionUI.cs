@@ -10,8 +10,12 @@ public class ItemSelectionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI warningText;
-    
+
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        warningText.gameObject.SetActive(true);
+    }
     void Start()
     {
         
@@ -25,10 +29,14 @@ public class ItemSelectionUI : MonoBehaviour
 
     public void DesignSelectionScreen(ItemSettings item)
     {
+        this.gameObject.SetActive(true);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
-        if(!player.characterClass.ToString().Equals(item.itemType.ToString()))
-            warningText.enabled = true; //equipe taşınacak.
-        this.gameObject.SetActive(true);
+        if (player.characterClass.ToString()!=item.itemType.ToString())
+            warningText.gameObject.SetActive(true); //equipe taşınacak.
+        Debug.Log(player.characterClass.ToString());
+        Debug.Log(item.itemType.ToString());
+       
+        
     }
 }

@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    public MiniMap miniMap;
+
 
     [HideInInspector]
     public float joystickHorizontalInput;

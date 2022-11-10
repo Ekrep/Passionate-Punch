@@ -35,7 +35,7 @@ public class CharacterAttackingState : CharacterAliveState
     public override void Update()
     {
         base.Update();
-        Debug.Log(_pressCount);
+        //Debug.Log(_pressCount);
         //ControlPressCount();
         SetRotationWhileAttacking();
         ControlStuck();
