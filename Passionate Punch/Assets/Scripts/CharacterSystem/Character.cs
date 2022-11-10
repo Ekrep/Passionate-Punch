@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour
+public  class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public CharacterBaseStateMachine characterBaseStateMachine;
     void Start()
     {
-        
+        GameManager.Instance.SendCharacter(characterBaseStateMachine);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

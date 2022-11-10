@@ -51,10 +51,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterSkills = characterStats.skillList;
         
     }
-    private void OnEnable()
-    {
-        GameManager.Instance.SendCharacter(this);
-    }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Chest>(out Chest chest))
@@ -62,7 +59,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
             chest.Open();
         }
     }
-
+    
 
    
 
