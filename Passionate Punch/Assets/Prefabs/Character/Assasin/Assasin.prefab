@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 7011180708296619033}
   - component: {fileID: 7011180708296619034}
   - component: {fileID: 1124418673}
+  - component: {fileID: 1642363044}
   m_Layer: 0
   m_Name: Assasin
   m_TagString: Untagged
@@ -580,6 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15231e7b7eca42a468bab0f49add906e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSkills: []
   characterStats: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
   anim: {fileID: 6924387902956930987}
   characterMovementSpeed: 0
@@ -597,7 +599,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52cca45b60a56d44a8a36c05b527e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryList: []
+--- !u!114 &1642363044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd263390b2659649b6ab103feef7d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterBaseStateMachine: {fileID: 7011180708296619034}
 --- !u!1 &7011264710593025413
 GameObject:
   m_ObjectHideFlags: 0
