@@ -28,12 +28,24 @@ namespace SkillSystem
         public float activeTime;
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
+        [HideInInspector]
+        public CharacterBaseStateMachine Character
+        {
+            get
+            {
+                return GameManager.Instance.character;
+            }
+        }
 
-        
-        
-       
+
+
         public abstract void Cast();
         public abstract IEnumerator RevertSkillEffect(float time);
+
+        public abstract IEnumerator ExitCastState(float time);
+        
+
+
     }
 
 }

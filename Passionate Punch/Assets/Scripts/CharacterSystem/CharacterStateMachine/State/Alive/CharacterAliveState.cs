@@ -30,6 +30,11 @@ public class CharacterAliveState : CharacterBaseState
             sm.characterSkills[0].Cast();
             //sm.characterStats.mana = sm.characterSkills[0].manaCost;
         }
+        if (Input.GetKeyDown(KeyCode.P) && sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active)
+        {
+            sm.characterSkills[1].Cast();
+            //sm.characterStats.mana = sm.characterSkills[0].manaCost;
+        }
     }
 
 

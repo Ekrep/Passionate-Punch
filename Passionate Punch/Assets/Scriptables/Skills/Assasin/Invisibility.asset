@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 0
   hitType: 0
-  animationName: Null
+  animationName: Invisibility
   skillName: Invisibility
   description: Free
   skillSprite: {fileID: 0}
   manaCost: 0
-  activeTime: 5
+  activeTime: 7
   skillEffectAmount: 10
   coolDown: 999
   invisMat: {fileID: 2100000, guid: 1668a7c73b80bba4cbf1a7afd1672262, type: 2}

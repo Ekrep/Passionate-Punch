@@ -14,6 +14,11 @@ namespace Skills
             throw new System.NotImplementedException();
         }
 
+        public override IEnumerator ExitCastState(float time)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override IEnumerator RevertSkillEffect(float time)
         {
             throw new System.NotImplementedException();
