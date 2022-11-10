@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 public class EnemyMovementSM : EnemyStateMachine
 {
+    // Temporary Buttons
+    public Button stunButton, killButton;
+    ////////////////////
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;

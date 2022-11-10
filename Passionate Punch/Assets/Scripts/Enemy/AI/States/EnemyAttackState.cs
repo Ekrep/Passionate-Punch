@@ -15,6 +15,10 @@ public class EnemyAttackState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
+        // TEMPORARY BUTTON FUNCTIONS
+        enemyMovementSM.stunButton.onClick.AddListener(StunEnemy);
+        enemyMovementSM.killButton.onClick.AddListener(KillEnemy);
+        //////////////////////////////
         enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
@@ -47,18 +51,17 @@ public class EnemyAttackState : EnemyBaseState
         }
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
-            enemyMovementSM.enemy.transform.LookAt(player.transform);
             // Attack to the player
-            if (Input.GetMouseButtonDown(0))
-            {
-                enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
-            }
-            // Dying state. IF enemy dies while its attacking. Enter the dying state here
-            if (Input.GetMouseButtonDown(1))
-            {
-                enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
-                enemyMovementSM.ChangeState(enemyMovementSM.enemyDieState);
-            }
+            enemyMovementSM.enemy.transform.LookAt(player.transform);
         }
+    }
+    void StunEnemy()
+    {
+        enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
+    }
+    void KillEnemy()
+    {
+        enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
+        enemyMovementSM.ChangeState(enemyMovementSM.enemyDieState);
     }
 }
