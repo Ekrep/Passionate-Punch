@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using SkillSystem;
 
+
 namespace Skills
 {
-    [CreateAssetMenu(menuName = "Scriptables/Skills/RangePassiveSkill")]
-
-    public class RangePassiveSkill : SkillSettings
+    [CreateAssetMenu(menuName = "Scriptables/Skills/Assasinate")]
+    public class Assasinate : SkillSettings
     {
         public override void Cast()
         {
@@ -18,5 +18,7 @@ namespace Skills
         {
             throw new System.NotImplementedException();
         }
+
+
     }
 }

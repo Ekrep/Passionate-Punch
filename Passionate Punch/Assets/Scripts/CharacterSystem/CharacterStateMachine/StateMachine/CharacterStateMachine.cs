@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SkillSystem;
 
 public class CharacterStateMachine : MonoBehaviour
 {
     CharacterBaseState currentState;
+
+   
     private void Start()
     {
         currentState = GetInitialState();
         if (currentState!=null)
         {
             currentState.Enter();
+            
         }
     }
     private void FixedUpdate()

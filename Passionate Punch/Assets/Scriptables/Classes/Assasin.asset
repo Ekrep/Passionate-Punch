@@ -32,4 +32,6 @@ MonoBehaviour:
   manaRecoveryAmount: 0
   experience: 0
   money: 0
+  skillList:
+  - {fileID: 11400000, guid: c1edf11fe8266e44b96be86a85a64afa, type: 2}
   characterClass: 0

@@ -12,12 +12,13 @@ namespace SkillSystem
             Medium,
             Hard
         }
-        /*public enum SkillType => Not necessary
+        public enum SkillType 
         {
             Passive,
             Active
-        }*/
+        }
 
+        public SkillType skillType;
         public HitType hitType;
         public string animationName;
         public string skillName;
@@ -28,6 +29,9 @@ namespace SkillSystem
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
 
+        
+        
+       
         public abstract void Cast();
         public abstract IEnumerator RevertSkillEffect(float time);
     }

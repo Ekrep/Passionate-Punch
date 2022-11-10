@@ -1,5 +1,7 @@
 using UnityEngine;
 using Interfaces;
+using System.Collections.Generic;
+using SkillSystem;
 
 namespace CharacterSystem
 {
@@ -28,12 +30,15 @@ namespace CharacterSystem
         public float manaRecoveryAmount;
         public float experience;
         public int money;
+        public List<SkillSettings> skillList;
         public CharacterClassType characterClass;
         public enum CharacterClassType
         {
             Assasin,
             Ranger
         }
+
+        
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CharacterSystem;
 using Items;
+using SkillSystem;
 
 public class CharacterBaseStateMachine : CharacterStateMachine
 {
@@ -19,7 +20,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     [HideInInspector]
     public CharacterDeadState characterDeadState;
 
-
+    public List<SkillSettings> characterSkills;
 
 
     public CharacterSettings characterStats;
@@ -47,6 +48,12 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
 
         characterMovementSpeed = characterStats.moveSpeed;
+        characterSkills = characterStats.skillList;
+        
+    }
+    private void OnEnable()
+    {
+        GameManager.Instance.SendCharacter(this);
     }
     private void OnTriggerEnter(Collider other)
     {
