@@ -18,6 +18,7 @@ public class EnemyStunState : EnemyBaseState
     {
         base.Enter();
         Debug.Log("Entered Stun State");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
         // Stun particles activation
         enemyMovementSM.stunParticles.gameObject.SetActive(true);
@@ -65,6 +66,7 @@ public class EnemyStunState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Stun State");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Stun");
         isOut = false;
         // Stun particles object passive
         enemyMovementSM.stunParticles.gameObject.SetActive(false);

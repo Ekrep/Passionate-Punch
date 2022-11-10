@@ -38,6 +38,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Attack State");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
     }
     void CalculateDistanceAndAttack()
     {
@@ -59,7 +60,8 @@ public class EnemyAttackState : EnemyBaseState
             if (Input.GetMouseButtonDown(1))
             {
                 Debug.Log("Enemy Killed");
-                enemyMovementSM.enemyAnimator.SetTrigger("Die");
+                enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
+                enemyMovementSM.ChangeState(enemyMovementSM.enemyDieState);
             }
         }
     }

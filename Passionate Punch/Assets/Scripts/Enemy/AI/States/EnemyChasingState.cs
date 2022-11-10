@@ -34,6 +34,7 @@ public class EnemyChasingState : EnemyBaseState
         awakeTime -= Time.deltaTime;        
         if (awakeTime <= 0)
         {
+            enemyMovementSM.enemyAnimator.ResetTrigger("Idle");
             ChasePlayer();
             CalculateDistanceToPlayer();
             enemyMovementSM.enemyAnimator.SetTrigger("Run");
@@ -58,6 +59,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Chasing State");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Run");
     }
     void ChasePlayer()
     {

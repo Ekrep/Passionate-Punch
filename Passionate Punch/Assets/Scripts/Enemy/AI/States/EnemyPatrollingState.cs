@@ -69,6 +69,7 @@ public class EnemyPatrollingState : EnemyBaseState
         base.Exit();
         Debug.Log("Exit Patrolling State");
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
+        enemyMovementSM.enemyAnimator.ResetTrigger("Walk");
     }
     void PatrolBetweenPoints()
     {

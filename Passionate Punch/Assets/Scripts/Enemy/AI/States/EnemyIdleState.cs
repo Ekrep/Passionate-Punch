@@ -44,5 +44,6 @@ public class EnemyIdleState : EnemyBaseState
         base.Exit();
         Debug.Log("Exit Idle State");
         enemyMovementSM.enemyNavMesh.stoppingDistance = stopDistance;
+        enemyMovementSM.enemyAnimator.ResetTrigger("Idle");
     }
 }

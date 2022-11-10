@@ -38,6 +38,7 @@ public class EnemyReturnState : EnemyBaseState
         timeToStartReturning -= Time.deltaTime;
         if (timeToStartReturning <= 0)
         {
+            enemyMovementSM.enemyAnimator.ResetTrigger("Idle");
             ReturnToCamp();
             enemyMovementSM.enemyAnimator.SetTrigger("Walk");
         }
@@ -61,6 +62,8 @@ public class EnemyReturnState : EnemyBaseState
     {
         base.Exit();
         Debug.Log("Exit Returning state");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Walk");
+        enemyMovementSM.enemyAnimator.ResetTrigger("Idle");
     }
     // TO force enemy to return to its camp
     void ReturnToCamp()
