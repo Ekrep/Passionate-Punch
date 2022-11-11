@@ -13,16 +13,28 @@ namespace Skills
         public GameObject particleSystemGameObjectPrefab;
         public override void Cast()
         {
-            GameObject gO;
-            gO = Instantiate(particleSystemGameObjectPrefab);
-            gO.transform.SetPositionAndRotation(new Vector3(Character.transform.position.x, Character.transform.position.y + 1f, Character.transform.position.z), Quaternion.Euler(-90,0,0));
-            gO.GetComponent<ParticleSystem>().Play();
-            Character.ChangeState(Character.characterSkillCastState);
-            Character.anim.SetBool(animationName, true);
+            if (canCast)
+            {
+                GameObject gO;
+                gO = Instantiate(particleSystemGameObjectPrefab);
+                gO.transform.SetPositionAndRotation(new Vector3(Character.transform.position.x, Character.transform.position.y + 1f, Character.transform.position.z), Quaternion.Euler(-90, 0, 0));
+                gO.GetComponent<ParticleSystem>().Play();
+                Character.ChangeState(Character.characterSkillCastState);
+                Character.anim.SetBool(animationName, true);
 
-            Character.StartCoroutine(ExitCastState(0.7f));
-            Destroy(gO, 0.5f);
+                Character.StartCoroutine(ExitCastState(0.7f));
+                Character.StartCoroutine(Cooldown(coolDown));
+                Destroy(gO, 0.5f);
+                canCast = false;
+            }
+            
 
+        }
+
+        public override IEnumerator Cooldown(float time)
+        {
+            yield return new WaitForSeconds(time);
+            canCast = true;
         }
 
         public override IEnumerator ExitCastState(float time)

@@ -44,6 +44,8 @@ namespace SkillSystem
         public float coolDown;
         [HideInInspector]
         public CharacterBaseStateMachine Character;
+
+        public bool canCast;
        
 
 
@@ -52,6 +54,8 @@ namespace SkillSystem
         public abstract IEnumerator RevertSkillEffect(float time);
 
         public abstract IEnumerator ExitCastState(float time);
+
+        public abstract IEnumerator Cooldown(float time);
         
 
 

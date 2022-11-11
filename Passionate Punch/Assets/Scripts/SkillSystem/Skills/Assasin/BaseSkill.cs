@@ -17,17 +17,22 @@ namespace Skills
         
         public override void Cast()
         {
-            GameObject gameObject;
-            gameObject=Instantiate(stormExplodePsObject);
-            gameObject.GetComponent<ParticleSystem>().Play();
-            gameObject.transform.SetPositionAndRotation(new Vector3(Character.transform.position.x,Character.transform.position.y+1f,Character.transform.position.z), Quaternion.identity);
-            Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = invisMat;
-            Character.StartCoroutine(RevertSkillEffect(activeTime));
-            Character.ChangeState(Character.characterSkillCastState);
-            Character.anim.SetBool(animationName, true);//Needs animation Adjustment
-            Character.StartCoroutine(ExitCastState(0.5f));
-
-            Destroy(gameObject, 1f);
+            if (canCast)
+            {
+                GameObject gameObject;
+                gameObject = Instantiate(stormExplodePsObject);
+                gameObject.GetComponent<ParticleSystem>().Play();
+                gameObject.transform.SetPositionAndRotation(new Vector3(Character.transform.position.x, Character.transform.position.y + 1f, Character.transform.position.z), Quaternion.identity);
+                Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = invisMat;
+                Character.StartCoroutine(RevertSkillEffect(activeTime));
+                Character.ChangeState(Character.characterSkillCastState);
+                Character.anim.SetBool(animationName, true);//Needs animation Adjustment
+                Character.StartCoroutine(ExitCastState(0.5f));
+                Character.StartCoroutine(Cooldown(coolDown));
+                Destroy(gameObject, 1f);
+                canCast = false;
+            }
+            
            // Debug.Log(GameManager.Instance.character.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material=invisMat);
         }
 
@@ -44,9 +49,10 @@ namespace Skills
             Character.ChangeState(Character.characterIdleState);
         }
 
-        
-
-
-       
+        public override IEnumerator Cooldown(float time)
+        {
+            yield return new WaitForSeconds(time);
+            canCast = true;
+        }
     }
 }
