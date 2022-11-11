@@ -13,6 +13,8 @@ public class CharacterSkillCastState : CharacterAliveState
     {
         base.Enter();
         sm.anim.SetBool("SkillCasting", true);
+        sm.anim.SetBool("Moving", false);
+
     }
 
     public override void Exit()

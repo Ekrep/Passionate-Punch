@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,5 +24,16 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
+
+    public static event Action OnRefreshMiniMap;
+
+
+    public void RefreshMiniMap()
+    {
+        if (OnRefreshMiniMap!=null)
+        {
+            OnRefreshMiniMap();
+        }
+    }
     
 }

@@ -6,6 +6,10 @@ namespace Items
 {
     public class Chest : MonoBehaviour
     {
+        [Header("MiniMapIcon")]
+        public MiniMapIcon miniMapIcon;
+
+
         [Header("Lid")]
         public GameObject chestLid;
         [SerializeField]
@@ -17,6 +21,7 @@ namespace Items
 
 
         [Header("Parameters")]
+
         public int itemIndex;
         public int chestCount;
         [SerializeField] private int maxChestCount; //Can be changed after trial and fail.
@@ -64,6 +69,7 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
+            miniMapIcon.DisableIcon();
             _isOpened = true;
 
 

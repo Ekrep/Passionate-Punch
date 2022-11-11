@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,6 +811,7 @@ GameObject:
   - component: {fileID: 519750288}
   - component: {fileID: 519750287}
   - component: {fileID: 519750286}
+  - component: {fileID: 519750289}
   m_Layer: 0
   m_Name: Chest (2)
   m_TagString: Untagged
@@ -843,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMapIcon: {fileID: 519750289}
   chestLid: {fileID: 1612164191}
   _explosionForce: 250
   _lidDissappearTime: 2
@@ -868,6 +870,22 @@ Transform:
   m_Father: {fileID: 113251716}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519750289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519750285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d910e5300481af549bbb9f6b6b12b3ef, type: 3}
+  realWorldPos: {fileID: 0}
+  gameObjectOnMiniMap: {fileID: 0}
+  iconType: 0
 --- !u!1 &609826723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,12 +1051,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1167188, y: 0.88521177, z: 1.1167139}
   m_Center: {x: 0, y: 0.44222352, z: 0}
---- !u!4 &692647156 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7009483183499396343, guid: d7e374de0998e2f4fb58bcac22cae221,
-    type: 3}
-  m_PrefabInstance: {fileID: 865099097815357587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731799412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMapIcon: {fileID: 731799416}
   chestLid: {fileID: 1673010720}
   _explosionForce: 250
   _lidDissappearTime: 2
@@ -1120,8 +1133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d910e5300481af549bbb9f6b6b12b3ef, type: 3}
   realWorldPos: {fileID: 0}
+  gameObjectOnMiniMap: {fileID: 0}
   iconType: 0
 --- !u!1 &831919213
 GameObject:
@@ -2096,8 +2110,8 @@ MonoBehaviour:
   staticIcons: []
   dynamicIcons: []
   _miniMapImage: {fileID: 1862447933}
-  _iconsParentObject: {fileID: 391613894}
-  _player: {fileID: 692647156}
+  _iconsParentObject: {fileID: 1862447932}
+  _playerIcon: {fileID: 1589254456}
   _mapLeftCorner3D: {fileID: 183852063}
   _mapRightCorner3D: {fileID: 609826724}
   _mapRightDownCorner3D: {fileID: 170875153}
@@ -2657,7 +2671,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 58, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1589254457
 MonoBehaviour:
@@ -2679,7 +2693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 25c2b4cda785ee4489ea15cd8bdb371e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3639,6 +3653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMapIcon: {fileID: 0}
   chestLid: {fileID: 1719491128465870}
   _explosionForce: 250
   _lidDissappearTime: 2
