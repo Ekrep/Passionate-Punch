@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 421406776673317602}
   - component: {fileID: 421406776673317603}
   - component: {fileID: 3871261126159755831}
+  - component: {fileID: -5542543655261233318}
   m_Layer: 0
   m_Name: Angel Axe
   m_TagString: Untagged
@@ -203,7 +204,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 55ce8a3b5a66efc4195e34019198cfba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,6 +226,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &-5542543655261233318
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421406776673317600}
+  m_Mesh: {fileID: 4300000, guid: 1b681d93b3f50274ebf28451bbe5233f, type: 3}
 --- !u!1 &421406776892133931
 GameObject:
   m_ObjectHideFlags: 0
