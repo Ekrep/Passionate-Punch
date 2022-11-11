@@ -15,10 +15,6 @@ public class EnemyAttackState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        // TEMPORARY BUTTON FUNCTIONS
-        enemyMovementSM.stunButton.onClick.AddListener(StunEnemy);
-        enemyMovementSM.killButton.onClick.AddListener(KillEnemy);
-        //////////////////////////////
         enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
@@ -53,6 +49,10 @@ public class EnemyAttackState : EnemyBaseState
         {
             // Attack to the player
             enemyMovementSM.enemy.transform.LookAt(player.transform);
+            // TEMPORARY BUTTON FUNCTIONS
+            enemyMovementSM.stunButton.onClick.AddListener(StunEnemy);
+            enemyMovementSM.killButton.onClick.AddListener(KillEnemy);
+            //////////////////////////////
         }
     }
     void StunEnemy()
