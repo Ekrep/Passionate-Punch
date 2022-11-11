@@ -22,7 +22,7 @@ public class EnemyPatrollingState : EnemyBaseState
         patrolMoveSpeed = enemyMovementSM.enemyPatrollingSpeed.value;
         enemyMovementSM.enemyNavMesh.speed = patrolMoveSpeed;
         // Stop distance between patrolling points
-        isCloseEnough = .05f;
+        isCloseEnough = .1f;
         enemyMovementSM.enemyNavMesh.stoppingDistance = isCloseEnough;
         // Stop distance between player and enemy
         stopDistance = 2f;

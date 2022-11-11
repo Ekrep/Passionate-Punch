@@ -20,7 +20,7 @@ namespace Items
         {
             //GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
             GetComponentInChildren<MeshFilter>().mesh = itemSettings.itemMesh;
-            player = GameManager.Instance.character.transform;
+           // player = GameManager.Instance.character.transform;
         }
 
         void Update()
