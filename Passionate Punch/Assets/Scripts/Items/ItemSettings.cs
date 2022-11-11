@@ -7,6 +7,7 @@ namespace Items
     {
         //This is an abstract scriptable class that holds pure data about items. 
         public CharacterSettings player;
+        public Mesh itemMesh;
         public string itemTitle;
         public Sprite itemImage;
         public string itemDescription;

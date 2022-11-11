@@ -18,7 +18,8 @@ namespace Items
         
         void Start()
         {
-            GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
+            //GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
+            GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;
         }
 
         void Update()

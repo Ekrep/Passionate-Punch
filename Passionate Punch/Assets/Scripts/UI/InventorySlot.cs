@@ -21,10 +21,9 @@ namespace UI
             if (newItem != null)
             {
                 item = newItem;
-                slotIcon.sprite = item.itemImage;
+                slotIcon.sprite = newItem.itemImage;
                 slotIcon.enabled = true;
             }
-
         }
 
         public void DiscardItem()
@@ -34,7 +33,6 @@ namespace UI
                 item.RevertItemEffect(item.effectAmount);
                 item.isApplied = false;
             }
-
 
             item = null;
             slotIcon.sprite = defaultImage;

@@ -32,7 +32,10 @@ namespace UI
 
         public void DisplayInventory()
         {
-            inventory.gameObject.SetActive(true);
+            CanvasGroup canvasGroup = inventory.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.interactable = true;
         }
     }
 }

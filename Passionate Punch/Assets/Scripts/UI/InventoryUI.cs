@@ -37,7 +37,6 @@ namespace UI
             {
                 if (i < Inventory.inventoryList.Count)
                 {
-                    Debug.Log(Inventory.inventoryList[i]);
                     slots[i].DisplayItem(Inventory.inventoryList[i]);
                 }
                 else
@@ -49,7 +48,10 @@ namespace UI
 
         public void CloseAllPanels()
         {
-            this.gameObject.SetActive(false);
+            CanvasGroup canvasGroup = this.gameObject.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 0f;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.interactable = false;
             selectionUI.gameObject.SetActive(false);
             unequipPanel.SetActive(false);
         }

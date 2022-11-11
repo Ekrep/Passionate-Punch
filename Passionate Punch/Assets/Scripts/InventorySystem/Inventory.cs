@@ -17,6 +17,7 @@ namespace InventorySystem
         {
             inventoryList = new List<ItemSettings>(inventorySize);
         }
+
         public bool AddItem(ItemSettings item)
         {
             if (CheckInventorySize())
