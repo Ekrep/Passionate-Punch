@@ -21,8 +21,8 @@ public class EnemyPatrollingState : EnemyBaseState
         // 1.5 unit per frame
         patrolMoveSpeed = enemyMovementSM.enemyPatrollingSpeed.value;
         enemyMovementSM.enemyNavMesh.speed = patrolMoveSpeed;
-        // Stop distance between patrolling points
-        isCloseEnough = .1f;
+        // Stop distance between patrolling points // This brokes up when scale up the player
+        isCloseEnough = .05f;
         enemyMovementSM.enemyNavMesh.stoppingDistance = isCloseEnough;
         // Stop distance between player and enemy
         stopDistance = 2f;
