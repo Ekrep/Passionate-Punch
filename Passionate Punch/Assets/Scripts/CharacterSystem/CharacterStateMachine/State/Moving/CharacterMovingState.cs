@@ -64,8 +64,8 @@ public class CharacterMovingState : CharacterCanAttackableState
                 break;
 
             case RuntimePlatform.WindowsEditor:
-                xInput = Input.GetAxisRaw("Horizontal");
-                zInput = Input.GetAxisRaw("Vertical");
+                xInput = Input.GetAxis("Horizontal");
+                zInput = Input.GetAxis("Vertical");
                 break;
         }
        
