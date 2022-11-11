@@ -15,13 +15,13 @@ public class ItemSelectionUI : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void DisableEquipButton()
@@ -30,14 +30,26 @@ public class ItemSelectionUI : MonoBehaviour
         equipButton.SetActive(false);
     }
 
+    void EnableEquipButton()
+    {
+        warningText.gameObject.SetActive(false);
+        equipButton.SetActive(true);
+    }
+
     public void DesignSelectionScreen(ItemSettings item)
     {
         this.gameObject.SetActive(true);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
-        if(player.characterClass != item.itemType && item.itemType != ClassType.ClassTypeEnum.All)
+        if (player.characterClass != item.itemType && item.itemType != ClassType.ClassTypeEnum.All)
         {
             DisableEquipButton();
         }
+        else
+        {
+            EnableEquipButton();
+        }
+
     }
 }
+
