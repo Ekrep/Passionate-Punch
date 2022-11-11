@@ -10,6 +10,8 @@ namespace UI
         InventorySlot[] slots;
         [SerializeField] public Image playerImageField;
         [SerializeField] public Sprite playerImage;
+        [SerializeField] public ItemSelectionUI selectionUI;
+        [SerializeField] public GameObject unequipPanel;
 
         void Start()
         {
@@ -45,9 +47,15 @@ namespace UI
             }
         }
 
-        public void ClosePanel()
+        public void CloseAllPanels()
         {
             this.gameObject.SetActive(false);
+            selectionUI.gameObject.SetActive(false);
+            unequipPanel.SetActive(false);
+        }
+        public void ClosePanel()
+        {
+            selectionUI.gameObject.SetActive(false);
         }
     }
 }

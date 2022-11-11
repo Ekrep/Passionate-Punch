@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Items;
 using CharacterSystem;
+using InventorySystem;
 
 public class ItemSelectionUI : MonoBehaviour
 {
@@ -10,12 +11,8 @@ public class ItemSelectionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI warningText;
+    [SerializeField] private GameObject equipButton;
 
-    // Start is called before the first frame update
-    private void OnEnable()
-    {
-        warningText.gameObject.SetActive(true);
-    }
     void Start()
     {
         
@@ -27,16 +24,20 @@ public class ItemSelectionUI : MonoBehaviour
         
     }
 
+    void DisableEquipButton()
+    {
+        warningText.gameObject.SetActive(true);
+        equipButton.SetActive(false);
+    }
+
     public void DesignSelectionScreen(ItemSettings item)
     {
         this.gameObject.SetActive(true);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
-        if (player.characterClass.ToString()!=item.itemType.ToString())
-            warningText.gameObject.SetActive(true); //equipe taşınacak.
-        Debug.Log(player.characterClass.ToString());
-        Debug.Log(item.itemType.ToString());
-       
-        
+        if(player.characterClass != item.itemType && item.itemType != ClassType.ClassTypeEnum.All)
+        {
+            DisableEquipButton();
+        }
     }
 }

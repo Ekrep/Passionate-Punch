@@ -35,20 +35,19 @@ namespace InventorySystem
 
         public void EquipItem(ItemSettings item)
         {
-            if (equipmentList.Count < equipmentSize)
-            {
-                equipmentList.Add(item);
-                Inventory.inventoryList.Remove(item);
-                OnEquipmentHappened?.Invoke();
-                ApplyItemEffects(equipmentList);
-            }
+                if (equipmentList.Count < equipmentSize)
+                {
+                    equipmentList.Add(item);
+                    Inventory.inventoryList.Remove(item);
+                    OnEquipmentHappened?.Invoke();
+                    ApplyItemEffects(equipmentList);
+                }
         }
 
         public void UnEquipItem(ItemSettings item)
         {
             if (equipmentList.Contains(item))
             {
-                
                 item.RevertItemEffect(item.effectAmount);
                 inventory.AddItem(item);
                 equipmentList.Remove(item);
@@ -60,7 +59,10 @@ namespace InventorySystem
 
         public bool CheckItemFit(ItemSettings item)
         {
-            return character.characterClass.Equals(item.itemType);
+            Debug.Log(character.characterClass.Equals(item.itemType));
+            if (character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
+                return true;
+            return false;
         }
 
         public void ApplyItemEffects(List<ItemSettings> itemList)
