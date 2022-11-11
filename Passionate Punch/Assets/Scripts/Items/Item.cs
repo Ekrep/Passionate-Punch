@@ -15,11 +15,12 @@ namespace Items
         [SerializeField] private Rigidbody rigidBody;
         public Rigidbody Rigidbody => rigidBody;
         [SerializeField] public GameObject itemText;
-        
+
         void Start()
         {
             //GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
-            GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;
+            GetComponentInChildren<MeshFilter>().mesh = itemSettings.itemMesh;
+            player = GameManager.Instance.character.transform;
         }
 
         void Update()
@@ -29,18 +30,18 @@ namespace Items
 
         void OnTriggerEnter(Collider collider)
         {
-            if (collider.gameObject.GetComponent<Inventory>()!=null)
+            if (collider.gameObject.GetComponent<Inventory>() != null)
             {
                 if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
                 {
                     PickedUp();
-                }    
+                }
             }
         }
 
         void CheckDistance()
         {
-            if(player.position.x - this.transform.position.x < itemSettings.radius || 
+            if (player.position.x - this.transform.position.x < itemSettings.radius ||
             player.position.z - this.transform.position.z < itemSettings.radius)
             {
                 itemText.GetComponent<TextMeshProUGUI>().text = itemSettings.itemTitle;

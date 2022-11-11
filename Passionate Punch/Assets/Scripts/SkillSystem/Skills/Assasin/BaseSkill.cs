@@ -10,7 +10,8 @@ namespace Skills
 
     public class BaseSkill : SkillSettings
     {
-        private Material firstMat;
+        
+        [SerializeField] private Material _firstMat;
         public Material invisMat;
         public GameObject stormExplodePsObject;
         
@@ -20,7 +21,6 @@ namespace Skills
             gameObject=Instantiate(stormExplodePsObject);
             gameObject.GetComponent<ParticleSystem>().Play();
             gameObject.transform.SetPositionAndRotation(new Vector3(Character.transform.position.x,Character.transform.position.y+1f,Character.transform.position.z), Quaternion.identity);
-            firstMat = Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material;
             Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = invisMat;
             Character.StartCoroutine(RevertSkillEffect(activeTime));
             Character.ChangeState(Character.characterSkillCastState);
@@ -34,7 +34,7 @@ namespace Skills
         public override IEnumerator RevertSkillEffect(float time)
         {
             yield return new WaitForSeconds(time);
-            Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = firstMat;
+            Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _firstMat;
         }
 
         public override IEnumerator ExitCastState(float time)

@@ -25,13 +25,13 @@ namespace Items
         public int itemIndex;
         public int chestCount;
         [SerializeField] private int maxChestCount; //Can be changed after trial and fail.
-        [SerializeField] private List<ItemSettings> allItems = new List<ItemSettings>();
-        public List<ItemSettings> chestList;
+        [SerializeField] private List<Item> allItems;
+        public List<Item> chestList;
 
         // Start is called before the first frame update
         void Start()
         {
-
+            FillChest();
         }
 
         // Update is called once per frame
@@ -43,9 +43,10 @@ namespace Items
         public void FillChest()
         {
             chestCount = Random.Range(1, maxChestCount);
-            for(int i = 0; i < chestCount; i++){
+            for (int i = 0; i < chestCount; i++)
+            {
                 itemIndex = Random.Range(0, allItems.Count);
-                ItemSettings tempItem = allItems[itemIndex];
+                Item tempItem = allItems[itemIndex];
                 chestList.Add(tempItem);
             }
         }
@@ -57,11 +58,10 @@ namespace Items
             {
                 OpenChestX();
             }
-            
         }
 
 
-       
+
 
         public void OpenChestX()
         {
@@ -69,12 +69,9 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
-            miniMapIcon.DisableIcon();
+            //miniMapIcon.DisableIcon();
             _isOpened = true;
-
-
-           
-            
+            StartCoroutine(ExplodeChest());
 
         }
         private void OnDrawGizmos()
@@ -92,9 +89,17 @@ namespace Items
 
         }
 
+        IEnumerator ExplodeChest()
+        {
+            yield return new WaitForSeconds(1f);
+            foreach (Item item in chestList)
+            {
+                Instantiate(item.gameObject, new Vector3(this.gameObject.transform.position.x,
+                this.gameObject.transform.position.y, this.gameObject.transform.position.z + 2.5f), Quaternion.identity);
 
+                //item.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
+            }
 
-
-
+        }
     }
 }
