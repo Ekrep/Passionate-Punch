@@ -24,21 +24,13 @@ namespace CharacterSystem
         public float healthRecoveryTime;
         public float healthRecoveryPeriod;
         public float healthRecoveryAmount;
-
         public float manaRecoveryTime;
         public float manaRecoveryPeriod;
         public float manaRecoveryAmount;
         public float experience;
         public int money;
         public List<SkillSettings> skillList;
-        public CharacterClassType characterClass;
-        public enum CharacterClassType
-        {
-            Assasin,
-            Ranger
-        }
-
-        
+        public ClassType.ClassTypeEnum characterClass;
     }
 }
 

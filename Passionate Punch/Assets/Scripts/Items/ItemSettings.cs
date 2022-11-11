@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using InventorySystem;
 using CharacterSystem;
 
 namespace Items
@@ -19,13 +16,7 @@ namespace Items
         public bool isStackable;
         public bool isApplied;
         public int countInInventory;
-        public ItemClassType itemType;
-        public enum ItemClassType
-        {
-            Assasin,
-            Ranger,
-            All
-        }
+        public ClassType.ClassTypeEnum itemType;
         public abstract void ApplyItemEffect(float amount);
         public abstract void RevertItemEffect(float amount);
     }
