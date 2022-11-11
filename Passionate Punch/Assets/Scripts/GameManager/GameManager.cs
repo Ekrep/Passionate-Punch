@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [HideInInspector]
-    public CharacterBaseStateMachine character;
+    
+    //public CharacterBaseStateMachine character;
 
     //player referans eventle aktar.
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine character)
     {
-        this.character = character;
+        //this.character = character;
     }
 
     private void OnDisable()

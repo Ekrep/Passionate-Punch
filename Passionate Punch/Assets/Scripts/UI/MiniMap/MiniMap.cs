@@ -45,6 +45,12 @@ public class MiniMap : MonoBehaviour
     private void OnEnable()
     {
         UIManager.OnRefreshMiniMap += UIManager_OnRefreshMiniMap;
+        GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+    }
+
+    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+    {
+        _player = obj.transform;
     }
 
     private void UIManager_OnRefreshMiniMap()
@@ -63,10 +69,11 @@ public class MiniMap : MonoBehaviour
     private void OnDisable()
     {
         UIManager.OnRefreshMiniMap -= UIManager_OnRefreshMiniMap;
+        GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
     void Start()
     {
-        _player = GameManager.Instance.character.gameObject.transform;
+       
         //ratio=CalculateRatio(mapLeftCorner3D.position,mapRightCorner3D.position,mapRightDownCorner3D.position,mapLeftCorner2D.localPosition,mapRightCorner2D.localPosition,mapRightDownCorner2D.localPosition);
         CalculateRatio(_mapLeftCorner3D.position,_mapRightCorner3D.position,_mapRightDownCorner3D.position,_mapLeftCorner2D.localPosition,_mapRightCorner2D.localPosition,_mapRightDownCorner2D.localPosition);
         //playerInMap.localPosition = player.transform.position * ratio;

@@ -41,6 +41,7 @@ namespace UI
         public void CastSkillOne()
         {
             UIManager.Instance.isPressedSkillOne = true;
+            
         }
         public void UnCastSkillOne()
         {
@@ -49,6 +50,7 @@ namespace UI
         public void CastSkillTwo()
         {
             UIManager.Instance.isPressedSkillTwo = true;
+           
         }
         public void UnCastSkillTwo()
         {

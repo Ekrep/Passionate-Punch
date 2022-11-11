@@ -16,11 +16,26 @@ namespace Items
         public Rigidbody Rigidbody => rigidBody;
         [SerializeField] public GameObject itemText;
 
+        private void OnEnable()
+        {
+            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+        }
+
+        private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+        {
+            player = obj.gameObject.transform;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+        }
+
         void Start()
         {
             //GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
             GetComponentInChildren<MeshFilter>().mesh = itemSettings.itemMesh;
-           // player = GameManager.Instance.character.transform;
+           
         }
 
         void Update()

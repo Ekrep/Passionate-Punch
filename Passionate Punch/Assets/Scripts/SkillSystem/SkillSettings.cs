@@ -6,6 +6,20 @@ namespace SkillSystem
 {
     public abstract class SkillSettings : ScriptableObject
     {
+        private void OnEnable()
+        {
+            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+        }
+
+        private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+        {
+            Character = obj;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+        }
         public enum HitType
         {
             Low,
@@ -29,13 +43,8 @@ namespace SkillSystem
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
         [HideInInspector]
-        public CharacterBaseStateMachine Character
-        {
-            get
-            {
-                return GameManager.Instance.character;
-            }
-        }
+        public CharacterBaseStateMachine Character;
+       
 
 
 
