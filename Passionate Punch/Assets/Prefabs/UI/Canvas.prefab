@@ -386,7 +386,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 6993620583318694535}
+  inventory: {fileID: 0}
   attackButton: {fileID: 5307667752485059943}
 --- !u!114 &5307667753361529502
 MonoBehaviour:
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b777320b2173c9c49bf74e75e44f7fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMap: {fileID: 0}
   joystickHorizontalInput: 0
   joystickVerticalInput: 0
   isAttackPress: 0
