@@ -37,5 +37,22 @@ namespace UI
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
         }
+
+        public void CastSkillOne()
+        {
+            UIManager.Instance.isPressedSkillOne = true;
+        }
+        public void UnCastSkillOne()
+        {
+            UIManager.Instance.isPressedSkillOne = false;
+        }
+        public void CastSkillTwo()
+        {
+            UIManager.Instance.isPressedSkillTwo = true;
+        }
+        public void UnCastSkillTwo()
+        {
+            UIManager.Instance.isPressedSkillTwo = false;
+        }
     }
 }

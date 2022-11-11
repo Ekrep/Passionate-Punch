@@ -18,6 +18,12 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public bool isAttackPress;
 
+    [HideInInspector]
+    public bool isPressedSkillOne;
+
+    [HideInInspector]
+    public bool isPressedSkillTwo;
+
 
     private void Awake()
     {
