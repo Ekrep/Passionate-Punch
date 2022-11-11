@@ -31,7 +31,7 @@ namespace Items
         // Start is called before the first frame update
         void Start()
         {
-            FillChest();
+           // FillChest();
         }
 
         // Update is called once per frame
@@ -71,7 +71,7 @@ namespace Items
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
             //miniMapIcon.DisableIcon();
             _isOpened = true;
-            StartCoroutine(ExplodeChest());
+           // StartCoroutine(ExplodeChest());
 
         }
         private void OnDrawGizmos()
