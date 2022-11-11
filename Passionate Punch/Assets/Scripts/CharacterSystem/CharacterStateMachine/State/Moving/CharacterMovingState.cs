@@ -5,9 +5,8 @@ using UnityEngine;
 public class CharacterMovingState : CharacterCanAttackableState
 {
 
-    Vector3 currentPos;
-    Vector3 firstPos;
-    Vector3 deltaPos;
+    private float xInput;
+    private float zInput;
     public CharacterMovingState( CharacterBaseStateMachine stateMachine) : base("Moving", stateMachine)
     {
 
@@ -16,16 +15,22 @@ public class CharacterMovingState : CharacterCanAttackableState
     public override void Enter()
     {
         base.Enter();
-        firstPos = Vector3.zero;
-        sm.anim.SetBool("Moving", true);
+       
+        
     }
 
    
     public override void Update()
     {
         base.Update();
-        currentPos = sm.gameObject.transform.position;
-       
+        Debug.Log(xInput);
+        Debug.Log(zInput);
+        if (xInput == 0 && zInput == 0)
+        {
+            //sm.ChangeState(sm.characterIdleState);
+            sm.anim.SetBool("Moving", false);
+        }
+        Move();
 
 
 
@@ -34,9 +39,8 @@ public class CharacterMovingState : CharacterCanAttackableState
     public override void LateUpdate()
     {
         base.LateUpdate();
-        deltaPos = currentPos - firstPos;
-        firstPos = sm.gameObject.transform.position;
-        Move();
+       
+        
        
 
 
@@ -53,8 +57,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     private void Move()
     {
 
-        float xInput = 0;
-        float zInput = 0;
+       
         
         switch (Application.platform)
         {
@@ -64,19 +67,19 @@ public class CharacterMovingState : CharacterCanAttackableState
                 break;
 
             case RuntimePlatform.WindowsEditor:
-                xInput = Input.GetAxis("Horizontal");
-                zInput = Input.GetAxis("Vertical");
+                xInput = Input.GetAxisRaw("Horizontal");
+                zInput = Input.GetAxisRaw("Vertical");
                 break;
         }
-       
+
         //UI Input geldiginde degisecek
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
-
+            sm.anim.SetBool("Moving", true);
             sm.transform.position = new Vector3(sm.transform.position.x + xInput * sm.characterMovementSpeed * Time.deltaTime, sm.transform.position.y, sm.transform.position.z + zInput * sm.characterMovementSpeed * Time.deltaTime);
             float angleX;
 
-            angleX = Mathf.Atan2(deltaPos.x, deltaPos.z) * Mathf.Rad2Deg;
+            angleX = Mathf.Atan2(xInput,zInput) * Mathf.Rad2Deg;
             //Debug.Log(deltaPos);
             Quaternion quaternion = Quaternion.Euler(sm.transform.rotation.x, angleX, sm.transform.rotation.z);
             if (Vector3.Distance(sm.transform.rotation.eulerAngles, quaternion.eulerAngles) > 0.1f)
@@ -89,11 +92,9 @@ public class CharacterMovingState : CharacterCanAttackableState
             {
                 sm.transform.rotation = quaternion;
             }
+           
         }
-        if (xInput==0&&zInput==0)
-        {
-            sm.ChangeState(sm.characterIdleState);
-        }
+        
 
 
 

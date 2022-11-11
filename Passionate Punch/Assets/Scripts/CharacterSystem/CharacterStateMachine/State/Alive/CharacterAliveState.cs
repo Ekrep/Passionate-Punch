@@ -36,6 +36,10 @@ public class CharacterAliveState : CharacterBaseState
             //sm.characterStats.mana = sm.characterSkills[0].manaCost;
         }
     }
+    public override void LateUpdate()
+    {
+        base.LateUpdate();
+    }
 
 
 

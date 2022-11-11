@@ -15,12 +15,12 @@ public class CharacterIdleState : CharacterCanAttackableState
     public override void Enter()
     {
         base.Enter();
-        
+        sm.ChangeState(sm.characterMovingState);
     }
     public override void Update()
     {
         base.Update();
-        CheckMovementInput();
+        //CheckMovementInput();
     }
     public override void Exit()
     {
