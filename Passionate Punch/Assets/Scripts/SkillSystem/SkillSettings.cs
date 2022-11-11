@@ -9,6 +9,12 @@ namespace SkillSystem
         private void OnEnable()
         {
             GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+            GameManager.OnResetSkills += GameManager_OnResetSkills;
+        }
+
+        private void GameManager_OnResetSkills()
+        {
+            canCast = true;
         }
 
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
@@ -19,6 +25,8 @@ namespace SkillSystem
         private void OnDisable()
         {
             GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+            GameManager.OnResetSkills -= GameManager_OnResetSkills;
+
         }
         public enum HitType
         {
@@ -26,7 +34,7 @@ namespace SkillSystem
             Medium,
             Hard
         }
-        public enum SkillType 
+        public enum SkillType
         {
             Passive,
             Active
@@ -46,7 +54,7 @@ namespace SkillSystem
         public CharacterBaseStateMachine Character;
 
         public bool canCast;
-       
+
 
 
 
@@ -56,7 +64,7 @@ namespace SkillSystem
         public abstract IEnumerator ExitCastState(float time);
 
         public abstract IEnumerator Cooldown(float time);
-        
+
 
 
     }

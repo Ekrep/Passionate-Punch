@@ -9,7 +9,10 @@ namespace Skills
     [CreateAssetMenu(menuName = "Scriptables/Skills/WhrilWind")]
     public class Whirlwind : SkillSettings
     {
-
+        private void OnDisable()
+        {
+            canCast = true;
+        }
         public GameObject particleSystemGameObjectPrefab;
         public override void Cast()
         {
