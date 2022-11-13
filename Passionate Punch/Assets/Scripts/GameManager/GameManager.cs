@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     
-    //public CharacterBaseStateMachine character;
+    public CharacterBaseStateMachine character;
 
     //player referans eventle aktar.
     // Start is called before the first frame update
@@ -22,9 +22,6 @@ public class GameManager : MonoBehaviour
     }
 
     public static event Action<CharacterBaseStateMachine> OnSendCharacter;
-
-
-
     public static event Action OnResetSkills;
 
     public void ResetSkills()
@@ -41,6 +38,7 @@ public class GameManager : MonoBehaviour
         if (OnSendCharacter!=null)
         {
             OnSendCharacter(character);
+            this.character = character;
         }
     }
 

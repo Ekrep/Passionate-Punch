@@ -6,28 +6,7 @@ namespace SkillSystem
 {
     public abstract class SkillSettings : ScriptableObject
     {
-        private void OnEnable()
-        {
-            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
-            GameManager.OnResetSkills += GameManager_OnResetSkills;
-        }
-
-        private void GameManager_OnResetSkills()
-        {
-            canCast = true;
-        }
-
-        private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
-        {
-            Character = obj;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
-            GameManager.OnResetSkills -= GameManager_OnResetSkills;
-
-        }
+       
         public enum HitType
         {
             Low,
@@ -50,8 +29,15 @@ namespace SkillSystem
         public float activeTime;
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
+        public int stackCount;
         [HideInInspector]
-        public CharacterBaseStateMachine Character;
+        public CharacterBaseStateMachine Character
+        {
+            get
+            {
+                return GameManager.Instance.character;
+            }
+        }
 
         public bool canCast;
 
@@ -65,7 +51,7 @@ namespace SkillSystem
 
         public abstract IEnumerator Cooldown(float time);
 
-
+        
 
     }
 

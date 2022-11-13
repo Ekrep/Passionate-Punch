@@ -9,10 +9,8 @@ namespace Skills
     [CreateAssetMenu(menuName = "Scriptables/Skills/WhrilWind")]
     public class Whirlwind : SkillSettings
     {
-        private void OnDisable()
-        {
-            canCast = true;
-        }
+      
+        
         public GameObject particleSystemGameObjectPrefab;
         public override void Cast()
         {
@@ -28,7 +26,7 @@ namespace Skills
                 Character.StartCoroutine(ExitCastState(0.7f));
                 Character.StartCoroutine(Cooldown(coolDown));
                 Destroy(gO, 0.5f);
-                canCast = false;
+                
             }
             
 
@@ -36,8 +34,22 @@ namespace Skills
 
         public override IEnumerator Cooldown(float time)
         {
+            Debug.Log("whrilWind");
+            if (stackCount>0)
+            {
+                stackCount--;
+            }
+            
+            if (stackCount==0)
+            {
+                canCast = false;
+            }
             yield return new WaitForSeconds(time);
-            canCast = true;
+            stackCount++;
+            if (stackCount>0)
+            {
+                canCast = true;
+            }
         }
 
         public override IEnumerator ExitCastState(float time)
