@@ -22,7 +22,7 @@ MonoBehaviour:
   activeTime: 7
   skillEffectAmount: 10
   coolDown: 10
-  Character: {fileID: 0}
+  stackCount: 17
   canCast: 1
   _firstMat: {fileID: 2100000, guid: 06d40dc2e1401784eb420a0d2d5d7235, type: 2}
   invisMat: {fileID: 2100000, guid: 1668a7c73b80bba4cbf1a7afd1672262, type: 2}
