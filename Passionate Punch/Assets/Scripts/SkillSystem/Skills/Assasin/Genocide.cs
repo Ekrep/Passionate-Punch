@@ -1,36 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SkillSystem;
 
-
-namespace Skills
+public class Genocide : MonoBehaviour
 {
-    [CreateAssetMenu(menuName = "Scriptables/Skills/Genocide")]
-    public class Genocide : SkillSettings
+    public List<GameObject> assasinSilhouettes;
+
+    public MeshRenderer ambiance;
+
+    [SerializeField]
+    private float _darkenSpeed;
+
+    [SerializeField]
+    private float _silhouetteAlphaIncreaseSpeed;
+
+    private float _silhoutteCreationDelayTime;
+    
+    void Start()
     {
-
-
-        public override void Cast()
+        for (int i = 0; i < assasinSilhouettes.Count; i++)
         {
-
+            assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", -1);
         }
-
-        public override IEnumerator Cooldown(float time)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override IEnumerator ExitCastState(float time)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override IEnumerator RevertSkillEffect(float time)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        //ambiance.material.SetFloat("_Dissolve", 0);
+        LightManager.Instance.DarkenedWorld(_darkenSpeed);
+        StartCoroutine(CastSkillEffects());
 
     }
+
+    
+    IEnumerator CastSkillEffects()
+    {
+        
+        for (int i = 0; i < assasinSilhouettes.Count; i++)
+        {
+            float alphaValue = assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha");
+            while (assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha")!=0.75f)
+            {
+                alphaValue = Mathf.MoveTowards(alphaValue, 0.75f,_silhouetteAlphaIncreaseSpeed);
+                assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", alphaValue);
+                yield return new WaitForEndOfFrame();
+                if (alphaValue==0.75f)
+                {
+                    yield return new WaitForSeconds(_silhoutteCreationDelayTime);
+                }
+            }
+        }
+    }
 }
+
+
+
