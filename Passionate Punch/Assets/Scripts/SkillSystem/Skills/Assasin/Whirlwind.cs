@@ -35,11 +35,13 @@ namespace Skills
         public override IEnumerator Cooldown(float time)
         {
             Debug.Log("whrilWind");
+            canCast = false;
             if (stackCount>0)
             {
                 stackCount--;
             }
-            
+            yield return new WaitForSeconds(stackCastCoolDown);
+            canCast = true;
             if (stackCount==0)
             {
                 canCast = false;
