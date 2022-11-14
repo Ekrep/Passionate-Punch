@@ -7,7 +7,7 @@ namespace Items
     public class Chest : MonoBehaviour
     {
         [Header("MiniMapIcon")]
-        public MiniMapIcon miniMapIcon;
+        //public MiniMapIcon miniMapIcon;
 
 
         [Header("Lid")]
@@ -25,13 +25,14 @@ namespace Items
         public int itemIndex;
         public int chestCount;
         [SerializeField] private int maxChestCount; //Can be changed after trial and fail.
-        [SerializeField] private List<Item> allItems;
-        public List<Item> chestList;
+        [SerializeField] private List<ItemSettings> allItemSettings;
+        public List<ItemSettings> chestList;
+        public GameObject itemPrefab;
 
         // Start is called before the first frame update
         void Start()
         {
-           // FillChest();
+            FillChest();
         }
 
         // Update is called once per frame
@@ -43,10 +44,12 @@ namespace Items
         public void FillChest()
         {
             chestCount = Random.Range(1, maxChestCount);
+            Debug.Log("chest" + chestCount);
             for (int i = 0; i < chestCount; i++)
             {
-                itemIndex = Random.Range(0, allItems.Count);
-                Item tempItem = allItems[itemIndex];
+                itemIndex = Random.Range(0, allItemSettings.Count);
+                Debug.Log("itemindex" + itemIndex);
+                ItemSettings tempItem = allItemSettings[itemIndex];
                 chestList.Add(tempItem);
             }
         }
@@ -69,9 +72,9 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
-            miniMapIcon.DisableIcon();
+            //miniMapIcon.DisableIcon();
             _isOpened = true;
-           // StartCoroutine(ExplodeChest());
+            StartCoroutine(ExplodeChest());
 
         }
         private void OnDrawGizmos()
@@ -85,19 +88,17 @@ namespace Items
             yield return new WaitForSeconds(dissappearTime);
             chestLid.SetActive(false);
             this.enabled = false;
-
-
         }
 
         IEnumerator ExplodeChest()
         {
             yield return new WaitForSeconds(1f);
-            foreach (Item item in chestList)
+            foreach (ItemSettings item in chestList)
             {
-                Instantiate(item.gameObject, new Vector3(this.gameObject.transform.position.x,
-                this.gameObject.transform.position.y, this.gameObject.transform.position.z + 2.5f), Quaternion.identity);
-
-                //item.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
+                itemPrefab.GetComponent<Item>().itemSettings = item;
+                Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x -2, 
+                this.gameObject.transform.position.y, -this.gameObject.transform.position.z), Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
             }
 
         }
