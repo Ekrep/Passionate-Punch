@@ -628,7 +628,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionButton
       value: 
-      objectReference: {fileID: 2019765596}
+      objectReference: {fileID: 2019765598}
     - target: {fileID: 5307667753562354617, guid: ae62b19ed8ae0d44897b3101ead102b0,
         type: 3}
       propertyPath: m_AnchorMax.y
