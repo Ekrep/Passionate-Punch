@@ -25,6 +25,7 @@ public class CharacterAliveState : CharacterBaseState
     public override void Update()
     {
         base.Update();
+       
         switch (Application.platform)
         {
             case RuntimePlatform.Android:

@@ -34,5 +34,5 @@ MonoBehaviour:
   money: 0
   skillList:
   - {fileID: 11400000, guid: c1edf11fe8266e44b96be86a85a64afa, type: 2}
-  - {fileID: 11400000, guid: 1999edb7f907b77489904f81e51190c0, type: 2}
+  - {fileID: 11400000, guid: d87c0dd6d0ff56e418102524b1e7d0be, type: 2}
   characterClass: 0

@@ -41,29 +41,33 @@ namespace UI
 
         public void CastSkillOne()
         {
+           
             UIManager.Instance.isPressedSkillOne = true;
-            StartCoroutine(MakeInputFalse(UIManager.Instance.isPressedSkillOne));
+            StartCoroutine(UnCastSkillOne());
+           
 
         }
-        public void UnCastSkillOne()
+        IEnumerator UnCastSkillOne()
         {
+            yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillOne = false;
         }
         public void CastSkillTwo()
         {
-            UIManager.Instance.isPressedSkillTwo = true;
-            StartCoroutine(MakeInputFalse(UIManager.Instance.isPressedSkillTwo));
            
+            UIManager.Instance.isPressedSkillTwo = true;
+            StartCoroutine(UnCastSkillTwo());
+            
+
+
         }
-        public void UnCastSkillTwo()
-        {
-            UIManager.Instance.isPressedSkillTwo = false;
-        }
-        IEnumerator MakeInputFalse(bool value)
+        IEnumerator  UnCastSkillTwo()
         {
             yield return new WaitForEndOfFrame();
-            value = false;
+            UIManager.Instance.isPressedSkillTwo = false;
         }
+       
+     
         
     }
    
