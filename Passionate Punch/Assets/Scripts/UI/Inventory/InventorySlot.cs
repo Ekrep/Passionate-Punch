@@ -2,12 +2,14 @@ using UnityEngine.UI;
 using UnityEngine;
 using Items;
 using System;
+using CharacterSystem;
 
 namespace UI
 {
 
     public class InventorySlot : MonoBehaviour
     {
+        [SerializeField] private CharacterSettings character;
         [SerializeField] private Image slotIcon;
         [SerializeField] private ItemSelectionUI selectionUI;
         [SerializeField] private GameObject equippedPanel;
@@ -30,7 +32,7 @@ namespace UI
         {
             if (item.isApplied)
             {
-                item.RevertItemEffect(item.effectAmount);
+                item.RevertItemEffect(character, item.effectAmount);
                 item.isApplied = false;
             }
 

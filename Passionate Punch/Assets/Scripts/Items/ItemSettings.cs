@@ -6,7 +6,6 @@ namespace Items
     public abstract class ItemSettings : ScriptableObject
     {
         //This is an abstract scriptable class that holds pure data about items. 
-        public CharacterSettings player;
         public Mesh itemMesh;
         public Material itemMaterial;
         public string itemTitle;
@@ -19,8 +18,8 @@ namespace Items
         public bool isApplied;
         public int countInInventory;
         public ClassType.ClassTypeEnum itemType;
-        public abstract void ApplyItemEffect(float amount);
-        public abstract void RevertItemEffect(float amount);
+        public abstract void ApplyItemEffect(CharacterSettings player, float amount);
+        public abstract void RevertItemEffect(CharacterSettings player, float amount);
         public abstract void ConfigureDescription();
     }
 }

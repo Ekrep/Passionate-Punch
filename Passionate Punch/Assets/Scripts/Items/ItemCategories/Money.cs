@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using CharacterSystem;
 
 namespace ItemCategories
 {
@@ -9,11 +10,11 @@ namespace ItemCategories
     {
         public int lowerBound;
         public int upperBound;
-        public override void ApplyItemEffect(float amount)
+        public override void ApplyItemEffect(CharacterSettings player, float amount)
         {
             player.money += (int)amount;
         }
-        public override void RevertItemEffect(float amount)
+        public override void RevertItemEffect(CharacterSettings player, float amount)
         {
             player.money -= (int)amount;
         }

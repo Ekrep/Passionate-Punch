@@ -15,21 +15,10 @@ namespace Items
         [SerializeField] private Rigidbody rigidBody;
         public Rigidbody Rigidbody => rigidBody;
 
-        private void OnEnable()
-        {
-            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
-        }
-
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
         {
             player = obj.gameObject.transform;
         }
-
-        private void OnDisable()
-        {
-            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
-        }
-
         void Start()
         {
             GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;

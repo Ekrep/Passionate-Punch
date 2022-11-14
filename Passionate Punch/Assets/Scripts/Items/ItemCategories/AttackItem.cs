@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using CharacterSystem;
 
 namespace ItemCategories
 {
@@ -11,18 +12,14 @@ namespace ItemCategories
     {
         //Attack items increase player's attack damage and speed.
         public float speedEffectAmount;
-        void Start()
-        {
 
-        }
-
-        public override void ApplyItemEffect(float amount)
+        public override void ApplyItemEffect(CharacterSettings player, float amount)
         {
             player.attackDamage += amount;
             player.attackSpeed += speedEffectAmount;
         }
 
-        public override void RevertItemEffect(float amount)
+        public override void RevertItemEffect(CharacterSettings player, float amount)
         {
             player.attackDamage -= amount;
             player.attackSpeed -= speedEffectAmount;

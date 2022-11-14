@@ -48,7 +48,7 @@ namespace InventorySystem
         {
             if (equipmentList.Contains(item))
             {
-                item.RevertItemEffect(item.effectAmount);
+                item.RevertItemEffect(character, item.effectAmount);
                 inventory.AddItem(item);
                 equipmentList.Remove(item);
                 OnEquipmentHappened?.Invoke();
@@ -71,7 +71,7 @@ namespace InventorySystem
             {
                 if (!item.isApplied)
                 {
-                    item.ApplyItemEffect(item.effectAmount);
+                    item.ApplyItemEffect(character, item.effectAmount);
                     item.isApplied = true;
                 }
             }
