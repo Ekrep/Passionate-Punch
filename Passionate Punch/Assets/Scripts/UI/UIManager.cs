@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public MiniMap miniMap;
-
+    public GameObject interactionButton;
 
     [HideInInspector]
     public float joystickHorizontalInput;
