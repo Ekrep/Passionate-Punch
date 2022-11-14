@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace UI
 {
@@ -41,6 +42,8 @@ namespace UI
         public void CastSkillOne()
         {
             UIManager.Instance.isPressedSkillOne = true;
+            StartCoroutine(MakeInputFalse(UIManager.Instance.isPressedSkillOne));
+
         }
         public void UnCastSkillOne()
         {
@@ -49,10 +52,19 @@ namespace UI
         public void CastSkillTwo()
         {
             UIManager.Instance.isPressedSkillTwo = true;
+            StartCoroutine(MakeInputFalse(UIManager.Instance.isPressedSkillTwo));
+           
         }
         public void UnCastSkillTwo()
         {
             UIManager.Instance.isPressedSkillTwo = false;
         }
+        IEnumerator MakeInputFalse(bool value)
+        {
+            yield return new WaitForEndOfFrame();
+            value = false;
+        }
+        
     }
+   
 }

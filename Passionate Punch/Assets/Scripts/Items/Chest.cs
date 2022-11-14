@@ -69,7 +69,7 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
-            //miniMapIcon.DisableIcon();
+            miniMapIcon.DisableIcon();
             _isOpened = true;
            // StartCoroutine(ExplodeChest());
 

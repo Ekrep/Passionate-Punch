@@ -22,4 +22,5 @@ MonoBehaviour:
   activeTime: 0
   skillEffectAmount: 0
   coolDown: 0
-  skillPrefab: {fileID: 0}
+  Character: {fileID: 0}
+  canCast: 1

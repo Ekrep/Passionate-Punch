@@ -51,7 +51,15 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterSkills = characterStats.skillList;
         
     }
-   
+    private void OnDisable()
+    {
+        for (int i = 0; i < characterSkills.Count; i++)
+        {
+            characterSkills[i].canCast = true;
+        }
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Chest>(out Chest chest))

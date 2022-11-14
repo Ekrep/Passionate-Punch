@@ -6,13 +6,14 @@ namespace SkillSystem
 {
     public abstract class SkillSettings : ScriptableObject
     {
+       
         public enum HitType
         {
             Low,
             Medium,
             Hard
         }
-        public enum SkillType 
+        public enum SkillType
         {
             Passive,
             Active
@@ -28,6 +29,7 @@ namespace SkillSystem
         public float activeTime;
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
+        public int stackCount;
         [HideInInspector]
         public CharacterBaseStateMachine Character
         {
@@ -37,14 +39,19 @@ namespace SkillSystem
             }
         }
 
+        public bool canCast;
+
+
 
 
         public abstract void Cast();
         public abstract IEnumerator RevertSkillEffect(float time);
 
         public abstract IEnumerator ExitCastState(float time);
-        
 
+        public abstract IEnumerator Cooldown(float time);
+
+        
 
     }
 

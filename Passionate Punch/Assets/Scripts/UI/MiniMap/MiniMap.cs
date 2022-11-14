@@ -15,7 +15,7 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     private GameObject _iconsParentObject;
 
-    
+
     private Transform _player;
 
     [SerializeField]
@@ -45,17 +45,23 @@ public class MiniMap : MonoBehaviour
     private void OnEnable()
     {
         UIManager.OnRefreshMiniMap += UIManager_OnRefreshMiniMap;
+        GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+    }
+
+    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+    {
+        _player = obj.transform;
     }
 
     private void UIManager_OnRefreshMiniMap()
     {
         for (int i = 0; i < staticIcons.Count; i++)
         {
-            if (staticIcons[i].GetComponent<MiniMapIcon>().icon==null)
+            if (staticIcons[i].GetComponent<MiniMapIcon>().icon == null)
             {
                 Destroy(staticIcons[i].gameObjectOnMiniMap);
                 staticIcons.Remove(staticIcons[i]);
-                
+
             }
         }
     }
@@ -63,17 +69,16 @@ public class MiniMap : MonoBehaviour
     private void OnDisable()
     {
         UIManager.OnRefreshMiniMap -= UIManager_OnRefreshMiniMap;
+        GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
     void Start()
     {
-        _player = GameManager.Instance.character.gameObject.transform;
+
         //ratio=CalculateRatio(mapLeftCorner3D.position,mapRightCorner3D.position,mapRightDownCorner3D.position,mapLeftCorner2D.localPosition,mapRightCorner2D.localPosition,mapRightDownCorner2D.localPosition);
-        CalculateRatio(_mapLeftCorner3D.position,_mapRightCorner3D.position,_mapRightDownCorner3D.position,_mapLeftCorner2D.localPosition,_mapRightCorner2D.localPosition,_mapRightDownCorner2D.localPosition);
+        CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
         //playerInMap.localPosition = player.transform.position * ratio;
-        if (staticIcons.Count != 0)
-        {
-            SetStaticIcons();
-        }
+        SetStaticIcons();
+
 
 
 
@@ -84,14 +89,14 @@ public class MiniMap : MonoBehaviour
     {
         //CalculateRatio(mapLeftCorner3D.position, mapRightCorner3D.position, mapRightDownCorner3D.position, mapLeftCorner2D.localPosition, mapRightCorner2D.localPosition, mapRightDownCorner2D.localPosition);
         _miniMapImage.localPosition = new Vector2(-_player.position.x * (_ratioX), -_player.position.z * (_ratioY));
-        _playerIcon.transform.localEulerAngles =new Vector3(0,0, -_player.transform.eulerAngles.y) ;
-        
+        _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_player.transform.eulerAngles.y);
+
     }
 
 
 
 
-    private void CalculateRatio(Vector3 upLeftCorner,Vector3 upRightCorner,Vector3 rightDownCorner, Vector2 miniMapUpLeftCorner, Vector2 miniMapUpRightCorner, Vector2 miniMapRightDownCorner)
+    private void CalculateRatio(Vector3 upLeftCorner, Vector3 upRightCorner, Vector3 rightDownCorner, Vector2 miniMapUpLeftCorner, Vector2 miniMapUpRightCorner, Vector2 miniMapRightDownCorner)
     {
         float realWorldXLenght;
         realWorldXLenght = Vector3.Distance(upLeftCorner, upRightCorner);//Mathf.Abs(upLeftCorner.x - upRightCorner.x);
@@ -121,9 +126,9 @@ public class MiniMap : MonoBehaviour
             gO.transform.position = Vector3.zero;
             gO.GetComponent<Image>().sprite = staticIcons[i].icon;
             staticIcons[i].gameObjectOnMiniMap = gO;
-            gO.transform.localPosition = new Vector2(staticIcons[i].realWorldPos.position.x*_ratioX, staticIcons[i].realWorldPos.position.z*_ratioY);
+            gO.transform.localPosition = new Vector2(staticIcons[i].realWorldPos.position.x * _ratioX, staticIcons[i].realWorldPos.position.z * _ratioY);
 
-            
+
         }
     }
 }
