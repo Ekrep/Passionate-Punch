@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
     public MiniMap miniMap;
-    public GameObject interactionButton;
+    public Button interactionButton;
 
     [HideInInspector]
     public float joystickHorizontalInput;
@@ -29,7 +30,10 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
     }
-
+    private void Start()
+    {
+        interactionButton.gameObject.SetActive(false);
+    }
 
     public static event Action OnRefreshMiniMap;
 
