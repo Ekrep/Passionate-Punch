@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Items;
 
-public class CharacterAttackingState : CharacterAliveState
+public class CharacterAttackingState : CharacterCanSkillCastableState
 {
 
     private bool _stuckItHere;

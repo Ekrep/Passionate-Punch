@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterCanAttackableState : CharacterAliveState
+public class CharacterCanAttackableState : CharacterCanSkillCastableState
 {
     public bool stillPressingAttack = false;
 
