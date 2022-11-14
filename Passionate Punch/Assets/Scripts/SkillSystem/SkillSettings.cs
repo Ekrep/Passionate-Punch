@@ -29,6 +29,10 @@ namespace SkillSystem
         public float activeTime;
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
+        public float stackCastCoolDown;
+
+        public int baseStackCount;
+        [HideInInspector]
         public int stackCount;
         [HideInInspector]
         public CharacterBaseStateMachine Character
