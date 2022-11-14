@@ -3628,6 +3628,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4834107132627190466, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834107132627190466, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4834107132644955269, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
         type: 3}
       propertyPath: m_Name
@@ -3742,4 +3752,5 @@ MonoBehaviour:
   - {fileID: 2063365926}
   - {fileID: 1961705934}
   ambiance: {fileID: 891495858}
-  _darkenSpeed: 0.5
+  _darkenSpeed: 0.01
+  _silhouetteAlphaIncreaseSpeed: 0.01
