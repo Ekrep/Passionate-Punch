@@ -14,7 +14,11 @@ public class BlackMarketEnter : MonoBehaviour
     }
     public void OnMarketEnter()
     {
-        UIManager.Instance.interactionButton.gameObject.SetActive(true);
+        if (!UIManager.Instance.interactionButton.gameObject.activeInHierarchy)
+        {
+            UIManager.Instance.interactionButton.gameObject.SetActive(true);
+        }
+        UIManager.Instance.interactionButton.interactable = true;
         Debug.Log("Entered to the Black Market");
     }
 }

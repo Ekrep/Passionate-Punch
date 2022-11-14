@@ -14,7 +14,7 @@ public class BlackMarketExit : MonoBehaviour
     }
     public void OnMarketExit()
     {
-        UIManager.Instance.interactionButton.gameObject.SetActive(false);
+        UIManager.Instance.interactionButton.interactable = false;
         Debug.Log("Exited to the Black Market");
     }
 }
