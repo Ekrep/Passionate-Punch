@@ -3754,3 +3754,4 @@ MonoBehaviour:
   ambiance: {fileID: 891495858}
   _darkenSpeed: 0.01
   _silhouetteAlphaIncreaseSpeed: 0.01
+  _silhoutteCreationDelayTime: 0.5
