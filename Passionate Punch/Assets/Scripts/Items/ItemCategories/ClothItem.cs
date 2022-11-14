@@ -23,5 +23,10 @@ namespace ItemCategories
             player.manaRecoveryAmount -= amount;
             player.moveSpeed -= amount;
         }
+
+        public override void ConfigureDescription()
+        {
+            itemDescription = "";
+        }
     }
 }

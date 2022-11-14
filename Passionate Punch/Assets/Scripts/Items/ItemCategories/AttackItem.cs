@@ -10,8 +10,12 @@ namespace ItemCategories
     public class AttackItem : ItemSettings
     {
         //Attack items increase player's attack damage and speed.
-
         public float speedEffectAmount;
+        void Start()
+        {
+
+        }
+
         public override void ApplyItemEffect(float amount)
         {
             player.attackDamage += amount;
@@ -24,5 +28,9 @@ namespace ItemCategories
             player.attackSpeed -= speedEffectAmount;
         }
 
+        public override void ConfigureDescription()
+        {
+            itemDescription = "+" + effectAmount + " AD, +" + speedEffectAmount + " Attack Speed";
+        }
     }
 }

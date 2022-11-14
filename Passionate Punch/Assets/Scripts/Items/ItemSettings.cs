@@ -21,5 +21,6 @@ namespace Items
         public ClassType.ClassTypeEnum itemType;
         public abstract void ApplyItemEffect(float amount);
         public abstract void RevertItemEffect(float amount);
+        public abstract void ConfigureDescription();
     }
 }

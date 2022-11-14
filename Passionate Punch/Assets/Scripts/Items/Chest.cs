@@ -96,8 +96,9 @@ namespace Items
             foreach (ItemSettings item in chestList)
             {
                 itemPrefab.GetComponent<Item>().itemSettings = item;
+                itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
                 Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x -0.5f, 
-                this.gameObject.transform.position.y, -this.gameObject.transform.position.z), Quaternion.identity);
+                this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
                 yield return new WaitForSeconds(0.5f);
             }
 

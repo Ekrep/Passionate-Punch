@@ -21,5 +21,10 @@ namespace ItemCategories
             player.attackDamage -= amount;
             player.maxMana -= amount;
         }
+
+        public override void ConfigureDescription()
+        {
+            itemDescription = "";
+        }
     }
 }

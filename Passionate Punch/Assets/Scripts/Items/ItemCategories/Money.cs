@@ -28,5 +28,10 @@ namespace ItemCategories
         {
 
         }
+
+       public override void ConfigureDescription()
+        {
+            itemDescription = "";
+        }
     }
 }
