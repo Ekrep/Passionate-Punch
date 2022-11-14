@@ -18,19 +18,13 @@ public class GameManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        ResetSkills();
+        
     }
 
     public static event Action<CharacterBaseStateMachine> OnSendCharacter;
-    public static event Action OnResetSkills;
+    
 
-    public void ResetSkills()
-    {
-        if (OnResetSkills!=null)
-        {
-            OnResetSkills();
-        }
-    }
+  
 
 
     public void SendCharacter(CharacterBaseStateMachine character)

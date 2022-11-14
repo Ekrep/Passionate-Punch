@@ -22,7 +22,7 @@ namespace Skills
                 gO.GetComponent<ParticleSystem>().Play();
                 Character.ChangeState(Character.characterSkillCastState);
                 Character.anim.SetBool(animationName, true);
-
+                
                 Character.StartCoroutine(ExitCastState(0.7f));
                 Character.StartCoroutine(Cooldown(coolDown));
                 Destroy(gO, 0.5f);

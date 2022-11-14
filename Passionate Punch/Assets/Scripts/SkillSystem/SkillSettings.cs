@@ -41,6 +41,8 @@ namespace SkillSystem
 
         public bool canCast;
 
+        
+
 
 
 
