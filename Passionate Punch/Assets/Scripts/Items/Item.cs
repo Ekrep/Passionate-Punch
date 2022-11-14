@@ -14,7 +14,6 @@ namespace Items
         [SerializeField] public Transform player;
         [SerializeField] private Rigidbody rigidBody;
         public Rigidbody Rigidbody => rigidBody;
-        [SerializeField] public GameObject itemText;
 
         private void OnEnable()
         {
@@ -33,14 +32,14 @@ namespace Items
 
         void Start()
         {
-            //GetComponent<SpriteRenderer>().sprite = itemSettings.itemImage;
-            GetComponentInChildren<MeshFilter>().mesh = itemSettings.itemMesh;
+            GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;
+            GetComponent<MeshRenderer>().material = itemSettings.itemMaterial;
            
         }
 
         void Update()
         {
-            CheckDistance();
+            //CheckDistance();
         }
 
         void OnTriggerEnter(Collider collider)
@@ -54,7 +53,7 @@ namespace Items
             }
         }
 
-        void CheckDistance()
+        /*void CheckDistance()
         {
             if (player.position.x - this.transform.position.x < itemSettings.radius ||
             player.position.z - this.transform.position.z < itemSettings.radius)
@@ -62,7 +61,7 @@ namespace Items
                 itemText.GetComponent<TextMeshProUGUI>().text = itemSettings.itemTitle;
                 itemText.SetActive(true);
             }
-        }
+        }*/
 
         public void PickedUp()
         {
