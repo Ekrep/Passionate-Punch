@@ -59,7 +59,8 @@ namespace UI
 
         public void OnEquippedItemChoose()
         {
-            equippedPanel.SetActive(true);
+            if(item != null)
+                equippedPanel.SetActive(true);
         }
 
         public void OnEquipButtonPressed()
