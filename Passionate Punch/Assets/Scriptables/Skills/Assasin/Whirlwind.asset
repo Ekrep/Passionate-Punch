@@ -22,7 +22,9 @@ MonoBehaviour:
   activeTime: 0
   skillEffectAmount: 0
   coolDown: 5
-  stackCount: 0
+  stackCastCoolDown: 0.5
+  baseStackCount: 3
+  stackCount: 3
   canCast: 1
   particleSystemGameObjectPrefab: {fileID: 1737036121482468, guid: 6c3372b1be39690469c1358cce9a28b6,
     type: 3}

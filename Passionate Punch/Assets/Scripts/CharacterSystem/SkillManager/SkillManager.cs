@@ -8,6 +8,11 @@ public class SkillManager : MonoBehaviour
     private void OnDisable()
     {
         ResetCanCast();
+        ResetStackCounts();
+    }
+    private void Start()
+    {
+        ResetStackCounts();
     }
 
 
@@ -18,6 +23,14 @@ public class SkillManager : MonoBehaviour
         for (int i = 0; i < character.characterSkills.Count; i++)
         {
             character.characterSkills[i].canCast = true;
+        }
+    }
+
+    public void ResetStackCounts()
+    {
+        for (int i = 0; i < character.characterSkills.Count; i++)
+        {
+            character.characterSkills[i].stackCount = character.characterSkills[i].baseStackCount;
         }
     }
 }
