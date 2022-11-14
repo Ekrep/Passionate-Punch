@@ -14,6 +14,7 @@ public class Genocide : MonoBehaviour
     [SerializeField]
     private float _silhouetteAlphaIncreaseSpeed;
 
+    [SerializeField]
     private float _silhoutteCreationDelayTime;
     
     void Start()
