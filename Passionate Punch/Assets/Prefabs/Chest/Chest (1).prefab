@@ -238,7 +238,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072366853723103798}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.3070593, y: -1.0172255, z: 3.8906016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -260,15 +260,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniMapIcon: {fileID: 2072366853723103802}
   chestLid: {fileID: 2072366852781368162}
   _explosionForce: 250
   _lidDissappearTime: 1
   itemIndex: 0
   chestCount: 0
-  maxChestCount: 0
-  allItems: []
+  maxChestCount: 4
+  allItemSettings:
+  - {fileID: 11400000, guid: f5cdc4e6a06881e4ca16e79da3bb6e99, type: 2}
+  - {fileID: 11400000, guid: d81724d2929a86147b7a1fc31402b53e, type: 2}
+  - {fileID: 11400000, guid: 92e96f5036dffa54682dd86782cb827c, type: 2}
+  - {fileID: 11400000, guid: 3270472a6e16642418533e8bcb8e4662, type: 2}
+  - {fileID: 11400000, guid: 0e3c9751e61bc654ba4e5e2b4d9af563, type: 2}
+  - {fileID: 11400000, guid: 3675868250b63eb46a805a864c3403f9, type: 2}
+  - {fileID: 11400000, guid: b052efc0ffaf2d242beef1f15d1d37d2, type: 2}
+  - {fileID: 11400000, guid: 5c904c89d4610d845b3e0a6dadddfcd1, type: 2}
+  - {fileID: 11400000, guid: 005933a1f7e05944aa7eb756be628480, type: 2}
+  - {fileID: 11400000, guid: bb10cef7f995172438a74dd4557e556e, type: 2}
+  - {fileID: 11400000, guid: 84b48eb9164edcb498c18f1bee89b629, type: 2}
+  - {fileID: 11400000, guid: 5c06ceaa4ad428f47bbef47eec78208d, type: 2}
+  - {fileID: 11400000, guid: 20f4a6655c8ca694c9143b2e0039c1f4, type: 2}
+  - {fileID: 11400000, guid: b0c9aeb5dabcd534caff66bd887cea87, type: 2}
   chestList: []
+  itemPrefab: {fileID: 6043827257038485927, guid: 86c4674ef27f6104e9090d6343bb4b65,
+    type: 3}
 --- !u!65 &2072366853723103799
 BoxCollider:
   m_ObjectHideFlags: 0
