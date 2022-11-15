@@ -16,7 +16,15 @@ public class MiniMap : MonoBehaviour
     private GameObject _iconsParentObject;
 
 
-    private Transform _player;
+    private Transform _Player
+    {
+        get
+        {
+            return GameManager.Instance.character.transform;
+        }
+    }
+
+   
 
     [SerializeField]
     private RectTransform _playerIcon;
@@ -45,13 +53,10 @@ public class MiniMap : MonoBehaviour
     private void OnEnable()
     {
         UIManager.OnRefreshMiniMap += UIManager_OnRefreshMiniMap;
-        GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+        
     }
 
-    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
-    {
-        _player = obj.transform;
-    }
+  
 
     private void UIManager_OnRefreshMiniMap()
     {
@@ -69,7 +74,7 @@ public class MiniMap : MonoBehaviour
     private void OnDisable()
     {
         UIManager.OnRefreshMiniMap -= UIManager_OnRefreshMiniMap;
-        GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+       
     }
     void Start()
     {
@@ -88,8 +93,8 @@ public class MiniMap : MonoBehaviour
     void Update()
     {
         //CalculateRatio(mapLeftCorner3D.position, mapRightCorner3D.position, mapRightDownCorner3D.position, mapLeftCorner2D.localPosition, mapRightCorner2D.localPosition, mapRightDownCorner2D.localPosition);
-        _miniMapImage.localPosition = new Vector2(-_player.position.x * (_ratioX), -_player.position.z * (_ratioY));
-        _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_player.transform.eulerAngles.y);
+        _miniMapImage.localPosition = new Vector2(-_Player.position.x * (_ratioX), -_Player.position.z * (_ratioY));
+        _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_Player.eulerAngles.y);
 
     }
 

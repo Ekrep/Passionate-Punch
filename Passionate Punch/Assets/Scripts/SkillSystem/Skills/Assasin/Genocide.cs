@@ -11,7 +11,11 @@ public class Genocide : MonoBehaviour
     [SerializeField]
     private ParticleSystem _lightningParticle;
 
-    public MeshRenderer _ambiance;
+    [SerializeField]
+    private ParticleSystem _slashParticle;
+
+    [SerializeField]
+    private MeshRenderer _ambiance;
     [Header("Light")]
     [SerializeField]
     private float _darkenSpeed;
@@ -40,6 +44,7 @@ public class Genocide : MonoBehaviour
 
     void Start()
     {
+       
         for (int i = 0; i < _assasinSilhouettes.Count; i++)
         {
             _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", -1);
@@ -66,6 +71,14 @@ public class Genocide : MonoBehaviour
                 if (alphaValue==0.3f)
                 {
                     yield return new WaitForSeconds(_silhoutteCreationDelayTime);
+                    _slashParticle.Stop();
+                    if (i!=_assasinSilhouettes.Count-1)
+                    {
+                        float angle = Mathf.Atan2((-_assasinSilhouettes[i].transform.position.x + _assasinSilhouettes[i + 1].transform.position.x), -_assasinSilhouettes[i].transform.position.z + _assasinSilhouettes[i + 1].transform.position.z) * Mathf.Rad2Deg;
+                        _slashParticle.transform.SetPositionAndRotation(new Vector3(_assasinSilhouettes[i].transform.position.x, _assasinSilhouettes[i].transform.position.y + 1, _assasinSilhouettes[i].transform.position.z), Quaternion.Euler(0, angle, 0));
+                        _slashParticle.Play();
+                    }
+                   
 
                 }
             }
@@ -87,6 +100,7 @@ public class Genocide : MonoBehaviour
     IEnumerator CreateAmbiance(float ambianceCreationSpeed)
     {
         LightManager.Instance.DarkenedWorld(_darkenSpeed,_enlightDelay);
+        _lightningParticle.Play();
         float ambianceCreationValue = 0.85f;
         _ambiance.material.SetFloat("_Dissolve", ambianceCreationValue);
         while (_ambiance.material.GetFloat("_Dissolve")!=0)
@@ -97,12 +111,14 @@ public class Genocide : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_ambianceDissappearDelay);
+        
         while (_ambiance.material.GetFloat("_Dissolve") != 0.85f)
         {
             ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0.85f, ambianceCreationSpeed * Time.deltaTime);
             _ambiance.material.SetFloat("_Dissolve", ambianceCreationValue);
             yield return new WaitForEndOfFrame();
         }
+        _lightningParticle.Stop();
 
     }
 }

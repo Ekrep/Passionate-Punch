@@ -5,6 +5,8 @@ using UnityEngine;
 public  class Character : MonoBehaviour
 {
     public CharacterBaseStateMachine characterBaseStateMachine;
+
+
     void Start()
     {
         GameManager.Instance.SendCharacter(characterBaseStateMachine);

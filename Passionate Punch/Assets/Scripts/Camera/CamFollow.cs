@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
-    private Vector3 distance;
+    public enum CamCurrentType
+    {
+        Static,
+        Dynamic
+    }
+
+    [SerializeField]
+    private CamCurrentType _currentType;
+    private Vector3 _distance;
     [SerializeField] private GameObject _followedbyCamObject;
+
+
+
     void Start()
     {
-        distance = _followedbyCamObject.transform.position - gameObject.transform.position;
+        _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
     }
 
     private void LateUpdate()
     {
-        gameObject.transform.position = _followedbyCamObject.transform.position - distance;
+        
+        gameObject.transform.position = _followedbyCamObject.transform.position - _distance;
     }
 }
