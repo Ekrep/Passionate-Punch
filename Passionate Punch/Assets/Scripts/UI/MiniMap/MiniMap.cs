@@ -15,11 +15,13 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     private GameObject _iconsParentObject;
 
+   
 
     private Transform _Player
     {
         get
         {
+            
             return GameManager.Instance.character.transform;
         }
     }
@@ -78,7 +80,8 @@ public class MiniMap : MonoBehaviour
     }
     void Start()
     {
-
+        
+        
         //ratio=CalculateRatio(mapLeftCorner3D.position,mapRightCorner3D.position,mapRightDownCorner3D.position,mapLeftCorner2D.localPosition,mapRightCorner2D.localPosition,mapRightDownCorner2D.localPosition);
         CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
         //playerInMap.localPosition = player.transform.position * ratio;
