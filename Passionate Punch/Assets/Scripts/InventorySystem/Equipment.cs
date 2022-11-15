@@ -49,39 +49,38 @@ namespace InventorySystem
             ApplyItemEffects(equipmentList);
         }
 
-        public void UnEquipItem(ItemSettings item)
+        public void UnEquipItem(int index)
         {
-            Debug.Log("item is :" , item);
-            int slotIndex = ((int)item.itemCategory);
-            item.RevertItemEffect(character, item.effectAmount);
-            inventory.AddItem(item);
-            equipmentList[slotIndex] = null;
+            equipmentList[index].RevertItemEffect(character, equipmentList[index].effectAmount);
+            Inventory.inventoryList.Add(equipmentList[index]);
+            equipmentList[index] = null;
             OnEquipmentHappened?.Invoke();
-            item.isApplied = false;
         }
 
-        public bool CheckItemFit(ItemSettings item)
-        {
-            Debug.Log(character.characterClass.Equals(item.itemType));
-            if (character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
-                return true;
-            return false;
-        }
+    
 
-        public void ApplyItemEffects(ItemSettings[] itemList)
+    public bool CheckItemFit(ItemSettings item)
+    {
+        Debug.Log(character.characterClass.Equals(item.itemType));
+        if (character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
+            return true;
+        return false;
+    }
+
+    public void ApplyItemEffects(ItemSettings[] itemList)
+    {
+        foreach (ItemSettings item in itemList)
         {
-            foreach (ItemSettings item in itemList)
+            if (item != null)
             {
-                if (item != null)
+                if (!item.isApplied)
                 {
-                    if (!item.isApplied)
-                    {
-                        item.ApplyItemEffect(character, item.effectAmount);
-                        item.isApplied = true;
-                    }
+                    item.ApplyItemEffect(character, item.effectAmount);
+                    item.isApplied = true;
                 }
             }
         }
     }
+}
 }
 

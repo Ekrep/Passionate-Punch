@@ -23,7 +23,6 @@ namespace Items
         {
             GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;
             GetComponent<MeshRenderer>().material = itemSettings.itemMaterial;
-           
         }
 
         void Update()

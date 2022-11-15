@@ -3,6 +3,7 @@ using UnityEngine;
 using Items;
 using System;
 using CharacterSystem;
+using InventorySystem;
 
 namespace UI
 {
@@ -15,16 +16,15 @@ namespace UI
         [SerializeField] private GameObject equippedPanel;
         public Sprite defaultImage;
         public ItemSettings item;
+        public int index;
         public static event Action<ItemSettings> OnItemEquip;
-        public static event Action<ItemSettings> OnItemUnequip;
+        public static event Action<int> OnItemUnequip;
 
         public void DisplayItem(ItemSettings newItem)
         {
             if (newItem != null)
             {
                 item = newItem;
-                Debug.Log("new item is: " + newItem.itemTitle);
-                Debug.Log("old item is: " + item.itemTitle);
                 slotIcon.sprite = newItem.itemImage;
                 slotIcon.enabled = true;
             }
@@ -66,8 +66,16 @@ namespace UI
 
         public void OnEquippedItemChoose()
         {
+            
             if (item != null)
                 equippedPanel.SetActive(true);
+                for(int i = 0; i <Equipment.equipmentList.Length; i++)
+                {
+                    if (Equipment.equipmentList[i] == item)
+                    {
+                        index = i;
+                    }
+                }
         }
 
         public void OnEquipButtonPressed()
@@ -77,8 +85,12 @@ namespace UI
 
         public void OnUnequipButtonPressed()
         {
-            OnItemUnequip?.Invoke(item);
-            equippedPanel.SetActive(false);
+            if (Equipment.equipmentList[index] != null)
+            {
+                Debug.Log("index" + index);
+                OnItemUnequip?.Invoke(index);
+                equippedPanel.SetActive(false);
+            }
         }
     }
 }

@@ -17,12 +17,15 @@ namespace ItemCategories
         {
             player.attackDamage += amount;
             player.attackSpeed += speedEffectAmount;
+            isApplied = true;
         }
 
         public override void RevertItemEffect(CharacterSettings player, float amount)
         {
             player.attackDamage -= amount;
             player.attackSpeed -= speedEffectAmount;
+            isApplied = false;
+            
         }
 
         public override void ConfigureDescription()
