@@ -12,39 +12,45 @@ namespace InventorySystem
         //This is the class that handles equipment of items. 
         [SerializeField] private Inventory inventory;
         [SerializeField] private CharacterSettings character;
-        public static int equipmentSize = 5;
-        public static List<ItemSettings> equipmentList;
+        public static ItemSettings[] equipmentList;
         public static event Action OnEquipmentHappened;
 
         void Start()
         {
-            equipmentList = new List<ItemSettings>(equipmentSize);
+            int slotCount = System.Enum.GetNames(typeof(ItemSettings.ItemCategory)).Length;
+            equipmentList = new ItemSettings[slotCount];
         }
 
         void OnEnable()
         {
             InventorySlot.OnItemEquip += EquipItem;
-            InventorySlot.OnItemUnequip += UnEquipItem;
+            //InventorySlot.OnItemUnequip += UnEquipItem;
         }
 
         void OnDisable()
         {
             InventorySlot.OnItemEquip -= EquipItem;
-            InventorySlot.OnItemUnequip -= UnEquipItem;
+            //InventorySlot.OnItemUnequip -= UnEquipItem;
         }
 
         public void EquipItem(ItemSettings item)
         {
-                if (equipmentList.Count < equipmentSize)
-                {
-                    equipmentList.Add(item);
-                    Inventory.inventoryList.Remove(item);
-                    OnEquipmentHappened?.Invoke();
-                    ApplyItemEffects(equipmentList);
-                }
+            int slotIndex = (int)item.itemCategory;
+            Debug.Log("slot index is :" + slotIndex);
+            ItemSettings oldItem = null;
+
+            if (equipmentList[slotIndex] != null)
+            {
+                oldItem = equipmentList[slotIndex];
+                Inventory.inventoryList.Add(oldItem);
+            }
+            equipmentList[slotIndex] = item;
+            Inventory.inventoryList.Remove(item);
+            OnEquipmentHappened?.Invoke();
+            ApplyItemEffects(equipmentList);
         }
 
-        public void UnEquipItem(ItemSettings item)
+        /*public void UnEquipItem(ItemSettings item)
         {
             if (equipmentList.Contains(item))
             {
@@ -55,7 +61,7 @@ namespace InventorySystem
                 ApplyItemEffects(equipmentList);
                 item.isApplied = false;
             }
-        }
+        }*/
 
         public bool CheckItemFit(ItemSettings item)
         {
@@ -65,7 +71,7 @@ namespace InventorySystem
             return false;
         }
 
-        public void ApplyItemEffects(List<ItemSettings> itemList)
+        public void ApplyItemEffects(ItemSettings[] itemList)
         {
             foreach (ItemSettings item in itemList)
             {

@@ -26,7 +26,7 @@ namespace UI
         {
             for (int i = 0; i < equipmentSlots.Length; i++)
             {
-                if (i < Equipment.equipmentList.Count)
+                if (i < Equipment.equipmentList.Length)
                 {
                     equipmentSlots[i].DisplayItem(Equipment.equipmentList[i]);
                 }

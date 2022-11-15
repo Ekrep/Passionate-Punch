@@ -17,6 +17,16 @@ namespace Items
         public bool isStackable;
         public bool isApplied;
         public int countInInventory;
+        public ItemCategory itemCategory;
+        public enum ItemCategory 
+        {
+            Head,
+            Chest,
+            Weapon,
+            Shield,
+            Feet,
+            Charm,
+        }
         public ClassType.ClassTypeEnum itemType;
         public abstract void ApplyItemEffect(CharacterSettings player, float amount);
         public abstract void RevertItemEffect(CharacterSettings player, float amount);
