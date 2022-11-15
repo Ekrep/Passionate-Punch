@@ -21,8 +21,8 @@ MonoBehaviour:
   worth: 220
   radius: 0
   isStackable: 0
-  isApplied: 1
+  isApplied: 0
   countInInventory: 0
-  itemCategory: 2
+  itemCategory: 5
   itemType: 0
   speedEffectAmount: 0.6

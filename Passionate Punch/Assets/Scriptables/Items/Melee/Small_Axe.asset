@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682487f8e08269a43ad6c8e1ac9a760f, type: 3}
   m_Name: Small_Axe
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
   itemMesh: {fileID: 4300000, guid: 16b5919a01a32824d88a5ab7d9b29493, type: 3}
   itemMaterial: {fileID: 2100000, guid: 55ce8a3b5a66efc4195e34019198cfba, type: 2}
   itemTitle: Small Axe
   itemImage: {fileID: 21300000, guid: b6f7b01567bc2a547875c04c0ca847e0, type: 3}
-  itemDescription: 
+  itemDescription: +55 AD, +0.5 Attack Speed
   effectAmount: 55
   worth: 180
   radius: 0
   isStackable: 0
-  isApplied: 0
+  isApplied: 1
   countInInventory: 0
+  itemCategory: 4
   itemType: 0
   speedEffectAmount: 0.5
