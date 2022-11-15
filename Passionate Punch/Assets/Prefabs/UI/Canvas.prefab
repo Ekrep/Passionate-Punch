@@ -5045,6 +5045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniMap: {fileID: 1287764454}
+  interactionButton: {fileID: 0}
   joystickHorizontalInput: 0
   joystickVerticalInput: 0
   isAttackPress: 0
@@ -5745,6 +5746,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -5892,6 +5899,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -6027,6 +6040,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -6160,6 +6179,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -6307,6 +6332,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -6440,6 +6471,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -6612,6 +6649,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -6762,6 +6805,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -6934,6 +6983,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -7086,6 +7141,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -7221,6 +7282,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -7354,6 +7421,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -7526,6 +7599,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -7676,6 +7755,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -7846,6 +7931,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -8033,6 +8124,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -8391,6 +8488,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -8524,6 +8627,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
@@ -8661,6 +8770,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -8796,6 +8911,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
@@ -8929,6 +9050,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
+        type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI

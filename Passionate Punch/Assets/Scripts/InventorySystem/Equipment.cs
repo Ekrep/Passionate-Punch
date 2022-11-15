@@ -24,19 +24,18 @@ namespace InventorySystem
         void OnEnable()
         {
             InventorySlot.OnItemEquip += EquipItem;
-            //InventorySlot.OnItemUnequip += UnEquipItem;
+            InventorySlot.OnItemUnequip += UnEquipItem;
         }
 
         void OnDisable()
         {
             InventorySlot.OnItemEquip -= EquipItem;
-            //InventorySlot.OnItemUnequip -= UnEquipItem;
+            InventorySlot.OnItemUnequip -= UnEquipItem;
         }
 
         public void EquipItem(ItemSettings item)
         {
             int slotIndex = (int)item.itemCategory;
-            Debug.Log("slot index is :" + slotIndex);
             ItemSettings oldItem = null;
 
             if (equipmentList[slotIndex] != null)
@@ -50,18 +49,16 @@ namespace InventorySystem
             ApplyItemEffects(equipmentList);
         }
 
-        /*public void UnEquipItem(ItemSettings item)
+        public void UnEquipItem(ItemSettings item)
         {
-            if (equipmentList.Contains(item))
-            {
-                item.RevertItemEffect(character, item.effectAmount);
-                inventory.AddItem(item);
-                equipmentList.Remove(item);
-                OnEquipmentHappened?.Invoke();
-                ApplyItemEffects(equipmentList);
-                item.isApplied = false;
-            }
-        }*/
+            Debug.Log("item is :" , item);
+            int slotIndex = ((int)item.itemCategory);
+            item.RevertItemEffect(character, item.effectAmount);
+            inventory.AddItem(item);
+            equipmentList[slotIndex] = null;
+            OnEquipmentHappened?.Invoke();
+            item.isApplied = false;
+        }
 
         public bool CheckItemFit(ItemSettings item)
         {
@@ -75,14 +72,16 @@ namespace InventorySystem
         {
             foreach (ItemSettings item in itemList)
             {
-                if (!item.isApplied)
+                if (item != null)
                 {
-                    item.ApplyItemEffect(character, item.effectAmount);
-                    item.isApplied = true;
+                    if (!item.isApplied)
+                    {
+                        item.ApplyItemEffect(character, item.effectAmount);
+                        item.isApplied = true;
+                    }
                 }
             }
         }
     }
-
 }
 

@@ -23,6 +23,8 @@ namespace UI
             if (newItem != null)
             {
                 item = newItem;
+                Debug.Log("new item is: " + newItem.itemTitle);
+                Debug.Log("old item is: " + item.itemTitle);
                 slotIcon.sprite = newItem.itemImage;
                 slotIcon.enabled = true;
             }
@@ -30,10 +32,13 @@ namespace UI
 
         public void DiscardItem()
         {
-            if (item.isApplied)
+            if (item != null)
             {
-                item.RevertItemEffect(character, item.effectAmount);
-                item.isApplied = false;
+                if (item.isApplied)
+                {
+                    item.RevertItemEffect(character, item.effectAmount);
+                    item.isApplied = false;
+                }
             }
 
             item = null;
@@ -61,7 +66,7 @@ namespace UI
 
         public void OnEquippedItemChoose()
         {
-            if(item != null)
+            if (item != null)
                 equippedPanel.SetActive(true);
         }
 
