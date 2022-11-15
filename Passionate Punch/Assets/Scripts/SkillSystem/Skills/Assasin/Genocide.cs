@@ -87,6 +87,7 @@ public class Genocide : MonoBehaviour
     IEnumerator CreateAmbiance(float ambianceCreationSpeed)
     {
         LightManager.Instance.DarkenedWorld(_darkenSpeed,_enlightDelay);
+        _lightningParticle.Play();
         float ambianceCreationValue = 0.85f;
         _ambiance.material.SetFloat("_Dissolve", ambianceCreationValue);
         while (_ambiance.material.GetFloat("_Dissolve")!=0)
@@ -97,12 +98,14 @@ public class Genocide : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_ambianceDissappearDelay);
+        
         while (_ambiance.material.GetFloat("_Dissolve") != 0.85f)
         {
             ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0.85f, ambianceCreationSpeed * Time.deltaTime);
             _ambiance.material.SetFloat("_Dissolve", ambianceCreationValue);
             yield return new WaitForEndOfFrame();
         }
+        _lightningParticle.Stop();
 
     }
 }

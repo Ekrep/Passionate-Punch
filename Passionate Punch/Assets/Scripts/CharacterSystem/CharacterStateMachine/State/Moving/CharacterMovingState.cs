@@ -23,8 +23,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     public override void Update()
     {
         base.Update();
-        Debug.Log(xInput);
-        Debug.Log(zInput);
+       
         if (xInput == 0 && zInput == 0)
         {
             //sm.ChangeState(sm.characterIdleState);

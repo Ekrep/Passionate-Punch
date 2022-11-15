@@ -16,9 +16,20 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;   
     }
+    private void OnEnable()
+    {
+        OnSendCharacter += GameManager_OnSendCharacter;
+    }
+
+    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+    {
+        this.character = obj;
+        Debug.Log("girdim sendchar");
+    }
+
     private void OnDisable()
     {
-        
+        OnSendCharacter -= GameManager_OnSendCharacter;
     }
 
     public static event Action<CharacterBaseStateMachine> OnSendCharacter;
@@ -32,7 +43,7 @@ public class GameManager : MonoBehaviour
         if (OnSendCharacter!=null)
         {
             OnSendCharacter(character);
-            this.character = character;
+           
         }
     }
 
