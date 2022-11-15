@@ -71,6 +71,7 @@ public class Genocide : MonoBehaviour
                 if (alphaValue==0.3f)
                 {
                     yield return new WaitForSeconds(_silhoutteCreationDelayTime);
+                    _slashParticle.Stop();
                     if (i!=_assasinSilhouettes.Count-1)
                     {
                         float angle = Mathf.Atan2((-_assasinSilhouettes[i].transform.position.x + _assasinSilhouettes[i + 1].transform.position.x), -_assasinSilhouettes[i].transform.position.z + _assasinSilhouettes[i + 1].transform.position.z) * Mathf.Rad2Deg;
