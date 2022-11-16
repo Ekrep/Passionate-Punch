@@ -16,6 +16,7 @@ public class CamFollow : MonoBehaviour
     private GameObject _followedbyCamObject;
 
     private float _camFirstPosX;
+    private float _camFirstPosZ;
     private void OnEnable()
     {
         GameManager.OnSendCharacter += GameManager_OnSendCharacter;
@@ -25,15 +26,18 @@ public class CamFollow : MonoBehaviour
 
     private void GameManager_OnStopShakeCam()
     {
+        StopCoroutine(ShakeCam(0));
         _currentType = CamCurrentType.Static;
-        gameObject.transform.position = new Vector3(_camFirstPosX, gameObject.transform.position.y, gameObject.transform.position.z);
+        gameObject.transform.position = new Vector3(_camFirstPosX, gameObject.transform.position.y,_camFirstPosZ);
         
     }
 
     private void GameManager_OnShakeCam(float shakeRange)
     {
+        _camFirstPosZ = gameObject.transform.position.z;
+        _camFirstPosX = gameObject.transform.position.x;
         _currentType = CamCurrentType.Dynamic;
-        ShakeCam(shakeRange);
+        StartCoroutine(ShakeCam(shakeRange));
         
     }
 
@@ -53,7 +57,7 @@ public class CamFollow : MonoBehaviour
     void Start()
     {
         _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
-        _camFirstPosX = gameObject.transform.position.x;
+        
     }
 
     private void LateUpdate()
@@ -73,10 +77,17 @@ public class CamFollow : MonoBehaviour
     }
 
 
-    public void ShakeCam(float shakeRange)
+    IEnumerator ShakeCam(float shakeRange)
     {
-        
-        float randomValue = Mathf.Sin(Random.Range(0, 271));
-        gameObject.transform.position = new Vector3(Mathf.Clamp(gameObject.transform.position.x + randomValue, _camFirstPosX-shakeRange, _camFirstPosX+shakeRange), gameObject.transform.position.y, gameObject.transform.position.z);
+       
+        float randomValueX =Random.Range(-shakeRange,shakeRange);
+        float randomValueZ = Random.Range(-shakeRange, shakeRange);
+        gameObject.transform.position = new Vector3(Mathf.Clamp(gameObject.transform.position.x + randomValueX, _camFirstPosX-shakeRange, _camFirstPosX+shakeRange), gameObject.transform.position.y, Mathf.Clamp(gameObject.transform.position.z + randomValueZ, _camFirstPosZ - shakeRange, _camFirstPosZ + shakeRange));
+
+        yield return new WaitForEndOfFrame();
+
+        gameObject.transform.position = new Vector3(Mathf.Clamp(gameObject.transform.position.x - randomValueX, _camFirstPosX - shakeRange, _camFirstPosX + shakeRange), gameObject.transform.position.y, Mathf.Clamp(gameObject.transform.position.z - randomValueZ, _camFirstPosZ - shakeRange, _camFirstPosZ + shakeRange));
     }
+
+    
 }
