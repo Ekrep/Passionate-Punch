@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace SkillSystem
 {
-    public abstract class SkillSettings : ScriptableObject
+    [CreateAssetMenu(menuName ="Skill/SkillData")]
+    public class SkillSettings : ScriptableObject
     {
-       
+        public GameObject skillPrefab;
         public enum HitType
         {
             Low,
@@ -46,16 +47,30 @@ namespace SkillSystem
         public bool canCast;
 
         
+        public void Cast()
+        {
+            if (skillPrefab!=null)
+            {
+                GameObject gO;
+                gO = Instantiate(skillPrefab);
+                gO.TryGetComponent<MonoBehaviourSkill>(out MonoBehaviourSkill skill);
+                if (skill != null)
+                {
+                    skill.Cast();
+                }
+            }
+           
+
+        }
 
 
 
+        //public abstract void Cast();
+        //public abstract IEnumerator RevertSkillEffect(float time);
 
-        public abstract void Cast();
-        public abstract IEnumerator RevertSkillEffect(float time);
+        //public abstract IEnumerator ExitCastState(float time);
 
-        public abstract IEnumerator ExitCastState(float time);
-
-        public abstract IEnumerator Cooldown(float time);
+        //public abstract IEnumerator Cooldown(float time);
 
         
 

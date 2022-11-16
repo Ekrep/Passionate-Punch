@@ -64,18 +64,26 @@ public class Genocide : MonoBehaviourSkill
         }
         _ambiance.material.SetFloat("_Dissolve", 0.85f); 
 
-
-
-
-
     }
 
-    private void Update()
+    public override void Cast()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            StartCoroutine(CreateAmbiance(_ambianceCreationSpeed));
-        }
+        StartCoroutine(CreateAmbiance(_ambianceCreationSpeed));
+    }
+
+    public override IEnumerator RevertSkillEffect(float time)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override IEnumerator ExitCastState(float time)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override IEnumerator Cooldown(float time)
+    {
+        throw new System.NotImplementedException();
     }
 
     IEnumerator CastSkillEffects()
@@ -153,25 +161,7 @@ public class Genocide : MonoBehaviourSkill
 
     }
 
-    public override void Cast()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator RevertSkillEffect(float time)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator ExitCastState(float time)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override IEnumerator Cooldown(float time)
-    {
-        throw new System.NotImplementedException();
-    }
+ 
 }
 
 
