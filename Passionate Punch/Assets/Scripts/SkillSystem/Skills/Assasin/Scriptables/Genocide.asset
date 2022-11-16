@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
   m_Name: Genocide
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
+  skillPrefab: {fileID: 3021625406065163208, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
+    type: 3}
   skillType: 0
   hitType: 0
   animationName: 
@@ -22,8 +23,8 @@ MonoBehaviour:
   manaCost: 0
   activeTime: 0
   skillEffectAmount: 0
-  coolDown: 0
+  coolDown: 20
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
-  canCast: 0
+  canCast: 1

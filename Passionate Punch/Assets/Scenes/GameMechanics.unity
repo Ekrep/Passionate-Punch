@@ -3481,6 +3481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenocidePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3021625406065163208, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5716838439617020333, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3549,6 +3554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InvisibilityPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494058368247836361, guid: 9e311bb86c250c048be7729baeb3fb7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923082957347889838, guid: 9e311bb86c250c048be7729baeb3fb7b,
         type: 3}
@@ -3673,6 +3683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WhrilWindPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062186676599429826, guid: 68fdd12ce657fb84193395a90403a9cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68fdd12ce657fb84193395a90403a9cc, type: 3}

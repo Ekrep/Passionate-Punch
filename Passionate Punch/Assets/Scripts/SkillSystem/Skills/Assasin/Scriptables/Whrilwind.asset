@@ -23,8 +23,8 @@ MonoBehaviour:
   manaCost: 0
   activeTime: 0
   skillEffectAmount: 0
-  coolDown: 0
-  stackCastCoolDown: 2
-  baseStackCount: 3
-  stackCount: 1
+  coolDown: 4
+  stackCastCoolDown: 0
+  baseStackCount: 0
+  stackCount: 0
   canCast: 1
