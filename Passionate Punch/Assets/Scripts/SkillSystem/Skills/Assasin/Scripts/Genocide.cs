@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Genocide : MonoBehaviour
+public class Genocide : MonoBehaviourSkill
 {
     [Header("References")]
     [SerializeField]
@@ -151,6 +151,26 @@ public class Genocide : MonoBehaviour
         }
         _lightningParticle.Stop();
 
+    }
+
+    public override void Cast()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override IEnumerator RevertSkillEffect(float time)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override IEnumerator ExitCastState(float time)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override IEnumerator Cooldown(float time)
+    {
+        throw new System.NotImplementedException();
     }
 }
 
