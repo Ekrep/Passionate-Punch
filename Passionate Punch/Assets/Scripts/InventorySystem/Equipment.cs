@@ -33,17 +33,16 @@ namespace InventorySystem
             InventorySlot.OnItemUnequip -= UnEquipItem;
         }
 
-        public void EquipItem(ItemSettings item)
+        public void EquipItem(ItemSettings item, int index)
         {
-            int slotIndex = (int)item.itemCategory;
             ItemSettings oldItem = null;
 
-            if (equipmentList[slotIndex] != null)
+            if (equipmentList[index] != null)
             {
-                oldItem = equipmentList[slotIndex];
+                oldItem = equipmentList[index];
                 Inventory.inventoryList.Add(oldItem);
             }
-            equipmentList[slotIndex] = item;
+            equipmentList[index] = item;
             Inventory.inventoryList.Remove(item);
             OnEquipmentHappened?.Invoke();
             ApplyItemEffects(equipmentList);
@@ -55,9 +54,7 @@ namespace InventorySystem
             Inventory.inventoryList.Add(equipmentList[index]);
             equipmentList[index] = null;
             OnEquipmentHappened?.Invoke();
-        }
-
-    
+        }   
 
     public bool CheckItemFit(ItemSettings item)
     {

@@ -48,7 +48,6 @@ namespace Items
             for (int i = 0; i < chestCount; i++)
             {
                 itemIndex = Random.Range(0, allItemSettings.Count);
-                Debug.Log("itemindex" + itemIndex);
                 ItemSettings tempItem = allItemSettings[itemIndex];
                 chestList.Add(tempItem);
             }

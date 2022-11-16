@@ -14,10 +14,14 @@ namespace UI
         [SerializeField] private Image slotIcon;
         [SerializeField] private ItemSelectionUI selectionUI;
         [SerializeField] private GameObject equippedPanel;
+        [SerializeField] private Button equipButton;
+        [SerializeField] private Button unequipButton;
+        [SerializeField] private Button discardButton;
         public Sprite defaultImage;
         public ItemSettings item;
         public int index;
-        public static event Action<ItemSettings> OnItemEquip;
+
+        public static event Action<ItemSettings, int> OnItemEquip;
         public static event Action<int> OnItemUnequip;
 
         public void DisplayItem(ItemSettings newItem)
@@ -37,7 +41,6 @@ namespace UI
                 if (item.isApplied)
                 {
                     item.RevertItemEffect(character, item.effectAmount);
-                    item.isApplied = false;
                 }
             }
 
@@ -61,35 +64,48 @@ namespace UI
             if (item != null)
             {
                 selectionUI.DesignSelectionScreen(item);
+                equipButton.onClick.RemoveAllListeners();
+                equipButton.onClick.AddListener(() => OnItemEquip(item, index));
+                discardButton.onClick.RemoveAllListeners();
+                discardButton.onClick.AddListener(() => DiscardItem());
             }
         }
 
         public void OnEquippedItemChoose()
         {
-            
+            Debug.Log("aaaa");
             if (item != null)
+            {
                 equippedPanel.SetActive(true);
-                for(int i = 0; i <Equipment.equipmentList.Length; i++)
+                for (int i = 0; i < Equipment.equipmentList.Length; i++)
                 {
                     if (Equipment.equipmentList[i] == item)
                     {
                         index = i;
+                        unequipButton.onClick.RemoveAllListeners();
+                        unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
+                        discardButton.onClick.RemoveAllListeners();
+                        discardButton.onClick.AddListener(() => DiscardItem());
                     }
                 }
+            }
+
         }
 
         public void OnEquipButtonPressed()
         {
-            OnItemEquip?.Invoke(item);
+            OnItemEquip?.Invoke(item, index);
+
         }
 
         public void OnUnequipButtonPressed()
         {
             if (Equipment.equipmentList[index] != null)
             {
-                Debug.Log("index" + index);
                 OnItemUnequip?.Invoke(index);
                 equippedPanel.SetActive(false);
+
+
             }
         }
     }
