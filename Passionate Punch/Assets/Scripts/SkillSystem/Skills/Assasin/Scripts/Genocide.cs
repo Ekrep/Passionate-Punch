@@ -181,6 +181,7 @@ public class Genocide : MonoBehaviourSkill
     }
     IEnumerator CreateAmbiance(float ambianceCreationSpeed)
     {
+        
         skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _silhoutteMat;
         while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha") != -1)
         {
@@ -188,13 +189,14 @@ public class Genocide : MonoBehaviourSkill
             alphaValue = Mathf.MoveTowards(alphaValue, -1, _characterDissappearSpeed * Time.deltaTime);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", alphaValue);
             yield return new WaitForEndOfFrame();
+            
+
 
         }
-         _dagger.SetActive(true);
-        _slashParticle.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 2f, skillSettings.Character.transform.position.z), Quaternion.identity);
-        _slashParticle.transform.LookAt(_dagger.transform);
-        _slashParticle.Play();
-        GameManager.Instance.ShakeCam(_camShakeRange);
+        
+        _dagger.SetActive(true);
+        
+        
         yield return new WaitForSeconds(_ambianceCreationDelay);
         LightManager.Instance.DarkAfterEnlight(_darkenSpeed, _enlightDelay);
         _lightningParticle.Play();
