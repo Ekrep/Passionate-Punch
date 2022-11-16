@@ -9,6 +9,9 @@ public class Genocide : MonoBehaviour
     private List<GameObject> _assasinSilhouettes;
 
     [SerializeField]
+    private ParticleSystem _damageCircleParticle;
+
+    [SerializeField]
     private ParticleSystem _lightningParticle;
 
     [SerializeField]
@@ -77,7 +80,7 @@ public class Genocide : MonoBehaviour
 
     IEnumerator CastSkillEffects()
     {
-
+        _damageCircleParticle.Play();
         for (int i = 0; i < _assasinSilhouettes.Count; i++)
         {
             _silhouttePowerDrawParticle[i].Play();
