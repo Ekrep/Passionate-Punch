@@ -5,22 +5,26 @@ using UnityEngine;
 public class Whirlwind : MonoBehaviourSkill
 {
 
-    //skiller onDestroy oldugunda Datanýn can cast=true
+    //skiller onDestroy oldugunda Datanýn cancast=true
     public GameObject particleSystemGameObjectPrefab;
+
+    private void OnDestroy()
+    {
+        skillSettings.canCast = true;
+    }
     public override void Cast()
     {
         if (skillSettings.canCast)
         {
-            GameObject gO;
-            gO = Instantiate(particleSystemGameObjectPrefab);
-            gO.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.Euler(-90, 0, 0));
-            gO.GetComponent<ParticleSystem>().Play();
+
+            particleSystemGameObjectPrefab.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.Euler(-90, 0, 0));
+            particleSystemGameObjectPrefab.GetComponent<ParticleSystem>().Play();
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
-
             StartCoroutine(ExitCastState(0.7f));
             StartCoroutine(Cooldown(skillSettings.coolDown));
-            Destroy(gO, 0.5f);
+            skillSettings.canCast = false;
+            //destroy ekle
 
         }
 
@@ -30,8 +34,10 @@ public class Whirlwind : MonoBehaviourSkill
     public override IEnumerator Cooldown(float time)
     {
         Debug.Log("whrilWind");
-        skillSettings.canCast = false;
-        if (skillSettings.stackCount > 0)
+        yield return new WaitForSeconds(time);
+        skillSettings.canCast = true;
+        Destroy(gameObject);
+        /*if (skillSettings.stackCount > 0)
         {
             skillSettings.stackCount--;
         }
@@ -46,7 +52,7 @@ public class Whirlwind : MonoBehaviourSkill
         if (skillSettings.stackCount > 0)
         {
             skillSettings.canCast = true;
-        }
+        }*/
     }
 
     public override IEnumerator ExitCastState(float time)

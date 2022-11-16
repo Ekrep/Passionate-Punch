@@ -19,17 +19,15 @@ public class Invisibility : MonoBehaviourSkill
     {
         if (skillSettings.canCast)
         {
-            GameObject gameObject;
-            gameObject = Instantiate(stormExplodePsObject);
-            gameObject.GetComponent<ParticleSystem>().Play();
-            gameObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
+
+            stormExplodePsObject.GetComponent<ParticleSystem>().Play();
+            stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = invisMat;
             StartCoroutine(RevertSkillEffect(skillSettings.activeTime));
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
             StartCoroutine(ExitCastState(0.5f));
             StartCoroutine(Cooldown(skillSettings.coolDown));
-            Destroy(gameObject, 1f);
             skillSettings.canCast = false;
         }
 
@@ -53,5 +51,7 @@ public class Invisibility : MonoBehaviourSkill
     {
         yield return new WaitForSeconds(time);
         skillSettings.canCast = true;
+
+        DestroyImmediate(gameObject);
     }
 }

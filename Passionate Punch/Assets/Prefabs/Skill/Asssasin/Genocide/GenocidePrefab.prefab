@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65744572df89d54188fc5a21ed1a7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSettings: {fileID: 11400000, guid: 876376cb9fffd5b4687a5c4d1fda8ac8, type: 2}
   _assasinSilhouettes:
   - {fileID: 4834107133803519356}
   - {fileID: 4834107132839952752}

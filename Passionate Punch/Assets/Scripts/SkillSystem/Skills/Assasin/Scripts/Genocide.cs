@@ -54,7 +54,10 @@ public class Genocide : MonoBehaviourSkill
     [SerializeField]
     private float _camShakeRange;
 
-
+    private void OnDestroy()
+    {
+        skillSettings.canCast = true;
+    }
     void Start()
     {
 
@@ -66,9 +69,12 @@ public class Genocide : MonoBehaviourSkill
 
     }
 
+    
     public override void Cast()
     {
         StartCoroutine(CreateAmbiance(_ambianceCreationSpeed));
+        skillSettings.canCast = false;
+        StartCoroutine(Cooldown(skillSettings.coolDown));
     }
 
     public override IEnumerator RevertSkillEffect(float time)
@@ -83,7 +89,9 @@ public class Genocide : MonoBehaviourSkill
 
     public override IEnumerator Cooldown(float time)
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+        skillSettings.canCast = true;
     }
 
     IEnumerator CastSkillEffects()
@@ -158,6 +166,7 @@ public class Genocide : MonoBehaviourSkill
             yield return new WaitForEndOfFrame();
         }
         _lightningParticle.Stop();
+       
 
     }
 

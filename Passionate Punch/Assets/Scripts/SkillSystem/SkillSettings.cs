@@ -49,7 +49,7 @@ namespace SkillSystem
         
         public void Cast()
         {
-            if (skillPrefab!=null)
+            if (skillPrefab!=null&&canCast)
             {
                 GameObject gO;
                 gO = Instantiate(skillPrefab);
