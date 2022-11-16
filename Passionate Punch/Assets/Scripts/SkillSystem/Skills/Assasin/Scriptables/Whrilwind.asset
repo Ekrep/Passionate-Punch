@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
   m_Name: Whrilwind
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
-  skillType: 0
-  hitType: 0
-  animationName: 
+  skillPrefab: {fileID: 6062186676599429826, guid: 68fdd12ce657fb84193395a90403a9cc,
+    type: 3}
+  skillType: 1
+  hitType: 1
+  animationName: Whirlwind
   skillName: 
   description: 
   skillSprite: {fileID: 0}
@@ -23,7 +24,7 @@ MonoBehaviour:
   activeTime: 0
   skillEffectAmount: 0
   coolDown: 0
-  stackCastCoolDown: 0
-  baseStackCount: 0
-  stackCount: 0
-  canCast: 0
+  stackCastCoolDown: 2
+  baseStackCount: 3
+  stackCount: 1
+  canCast: 1

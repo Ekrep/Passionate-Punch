@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
   m_Name: Invisibility
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
+  skillPrefab: {fileID: 3494058368247836361, guid: 9e311bb86c250c048be7729baeb3fb7b,
+    type: 3}
   skillType: 0
   hitType: 0
-  animationName: 
+  animationName: Invisibility
   skillName: 
   description: 
   skillSprite: {fileID: 0}
   manaCost: 0
-  activeTime: 0
+  activeTime: 5
   skillEffectAmount: 0
-  coolDown: 0
+  coolDown: 6
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
-  canCast: 0
+  canCast: 1
