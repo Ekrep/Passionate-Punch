@@ -28,9 +28,12 @@ namespace SkillSystem
         public Sprite skillSprite;
         public float manaCost;
         public float activeTime;
+        public float castTime;
         public float skillEffectAmount; //Each skill will be aware of which attribute that they effect. 
         public float coolDown;
         public float stackCastCoolDown;
+
+        
 
         public int baseStackCount;
         [HideInInspector]

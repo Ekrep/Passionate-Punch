@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Genocide : MonoBehaviourSkill
 {
+    //karakter mat fresnel yap slash yollasýn yere sonra alpha kýs bitiþte alpha aç karakter material'i sýfýrla
     [Header("References")]
     [SerializeField]
     private List<GameObject> _assasinSilhouettes;
@@ -24,10 +25,24 @@ public class Genocide : MonoBehaviourSkill
     private List<ParticleSystem> _silhouttePowerDrawParticle;
 
     [SerializeField]
+    private Material _silhoutteMat;
+
+    [SerializeField]
+    private Material _firstMat;
+
+    [SerializeField]
     private MeshRenderer _ambiance;
+
+    [SerializeField]
+    private GameObject _dagger;
+
     [Header("Light")]
     [SerializeField]
     private float _darkenSpeed;
+
+    [Header("Character")]
+    [SerializeField]
+    private float _characterDissappearSpeed;
 
     [Header("Assasin Silhouette")]
     [SerializeField]
@@ -40,6 +55,9 @@ public class Genocide : MonoBehaviourSkill
     private float _silhouetteDissappearDelay;
 
     [Header("Ambiance")]
+    [SerializeField]
+    private float _ambianceCreationDelay;
+
     [SerializeField]
     private float _ambianceCreationSpeed;
 
@@ -65,14 +83,20 @@ public class Genocide : MonoBehaviourSkill
         {
             _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", -1);
         }
-        _ambiance.material.SetFloat("_Dissolve", 0.85f); 
+        _ambiance.material.SetFloat("_Dissolve", 0.85f);
+        gameObject.transform.SetLocalPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y, skillSettings.Character.transform.position.z-1.5f), Quaternion.identity);
 
     }
+
+   
 
     
     public override void Cast()
     {
         StartCoroutine(CreateAmbiance(_ambianceCreationSpeed));
+        skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
+        skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
+        StartCoroutine(ExitCastState(skillSettings.castTime));
         skillSettings.canCast = false;
         StartCoroutine(Cooldown(skillSettings.coolDown));
     }
@@ -84,7 +108,18 @@ public class Genocide : MonoBehaviourSkill
 
     public override IEnumerator ExitCastState(float time)
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForSeconds(time);
+        while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha") != 0.3f)
+        {
+            float alphaValue = skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha");
+            alphaValue = Mathf.MoveTowards(alphaValue, 0.3f, _characterDissappearSpeed*1.5f * Time.deltaTime);
+            skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", alphaValue);
+            yield return new WaitForEndOfFrame();
+        }
+        skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _firstMat;
+        skillSettings.Character.anim.SetBool(skillSettings.animationName, false);
+        skillSettings.Character.ChangeState(skillSettings.Character.characterIdleState);
+
     }
 
     public override IEnumerator Cooldown(float time)
@@ -146,6 +181,21 @@ public class Genocide : MonoBehaviourSkill
     }
     IEnumerator CreateAmbiance(float ambianceCreationSpeed)
     {
+        skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _silhoutteMat;
+        while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha") != -1)
+        {
+            float alphaValue = skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Alpha");
+            alphaValue = Mathf.MoveTowards(alphaValue, -1, _characterDissappearSpeed * Time.deltaTime);
+            skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", alphaValue);
+            yield return new WaitForEndOfFrame();
+
+        }
+         _dagger.SetActive(true);
+        _slashParticle.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 2f, skillSettings.Character.transform.position.z), Quaternion.identity);
+        _slashParticle.transform.LookAt(_dagger.transform);
+        _slashParticle.Play();
+        GameManager.Instance.ShakeCam(_camShakeRange);
+        yield return new WaitForSeconds(_ambianceCreationDelay);
         LightManager.Instance.DarkAfterEnlight(_darkenSpeed, _enlightDelay);
         _lightningParticle.Play();
         float ambianceCreationValue = 0.85f;
