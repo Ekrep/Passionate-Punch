@@ -63,6 +63,7 @@ namespace UI
         {
             if (item != null)
             {
+                index = ((int)item.itemCategory);
                 selectionUI.DesignSelectionScreen(item);
                 equipButton.onClick.RemoveAllListeners();
                 equipButton.onClick.AddListener(() => OnItemEquip(item, index));
@@ -73,7 +74,6 @@ namespace UI
 
         public void OnEquippedItemChoose()
         {
-            Debug.Log("aaaa");
             if (item != null)
             {
                 equippedPanel.SetActive(true);
