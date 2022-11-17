@@ -81,7 +81,6 @@ namespace UI
                 {
                     if (Equipment.equipmentList[i] == item)
                     {
-                        index = i;
                         unequipButton.onClick.RemoveAllListeners();
                         unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
                         discardButton.onClick.RemoveAllListeners();
