@@ -23,6 +23,10 @@ public class BlackMarketEnter : MonoBehaviour
         }
         UIManager.Instance.interactionButton.interactable = true;
         UIManager.Instance.interactionButton.onClick.AddListener(OpenBlackMarket);
+        // SFX Manager
+        SFXManager.instance.audioSource.clip = SFXManager.instance.BlackMarketSFX[0];
+        SFXManager.instance.audioSource.Play();
+        /////////////////////////////////////
     }
     public void OpenBlackMarket()
     {

@@ -55,6 +55,10 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+        // SFX Manager
+        SFXManager.instance.audioSource.clip = SFXManager.instance.BlackMarketSFX[1];
+        SFXManager.instance.audioSource.Play();
+        /////////////////////////////////////
         dialogueAnimator.SetBool("IsOpen", false);
         // When conversation ends, interaction button activates again
         UIManager.Instance.interactionButton.interactable = true;
