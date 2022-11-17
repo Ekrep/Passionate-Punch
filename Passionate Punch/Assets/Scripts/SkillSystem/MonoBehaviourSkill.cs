@@ -6,7 +6,7 @@ using SkillSystem;
 public abstract class MonoBehaviourSkill : MonoBehaviour
 {
     public SkillSettings skillSettings;
-
+   
 
 
     public abstract void Cast();

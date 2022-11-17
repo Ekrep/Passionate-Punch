@@ -9,18 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7a549068dc10245958ab97848e798f, type: 3}
-  m_Name: Assasinate
+  m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
+  m_Name: Whrilwind
   m_EditorClassIdentifier: 
-  skillType: 0
-  hitType: 0
-  animationName: 
+  skillPrefab: {fileID: 6062186676599429826, guid: 68fdd12ce657fb84193395a90403a9cc,
+    type: 3}
+  skillType: 1
+  hitType: 1
+  animationName: Whirlwind
   skillName: 
   description: 
   skillSprite: {fileID: 0}
   manaCost: 0
   activeTime: 0
   skillEffectAmount: 0
-  coolDown: 0
-  Character: {fileID: 0}
+  coolDown: 4
+  stackCastCoolDown: 0
+  baseStackCount: 0
+  stackCount: 0
   canCast: 1
