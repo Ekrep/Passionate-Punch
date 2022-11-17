@@ -28,5 +28,7 @@ public class BlackMarketEnter : MonoBehaviour
     {
         TriggerBMDialogue?.Invoke();
         isInDialogue.value = true;
+        // Disable the interact button when player enters the conversation
+        UIManager.Instance.interactionButton.interactable = false;
     }
 }

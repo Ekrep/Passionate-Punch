@@ -56,5 +56,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         dialogueAnimator.SetBool("IsOpen", false);
+        // When conversation ends, interaction button activates again
+        UIManager.Instance.interactionButton.interactable = true;
     }
 }

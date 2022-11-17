@@ -15,7 +15,10 @@ public class BlackMarketExit : MonoBehaviour
     }
     public void OnMarketExit()
     {
-        UIManager.Instance.interactionButton.interactable = false;
+        if (UIManager.Instance.interactionButton.interactable)
+        {
+            UIManager.Instance.interactionButton.interactable = false;
+        }
         UIManager.Instance.interactionButton.onClick.RemoveAllListeners();
         isInDialogue.value = false;
     }
