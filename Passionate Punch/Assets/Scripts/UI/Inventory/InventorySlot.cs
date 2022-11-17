@@ -88,7 +88,6 @@ namespace UI
                     }
                 }
             }
-
         }
 
         public void OnEquipButtonPressed()
@@ -103,8 +102,6 @@ namespace UI
             {
                 OnItemUnequip?.Invoke(index);
                 equippedPanel.SetActive(false);
-
-
             }
         }
     }
