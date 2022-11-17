@@ -464,8 +464,9 @@ GameObject:
   - component: {fileID: 3218773854175782377}
   - component: {fileID: 1682664722118318580}
   - component: {fileID: 665904478874174898}
-  - component: {fileID: 4842648481019138837}
   - component: {fileID: 7580024234876718440}
+  - component: {fileID: -2824275457033888363}
+  - component: {fileID: 4842648481019138837}
   m_Layer: 0
   m_Name: BlackMarket
   m_TagString: Untagged
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee589650ebd92a4786fdbc0ef0525b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInDialogue: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9, type: 2}
 --- !u!114 &665904478874174898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +548,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b47e2bc7401a524e98714b826b2e626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInDialogue: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9, type: 2}
+--- !u!114 &7580024234876718440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171784489016062524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50edee7b8d538834bb016e6088fb2124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2824275457033888363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171784489016062524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb85274d1fb6a542a79afb530cd6e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Black Market
+    sentences:
+    - Hi bro
+    - You want something
+    - If not, get out of here!
 --- !u!135 &4842648481019138837
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -559,18 +592,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7580024234876718440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171784489016062524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50edee7b8d538834bb016e6088fb2124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9171817510886035654
 GameObject:
   m_ObjectHideFlags: 0
