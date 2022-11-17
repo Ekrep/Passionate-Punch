@@ -32,9 +32,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-
-     //   interactionButton.gameObject.SetActive(false);
-
+       interactionButton.gameObject.SetActive(false);
     }
 
     public static event Action OnRefreshMiniMap;
