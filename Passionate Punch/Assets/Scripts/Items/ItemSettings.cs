@@ -3,7 +3,7 @@ using CharacterSystem;
 
 namespace Items
 {
-    public abstract class ItemSettings : ScriptableObject
+    public class ItemSettings : ScriptableObject
     {
         //This is an abstract scriptable class that holds pure data about items. 
         public Mesh itemMesh;
@@ -28,8 +28,8 @@ namespace Items
             Charm,
         }
         public ClassType.ClassTypeEnum itemType;
-        public abstract void ApplyItemEffect(CharacterSettings player, float amount);
-        public abstract void RevertItemEffect(CharacterSettings player, float amount);
-        public abstract void ConfigureDescription();
+        public virtual void ApplyItemEffect(CharacterSettings player, float amount){}
+        public virtual void RevertItemEffect(CharacterSettings player, float amount){}
+        public virtual void ConfigureDescription(){}
     }
 }

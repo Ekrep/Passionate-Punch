@@ -21,7 +21,7 @@ MonoBehaviour:
   worth: 190
   radius: 0
   isStackable: 0
-  isApplied: 1
+  isApplied: 0
   countInInventory: 0
   itemCategory: 5
   itemType: 0

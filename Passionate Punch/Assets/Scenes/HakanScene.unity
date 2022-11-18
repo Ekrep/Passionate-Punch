@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3041ca0f8c465104087ff75efba73539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!4 &1082482953
 Transform:
@@ -1281,6 +1282,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2072366853723103796, guid: 09c4f4c8b5a13804b922c41bb1e16165,
+        type: 3}
+      propertyPath: chestCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2072366853723103797, guid: 09c4f4c8b5a13804b922c41bb1e16165,
         type: 3}
       propertyPath: m_RootOrder
@@ -1431,6 +1437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155209623, guid: ae62b19ed8ae0d44897b3101ead102b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 155209625, guid: ae62b19ed8ae0d44897b3101ead102b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

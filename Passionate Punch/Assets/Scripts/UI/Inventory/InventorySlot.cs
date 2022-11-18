@@ -50,8 +50,8 @@ namespace UI
                 {
                     _Character.equippedItemList.Remove(item);   
                     item.RevertItemEffect(_Character, item.effectAmount);
+                    Equipment.equipmentList[index] = null;
                 }
-                Equipment.equipmentList[index] = null;
                 Inventory.inventoryList.Remove(item);
                 _Character.ownedItemList.Remove(item);
             
@@ -86,18 +86,11 @@ namespace UI
             if (item != null)
             {
                 equippedPanel.SetActive(true);
-
                 unequipButton.onClick.RemoveAllListeners();
                 unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
                 discardButton.onClick.RemoveAllListeners();
                 discardButton.onClick.AddListener(() => DiscardItem());
-
             }
-        }
-
-        public void OnEquipButtonPressed()
-        {
-            OnItemEquip?.Invoke(item, index);
         }
 
         public void OnUnequipButtonPressed()
@@ -106,6 +99,7 @@ namespace UI
             if (Equipment.equipmentList[index] != null)
             {
                 OnItemUnequip?.Invoke(item, index);
+                Equipment.equipmentList[index] = null;
                 equippedPanel.SetActive(false);
             }
         }

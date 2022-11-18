@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        isInDialogue.value = false;
+       // isInDialogue.value = false;
     }
 
 

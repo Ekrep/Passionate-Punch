@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ItemCategories;
 
 namespace Items
 {
@@ -43,12 +44,13 @@ namespace Items
 
         public void FillChest()
         {
-            chestCount = Random.Range(3, maxChestCount);
+            chestCount = Random.Range(3, 6);
             for (int i = 0; i < chestCount; i++)
             {
                 itemIndex = Random.Range(0, allItemSettings.Count);
                 ItemSettings tempItem = allItemSettings[itemIndex];
                 chestList.Add(tempItem);
+                tempItem.countInInventory++;
             }
         }
 
@@ -90,13 +92,21 @@ namespace Items
 
         IEnumerator ExplodeChest()
         {
+
             yield return new WaitForSeconds(1f);
             foreach (ItemSettings item in chestList)
             {
                 itemPrefab.GetComponent<Item>().itemSettings = item;
                 itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
-                Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x -0.5f, 
+                GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x - 0.5f,
                 this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
+                if (item.countInInventory > 0)
+                {
+                    var instance = ScriptableObject.CreateInstance<ItemSettings>();
+                    var cloneItemSettings = Instantiate(item);
+                    instance = cloneItemSettings;
+                    go.GetComponent<Item>().itemSettings = instance;
+                }
                 yield return new WaitForSeconds(0.5f);
             }
 
