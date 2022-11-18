@@ -23,7 +23,7 @@ MonoBehaviour:
   maxMana: 0
   moveSpeed: 5
   defence: 0
-  range: 5
+  range: 2
   AEORange: 5
   healthRecoveryTime: 0
   healthRecoveryPeriod: 0

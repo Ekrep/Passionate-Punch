@@ -156,13 +156,17 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
 
     public void SetRotationWhileAttacking()
     {
-        Vector3 deltaPos = Vector3.zero;
-        deltaPos = sm.gameObject.transform.position - sm.autoAim.targetEnemy.position;
-        float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
+        if (sm.autoAim.targetEnemy!=null)
+        {
+            Vector3 deltaPos = Vector3.zero;
+            deltaPos = sm.gameObject.transform.position - sm.autoAim.targetEnemy.position;
+            float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
 
-        sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, target, sm.gameObject.transform.rotation.z);
-        //sm.gameObject.transform.LookAt(sm.autoAim.targetEnemy);
-       
+            sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, target, sm.gameObject.transform.rotation.z);
+            //sm.gameObject.transform.LookAt(sm.autoAim.targetEnemy);
+        }
+
+
 
     }
 
