@@ -1644,7 +1644,7 @@ PrefabInstance:
     - target: {fileID: 7687837470644327752, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
@@ -2410,6 +2410,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287764452, guid: ae62b19ed8ae0d44897b3101ead102b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1287764454, guid: ae62b19ed8ae0d44897b3101ead102b0, type: 3}
       propertyPath: _mapLeftCorner3D
       value: 
