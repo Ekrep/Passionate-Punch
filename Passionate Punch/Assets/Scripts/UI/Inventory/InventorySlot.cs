@@ -10,7 +10,14 @@ namespace UI
 
     public class InventorySlot : MonoBehaviour
     {
-        [SerializeField] private CharacterSettings character;
+        [SerializeField]
+        private CharacterSettings _Character
+        {
+            get
+            {
+                return GameManager.Instance.character.characterStats;
+            }
+        }
         [SerializeField] private Image slotIcon;
         [SerializeField] private ItemSelectionUI selectionUI;
         [SerializeField] private GameObject equippedPanel;
@@ -31,6 +38,7 @@ namespace UI
                 item = newItem;
                 slotIcon.sprite = newItem.itemImage;
                 slotIcon.enabled = true;
+                newItem = null;
             }
         }
 
@@ -40,14 +48,15 @@ namespace UI
             {
                 if (item.isApplied)
                 {
-                    item.RevertItemEffect(character, item.effectAmount);
+                    _Character.equippedItemList.Remove(item);
+                    Equipment.equipmentList[index] = null;
+                    item.RevertItemEffect(_Character, item.effectAmount);
                 }
+                Debug.Log("discarded item : " + item.itemTitle);
+                Inventory.inventoryList.Remove(item);
+                _Character.ownedItemList.Remove(item);
             }
-
-            item = null;
-            slotIcon.sprite = defaultImage;
-            slotIcon.enabled = true;
-            selectionUI.gameObject.SetActive(false);
+            ClearSlot();
             equippedPanel.SetActive(false);
         }
 
@@ -63,6 +72,7 @@ namespace UI
         {
             if (item != null)
             {
+                Debug.Log("item choose: " + item.itemTitle);
                 index = ((int)item.itemCategory);
                 selectionUI.DesignSelectionScreen(item);
                 equipButton.onClick.RemoveAllListeners();
@@ -77,23 +87,18 @@ namespace UI
             if (item != null)
             {
                 equippedPanel.SetActive(true);
-                for (int i = 0; i < Equipment.equipmentList.Length; i++)
-                {
-                    if (Equipment.equipmentList[i] == item)
-                    {
-                        unequipButton.onClick.RemoveAllListeners();
-                        unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
-                        discardButton.onClick.RemoveAllListeners();
-                        discardButton.onClick.AddListener(() => DiscardItem());
-                    }
-                }
+
+                unequipButton.onClick.RemoveAllListeners();
+                unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
+                discardButton.onClick.RemoveAllListeners();
+                discardButton.onClick.AddListener(() => DiscardItem());
+
             }
         }
 
         public void OnEquipButtonPressed()
         {
             OnItemEquip?.Invoke(item, index);
-
         }
 
         public void OnUnequipButtonPressed()

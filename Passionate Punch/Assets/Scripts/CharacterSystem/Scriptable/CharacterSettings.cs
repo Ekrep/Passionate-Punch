@@ -2,6 +2,7 @@ using UnityEngine;
 using Interfaces;
 using System.Collections.Generic;
 using SkillSystem;
+using Items;
 
 namespace CharacterSystem
 {
@@ -14,6 +15,7 @@ namespace CharacterSystem
         public Sprite inventorySprite;
         public float attackDamage;
         public float attackSpeed;
+        public float attackRayThickness;
         public float maxHealth;
         public float mana;
         public float maxMana;
@@ -30,6 +32,8 @@ namespace CharacterSystem
         public float experience;
         public int money;
         public List<SkillSettings> skillList;
+        public List<ItemSettings> ownedItemList;
+        public List<ItemSettings> equippedItemList;
         public ClassType.ClassTypeEnum characterClass;
     }
 }

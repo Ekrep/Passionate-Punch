@@ -41,8 +41,11 @@ namespace InventorySystem
             {
                 oldItem = equipmentList[index];
                 Inventory.inventoryList.Add(oldItem);
+                equipmentList[index] = null;
+                character.equippedItemList.Remove(oldItem);
             }
             equipmentList[index] = item;
+            character.equippedItemList.Add(item);
             Inventory.inventoryList.Remove(item);
             OnEquipmentHappened?.Invoke();
             ApplyItemEffects(equipmentList);
@@ -51,6 +54,7 @@ namespace InventorySystem
         public void UnEquipItem(int index)
         {
             equipmentList[index].RevertItemEffect(character, equipmentList[index].effectAmount);
+            character.equippedItemList.Remove(equipmentList[index]);
             Inventory.inventoryList.Add(equipmentList[index]);
             equipmentList[index] = null;
             OnEquipmentHappened?.Invoke();
@@ -73,7 +77,6 @@ namespace InventorySystem
                 if (!item.isApplied)
                 {
                     item.ApplyItemEffect(character, item.effectAmount);
-                    item.isApplied = true;
                 }
             }
         }

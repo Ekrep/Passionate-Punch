@@ -12,6 +12,11 @@ namespace InventorySystem
         public static int inventorySize = 16; //can be changed later.        
         [SerializeField] public static List<ItemSettings> inventoryList; 
         public static event Action OnItemPickedUp;
+        private CharacterBaseStateMachine _Character{
+            get {
+                return GameManager.Instance.character;
+            }
+        }
 
         void Start()
         {
@@ -23,18 +28,11 @@ namespace InventorySystem
             if (CheckInventorySize())
             {
                 inventoryList.Add(item);
+                _Character.characterStats.ownedItemList.Add(item);
                 OnItemPickedUp?.Invoke();
                 return true;
             }
             return false;
-        }
-
-        public void RemoveItem(ItemSettings item)
-        {
-            if(inventoryList.Contains(item))
-            {
-                inventoryList.Remove(item);
-            }
         }
 
         public bool CheckInventorySize()
