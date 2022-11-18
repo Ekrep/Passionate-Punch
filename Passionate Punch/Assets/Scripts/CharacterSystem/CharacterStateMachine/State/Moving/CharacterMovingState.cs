@@ -5,8 +5,7 @@ using UnityEngine;
 public class CharacterMovingState : CharacterCanAttackableState
 {
 
-    private float xInput;
-    private float zInput;
+    
     public CharacterMovingState( CharacterBaseStateMachine stateMachine) : base("Moving", stateMachine)
     {
 
@@ -24,11 +23,7 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Update();
        
-        if (xInput == 0 && zInput == 0)
-        {
-            //sm.ChangeState(sm.characterIdleState);
-            sm.anim.SetBool("Moving", false);
-        }
+      
         Move();
 
 
@@ -49,13 +44,15 @@ public class CharacterMovingState : CharacterCanAttackableState
     {
         base.Exit();
         sm.anim.SetBool("Moving", false);
+       
 
     }
 
 
     private void Move()
     {
-
+        float xInput=0;
+        float zInput=0;
        
         
         switch (Application.platform)
@@ -70,7 +67,11 @@ public class CharacterMovingState : CharacterCanAttackableState
                 zInput = Input.GetAxisRaw("Vertical");
                 break;
         }
-
+        if (xInput == 0 && zInput == 0)
+        {
+            
+            sm.anim.SetBool("Moving", false);
+        }
         //UI Input geldiginde degisecek
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {

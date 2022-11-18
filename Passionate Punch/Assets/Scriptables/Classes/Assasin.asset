@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: 
   characterImage: {fileID: 0}
   inventorySprite: {fileID: 21300000, guid: a7cc67313a1910f4998619c5b6a81538, type: 3}
-  attackDamage: 3795
-  attackSpeed: 29.05
+  attackDamage: 3870
+  attackSpeed: 29.65
   attackRayThickness: 0
   maxHealth: 0
   mana: 0
@@ -38,10 +38,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d933dbd5dab75274aad773c05b97c88d, type: 2}
   - {fileID: 11400000, guid: 876376cb9fffd5b4687a5c4d1fda8ac8, type: 2}
   ownedItemList:
-  - {fileID: 11400000, guid: 20f4a6655c8ca694c9143b2e0039c1f4, type: 2}
-  - {fileID: 11400000, guid: 5c904c89d4610d845b3e0a6dadddfcd1, type: 2}
-  - {fileID: 11400000, guid: d81724d2929a86147b7a1fc31402b53e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   equippedItemList:
-  - {fileID: 11400000, guid: 20f4a6655c8ca694c9143b2e0039c1f4, type: 2}
-  - {fileID: 11400000, guid: d81724d2929a86147b7a1fc31402b53e, type: 2}
+  - {fileID: 0}
   characterClass: 0

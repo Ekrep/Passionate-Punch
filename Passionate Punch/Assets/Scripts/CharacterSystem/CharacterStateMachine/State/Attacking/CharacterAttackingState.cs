@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using Interfaces;
 
 public class CharacterAttackingState : CharacterCanSkillCastableState
 {
@@ -16,6 +17,8 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
 
     private bool _isPress;
 
+    private Transform _target;
+
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {
 
@@ -24,6 +27,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     public override void Enter()
     {
         base.Enter();
+        SetRotationWhileAttacking();
         sm.anim.SetBool("Attack", true);
         _isPress = false;
 
@@ -104,9 +108,10 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     public void Attack()
     {
         RaycastHit[] raycastHits = new RaycastHit[1];
-        Physics.RaycastNonAlloc(sm.transform.position, sm.transform.forward, raycastHits, sm.characterStats.range);
-        Debug.DrawRay(sm.transform.position, sm.transform.forward, Color.red, 20);
-        if (raycastHits[0].collider != null)
+        //Physics.CapsuleCastNonAlloc()
+        Physics.RaycastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y+0.5f, sm.transform.position.z), sm.transform.forward, raycastHits, sm.characterStats.range);
+        Debug.DrawRay(new Vector3(sm.transform.position.x, sm.transform.position.y + 0.5f, sm.transform.position.z), sm.transform.forward, Color.red, 20);      
+        if (raycastHits[0].collider != null&&raycastHits[0].collider.TryGetComponent<IHealth>(out IHealth health))
         {
 
             Collider[] colliders = new Collider[50];
@@ -121,6 +126,11 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
                 if (colliders[i].gameObject.TryGetComponent<Chest>(out Chest chest))
                 {
                     Debug.Log("collision");
+                }
+                if (colliders[i].gameObject.TryGetComponent<IHealth>(out IHealth hitableObject))
+                {
+                    hitableObject.Hit(SkillSystem.SkillSettings.HitType.Low,sm.characterStats.attackDamage,Vector3.zero,0);
+                    Debug.Log(colliders[i].gameObject.name);
                 }
 
             }
@@ -146,20 +156,13 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
 
     public void SetRotationWhileAttacking()
     {
-        //float xInput = UIManager.Instance.joystickHorizontalInput;
-        //float zInput = UIManager.Instance.joystickVerticalInput;
-        float xInput = 0;
-        float zInput = 0;
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
-        /*if (Mathf.Abs(xInput)>0|| Mathf.Abs(zInput) > 0)
-        {
-            sm.gameObject.transform.eulerAngles += new Vector3(sm.gameObject.transform.eulerAngles.x, sm.gameObject.transform.eulerAngles.y + (xInput+zInput)*5, sm.gameObject.transform.eulerAngles.z) * Time.deltaTime;
-        }*/
+        Vector3 deltaPos = Vector3.zero;
+        deltaPos = sm.gameObject.transform.position - sm.autoAim.targetEnemy.position;
+        float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
 
+        sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, target, sm.gameObject.transform.rotation.z);
+        //sm.gameObject.transform.LookAt(sm.autoAim.targetEnemy);
        
-
-
 
     }
 

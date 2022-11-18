@@ -105,7 +105,13 @@ namespace Items
                     var instance = ScriptableObject.CreateInstance<ItemSettings>();
                     var cloneItemSettings = Instantiate(item);
                     instance = cloneItemSettings;
-                    go.GetComponent<Item>().itemSettings = instance;
+                    var settings = go.GetComponent<Item>().itemSettings;
+                    Debug.Assert(settings.GetType() == instance.GetType(), "Same assert");
+                    go.GetComponent<Item>().itemSettings = (AttackItem) instance;
+                    Debug.Log(instance.effectAmount);
+
+                    Debug.Log(go.GetComponent<Item>().itemSettings.effectAmount);
+
                 }
                 yield return new WaitForSeconds(0.5f);
             }

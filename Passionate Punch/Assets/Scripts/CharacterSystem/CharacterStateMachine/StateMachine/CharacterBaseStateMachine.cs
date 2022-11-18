@@ -30,11 +30,12 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
     [HideInInspector]
     public float characterMovementSpeed;
-
-
-   
+//Smoothness of turning action
     public float turnSmoothSpeed;
-    public GameObject testObject;
+
+    
+    public AutoAim autoAim;
+
 
     private void Awake()
     {

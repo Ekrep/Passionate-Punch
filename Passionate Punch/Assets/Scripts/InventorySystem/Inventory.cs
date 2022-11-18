@@ -28,6 +28,7 @@ namespace InventorySystem
             if (CheckInventorySize())
             {
                 inventoryList.Add(item);
+                Debug.Log("saaaaaaaaa" + inventoryList[inventoryList.Count - 1].effectAmount);
                 _Character.characterStats.ownedItemList.Add(item);
                 OnItemPickedUp?.Invoke();
                 return true;

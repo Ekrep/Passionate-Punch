@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-public class EnemyMovementSM : EnemyStateMachine
+using Interfaces;
+using SkillSystem;
+
+public class EnemyMovementSM : EnemyStateMachine,IHealth
 {
     // Temporary Buttons
     public Button stunButton, killButton;
@@ -36,6 +39,9 @@ public class EnemyMovementSM : EnemyStateMachine
     public EnemyPatrollingState enemyPatrollingState;
     [HideInInspector]
     public EnemyDieState enemyDieState;
+
+    public float Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     private void Awake()
     {
         enemyNavMesh = GetComponent<NavMeshAgent>();
@@ -64,5 +70,20 @@ public class EnemyMovementSM : EnemyStateMachine
             isPatrollingEnemy = false;
             return enemyIdleState;
         }
+    }
+
+    public void DecreaseHealth(float amount)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void KillSelf()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Hit(SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount)
+    {
+        Debug.Log("IAMENEMY");
     }
 }
