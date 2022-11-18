@@ -2592,42 +2592,47 @@ PrefabInstance:
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.isSelective.Array.size
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: What do you looking for?
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Hi
+      value: Don't know, show me what you got
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: Let's move on!
+      value: Nothing.
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: You want something
+      value: Here they are...
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
-      value: Yeah!
+      value: Get out of here then!
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
-      value: Nope, just chatting
+      value: Cancel
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[6]
-      value: If not, get out of here!
+      value: Now, get the hell out of here!
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
@@ -2637,7 +2642,7 @@ PrefabInstance:
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: dialogue.isSelective.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}

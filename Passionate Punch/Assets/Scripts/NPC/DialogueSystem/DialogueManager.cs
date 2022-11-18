@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     Queue<string> sentences;
     List<bool> selectives;
+    bool selectiveBool;
     public ScriptableBool isInDialogue;
     public TextMeshProUGUI nameText, dialogueText, choosingButtonText_1, choosingButtonText_2;
     public Animator dialogueAnimator;
@@ -14,18 +15,20 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        selectiveBool = false;
         sentences = new Queue<string>();
         selectives = new List<bool>();
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isInDialogue.value)
+        if (Input.GetMouseButtonDown(0) && isInDialogue.value && !selectiveBool)
         {
             DisplayNextSentence();
         }
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        Dialogue.index = 0;
         nameText.text = dialogue.name;
         dialogueAnimator.SetBool("IsOpen", true);
         sentences.Clear();
@@ -42,8 +45,10 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplaySelectiveButtons()
     {
-        if (selectives[Dialogue.index])
+        // This is a selective state.
+        if (selectives[Dialogue.index] == true)
         {
+            selectiveBool = true;
             string sentenceOfOurs_1 = sentences.Dequeue();
             choosingButton_1.gameObject.SetActive(true);
             choosingButtonText_1.text = sentenceOfOurs_1;
@@ -51,8 +56,10 @@ public class DialogueManager : MonoBehaviour
             string sentenceOfOurs_2 = sentences.Dequeue();
             choosingButtonText_2.text = sentenceOfOurs_2;
         }
+        // This is not a selective state
         else
         {
+            selectiveBool = false;
             choosingButton_1.gameObject.SetActive(false);
             choosingButton_2.gameObject.SetActive(false);
         }

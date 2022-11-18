@@ -17,5 +17,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
-
+    public void EnterTheMarket()
+    {
+        Debug.Log("Entered the black market");
+    }
 }
