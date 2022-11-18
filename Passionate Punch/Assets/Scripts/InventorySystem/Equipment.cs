@@ -41,28 +41,26 @@ namespace InventorySystem
             {
                 oldItem = equipmentList[index];
                 Inventory.inventoryList.Add(oldItem);
-                equipmentList[index] = null;
                 character.equippedItemList.Remove(oldItem);
             }
             equipmentList[index] = item;
             character.equippedItemList.Add(item);
             Inventory.inventoryList.Remove(item);
+            item.ApplyItemEffect(character, item.effectAmount);
             OnEquipmentHappened?.Invoke();
-            ApplyItemEffects(equipmentList);
         }
 
-        public void UnEquipItem(int index)
+        public void UnEquipItem(ItemSettings item, int index)
         {
-            equipmentList[index].RevertItemEffect(character, equipmentList[index].effectAmount);
-            character.equippedItemList.Remove(equipmentList[index]);
-            Inventory.inventoryList.Add(equipmentList[index]);
+            item.RevertItemEffect(character, item.effectAmount);
+            character.equippedItemList.Remove(item);
+            Inventory.inventoryList.Add(item);
             equipmentList[index] = null;
             OnEquipmentHappened?.Invoke();
         }   
 
     public bool CheckItemFit(ItemSettings item)
     {
-        Debug.Log(character.characterClass.Equals(item.itemType));
         if (character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
             return true;
         return false;

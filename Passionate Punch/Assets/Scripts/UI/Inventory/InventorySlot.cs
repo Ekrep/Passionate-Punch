@@ -29,7 +29,7 @@ namespace UI
         public int index;
 
         public static event Action<ItemSettings, int> OnItemEquip;
-        public static event Action<int> OnItemUnequip;
+        public static event Action<ItemSettings, int> OnItemUnequip;
 
         public void DisplayItem(ItemSettings newItem)
         {
@@ -48,13 +48,13 @@ namespace UI
             {
                 if (item.isApplied)
                 {
-                    _Character.equippedItemList.Remove(item);
-                    Equipment.equipmentList[index] = null;
+                    _Character.equippedItemList.Remove(item);   
                     item.RevertItemEffect(_Character, item.effectAmount);
                 }
-                Debug.Log("discarded item : " + item.itemTitle);
+                Equipment.equipmentList[index] = null;
                 Inventory.inventoryList.Remove(item);
                 _Character.ownedItemList.Remove(item);
+            
             }
             ClearSlot();
             equippedPanel.SetActive(false);
@@ -72,7 +72,6 @@ namespace UI
         {
             if (item != null)
             {
-                Debug.Log("item choose: " + item.itemTitle);
                 index = ((int)item.itemCategory);
                 selectionUI.DesignSelectionScreen(item);
                 equipButton.onClick.RemoveAllListeners();
@@ -106,7 +105,7 @@ namespace UI
             index = ((int)item.itemCategory);
             if (Equipment.equipmentList[index] != null)
             {
-                OnItemUnequip?.Invoke(index);
+                OnItemUnequip?.Invoke(item, index);
                 equippedPanel.SetActive(false);
             }
         }
