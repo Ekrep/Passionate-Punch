@@ -344,6 +344,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2664392557681088248, guid: ae62b19ed8ae0d44897b3101ead102b0,
+        type: 3}
+      propertyPath: m_text
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan
+        tincidunt diam at varius.
+      objectReference: {fileID: 0}
     - target: {fileID: 2709467511544528569, guid: ae62b19ed8ae0d44897b3101ead102b0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1412,7 +1418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491801043
 GameObject:
@@ -2062,75 +2068,6 @@ Transform:
   m_Father: {fileID: 491801044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1642566815
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.134
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170088359452003894, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171784489016062524, guid: de83bb68c544fa9429b40760992e25fc,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackMarket (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: de83bb68c544fa9429b40760992e25fc, type: 3}
 --- !u!1 &1672130072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,6 +2537,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: dialogue.isSelective.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: dialogue.isSelective.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: dialogue.isSelective.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2824275457033888363, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: dialogue.isSelective.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 665904478874174898, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: isInDialogue
