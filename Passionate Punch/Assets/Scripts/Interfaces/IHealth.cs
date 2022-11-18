@@ -15,5 +15,7 @@ namespace Interfaces
 
         public void DecreaseHealth(float amount);
         public void KillSelf();
+
+        public void Hit(SkillSystem.SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount);
     }
 }
