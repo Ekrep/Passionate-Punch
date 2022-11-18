@@ -37,7 +37,11 @@ public class Invisibility : MonoBehaviourSkill
     public override IEnumerator RevertSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
-        skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _firstMat;
+        if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material==invisMat)
+        {
+            skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _firstMat;
+        }
+        
     }
 
     public override IEnumerator ExitCastState(float time)

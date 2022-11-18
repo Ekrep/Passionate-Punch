@@ -6,7 +6,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public ScriptableBool isInDialogue;
 
     public CharacterBaseStateMachine character;
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        isInDialogue.value = false;
     }
 
 
