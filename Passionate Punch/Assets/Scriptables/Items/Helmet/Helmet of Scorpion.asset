@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc4b481555c3754595ffc5594343ea6, type: 3}
   m_Name: Helmet of Scorpion
   m_EditorClassIdentifier: 
-  itemMesh: {fileID: 0}
-  itemMaterial: {fileID: 0}
-  itemTitle: 
-  itemImage: {fileID: 0}
+  itemMesh: {fileID: 4300000, guid: ba017381d93cf8b49bc16bd3fbae19b1, type: 3}
+  itemMaterial: {fileID: 2100000, guid: bdfd86bb68e6e72419cbf417c2a6362d, type: 2}
+  itemTitle: Helmet of Scorpion
+  itemImage: {fileID: 21300000, guid: bfd696e27dc200b409a45c1f45c45c76, type: 3}
   itemDescription: 
   effectAmount: 0
   worth: 0

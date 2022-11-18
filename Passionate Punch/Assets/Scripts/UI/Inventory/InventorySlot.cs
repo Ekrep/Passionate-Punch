@@ -98,6 +98,7 @@ namespace UI
 
         public void OnUnequipButtonPressed()
         {
+            index = ((int)item.itemCategory);
             if (Equipment.equipmentList[index] != null)
             {
                 OnItemUnequip?.Invoke(index);
