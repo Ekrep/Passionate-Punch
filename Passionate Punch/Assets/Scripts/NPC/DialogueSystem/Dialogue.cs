@@ -6,5 +6,7 @@ using UnityEngine;
 public class Dialogue
 {
     public string name;
+    public static int index;
     public string[] sentences;
+    public bool[] isSelective;
 }
