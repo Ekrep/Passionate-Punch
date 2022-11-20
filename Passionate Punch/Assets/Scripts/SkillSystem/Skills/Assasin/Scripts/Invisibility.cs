@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Invisibility : MonoBehaviourSkill
 {
+    /// <summary>
+    /// Bug cikarsa sharedMat!!
+    /// </summary>
     [SerializeField] private Material _firstMat;
     public Material invisMat;
     public GameObject stormExplodePsObject;
 
 
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         skillSettings.canCast = true;
     }
@@ -22,7 +25,7 @@ public class Invisibility : MonoBehaviourSkill
 
             stormExplodePsObject.GetComponent<ParticleSystem>().Play();
             stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
-            skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = invisMat;
+            skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = invisMat;
             StartCoroutine(RevertSkillEffect(skillSettings.activeTime));
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
@@ -37,9 +40,9 @@ public class Invisibility : MonoBehaviourSkill
     public override IEnumerator RevertSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
-        if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material==invisMat)
+        if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial==invisMat)
         {
-            skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = _firstMat;
+            skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;
         }
         
     }
@@ -56,6 +59,6 @@ public class Invisibility : MonoBehaviourSkill
         yield return new WaitForSeconds(time);
         skillSettings.canCast = true;
 
-        DestroyImmediate(gameObject);
+        gameObject.SetActive(false);
     }
 }

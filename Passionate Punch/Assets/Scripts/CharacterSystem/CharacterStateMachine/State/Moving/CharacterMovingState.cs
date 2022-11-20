@@ -55,25 +55,29 @@ public class CharacterMovingState : CharacterCanAttackableState
         float zInput=0;
        
         
-        switch (Application.platform)
+        switch (UnityEngine.Device.Application.platform)
         {
             case RuntimePlatform.Android:
                 xInput = UIManager.Instance.joystickHorizontalInput;
                 zInput = UIManager.Instance.joystickVerticalInput;
+                Debug.Log(xInput);
+                Debug.Log(zInput);
                 break;
 
             case RuntimePlatform.WindowsEditor:
                 xInput = Input.GetAxisRaw("Horizontal");
                 zInput = Input.GetAxisRaw("Vertical");
                 break;
+
+                
         }
-        if (xInput == 0 && zInput == 0)
+        if (Mathf.Abs(xInput) < 0.4f &&Mathf.Abs(zInput) < 0.4f)
         {
             
             sm.anim.SetBool("Moving", false);
         }
         //UI Input geldiginde degisecek
-        if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
+        if (Mathf.Abs(xInput) > 0.4f || Mathf.Abs(zInput) > 0.4f)
         {
             sm.anim.SetBool("Moving", true);
             sm.transform.position = new Vector3(sm.transform.position.x + xInput * sm.characterMovementSpeed * Time.deltaTime, sm.transform.position.y, sm.transform.position.z + zInput * sm.characterMovementSpeed * Time.deltaTime);

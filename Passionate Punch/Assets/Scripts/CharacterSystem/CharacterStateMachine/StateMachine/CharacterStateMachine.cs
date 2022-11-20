@@ -5,7 +5,8 @@ using SkillSystem;
 
 public class CharacterStateMachine : MonoBehaviour
 {
-    CharacterBaseState currentState;
+   [HideInInspector]
+   public CharacterBaseState currentState;
 
    
     private void Start()

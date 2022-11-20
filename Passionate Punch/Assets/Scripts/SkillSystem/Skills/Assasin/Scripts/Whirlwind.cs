@@ -8,7 +8,7 @@ public class Whirlwind : MonoBehaviourSkill
     //skiller onDestroy oldugunda Datanýn cancast=true
     public GameObject particleSystemGameObjectPrefab;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         skillSettings.canCast = true;
     }
@@ -36,7 +36,7 @@ public class Whirlwind : MonoBehaviourSkill
         Debug.Log("whrilWind");
         yield return new WaitForSeconds(time);
         skillSettings.canCast = true;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         /*if (skillSettings.stackCount > 0)
         {
             skillSettings.stackCount--;

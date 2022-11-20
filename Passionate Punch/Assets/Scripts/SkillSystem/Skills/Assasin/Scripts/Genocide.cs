@@ -72,9 +72,13 @@ public class Genocide : MonoBehaviourSkill
     [SerializeField]
     private float _camShakeRange;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         skillSettings.canCast = true;
+        for (int i = 0; i < _assasinSilhouettes.Count; i++)
+        {
+            _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Alpha", 0.3f);
+        }
     }
     void Start()
     {
@@ -125,8 +129,8 @@ public class Genocide : MonoBehaviourSkill
     public override IEnumerator Cooldown(float time)
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
         skillSettings.canCast = true;
+        gameObject.SetActive(false);
     }
 
     IEnumerator CastSkillEffects()
