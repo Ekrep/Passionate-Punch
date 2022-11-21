@@ -9,6 +9,8 @@ public class AutoAim : MonoBehaviour
     [HideInInspector]
     public Transform targetEnemy;
 
+    private EnemyMovementSM _focusedEnemy;
+
     [SerializeField]
     private LayerMask _layer;
    
@@ -24,26 +26,31 @@ public class AutoAim : MonoBehaviour
     private void Aiming()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer)&&hit.collider.TryGetComponent<EnemyStateMachine>(out EnemyStateMachine enemy))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer)&&hit.collider.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
         {
            
             targetEnemy = enemy.transform;
+            _focusedEnemy = enemy;
+            enemy.FocusEnemy();
         }
+       
+       
+        
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
         {
             enemy.FocusEnemy();
-            Debug.Log(enemy);
-            Debug.Log("girdimfocus");
+            
+            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
         {
             enemy.NotFocusEnemy();
         }
