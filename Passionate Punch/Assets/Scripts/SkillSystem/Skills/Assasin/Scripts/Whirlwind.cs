@@ -6,7 +6,8 @@ public class Whirlwind : MonoBehaviourSkill
 {
 
     //skiller onDestroy oldugunda Datanýn cancast=true
-    public GameObject particleSystemGameObjectPrefab;
+    [SerializeField]
+    private ParticleSystem _ps;
 
     private void OnDisable()
     {
@@ -17,8 +18,8 @@ public class Whirlwind : MonoBehaviourSkill
         if (skillSettings.canCast)
         {
 
-            particleSystemGameObjectPrefab.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.Euler(-90, 0, 0));
-            particleSystemGameObjectPrefab.GetComponent<ParticleSystem>().Play();
+            gameObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
+            _ps.GetComponent<ParticleSystem>().Play();
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
             StartCoroutine(ExitCastState(0.7f));

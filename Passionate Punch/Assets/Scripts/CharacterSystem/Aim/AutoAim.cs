@@ -85,7 +85,7 @@ public class AutoAim : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_focusedEnemy==other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (_focusedEnemy==other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&enemy!=null)
         {
             _focusedEnemy.NotFocusEnemy();
             targetEnemy = null;
