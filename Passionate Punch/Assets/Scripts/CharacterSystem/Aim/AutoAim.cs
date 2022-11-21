@@ -1,38 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AutoAim : MonoBehaviour
 {
-   
+
 
     [HideInInspector]
     public Transform targetEnemy;
-
     private EnemyMovementSM _focusedEnemy;
-
     [SerializeField]
     private LayerMask _layer;
    
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+      
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            Aiming();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Aiming();
+            }
+            if (_focusedEnemy != null && _focusedEnemy.currentEnemyState == _focusedEnemy.enemyDieState)
+            {
+                _focusedEnemy = null;
+                targetEnemy = null;
+            }
         }
         
     }
     private void Aiming()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer)&&hit.collider.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer))
         {
-           
-            targetEnemy = enemy.transform;
-            _focusedEnemy = enemy;
-            enemy.FocusEnemy();
+            if (hit.collider.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+            {
+                targetEnemy = enemy.transform;
+                _focusedEnemy = enemy;
+                enemy.FocusEnemy();
+            }
+            else
+            {
+                _focusedEnemy.NotFocusEnemy();
+                targetEnemy = null;
+                _focusedEnemy = null;
+
+            }
+            
         }
+       
        
        
         
@@ -40,8 +59,10 @@ public class AutoAim : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&targetEnemy==null&&enemy.currentEnemyState!=enemy.enemyDieState)
         {
+            targetEnemy = enemy.transform;
+            _focusedEnemy = enemy;
             enemy.FocusEnemy();
             
             
@@ -55,4 +76,6 @@ public class AutoAim : MonoBehaviour
             enemy.NotFocusEnemy();
         }
     }
+
+    
 }

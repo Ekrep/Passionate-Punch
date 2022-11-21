@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    EnemyBaseState currentEnemyState;
+    [HideInInspector]
+   public EnemyBaseState currentEnemyState;
     void Start()
     {
         currentEnemyState = GetInitialState();
