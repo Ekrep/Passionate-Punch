@@ -73,18 +73,23 @@ public class AutoAim : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&targetEnemy==null&&enemy.currentEnemyState!=enemy.enemyDieState)
+        if (other.gameObject.GetComponent<EnemyMovementSM>()!=null)
         {
-            targetEnemy = enemy.transform;
-            _focusedEnemy = enemy;
-            _focusedEnemy.FocusEnemy();
-            
-            
+            if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && targetEnemy == null && enemy.currentEnemyState != enemy.enemyDieState)
+            {
+                targetEnemy = enemy.transform;
+                _focusedEnemy = enemy;
+                _focusedEnemy.FocusEnemy();
+
+
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
+        
         if (_focusedEnemy==other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&enemy!=null)
         {
             _focusedEnemy.NotFocusEnemy();
