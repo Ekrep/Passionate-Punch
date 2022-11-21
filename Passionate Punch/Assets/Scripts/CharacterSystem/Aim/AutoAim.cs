@@ -9,6 +9,10 @@ public class AutoAim : MonoBehaviour
     [HideInInspector]
     public Transform targetEnemy;
 
+    [SerializeField]
+    private LayerMask _layer;
+   
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -20,7 +24,7 @@ public class AutoAim : MonoBehaviour
     private void Aiming()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)&&hit.collider.TryGetComponent<EnemyStateMachine>(out EnemyStateMachine enemy))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer)&&hit.collider.TryGetComponent<EnemyStateMachine>(out EnemyStateMachine enemy))
         {
             //_hitPos = hit.point;
             targetEnemy = enemy.transform;

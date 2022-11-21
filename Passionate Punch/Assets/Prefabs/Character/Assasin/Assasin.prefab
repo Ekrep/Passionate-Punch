@@ -494,9 +494,11 @@ GameObject:
   - component: {fileID: 7011180708296619034}
   - component: {fileID: 1124418673}
   - component: {fileID: 1642363044}
+  - component: {fileID: 1524177590}
+  - component: {fileID: 1524177598}
   m_Layer: 0
   m_Name: Assasin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,7 +588,7 @@ MonoBehaviour:
   anim: {fileID: 6924387902956930987}
   characterMovementSpeed: 0
   turnSmoothSpeed: 10
-  testObject: {fileID: 917075763}
+  autoAim: {fileID: 1524177598}
 --- !u!114 &1124418673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +614,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterBaseStateMachine: {fileID: 7011180708296619034}
+--- !u!114 &1524177590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44768c7cb349580499f09fd037641bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastDamageTakenTime: 0
+  lastRecoveredTime: 0
+--- !u!114 &1524177598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e434f3d2fffe750479115237e38a7d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEnemy: {fileID: 0}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &7011264710593025413
 GameObject:
   m_ObjectHideFlags: 0
