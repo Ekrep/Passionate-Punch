@@ -17,6 +17,7 @@ public class EnemyBaseState
     public virtual void UpdatePhysics(){}
     public virtual void EnemyOnCollisionEnter(Collision collision){}
     public virtual void EnemyTriggerEnter(Collider other){}
+    public virtual void EnemyTriggerStay(Collider other){}
     public virtual void EnemyTriggerExit(Collider other){}
     public virtual void Exit(){}
 }

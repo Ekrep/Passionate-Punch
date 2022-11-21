@@ -32,7 +32,16 @@ public class EnemyIdleState : EnemyBaseState
     public override void EnemyTriggerEnter(Collider other)
     {
         base.EnemyTriggerEnter(other);
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<CharacterBaseStateMachine>().canVisible)
+        {
+            enemyMovementSM.warnEnemy.gameObject.SetActive(true);
+            enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);
+        }
+    }
+    public override void EnemyTriggerStay(Collider other)
+    {
+        base.EnemyTriggerStay(other);
+        if (other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<CharacterBaseStateMachine>().canVisible)
         {
             enemyMovementSM.warnEnemy.gameObject.SetActive(true);
             enemyStateMachine.ChangeState(enemyMovementSM.enemyChasingState);

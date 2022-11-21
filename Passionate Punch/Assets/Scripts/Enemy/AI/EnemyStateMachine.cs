@@ -34,6 +34,13 @@ public class EnemyStateMachine : MonoBehaviour
             currentEnemyState.EnemyTriggerEnter(other);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (currentEnemyState != null)
+        {
+            currentEnemyState.EnemyTriggerStay(other);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (currentEnemyState != null)
