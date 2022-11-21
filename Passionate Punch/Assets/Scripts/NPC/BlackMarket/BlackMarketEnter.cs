@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BlackMarketEnter : MonoBehaviour
 {
+    [Header("Ink JSON")]
+    public TextAsset inkJSON;
+
     public static Action TriggerBMDialogue;
     public ScriptableBool isInDialogue;
     private void OnEnable()
@@ -34,5 +37,7 @@ public class BlackMarketEnter : MonoBehaviour
         isInDialogue.value = true;
         // Disable the interact button when player enters the conversation
         UIManager.Instance.interactionButton.interactable = false;
+        // Test if the ink file gets or not
+        DialogueManager_Test.GetInstance().EnterDialogueMode(inkJSON);
     }
 }
