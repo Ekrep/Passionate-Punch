@@ -14,7 +14,7 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
-    public GameObject stunParticles, warnEnemy;
+    public GameObject stunParticles, warnEnemy, focusCanvas;
     public Animator enemyCanvasAnimator, enemyAnimator;
     int empty = 0;
     [HideInInspector]
@@ -71,7 +71,14 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
             return enemyIdleState;
         }
     }
-
+    public void FocusEnemy()
+    {
+        focusCanvas.gameObject.SetActive(true);
+    }
+    public void NotFocusEnemy()
+    {
+        focusCanvas.gameObject.SetActive(false);
+    }
     public void DecreaseHealth(float amount)
     {
         throw new System.NotImplementedException();
