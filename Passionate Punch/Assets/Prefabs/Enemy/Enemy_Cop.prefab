@@ -5527,7 +5527,7 @@ GameObject:
   - component: {fileID: 8881682385672408610}
   - component: {fileID: 1083167228264909244}
   - component: {fileID: -6332712240909679337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Cop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5655,7 +5655,6 @@ MonoBehaviour:
   focusCanvas: {fileID: 4234093788962270210}
   enemyCanvasAnimator: {fileID: 8960453267060345014}
   enemyAnimator: {fileID: 7729999935695124312}
-  isFocused: 0
   isPatrollingEnemy: 0
   enemyNavMesh: {fileID: 0}
   enemy: {fileID: 0}

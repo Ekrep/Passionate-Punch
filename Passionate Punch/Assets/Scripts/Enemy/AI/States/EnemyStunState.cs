@@ -19,7 +19,6 @@ public class EnemyStunState : EnemyBaseState
         base.Enter();
         //
         enemyMovementSM.stunButton.onClick.RemoveAllListeners();
-        enemyMovementSM.killButton.onClick.RemoveAllListeners();
         //
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
