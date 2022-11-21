@@ -76,11 +76,13 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     }
     
 
+    //works on animation
     public void CallAttackFunction()
     {
         characterAttackingState.Attack();
     }
   
+    //works on animation
     public void CallAttackStateChangeFunction()
     {
         characterAttackingState.ChangeAttackState();
