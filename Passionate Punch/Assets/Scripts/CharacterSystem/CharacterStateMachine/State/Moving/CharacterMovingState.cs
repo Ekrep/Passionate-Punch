@@ -60,8 +60,6 @@ public class CharacterMovingState : CharacterCanAttackableState
             case RuntimePlatform.Android:
                 xInput = UIManager.Instance.joystickHorizontalInput;
                 zInput = UIManager.Instance.joystickVerticalInput;
-                Debug.Log(xInput);
-                Debug.Log(zInput);
                 break;
 
             case RuntimePlatform.WindowsEditor:

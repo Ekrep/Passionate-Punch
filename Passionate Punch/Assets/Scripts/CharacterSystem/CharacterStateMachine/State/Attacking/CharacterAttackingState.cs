@@ -163,7 +163,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
             float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
 
             sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, target, sm.gameObject.transform.rotation.z);
-            //sm.gameObject.transform.LookAt(sm.autoAim.targetEnemy);
+           
         }
 
 
@@ -176,8 +176,20 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     {
         float xInput = 0;
         float zInput = 0;
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        switch (UnityEngine.Device.Application.platform)
+        {
+            case RuntimePlatform.Android:
+                xInput = UIManager.Instance.joystickHorizontalInput;
+                zInput = UIManager.Instance.joystickVerticalInput;             
+                break;
+
+            case RuntimePlatform.WindowsEditor:
+                xInput = Input.GetAxisRaw("Horizontal");
+                zInput = Input.GetAxisRaw("Vertical");
+                break;
+
+
+        }
         if (Mathf.Abs(xInput) > 0 || Mathf.Abs(zInput) > 0)
         {
             sm.ChangeState(sm.characterMovingState);

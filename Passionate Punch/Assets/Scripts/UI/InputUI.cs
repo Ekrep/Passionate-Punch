@@ -7,7 +7,7 @@ namespace UI
 
     public class InputUI : MonoBehaviour
     {
-        public FixedJoystick joystick;
+        public Joystick joystick;
         public InventoryUI inventory;
 
         public Button attackButton;
