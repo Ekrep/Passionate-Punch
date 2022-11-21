@@ -17,7 +17,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
 
     private bool _isPress;
 
-    private Transform _target;
+    //private Transform _target;
 
     public CharacterAttackingState(CharacterBaseStateMachine stateMachine) : base("Attacking", stateMachine)
     {

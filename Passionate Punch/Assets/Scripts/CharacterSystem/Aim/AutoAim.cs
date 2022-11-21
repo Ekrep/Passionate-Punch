@@ -26,13 +26,26 @@ public class AutoAim : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,_layer)&&hit.collider.TryGetComponent<EnemyStateMachine>(out EnemyStateMachine enemy))
         {
-            //_hitPos = hit.point;
+           
             targetEnemy = enemy.transform;
         }
 
-        /*Vector3 directon = _hitPos - transform.position;
-        directon.y = 0;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        {
+            enemy.FocusEnemy();
+            Debug.Log(enemy);
+            Debug.Log("girdimfocus");
+        }
+    }
 
-        transform.forward = directon;*/
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        {
+            enemy.NotFocusEnemy();
+        }
     }
 }

@@ -53,6 +53,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
         characterMovementSpeed = characterStats.moveSpeed;
         characterSkills = characterStats.skillList;
+        canVisible = true;
         
     }
    
