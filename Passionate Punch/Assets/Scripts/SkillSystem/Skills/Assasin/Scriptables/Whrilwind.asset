@@ -29,4 +29,3 @@ MonoBehaviour:
   baseStackCount: 0
   stackCount: 0
   canCast: 1
-  holder: {fileID: 0}
