@@ -73,9 +73,8 @@ public class AutoAim : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<EnemyMovementSM>()!=null)
-        {
-            if (other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && targetEnemy == null && enemy.currentEnemyState != enemy.enemyDieState)
+        
+            if (other.gameObject.transform.parent!=null&&other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && targetEnemy == null && enemy.currentEnemyState != enemy.enemyDieState)
             {
                 targetEnemy = enemy.transform;
                 _focusedEnemy = enemy;
@@ -83,14 +82,14 @@ public class AutoAim : MonoBehaviour
 
 
             }
-        }
+        
         
     }
 
     private void OnTriggerExit(Collider other)
     {
         
-        if (_focusedEnemy==other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&enemy!=null)
+        if (other.gameObject.transform.parent != null && _focusedEnemy ==other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy)&&enemy!=null)
         {
             _focusedEnemy.NotFocusEnemy();
             targetEnemy = null;
