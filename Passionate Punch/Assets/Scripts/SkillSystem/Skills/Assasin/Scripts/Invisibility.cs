@@ -31,6 +31,7 @@ public class Invisibility : MonoBehaviourSkill
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
             StartCoroutine(ExitCastState(0.5f));
             StartCoroutine(Cooldown(skillSettings.coolDown));
+            skillSettings.Character.canVisible = false;
             skillSettings.canCast = false;
         }
 
@@ -40,6 +41,7 @@ public class Invisibility : MonoBehaviourSkill
     public override IEnumerator RevertSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
+        skillSettings.Character.canVisible = true;
         if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial==invisMat)
         {
             skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;

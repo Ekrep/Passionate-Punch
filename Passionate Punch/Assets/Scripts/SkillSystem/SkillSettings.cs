@@ -49,26 +49,26 @@ namespace SkillSystem
 
         public bool canCast;
 
-        public MonoBehaviourSkill holder;
+        private MonoBehaviourSkill _skillReference;
         
         public void Cast()
         {
-            if (skillPrefab!=null&&canCast&&holder==null)
+            if (skillPrefab!=null&&canCast&&_skillReference==null)
             {
                 
                 GameObject gO;
                 gO = Instantiate(skillPrefab);
                 gO.TryGetComponent<MonoBehaviourSkill>(out MonoBehaviourSkill skill);
-                holder =skill;
-                if (skill != null)
+                _skillReference =skill;
+                if (_skillReference != null)
                 {
-                    skill.Cast();
+                    _skillReference.Cast();
                 }
             }
-            if (skillPrefab!=null&&canCast&&holder!=null)
+            if (skillPrefab!=null&&canCast&&_skillReference!=null)
             {
-                holder.gameObject.SetActive(true);
-                holder.Cast();
+                _skillReference.gameObject.SetActive(true);
+                _skillReference.Cast();
             }
                 
             

@@ -33,6 +33,9 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 //Smoothness of turning action
     public float turnSmoothSpeed;
 
+    [HideInInspector]
+    public bool canVisible;
+
     
     public AutoAim autoAim;
 
