@@ -2601,7 +2601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1287764453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5366,7 +5366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88.5271, y: -124.5}
+  m_AnchoredPosition: {x: 88.52734, y: -124.5}
   m_SizeDelta: {x: 236.8884, y: 3.593}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &603572957803033334
@@ -6382,7 +6382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc43f5794d00124a9f42cd481ad1f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 9072444174953647905}
+  joystick: {fileID: 6993620583318694535}
   inventory: {fileID: 1380916951}
   attackButton: {fileID: 5307667752485059943}
 --- !u!114 &5307667753361529502
@@ -6668,7 +6668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.74487, y: -146.88257}
+  m_AnchoredPosition: {x: 72.74512, y: -146.88257}
   m_SizeDelta: {x: 220.5878, y: 1.0104}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9106121316988099237
@@ -7163,6 +7163,11 @@ PrefabInstance:
       propertyPath: handleRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee,
+        type: 3}
+      propertyPath: moveThreshold
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8135886326569738825, guid: 56fae09712773584fb63896d473a98ee,
         type: 3}
       propertyPath: m_Name
@@ -7181,18 +7186,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 941167019112869222}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9072444174953647905 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 941167019112869222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072444174953647919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9072444174953647919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8135886326569738825, guid: 56fae09712773584fb63896d473a98ee,
@@ -7376,6 +7369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floating Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
@@ -10201,10 +10199,22 @@ PrefabInstance:
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+--- !u!114 &6993620583318694535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 5307667753674087288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993620583318694539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6993620583318694538 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
