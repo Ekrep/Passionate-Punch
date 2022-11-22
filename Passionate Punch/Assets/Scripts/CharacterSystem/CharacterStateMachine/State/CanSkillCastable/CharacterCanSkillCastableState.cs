@@ -29,19 +29,23 @@ public class CharacterCanSkillCastableState : CharacterAliveState
                 break;
 
             case RuntimePlatform.WindowsEditor:
-                if (Input.GetKeyDown(KeyCode.O) && sm.characterSkills[0].skillType == SkillSystem.SkillSettings.SkillType.Passive)
+                if (Input.GetKeyDown(KeyCode.O) /*&& sm.characterSkills[0].skillType == SkillSystem.SkillSettings.SkillType.Passive*/)
                 {
                     sm.characterSkills[0].Cast();
                     //sm.characterStats.mana = sm.characterSkills[0].manaCost;
                 }
-                if (Input.GetKeyDown(KeyCode.P) && sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active)
+                if (Input.GetKeyDown(KeyCode.P) /*&& sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active*/)
                 {
                     sm.characterSkills[1].Cast();
                     //sm.characterStats.mana = sm.characterSkills[0].manaCost;
                 }
-                if (Input.GetKeyDown(KeyCode.I) && sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active)
+                if (Input.GetKeyDown(KeyCode.I) /*&& sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active*/)
                 {
                     sm.characterSkills[2].Cast();
+                }
+                if (Input.GetKeyDown(KeyCode.U))
+                {
+                    sm.characterSkills[3].Cast();
                 }
                 break;
         }

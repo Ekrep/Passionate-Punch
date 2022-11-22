@@ -76,6 +76,8 @@ public class Genocide : MonoBehaviourSkill
 
 
     private IHealth _characterIHealth;
+
+    //true when skill damage
     private bool canHit;
 
     private void OnDisable()
