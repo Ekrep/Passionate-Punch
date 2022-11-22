@@ -39,7 +39,9 @@ public class Invisibility : MonoBehaviourSkill
             Timing.RunCoroutine(ExitCastState(0.5f));
             Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.Character.canVisible = false;
+            //BuffAmount
             skillSettings.Character.characterStats.moveSpeed += 3;
+            
             skillSettings.canCast = false;
 
 

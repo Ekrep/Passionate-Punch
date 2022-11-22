@@ -69,6 +69,7 @@ public class Whirlwind : MonoBehaviourSkill
 
     public override IEnumerator<float> ExitCastState(float time)
     {
+
         yield return Timing.WaitForSeconds(time);
         gameObject.SetActive(false);
         skillSettings.Character.anim.SetBool(skillSettings.animationName, false);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5716838439617020333}
   - component: {fileID: 7708133547424423099}
+  - component: {fileID: 5660894029578048057}
   m_Layer: 0
   m_Name: GenocidePrefab
   m_TagString: Untagged
@@ -97,6 +98,19 @@ MonoBehaviour:
   _ambianceDissappearDelay: 5
   _enlightDelay: 4
   _camShakeRange: 0.09
+--- !u!65 &5660894029578048057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021625406065163208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.7211657, y: 1, z: 7.6664295}
+  m_Center: {x: -0.089371204, y: 0, z: 1.8440083}
 --- !u!1 &4834107131849905352
 GameObject:
   m_ObjectHideFlags: 0
