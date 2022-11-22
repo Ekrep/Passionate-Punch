@@ -9,9 +9,11 @@ public class BlackMarketEnter : MonoBehaviour
     public TextAsset inkJSON;
 
     public static Action TriggerBMDialogue;
-    public ScriptableBool isInDialogue;
+    public ScriptableBool isInDialogue, blackMarket;
     private void OnEnable()
     {
+        // Initialize the blackmarket scriptable value with false
+        blackMarket.value = false;
         BlackMarket.OnBlackMarketEnter += OnMarketEnter;
     }
     private void OnDisable()
@@ -30,6 +32,7 @@ public class BlackMarketEnter : MonoBehaviour
         SFXManager.instance.audioSource.clip = SFXManager.instance.BlackMarketSFX[0];
         SFXManager.instance.audioSource.Play();
         /////////////////////////////////////
+        blackMarket.value = true;
     }
     public void OpenBlackMarket()
     {

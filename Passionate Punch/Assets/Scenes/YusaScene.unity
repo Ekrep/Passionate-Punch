@@ -6684,6 +6684,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665904478874174898, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
+      propertyPath: blackMarket
+      value: 
+      objectReference: {fileID: 11400000, guid: d1afeaf05a2c1294ca4721980818b516,
+        type: 2}
+    - target: {fileID: 665904478874174898, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
       propertyPath: isInDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9,
@@ -6693,6 +6699,12 @@ PrefabInstance:
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: 2cdbd63fbcb57aa4fb2e4a2cd428022b, type: 3}
+    - target: {fileID: 1682664722118318580, guid: de83bb68c544fa9429b40760992e25fc,
+        type: 3}
+      propertyPath: blackMarket
+      value: 
+      objectReference: {fileID: 11400000, guid: d1afeaf05a2c1294ca4721980818b516,
+        type: 2}
     - target: {fileID: 1682664722118318580, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: isInDialogue

@@ -6399,6 +6399,7 @@ GameObject:
   - component: {fileID: 5307667753361529491}
   - component: {fileID: 5307667753361529503}
   - component: {fileID: 5307667753361529502}
+  - component: {fileID: 6365964409101875580}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6538,6 +6539,20 @@ MonoBehaviour:
   isAttackPress: 0
   isPressedSkillOne: 0
   isPressedSkillTwo: 0
+--- !u!114 &6365964409101875580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307667753361529492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f032ac570839ef0408105ad0f652ed77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackMarket: {fileID: 11400000, guid: d1afeaf05a2c1294ca4721980818b516, type: 2}
+  blackMarketPanel: {fileID: 9026933672163007111}
 --- !u!1 &5601323694089096879
 GameObject:
   m_ObjectHideFlags: 0

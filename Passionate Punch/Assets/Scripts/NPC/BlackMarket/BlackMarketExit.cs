@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlackMarketExit : MonoBehaviour
 {
-    public ScriptableBool isInDialogue;
+    public ScriptableBool isInDialogue, blackMarket;
     private void OnEnable()
     {
         BlackMarket.OnBlackMarketExit += OnMarketExit;
@@ -21,5 +21,6 @@ public class BlackMarketExit : MonoBehaviour
         }
         UIManager.Instance.interactionButton.onClick.RemoveAllListeners();
         isInDialogue.value = false;
+        blackMarket.value = false;
     }
 }
