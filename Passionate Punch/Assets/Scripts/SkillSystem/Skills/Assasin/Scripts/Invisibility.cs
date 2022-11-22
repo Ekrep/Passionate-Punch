@@ -10,19 +10,20 @@ public class Invisibility : MonoBehaviourSkill
     [SerializeField] private Material _firstMat;
     public Material invisMat;
     public GameObject stormExplodePsObject;
-
+    private float _characterFirstMovementSpeed;
 
 
     private void OnDisable()
     {
         skillSettings.canCast = true;
+        RevertSkillBuff();
     }
 
     public override void Cast()
     {
         if (skillSettings.canCast)
         {
-
+            _characterFirstMovementSpeed = skillSettings.Character.characterStats.moveSpeed;
             stormExplodePsObject.GetComponent<ParticleSystem>().Play();
             stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = invisMat;
@@ -32,7 +33,9 @@ public class Invisibility : MonoBehaviourSkill
             StartCoroutine(ExitCastState(0.5f));
             StartCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.Character.canVisible = false;
+            skillSettings.Character.characterStats.moveSpeed += 3;
             skillSettings.canCast = false;
+            
         }
 
         // Debug.Log(GameManager.Instance.character.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material=invisMat);
@@ -42,6 +45,7 @@ public class Invisibility : MonoBehaviourSkill
     {
         yield return new WaitForSeconds(time);
         skillSettings.Character.canVisible = true;
+        RevertSkillBuff();
         if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial==invisMat)
         {
             skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;
@@ -62,5 +66,10 @@ public class Invisibility : MonoBehaviourSkill
         skillSettings.canCast = true;
 
         gameObject.SetActive(false);
+    }
+
+    private void RevertSkillBuff()
+    {
+        skillSettings.Character.characterStats.moveSpeed =_characterFirstMovementSpeed;
     }
 }

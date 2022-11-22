@@ -66,6 +66,7 @@ public class AutoAim : MonoBehaviour
 
         if (other.gameObject.transform.parent != null && other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && targetEnemy == null && enemy.currentEnemyState != enemy.enemyDieState)
         {
+            Debug.Log("enter Auto");
             targetEnemy = enemy.transform;
             _focusedEnemy = enemy;
             _focusedEnemy.FocusEnemy();
@@ -81,6 +82,7 @@ public class AutoAim : MonoBehaviour
 
         if (other.gameObject.transform.parent != null && _focusedEnemy == other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && enemy != null)
         {
+            Debug.Log("exit Auto");
             _focusedEnemy.NotFocusEnemy();
             targetEnemy = null;
             _focusedEnemy = null;

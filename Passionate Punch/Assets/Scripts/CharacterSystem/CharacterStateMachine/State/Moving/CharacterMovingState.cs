@@ -78,7 +78,9 @@ public class CharacterMovingState : CharacterCanAttackableState
         if (Mathf.Abs(xInput) > 0.4f || Mathf.Abs(zInput) > 0.4f)
         {
             sm.anim.SetBool("Moving", true);
-            sm.transform.position = new Vector3(sm.transform.position.x + xInput * sm.characterMovementSpeed * Time.deltaTime, sm.transform.position.y, sm.transform.position.z + zInput * sm.characterMovementSpeed * Time.deltaTime);
+            Vector3 moveDir=new Vector3(xInput,0,zInput).normalized;
+            
+            sm.transform.position +=moveDir*sm.characterStats.moveSpeed*Time.deltaTime;
             float angleX;
 
             angleX = Mathf.Atan2(xInput,zInput) * Mathf.Rad2Deg;
