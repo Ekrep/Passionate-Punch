@@ -107,6 +107,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     }
     public void Attack()
     {
+        sm.gameObject.TryGetComponent<IHealth>(out IHealth player);
         RaycastHit[] raycastHits = new RaycastHit[1];
         //Physics.CapsuleCastNonAlloc()
         Physics.RaycastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y+0.5f, sm.transform.position.z), sm.transform.forward, raycastHits, sm.characterStats.range);
@@ -127,7 +128,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
                 {
                     Debug.Log("collision");
                 }
-                if (colliders[i].gameObject.TryGetComponent<IHealth>(out IHealth hitableObject))
+                if (colliders[i].gameObject.TryGetComponent<IHealth>(out IHealth hitableObject)&&hitableObject!=player)
                 {
                     hitableObject.Hit(SkillSystem.SkillSettings.HitType.Low,sm.characterStats.attackDamage,Vector3.zero,0);
                     Debug.Log(colliders[i].gameObject.name);
