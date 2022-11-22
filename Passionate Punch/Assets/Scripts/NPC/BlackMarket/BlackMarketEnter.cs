@@ -33,11 +33,14 @@ public class BlackMarketEnter : MonoBehaviour
     }
     public void OpenBlackMarket()
     {
-        TriggerBMDialogue?.Invoke();
-        isInDialogue.value = true;
-        // Disable the interact button when player enters the conversation
-        UIManager.Instance.interactionButton.interactable = false;
-        // Test if the ink file gets or not
-        DialogueManager_Test.GetInstance().EnterDialogueMode(inkJSON);
+        if (!DialogueManager_Test.GetInstance().isDialoguePlaying)
+        {
+            TriggerBMDialogue?.Invoke();
+            isInDialogue.value = true;
+            // Disable the interact button when player enters the conversation
+            UIManager.Instance.interactionButton.interactable = false;
+            // Test if the ink file gets or not
+            DialogueManager_Test.GetInstance().EnterDialogueMode(inkJSON);
+        }        
     }
 }

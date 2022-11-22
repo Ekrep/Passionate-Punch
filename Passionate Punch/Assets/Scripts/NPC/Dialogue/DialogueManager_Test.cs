@@ -17,6 +17,7 @@ public class DialogueManager_Test : MonoBehaviour
 
     private Story currentStory;
     public bool isDialoguePlaying { get; private set; }
+    bool isAtChoice;
 
     static DialogueManager_Test instance;
     private void Awake()
@@ -29,6 +30,7 @@ public class DialogueManager_Test : MonoBehaviour
     }
     private void Start()
     {
+        isAtChoice = false;
         //dialoguePanel.gameObject.SetActive(false);
         isDialoguePlaying = false;
         // Get all of the choices texts
@@ -48,7 +50,7 @@ public class DialogueManager_Test : MonoBehaviour
             return;
         }
         // Handle continuing to the next line in the dialogue when submit is pressed
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isAtChoice)
         {
             ContinueStory();
         }
@@ -56,6 +58,15 @@ public class DialogueManager_Test : MonoBehaviour
     void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
+        // If there is a choice in the current context, choice bool is set to true because to prevent the little bug.
+        if (currentChoices.Count > 0)
+        {
+            isAtChoice = true;
+        }
+        else
+        {
+            isAtChoice = false;
+        }
         // Defensice check to make sure our UI can support the number of choices coming in
         if (currentChoices.Count > choices.Length)
         {
@@ -79,6 +90,7 @@ public class DialogueManager_Test : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
     }
     private IEnumerator SelectFirstChoice()
     {
@@ -105,11 +117,12 @@ public class DialogueManager_Test : MonoBehaviour
         }
         else
         {
-            ExitDialogueMode();
+            StartCoroutine(ExitDialogueMode());
         }
     }
-    void ExitDialogueMode()
+    public IEnumerator ExitDialogueMode()
     {
+        yield return new WaitForSeconds(.2f);
         isDialoguePlaying = false;
         //dialoguePanel.gameObject.SetActive(false);
         dialoguePanelAnimator.SetBool("IsOpen", false);
