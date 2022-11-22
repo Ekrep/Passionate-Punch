@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MEC;
+using Interfaces;
 
 public class Genocide : MonoBehaviourSkill
 {
@@ -73,6 +74,10 @@ public class Genocide : MonoBehaviourSkill
     [SerializeField]
     private float _camShakeRange;
 
+
+    private IHealth _characterIHealth;
+    private bool canHit;
+
     private void OnDisable()
     {
         
@@ -90,6 +95,7 @@ public class Genocide : MonoBehaviourSkill
     }
     private void OnEnable()
     {
+        
         for (int i = 0; i < _assasinSilhouettes.Count; i++)
         {
             _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", -1);
@@ -98,8 +104,21 @@ public class Genocide : MonoBehaviourSkill
         gameObject.transform.SetLocalPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y, skillSettings.Character.transform.position.z - 1.5f), Quaternion.identity);
     }
 
+    private void Start()
+    {
+         skillSettings.Character.TryGetComponent<IHealth>(out IHealth characterHealth);
+         _characterIHealth = characterHealth;
+    }
 
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<IHealth>(out IHealth damagables)&&damagables!=_characterIHealth)
+        {
+            Debug.Log(damagables);
+            damagables.Hit(SkillSystem.SkillSettings.HitType.Hard, 0, Vector3.zero, 0);
+        }
+    }
 
     public override void Cast()
     {
