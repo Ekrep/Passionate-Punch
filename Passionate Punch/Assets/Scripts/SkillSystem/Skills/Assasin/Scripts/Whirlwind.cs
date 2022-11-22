@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
+using MEC;
 
 public class Whirlwind : MonoBehaviourSkill
 {
@@ -14,8 +15,12 @@ public class Whirlwind : MonoBehaviourSkill
 
     private void OnDisable()
     {
-        skillSettings.canCast = true;
+       
 
+    }
+    private void OnDestroy()
+    {
+        skillSettings.canCast = true;
     }
     public override void Cast()
     {
@@ -26,8 +31,8 @@ public class Whirlwind : MonoBehaviourSkill
             _ps.GetComponent<ParticleSystem>().Play();
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
-            StartCoroutine(ExitCastState(0.7f));
-            StartCoroutine(Cooldown(skillSettings.coolDown));
+            Timing.RunCoroutine(ExitCastState(0.7f));
+            Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.canCast = false;
             Hit();
             //destroy ekle
@@ -37,11 +42,12 @@ public class Whirlwind : MonoBehaviourSkill
 
     }
 
-    public override IEnumerator Cooldown(float time)
+    public override IEnumerator<float> Cooldown(float time)
     {
-        yield return new WaitForSeconds(time);
+        
+        yield return Timing.WaitForSeconds(time);
         skillSettings.canCast = true;
-        gameObject.SetActive(false);
+        
 
         /*if (skillSettings.stackCount > 0)
         {
@@ -61,14 +67,15 @@ public class Whirlwind : MonoBehaviourSkill
         }*/
     }
 
-    public override IEnumerator ExitCastState(float time)
+    public override IEnumerator<float> ExitCastState(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return Timing.WaitForSeconds(time);
+        gameObject.SetActive(false);
         skillSettings.Character.anim.SetBool(skillSettings.animationName, false);
         skillSettings.Character.ChangeState(skillSettings.Character.characterIdleState);
     }
 
-    public override IEnumerator RevertSkillEffect(float time)
+    public override IEnumerator<float> RevertSkillEffect(float time)
     {
         throw new System.NotImplementedException();
     }
@@ -93,8 +100,8 @@ public class Whirlwind : MonoBehaviourSkill
         }
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1, skillSettings.Character.transform.position.z), 2);
-    }
+    }*/
 }

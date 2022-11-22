@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MEC;
+
 
 public class Invisibility : MonoBehaviourSkill
 {
@@ -15,6 +17,10 @@ public class Invisibility : MonoBehaviourSkill
 
     private void OnDisable()
     {
+
+    }
+    private void OnDestroy()
+    {
         skillSettings.canCast = true;
         RevertSkillBuff();
     }
@@ -27,49 +33,54 @@ public class Invisibility : MonoBehaviourSkill
             stormExplodePsObject.GetComponent<ParticleSystem>().Play();
             stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = invisMat;
-            StartCoroutine(RevertSkillEffect(skillSettings.activeTime));
+            Timing.RunCoroutine(RevertSkillEffect(skillSettings.activeTime));
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
-            StartCoroutine(ExitCastState(0.5f));
-            StartCoroutine(Cooldown(skillSettings.coolDown));
+            Timing.RunCoroutine(ExitCastState(0.5f));
+            Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.Character.canVisible = false;
             skillSettings.Character.characterStats.moveSpeed += 3;
             skillSettings.canCast = false;
-            
+
+
+
         }
 
         // Debug.Log(GameManager.Instance.character.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material=invisMat);
     }
 
-    public override IEnumerator RevertSkillEffect(float time)
+    public override IEnumerator<float> RevertSkillEffect(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return Timing.WaitForSeconds(time);
         skillSettings.Character.canVisible = true;
         RevertSkillBuff();
-        if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial==invisMat)
+        if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial == invisMat)
         {
             skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;
         }
-        
+
     }
 
-    public override IEnumerator ExitCastState(float time)
+    public override IEnumerator<float> ExitCastState(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return Timing.WaitForSeconds(time);
+        gameObject.SetActive(false);
         skillSettings.Character.anim.SetBool(skillSettings.animationName, false);
         skillSettings.Character.ChangeState(skillSettings.Character.characterIdleState);
     }
 
-    public override IEnumerator Cooldown(float time)
+    public override IEnumerator<float> Cooldown(float time)
     {
-        yield return new WaitForSeconds(time);
+
+        yield return Timing.WaitForSeconds(time);
+        Debug.Log("cooldownStarted");
         skillSettings.canCast = true;
 
-        gameObject.SetActive(false);
+
     }
 
     private void RevertSkillBuff()
     {
-        skillSettings.Character.characterStats.moveSpeed =_characterFirstMovementSpeed;
+        skillSettings.Character.characterStats.moveSpeed = _characterFirstMovementSpeed;
     }
 }
