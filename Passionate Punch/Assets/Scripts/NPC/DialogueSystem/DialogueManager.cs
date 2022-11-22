@@ -2,101 +2,135 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using Ink.Runtime;
+using UnityEngine.EventSystems;
 public class DialogueManager : MonoBehaviour
 {
-    Queue<string> sentences;
-    List<bool> selectives;
-    bool selectiveBool;
-    public ScriptableBool isInDialogue;
-    public TextMeshProUGUI nameText, dialogueText, choosingButtonText_1, choosingButtonText_2;
-    public Animator dialogueAnimator;
-    public Button choosingButton_1, choosingButton_2;
+    [Header("Dialogue UI")]
+    [SerializeField] Animator dialoguePanelAnimator;
+    [SerializeField] TextMeshProUGUI dialogueText;
 
-    void Start()
+    [Header("Choices UI")]
+    [SerializeField] GameObject[] choices;
+    TextMeshProUGUI[] choiceTexts;
+
+    private Story currentStory;
+    public bool isDialoguePlaying { get; private set; }
+    bool isAtChoice;
+
+    static DialogueManager instance;
+    private void Awake()
     {
-        selectiveBool = false;
-        sentences = new Queue<string>();
-        selectives = new List<bool>();
+        if (instance != null)
+        {
+            Debug.LogWarning("There is more than one Dialogue Manager in the scene");
+        }
+        instance = this;
+    }
+    private void Start()
+    {
+        isAtChoice = false;
+        //dialoguePanel.gameObject.SetActive(false);
+        isDialoguePlaying = false;
+        // Get all of the choices texts
+        choiceTexts = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
+        {
+            choiceTexts[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
+        }
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isInDialogue.value && !selectiveBool)
+        // Return right away if dialogue isn't playing 
+        if (!isDialoguePlaying)
         {
-            DisplayNextSentence();
-        }
-    }
-    public void StartDialogue(Dialogue dialogue)
-    {
-        Dialogue.index = 0;
-        nameText.text = dialogue.name;
-        dialogueAnimator.SetBool("IsOpen", true);
-        sentences.Clear();
-        selectives.Clear();
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
-        foreach (bool selective in dialogue.isSelective)
-        {
-            selectives.Add(selective);
-        }
-        DisplayNextSentence();
-    }
-    public void DisplaySelectiveButtons()
-    {
-        // This is a selective state.
-        if (selectives[Dialogue.index] == true)
-        {
-            selectiveBool = true;
-            string sentenceOfOurs_1 = sentences.Dequeue();
-            choosingButton_1.gameObject.SetActive(true);
-            choosingButtonText_1.text = sentenceOfOurs_1;
-            choosingButton_2.gameObject.SetActive(true);
-            string sentenceOfOurs_2 = sentences.Dequeue();
-            choosingButtonText_2.text = sentenceOfOurs_2;
-        }
-        // This is not a selective state
-        else
-        {
-            selectiveBool = false;
-            choosingButton_1.gameObject.SetActive(false);
-            choosingButton_2.gameObject.SetActive(false);
-        }
-        Dialogue.index++;
-    }
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
             return;
         }
-        string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
-        DisplaySelectiveButtons();
-    }
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
+        // Handle continuing to the next line in the dialogue when submit is pressed
+        if (Input.GetMouseButtonDown(0) && !isAtChoice)
         {
-            dialogueText.text += letter; 
-            yield return null;
+            ContinueStory();
         }
     }
-    void EndDialogue()
+    void DisplayChoices()
     {
-        // SFX Manager
-        SFXManager.instance.audioSource.clip = SFXManager.instance.BlackMarketSFX[1];
-        SFXManager.instance.audioSource.Play();
-        /////////////////////////////////////
-        isInDialogue.value = false;
-        dialogueAnimator.SetBool("IsOpen", false);
-        // When conversation ends, interaction button activates again
+        List<Choice> currentChoices = currentStory.currentChoices;
+        // If there is a choice in the current context, choice bool is set to true because to prevent the little bug.
+        if (currentChoices.Count > 0)
+        {
+            isAtChoice = true;
+        }
+        else
+        {
+            isAtChoice = false;
+        }
+        // Defensice check to make sure our UI can support the number of choices coming in
+        if (currentChoices.Count > choices.Length)
+        {
+            Debug.LogError("More choices has given than the UI can support. Number of choices given: " + currentChoices.Count);
+        }
+        int index = 0;
+        // Enable and initialize the choices up to the amount of choices for this line of dialogue
+        foreach (Choice choice in currentChoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choiceTexts[index].text = choice.text;
+            index++;
+        }
+        // Go through the remining choices the UI supports and make sure they're hidden
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+        StartCoroutine(SelectFirstChoice());
+    }
+    public void MakeChoice(int choiceIndex)
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+    }
+    private IEnumerator SelectFirstChoice()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
+    public void EnterDialogueMode(TextAsset inkJSON)
+    {
+        currentStory = new Story(inkJSON.text);
+        isDialoguePlaying = true;
+        //dialoguePanel.gameObject.SetActive(true);
+        dialoguePanelAnimator.SetBool("IsOpen", true);
+        ContinueStory();
+    }
+    void ContinueStory()
+    {
+        if (currentStory.canContinue)
+        {
+            // set text for the current dialogue line
+            dialogueText.text = currentStory.Continue();
+            // Display choices, if any, for this dialogue line
+            DisplayChoices();
+        }
+        else
+        {
+            StartCoroutine(ExitDialogueMode());
+        }
+    }
+    public IEnumerator ExitDialogueMode()
+    {
+        yield return new WaitForSeconds(.2f);
+        isDialoguePlaying = false;
+        //dialoguePanel.gameObject.SetActive(false);
+        dialoguePanelAnimator.SetBool("IsOpen", false);
+        dialogueText.text = "";
+        // Make available the interaction button again
         UIManager.Instance.interactionButton.interactable = true;
-        Dialogue.index = 0;
+    }
+    public static DialogueManager GetInstance()
+    {
+        return instance;
     }
 }

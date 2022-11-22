@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-    private void OnEnable()
+    public ScriptableBool isInRange;
+    private void Awake()
     {
-        BlackMarketEnter.TriggerBMDialogue += TriggerDialogue;
-    }
-    private void OnDisable()
-    {
-        BlackMarketEnter.TriggerBMDialogue -= TriggerDialogue;
-    }
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
-    public void EnterTheMarket()
-    {
-        Debug.Log("Entered the black market");
+        isInRange.value = false;
+        Debug.Log("Test Trigger");
     }
 }
