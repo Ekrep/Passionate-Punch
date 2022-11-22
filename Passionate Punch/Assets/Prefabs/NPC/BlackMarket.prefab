@@ -714,6 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee589650ebd92a4786fdbc0ef0525b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 2cdbd63fbcb57aa4fb2e4a2cd428022b, type: 3}
   isInDialogue: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9, type: 2}
 --- !u!114 &665904478874174898
 MonoBehaviour:

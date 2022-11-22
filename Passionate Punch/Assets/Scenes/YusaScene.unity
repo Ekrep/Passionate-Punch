@@ -6692,7 +6692,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: ae9d0fa92aa380149bde4852469eed7b, type: 3}
+      objectReference: {fileID: 4900000, guid: 2cdbd63fbcb57aa4fb2e4a2cd428022b, type: 3}
     - target: {fileID: 1682664722118318580, guid: de83bb68c544fa9429b40760992e25fc,
         type: 3}
       propertyPath: isInDialogue
