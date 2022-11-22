@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using System;
+
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue UI")]
@@ -13,10 +15,11 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] GameObject[] choices;
     TextMeshProUGUI[] choiceTexts;
-
+    public static Action SuccessfulSpeak;
     private Story currentStory;
     public bool isDialoguePlaying { get; private set; }
-    bool isAtChoice;
+    bool isAtChoice, isEnough;
+    int isEnoughToSucceed;
 
     static DialogueManager instance;
     private void Awake()
@@ -29,6 +32,8 @@ public class DialogueManager : MonoBehaviour
     }
     private void Start()
     {
+        isEnough = false;
+        isEnoughToSucceed = 0;
         isAtChoice = false;
         //dialoguePanel.gameObject.SetActive(false);
         isDialoguePlaying = false;
@@ -85,10 +90,19 @@ public class DialogueManager : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
         StartCoroutine(SelectFirstChoice());
+        //Debug.Log("Chosen button: " + currentStory.currentChoices[1].text);
     }
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
+        if (choiceIndex == 0)
+        {
+            isEnoughToSucceed++;
+        }
+        if (isEnoughToSucceed >= 2)
+        {
+            isEnough = true;
+        }
         ContinueStory();
     }
     private IEnumerator SelectFirstChoice()
@@ -128,6 +142,14 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         // Make available the interaction button again
         UIManager.Instance.interactionButton.interactable = true;
+        if (isEnough)
+        {
+            Debug.Log("Open the market");
+            // Invoke the successful speak action to open whatever you want
+            SuccessfulSpeak?.Invoke();
+        }
+        isEnoughToSucceed = 0;
+        isEnough = false;
     }
     public static DialogueManager GetInstance()
     {
