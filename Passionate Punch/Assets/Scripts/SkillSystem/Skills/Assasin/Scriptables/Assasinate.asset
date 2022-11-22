@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
   m_Name: Assasinate
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
-  skillType: 0
+  skillPrefab: {fileID: 8391417563919289224, guid: 1a61d57f892c4c34c87d3b515f65eee2,
+    type: 3}
+  skillType: 1
   hitType: 0
   animationName: 
   skillName: 
@@ -27,4 +28,4 @@ MonoBehaviour:
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
-  canCast: 0
+  canCast: 1
