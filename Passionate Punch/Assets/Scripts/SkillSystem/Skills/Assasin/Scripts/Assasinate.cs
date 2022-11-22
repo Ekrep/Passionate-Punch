@@ -15,10 +15,10 @@ public class Assasinate : MonoBehaviourSkill
     {
         skillSettings.Character.TryGetComponent<AutoAim>(out AutoAim aim);
        
-        skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
-        if (aim!=null)
+        
+        if (aim.targetEnemy!=null)
         {
-           
+            skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.transform.position = new Vector3(aim.targetEnemy.position.x, aim.targetEnemy.position.y, aim.targetEnemy.position.z-1f);
         }
       
