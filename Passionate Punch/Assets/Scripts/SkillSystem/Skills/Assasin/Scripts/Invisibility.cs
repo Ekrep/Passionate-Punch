@@ -36,11 +36,11 @@ public class Invisibility : MonoBehaviourSkill
             Timing.RunCoroutine(RevertSkillEffect(skillSettings.activeTime));
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
-            Timing.RunCoroutine(ExitCastState(0.5f));
+            Timing.RunCoroutine(ExitCastState(skillSettings.castTime));
             Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.Character.canVisible = false;
             //BuffAmount
-            skillSettings.Character.characterStats.moveSpeed += 3;
+            skillSettings.Character.characterStats.moveSpeed += skillSettings.skillEffectAmount;
             
             skillSettings.canCast = false;
 

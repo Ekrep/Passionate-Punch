@@ -20,9 +20,11 @@ MonoBehaviour:
   skillName: 
   description: 
   skillSprite: {fileID: 0}
+  skillDamage: 0
+  percenteOfCharacterAttackDamage: 0
   manaCost: 0
   activeTime: 0
-  castTime: 0
+  castTime: 0.7
   skillEffectAmount: 0
   coolDown: 4
   stackCastCoolDown: 0

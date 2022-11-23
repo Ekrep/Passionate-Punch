@@ -31,7 +31,7 @@ public class Whirlwind : MonoBehaviourSkill
             _ps.GetComponent<ParticleSystem>().Play();
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
-            Timing.RunCoroutine(ExitCastState(0.7f));
+            Timing.RunCoroutine(ExitCastState(skillSettings.castTime));
             Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             skillSettings.canCast = false;
             Hit();

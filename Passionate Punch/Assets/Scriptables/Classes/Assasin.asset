@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: 
   characterImage: {fileID: 0}
   inventorySprite: {fileID: 21300000, guid: a7cc67313a1910f4998619c5b6a81538, type: 3}
-  attackDamage: 3870
+  attackDamage: 100
   attackSpeed: 29.65
   attackRayThickness: 0
   maxHealth: 0
