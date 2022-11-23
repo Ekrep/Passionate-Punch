@@ -21,8 +21,24 @@ public class MiniMapIcon : MonoBehaviour
     public GameObject gameObjectOnMiniMap;
 
     public IconType iconType;
-    
-  
+
+    private bool _isDisabled=false;
+
+    private void OnEnable()
+    {
+        if (_isDisabled)
+        {
+            realWorldPosDynamic = gameObject.transform;
+            realWorldPos = gameObject.transform;
+            UIManager.Instance.CreateIcons(this);
+            _isDisabled = false;
+        }
+        
+    }
+    private void OnDisable()
+    {
+        _isDisabled = true;
+    }
     private void Update()
     {
         realWorldPosDynamic = gameObject.transform;
