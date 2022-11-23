@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MEC;
 
 public class MiniMap : MonoBehaviour
 {
+    [SerializeField]
+    private float _miniMapRefreshTime;
+
     public List<MiniMapIcon> staticIcons;
 
     public List<MiniMapIcon> dynamicIcons;
@@ -17,8 +21,6 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     private GameObject _iconsParentObject;
 
-
-
     private Transform _Player
     {
         get
@@ -26,8 +28,6 @@ public class MiniMap : MonoBehaviour
             return GameManager.Instance.character.transform;
         }
     }
-
-
 
     [SerializeField]
     private RectTransform _playerIcon;
@@ -51,6 +51,8 @@ public class MiniMap : MonoBehaviour
     private float _ratioY;
 
     public GameObject EmptyIcon;
+
+    private CoroutineHandle _updateMiniMapCoroutine;
 
 
     private void OnEnable()
@@ -94,35 +96,28 @@ public class MiniMap : MonoBehaviour
     {
         UIManager.OnRefreshMiniMap -= UIManager_OnRefreshMiniMap;
         UIManager.OnCreateIcons -= UIManager_OnCreateIcons;
+        Timing.KillCoroutines(_updateMiniMapCoroutine);
 
     }
     void Start()
     {
 
-
         CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
-        UIManager.Instance.MinimapReady();
-
-
-
-
-
-
+        _updateMiniMapCoroutine=Timing.RunCoroutine(UpdateMiniMap(_miniMapRefreshTime));
+       
     }
 
 
-    void Update()
+    IEnumerator<float> UpdateMiniMap(float refreshRate)
     {
-
-        _miniMapImage.localPosition = new Vector2(-_Player.position.x * (_ratioX), -_Player.position.z * (_ratioY));
-        _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_Player.eulerAngles.y);
-        SetDynamicIcons();
-
-
+        while (true)
+        {
+            yield return Timing.WaitForSeconds(refreshRate);
+            _miniMapImage.localPosition = new Vector2(-_Player.position.x * (_ratioX), -_Player.position.z * (_ratioY));
+            _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_Player.eulerAngles.y);
+            SetDynamicIcons();
+        }
     }
-
-
-
 
     private void CalculateRatio(Vector3 upLeftCorner, Vector3 upRightCorner, Vector3 rightDownCorner, Vector2 miniMapUpLeftCorner, Vector2 miniMapUpRightCorner, Vector2 miniMapRightDownCorner)
     {

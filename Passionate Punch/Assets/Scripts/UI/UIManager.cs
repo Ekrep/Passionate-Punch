@@ -37,8 +37,6 @@ public class UIManager : MonoBehaviour
 
     public static event Action OnRefreshMiniMap;
 
-    public static event Action OnMinimapReady;
-
     public static event Action<MiniMapIcon> OnCreateIcons;
 
     public void CreateIcons(MiniMapIcon miniMapIcon)
@@ -49,14 +47,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    public void MinimapReady()
-    {
-        if (OnMinimapReady!=null)
-        {
-            OnMinimapReady();
-        }
-    }
 
 
     public void RefreshMiniMap()
