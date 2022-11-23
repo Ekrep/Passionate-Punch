@@ -92,7 +92,6 @@ namespace Items
 
         IEnumerator ExplodeChest()
         {
-
             yield return new WaitForSeconds(1f);
             foreach (ItemSettings item in chestList)
             {
@@ -115,7 +114,6 @@ namespace Items
                 }
                 yield return new WaitForSeconds(0.5f);
             }
-
         }
     }
 }
