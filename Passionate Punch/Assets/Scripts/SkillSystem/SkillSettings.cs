@@ -26,7 +26,7 @@ namespace SkillSystem
         public string skillName;
         public string description;
         public Sprite skillSprite;
-        public float skillDamage;
+        public float skillPureDamage;
         public float percenteOfCharacterAttackDamage;
         public float manaCost;
         public float activeTime;
@@ -50,11 +50,11 @@ namespace SkillSystem
         }
 
         
-        public float skillPureDamage
+        public float skillDamage
         {
             get
             {
-                return skillDamage + (percenteOfCharacterAttackDamage * Character.characterStats.attackDamage / 100f);
+                return skillPureDamage + (percenteOfCharacterAttackDamage * Character.characterStats.attackDamage / 100f);
                 
             }
         }

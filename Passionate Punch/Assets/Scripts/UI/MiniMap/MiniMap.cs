@@ -9,24 +9,25 @@ public class MiniMap : MonoBehaviour
 
     public List<MiniMapIcon> dynamicIcons;
 
+    private List<GameObject> _movingIncons = new List<GameObject>();
+
     [SerializeField]
     private RectTransform _miniMapImage;
 
     [SerializeField]
     private GameObject _iconsParentObject;
 
-   
+
 
     private Transform _Player
     {
         get
         {
-            
             return GameManager.Instance.character.transform;
         }
     }
 
-   
+
 
     [SerializeField]
     private RectTransform _playerIcon;
@@ -55,10 +56,26 @@ public class MiniMap : MonoBehaviour
     private void OnEnable()
     {
         UIManager.OnRefreshMiniMap += UIManager_OnRefreshMiniMap;
-        
+        UIManager.OnCreateIcons += UIManager_OnCreateIcons;
+
     }
 
-  
+    private void UIManager_OnCreateIcons(MiniMapIcon obj)
+    {
+        switch (obj.iconType)
+        {
+            case MiniMapIcon.IconType.Static:
+                staticIcons.Add(obj);
+                SetStaticIcons(obj);
+                break;
+            case MiniMapIcon.IconType.Dynamic:
+                dynamicIcons.Add(obj);
+                CreateDynamicIncons(obj);
+                break;
+            default:
+                break;
+        }
+    }
 
     private void UIManager_OnRefreshMiniMap()
     {
@@ -76,16 +93,17 @@ public class MiniMap : MonoBehaviour
     private void OnDisable()
     {
         UIManager.OnRefreshMiniMap -= UIManager_OnRefreshMiniMap;
-       
+        UIManager.OnCreateIcons -= UIManager_OnCreateIcons;
+
     }
     void Start()
     {
-        
-        
-        //ratio=CalculateRatio(mapLeftCorner3D.position,mapRightCorner3D.position,mapRightDownCorner3D.position,mapLeftCorner2D.localPosition,mapRightCorner2D.localPosition,mapRightDownCorner2D.localPosition);
+
+
         CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
-        //playerInMap.localPosition = player.transform.position * ratio;
-        SetStaticIcons();
+        UIManager.Instance.MinimapReady();
+
+
 
 
 
@@ -95,9 +113,11 @@ public class MiniMap : MonoBehaviour
 
     void Update()
     {
-        //CalculateRatio(mapLeftCorner3D.position, mapRightCorner3D.position, mapRightDownCorner3D.position, mapLeftCorner2D.localPosition, mapRightCorner2D.localPosition, mapRightDownCorner2D.localPosition);
+
         _miniMapImage.localPosition = new Vector2(-_Player.position.x * (_ratioX), -_Player.position.z * (_ratioY));
         _playerIcon.transform.localEulerAngles = new Vector3(0, 0, -_Player.eulerAngles.y);
+        SetDynamicIcons();
+
 
     }
 
@@ -124,17 +144,42 @@ public class MiniMap : MonoBehaviour
 
 
     }
-    public void SetStaticIcons()
+    public void SetStaticIcons(MiniMapIcon miniMapIcon)
     {
-        for (int i = 0; i < staticIcons.Count; i++)
+
+        GameObject gO;
+        gO = Instantiate(EmptyIcon);
+        gO.transform.SetParent(_iconsParentObject.transform);
+        gO.transform.position = Vector3.zero;
+        gO.GetComponent<Image>().sprite = miniMapIcon.icon;
+        miniMapIcon.gameObjectOnMiniMap = gO;
+        gO.transform.localPosition = new Vector2(miniMapIcon.realWorldPos.position.x * _ratioX, miniMapIcon.realWorldPos.position.z * _ratioY);
+
+
+
+    }
+
+    private void CreateDynamicIncons(MiniMapIcon miniMapIcon)
+    {
+
+        GameObject gO;
+        gO = Instantiate(EmptyIcon);
+        gO.transform.SetParent(_iconsParentObject.transform);
+        gO.transform.localPosition = Vector3.zero;
+        gO.TryGetComponent(out Image image);
+        image.sprite = miniMapIcon.icon;
+        miniMapIcon.gameObjectOnMiniMap = gO;
+        gO.transform.localPosition = new Vector2(miniMapIcon.realWorldPos.position.x * _ratioX, miniMapIcon.realWorldPos.position.z * _ratioY);
+        _movingIncons.Add(gO);
+
+
+    }
+    private void SetDynamicIcons()
+    {
+        for (int i = 0; i < dynamicIcons.Count; i++)
         {
-            GameObject gO;
-            gO = Instantiate(EmptyIcon);
-            gO.transform.SetParent(_iconsParentObject.transform);
-            gO.transform.position = Vector3.zero;
-            gO.GetComponent<Image>().sprite = staticIcons[i].icon;
-            staticIcons[i].gameObjectOnMiniMap = gO;
-            gO.transform.localPosition = new Vector2(staticIcons[i].realWorldPos.position.x * _ratioX, staticIcons[i].realWorldPos.position.z * _ratioY);
+
+            _movingIncons[i].transform.localPosition = new Vector2(dynamicIcons[i].realWorldPosDynamic.position.x * _ratioX, dynamicIcons[i].realWorldPosDynamic.position.z * _ratioY);
 
 
         }

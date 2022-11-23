@@ -15,10 +15,6 @@ public class Invisibility : MonoBehaviourSkill
     private float _characterFirstMovementSpeed;
 
 
-    private void OnDisable()
-    {
-
-    }
     private void OnDestroy()
     {
         skillSettings.canCast = true;

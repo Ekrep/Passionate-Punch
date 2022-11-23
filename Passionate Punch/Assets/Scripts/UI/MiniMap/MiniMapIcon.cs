@@ -15,27 +15,35 @@ public class MiniMapIcon : MonoBehaviour
     public Transform realWorldPos;
 
     [HideInInspector]
+    public Transform realWorldPosDynamic;
+
+    [HideInInspector]
     public GameObject gameObjectOnMiniMap;
 
     public IconType iconType;
     private void OnEnable()
     {
-        
+        UIManager.OnMinimapReady += UIManager_OnMinimapReady;
+    }
+
+    private void UIManager_OnMinimapReady()
+    {
+        realWorldPosDynamic = gameObject.transform;
+        realWorldPos = gameObject.transform;
+        UIManager.Instance.CreateIcons(this);
+    }
+
+    private void OnDisable()
+    {
+        UIManager.OnMinimapReady -= UIManager_OnMinimapReady;
+    }
+    private void Update()
+    {
+        realWorldPosDynamic = gameObject.transform;
     }
     private void Start()
     {
-        realWorldPos = gameObject.transform;
-        switch (iconType)
-        {
-            case IconType.Static:
-                UIManager.Instance.miniMap.staticIcons.Add(this);
-                break;
-            case IconType.Dynamic:
-                UIManager.Instance.miniMap.dynamicIcons.Add(this);
-                break;
-            default:
-                break;
-        }
+      
     }
 
 

@@ -10,14 +10,9 @@ public class Whirlwind : MonoBehaviourSkill
     //skiller onDestroy oldugunda Datanýn cancast=true
     [SerializeField]
     private ParticleSystem _ps;
-    [SerializeField]
 
 
-    private void OnDisable()
-    {
-       
-
-    }
+    
     private void OnDestroy()
     {
         skillSettings.canCast = true;
