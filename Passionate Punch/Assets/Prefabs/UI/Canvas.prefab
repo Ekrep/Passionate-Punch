@@ -2636,6 +2636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa4741a800b84b4db407385448b4977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _miniMapRefreshTime: 0.035
   staticIcons: []
   dynamicIcons: []
   _miniMapImage: {fileID: 1862447933}
