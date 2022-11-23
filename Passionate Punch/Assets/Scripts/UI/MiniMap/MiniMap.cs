@@ -6,6 +6,7 @@ using MEC;
 
 public class MiniMap : MonoBehaviour
 {
+    [Range(0.02f,0.2f)]
     [SerializeField]
     private float _miniMapRefreshTime;
 
