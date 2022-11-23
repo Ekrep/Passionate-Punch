@@ -54,9 +54,13 @@ public class MiniMap : MonoBehaviour
 
     private CoroutineHandle _updateMiniMapCoroutine;
 
-
+    private void Awake()
+    {
+        CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
+    }
     private void OnEnable()
     {
+       
         UIManager.OnRefreshMiniMap += UIManager_OnRefreshMiniMap;
         UIManager.OnCreateIcons += UIManager_OnCreateIcons;
 
@@ -102,7 +106,7 @@ public class MiniMap : MonoBehaviour
     void Start()
     {
 
-        CalculateRatio(_mapLeftCorner3D.position, _mapRightCorner3D.position, _mapRightDownCorner3D.position, _mapLeftCorner2D.localPosition, _mapRightCorner2D.localPosition, _mapRightDownCorner2D.localPosition);
+       
         _updateMiniMapCoroutine=Timing.RunCoroutine(UpdateMiniMap(_miniMapRefreshTime));
        
     }
@@ -141,7 +145,7 @@ public class MiniMap : MonoBehaviour
     }
     public void SetStaticIcons(MiniMapIcon miniMapIcon)
     {
-
+        Debug.Log("girdim static");
         GameObject gO;
         gO = Instantiate(EmptyIcon);
         gO.transform.SetParent(_iconsParentObject.transform);
