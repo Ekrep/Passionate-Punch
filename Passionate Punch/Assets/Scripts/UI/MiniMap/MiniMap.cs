@@ -88,12 +88,22 @@ public class MiniMap : MonoBehaviour
     {
         for (int i = 0; i < staticIcons.Count; i++)
         {
-            if (staticIcons[i].GetComponent<MiniMapIcon>().icon == null)
+            if (staticIcons[i].icon == null)
             {
                 Destroy(staticIcons[i].gameObjectOnMiniMap);
                 staticIcons.Remove(staticIcons[i]);
 
             }
+        }
+        for (int i = 0; i < dynamicIcons.Count; i++)
+        {
+            if (dynamicIcons[i].icon==null)
+            {
+                Destroy(dynamicIcons[i].gameObjectOnMiniMap);
+                dynamicIcons.Remove(dynamicIcons[i]);
+
+            }
+           
         }
     }
 
@@ -105,11 +115,8 @@ public class MiniMap : MonoBehaviour
 
     }
     void Start()
-    {
-
-       
-        _updateMiniMapCoroutine=Timing.RunCoroutine(UpdateMiniMap(_miniMapRefreshTime));
-       
+    { 
+        _updateMiniMapCoroutine=Timing.RunCoroutine(UpdateMiniMap(_miniMapRefreshTime));  
     }
 
 
@@ -171,7 +178,7 @@ public class MiniMap : MonoBehaviour
         image.sprite = miniMapIcon.icon;
         miniMapIcon.gameObjectOnMiniMap = gO;
         gO.transform.localPosition = new Vector2(miniMapIcon.realWorldPos.position.x * _ratioX, miniMapIcon.realWorldPos.position.z * _ratioY);
-        _movingIncons.Add(gO);
+      
 
 
     }
@@ -180,8 +187,7 @@ public class MiniMap : MonoBehaviour
         for (int i = 0; i < dynamicIcons.Count; i++)
         {
 
-            _movingIncons[i].transform.localPosition = new Vector2(dynamicIcons[i].realWorldPosDynamic.position.x * _ratioX, dynamicIcons[i].realWorldPosDynamic.position.z * _ratioY);
-
+            dynamicIcons[i].gameObjectOnMiniMap.transform.localPosition = new Vector2(dynamicIcons[i].realWorldPosDynamic.position.x * _ratioX, dynamicIcons[i].realWorldPosDynamic.position.z * _ratioY);
 
         }
     }

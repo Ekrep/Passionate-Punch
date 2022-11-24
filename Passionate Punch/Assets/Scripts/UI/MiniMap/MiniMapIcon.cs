@@ -11,6 +11,8 @@ public class MiniMapIcon : MonoBehaviour
     }
 
     public Sprite icon;
+
+    private Sprite _flagIcon;
     [HideInInspector]
     public Transform realWorldPos;
 
@@ -28,6 +30,7 @@ public class MiniMapIcon : MonoBehaviour
     {
         if (_isDisabled)
         {
+            icon = _flagIcon;
             realWorldPosDynamic = gameObject.transform;
             realWorldPos = gameObject.transform;
             UIManager.Instance.CreateIcons(this);
@@ -38,6 +41,7 @@ public class MiniMapIcon : MonoBehaviour
     private void OnDisable()
     {
         _isDisabled = true;
+        DisableIcon();
     }
     private void Update()
     {
@@ -45,6 +49,7 @@ public class MiniMapIcon : MonoBehaviour
     }
     private void Start()
     {
+        _flagIcon = icon;
         realWorldPosDynamic = gameObject.transform;
         realWorldPos = gameObject.transform;
         UIManager.Instance.CreateIcons(this);
@@ -53,14 +58,33 @@ public class MiniMapIcon : MonoBehaviour
 
     public void DisableIcon()
     {
-        for (int i = 0; i < UIManager.Instance.miniMap.staticIcons.Count; i++)
+        switch (iconType)
         {
-            if (UIManager.Instance.miniMap.staticIcons[i]==this)
-            {
-                UIManager.Instance.miniMap.staticIcons[i].icon = null;
-                UIManager.Instance.RefreshMiniMap();
+            case IconType.Static:
+                for (int i = 0; i < UIManager.Instance.miniMap.staticIcons.Count; i++)
+                {
+                    if (UIManager.Instance.miniMap.staticIcons[i] == this)
+                    {
+                        UIManager.Instance.miniMap.staticIcons[i].icon = null;
+                        UIManager.Instance.RefreshMiniMap();
+                        break;
+                    }
+                }
                 break;
-            }
+            case IconType.Dynamic:
+                for (int i = 0; i < UIManager.Instance.miniMap.dynamicIcons.Count; i++)
+                {
+                    if (UIManager.Instance.miniMap.dynamicIcons[i] == this)
+                    {
+                        UIManager.Instance.miniMap.dynamicIcons[i].icon = null;
+                        UIManager.Instance.RefreshMiniMap();
+                        break;
+                    }
+                }
+                break;
+            default:
+                break;
         }
+       
     }
 }
