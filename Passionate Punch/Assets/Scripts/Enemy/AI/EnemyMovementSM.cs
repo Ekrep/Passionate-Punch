@@ -105,6 +105,8 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
             case SkillSettings.HitType.Medium:
                 _hitPs.Play();
                 DecreaseHealth(damage);
+                gameObject.GetComponent<Rigidbody>().AddForce(hitPos * pushAmount*Time.fixedDeltaTime);
+                
                 
                 break;
             case SkillSettings.HitType.Hard:

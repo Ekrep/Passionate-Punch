@@ -20,6 +20,8 @@ MonoBehaviour:
   skillName: 
   description: 
   skillSprite: {fileID: 0}
+  skillPureDamage: 50
+  percenteOfCharacterAttackDamage: 90
   manaCost: 0
   activeTime: 0
   castTime: 9.5
@@ -29,4 +31,3 @@ MonoBehaviour:
   baseStackCount: 0
   stackCount: 0
   canCast: 1
-  holder: {fileID: 0}

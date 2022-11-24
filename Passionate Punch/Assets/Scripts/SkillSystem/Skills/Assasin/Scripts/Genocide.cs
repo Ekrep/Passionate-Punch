@@ -74,6 +74,8 @@ public class Genocide : MonoBehaviourSkill
     [SerializeField]
     private float _camShakeRange;
 
+    private List<IHealth> _nestedEnemies=new List<IHealth>();
+
 
     private IHealth _characterIHealth;
 
@@ -103,7 +105,7 @@ public class Genocide : MonoBehaviourSkill
             _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", -1);
         }
         _ambiance.sharedMaterial.SetFloat("_Dissolve", 0.85f);
-        gameObject.transform.SetLocalPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y, skillSettings.Character.transform.position.z - 1.5f), Quaternion.identity);
+        gameObject.transform.SetLocalPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y, skillSettings.Character.transform.position.z-1f), Quaternion.identity);
     }
 
     private void Start()
@@ -112,13 +114,24 @@ public class Genocide : MonoBehaviourSkill
          _characterIHealth = characterHealth;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out IHealth damagables) && damagables != _characterIHealth)
+        {
+            _nestedEnemies.Add(damagables);
 
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent<IHealth>(out IHealth damagables)&&damagables!=_characterIHealth)
+        if (other.gameObject.TryGetComponent(out IHealth damagables)&&damagables!=_characterIHealth&&other.gameObject.TryGetComponent(out EnemyMovementSM enemyState))
         {
             Debug.Log(damagables);
-            damagables.Hit(SkillSystem.SkillSettings.HitType.Hard, 0, Vector3.zero, 0);
+            if (enemyState.currentEnemyState!=enemyState.enemyStunState&&enemyState.currentEnemyState!=enemyState.enemyDieState)
+            {
+                damagables.Hit(SkillSystem.SkillSettings.HitType.Hard, 0, Vector3.zero, 0);
+            }
+            
         }
     }
 
@@ -186,6 +199,14 @@ public class Genocide : MonoBehaviourSkill
                         float angle = Mathf.Atan2((-_assasinSilhouettes[i].transform.position.x + _assasinSilhouettes[i + 1].transform.position.x), -_assasinSilhouettes[i].transform.position.z + _assasinSilhouettes[i + 1].transform.position.z) * Mathf.Rad2Deg;
                         _slashParticle.transform.SetPositionAndRotation(new Vector3(_assasinSilhouettes[i].transform.position.x, _assasinSilhouettes[i].transform.position.y + 1, _assasinSilhouettes[i].transform.position.z), Quaternion.Euler(0, angle, 0));
                         _slashParticle.Play();
+                        for (int j = 0; j < _nestedEnemies.Count; j++)
+                        {
+                            if (_nestedEnemies[j]!=null)
+                            {
+                                _nestedEnemies[j].Hit(SkillSystem.SkillSettings.HitType.Low, skillSettings.skillDamage, Vector3.zero, 0);
+                            }
+                            
+                        }
                       
                     }
 

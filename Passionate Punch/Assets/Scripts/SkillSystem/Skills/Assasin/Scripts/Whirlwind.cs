@@ -88,7 +88,7 @@ public class Whirlwind : MonoBehaviourSkill
             if (colliders[i].TryGetComponent<IHealth>(out IHealth enemyHealth) && enemyHealth != playerHealth)
             {
                 //needs vec3
-                enemyHealth.Hit(SkillSystem.SkillSettings.HitType.Medium, skillSettings.skillDamage, Vector3.zero, 0);
+                enemyHealth.Hit(SkillSystem.SkillSettings.HitType.Medium, skillSettings.skillDamage, colliders[i].gameObject.transform.forward*-1, 350000f);
 
             }
 
