@@ -84,27 +84,38 @@ public class MiniMap : MonoBehaviour
         }
     }
 
-    private void UIManager_OnRefreshMiniMap()
+    private void UIManager_OnRefreshMiniMap(MiniMapIcon obj)
     {
-        for (int i = 0; i < staticIcons.Count; i++)
+        switch (obj.iconType)
         {
-            if (staticIcons[i].icon == null)
-            {
-                Destroy(staticIcons[i].gameObjectOnMiniMap);
-                staticIcons.Remove(staticIcons[i]);
+            case MiniMapIcon.IconType.Static:
+                for (int i = 0; i < staticIcons.Count; i++)
+                {
+                    if (staticIcons[i].icon == null)
+                    {
+                        Destroy(staticIcons[i].gameObjectOnMiniMap);
+                        staticIcons.Remove(staticIcons[i]);
 
-            }
-        }
-        for (int i = 0; i < dynamicIcons.Count; i++)
-        {
-            if (dynamicIcons[i].icon==null)
-            {
-                Destroy(dynamicIcons[i].gameObjectOnMiniMap);
-                dynamicIcons.Remove(dynamicIcons[i]);
+                    }
+                }
+                break;
+            case MiniMapIcon.IconType.Dynamic:
+                for (int i = 0; i < dynamicIcons.Count; i++)
+                {
+                    if (dynamicIcons[i].icon == null)
+                    {
+                        Destroy(dynamicIcons[i].gameObjectOnMiniMap);
+                        dynamicIcons.Remove(dynamicIcons[i]);
 
-            }
-           
+                    }
+
+                }
+                break;
+            default:
+                break;
         }
+       
+       
     }
 
     private void OnDisable()

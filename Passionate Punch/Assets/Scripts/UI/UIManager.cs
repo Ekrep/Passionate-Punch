@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
        interactionButton.gameObject.SetActive(false);
     }
 
-    public static event Action OnRefreshMiniMap;
+    public static event Action<MiniMapIcon> OnRefreshMiniMap;
 
     public static event Action<MiniMapIcon> OnCreateIcons;
 
@@ -49,11 +49,11 @@ public class UIManager : MonoBehaviour
 
 
 
-    public void RefreshMiniMap()
+    public void RefreshMiniMap(MiniMapIcon miniMapIcon)
     {
         if (OnRefreshMiniMap!=null)
         {
-            OnRefreshMiniMap();
+            OnRefreshMiniMap(miniMapIcon);
         }
     }
     

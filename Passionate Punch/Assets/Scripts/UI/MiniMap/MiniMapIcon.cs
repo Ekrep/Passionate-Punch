@@ -66,7 +66,7 @@ public class MiniMapIcon : MonoBehaviour
                     if (UIManager.Instance.miniMap.staticIcons[i] == this)
                     {
                         UIManager.Instance.miniMap.staticIcons[i].icon = null;
-                        UIManager.Instance.RefreshMiniMap();
+                        UIManager.Instance.RefreshMiniMap(this);
                         break;
                     }
                 }
@@ -77,7 +77,7 @@ public class MiniMapIcon : MonoBehaviour
                     if (UIManager.Instance.miniMap.dynamicIcons[i] == this)
                     {
                         UIManager.Instance.miniMap.dynamicIcons[i].icon = null;
-                        UIManager.Instance.RefreshMiniMap();
+                        UIManager.Instance.RefreshMiniMap(this);
                         break;
                     }
                 }
