@@ -8,7 +8,7 @@ namespace Items
     public class Chest : MonoBehaviour
     {
         [Header("MiniMapIcon")]
-        //public MiniMapIcon miniMapIcon;
+        public MiniMapIcon miniMapIcon;
 
 
         [Header("Lid")]
@@ -72,7 +72,7 @@ namespace Items
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
-            //miniMapIcon.DisableIcon();
+            miniMapIcon.DisableIcon();
             _isOpened = true;
             StartCoroutine(ExplodeChest());
 
