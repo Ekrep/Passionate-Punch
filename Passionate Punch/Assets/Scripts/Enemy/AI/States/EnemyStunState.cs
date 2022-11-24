@@ -17,9 +17,6 @@ public class EnemyStunState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        //
-        enemyMovementSM.stunButton.onClick.RemoveAllListeners();
-        //
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
         // Stun particles activation

@@ -8,9 +8,6 @@ using SkillSystem;
 
 public class EnemyMovementSM : EnemyStateMachine,IHealth
 {
-    // Temporary Buttons
-    public Button stunButton, killButton;
-    ////////////////////
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
