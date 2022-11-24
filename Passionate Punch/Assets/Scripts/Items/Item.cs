@@ -41,9 +41,9 @@ namespace Items
         {
             if (collider.gameObject.GetComponent<Inventory>() != null)
             {
-
                 if (UIManager.Instance.isPickUpButtonPressed)
                 {
+                    
                     PickedUp(collider);
                 }
             }
