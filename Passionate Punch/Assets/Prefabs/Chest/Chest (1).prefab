@@ -309,7 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d910e5300481af549bbb9f6b6b12b3ef, type: 3}
+  icon: {fileID: 21300000, guid: 31ecf7b01e2864888bd53deed7b54ffc, type: 3}
   realWorldPos: {fileID: 0}
+  realWorldPosDynamic: {fileID: 0}
   gameObjectOnMiniMap: {fileID: 0}
   iconType: 0

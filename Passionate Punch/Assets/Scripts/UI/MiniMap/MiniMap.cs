@@ -171,6 +171,7 @@ public class MiniMap : MonoBehaviour
         gO.transform.position = Vector3.zero;
         gO.TryGetComponent(out Image image);
         image.sprite = miniMapIcon.icon;
+        image.SetNativeSize();
         miniMapIcon.gameObjectOnMiniMap = gO;
         gO.transform.localPosition = new Vector2(miniMapIcon.realWorldPos.position.x * _ratioX, miniMapIcon.realWorldPos.position.z * _ratioY);
 
@@ -187,6 +188,7 @@ public class MiniMap : MonoBehaviour
         gO.transform.localPosition = Vector3.zero;
         gO.TryGetComponent(out Image image);
         image.sprite = miniMapIcon.icon;
+        image.SetNativeSize();
         miniMapIcon.gameObjectOnMiniMap = gO;
         gO.transform.localPosition = new Vector2(miniMapIcon.realWorldPos.position.x * _ratioX, miniMapIcon.realWorldPos.position.z * _ratioY);
       
