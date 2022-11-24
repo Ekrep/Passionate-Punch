@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &155209624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -256,20 +256,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 155209626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-          type: 3}
-        m_TargetAssemblyTypeName: UI.InventorySlot, Assembly-CSharp
-        m_MethodName: DiscardItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &276193182
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,20 +605,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 393254146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-          type: 3}
-        m_TargetAssemblyTypeName: UI.InventorySlot, Assembly-CSharp
-        m_MethodName: OnUnequipButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &505903000
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,8 +916,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -175}
-  m_SizeDelta: {x: -411.321, y: -761.587}
+  m_AnchoredPosition: {x: -574, y: -83.653305}
+  m_SizeDelta: {x: -411.321, y: -578.89343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &723186597
 CanvasRenderer:
@@ -1703,20 +1677,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909942127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-          type: 3}
-        m_TargetAssemblyTypeName: UI.InventorySlot, Assembly-CSharp
-        m_MethodName: DiscardItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &939572701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,14 +1754,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 80
+    m_Left: 140
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 600, y: 130}
+  m_CellSize: {x: 250, y: 130}
   m_Spacing: {x: 15, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -2125,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 173, y: 62}
+  m_AnchoredPosition: {x: 173, y: 20}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1147463978
@@ -3495,20 +3456,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1779001252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-          type: 3}
-        m_TargetAssemblyTypeName: UI.InventorySlot, Assembly-CSharp
-        m_MethodName: OnEquipButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1862447932
 GameObject:
   m_ObjectHideFlags: 0
@@ -8211,9 +8159,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -8369,9 +8327,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -8515,9 +8483,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -8661,9 +8639,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -8798,7 +8786,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1274981211343413880}
+      objectReference: {fileID: 1274981212457036356}
     - target: {fileID: 3788261891594599107, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -8822,11 +8810,33 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d513f1820e47a944941e77a6ee19987, type: 3}
+--- !u!114 &1274981212457036356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+    type: 3}
+  m_PrefabInstance: {fileID: 5307667752521531283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57be09c627b6c054f9b2e540e3315c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9023528847411397969 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3788261891594599106, guid: 6d513f1820e47a944941e77a6ee19987,
@@ -8957,15 +8967,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -9149,9 +9174,19 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: itemSelectionUI
@@ -9296,20 +9331,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
-      propertyPath: index
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-        type: 3}
-      propertyPath: character
+      propertyPath: equipButton
       value: 
-      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
-        type: 2}
+      objectReference: {fileID: 1779001251}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -9493,9 +9527,19 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: itemSelectionUI
@@ -9645,15 +9689,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -9791,15 +9850,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -9937,15 +10011,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -10129,9 +10218,19 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: itemSelectionUI
@@ -10281,15 +10380,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -10473,9 +10587,19 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: itemSelectionUI
@@ -10632,8 +10756,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-        type: 3}
+      objectReference: {fileID: 1274981211343413880}
     - target: {fileID: 3788261891594599107, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -10672,9 +10795,19 @@ PrefabInstance:
       objectReference: {fileID: 723186598}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 155209625}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: equippedPanel
       value: 
       objectReference: {fileID: 1178261317}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: unequipButton
+      value: 
+      objectReference: {fileID: 393254145}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: itemSelectionUI
@@ -11033,15 +11166,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -11179,15 +11327,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -11331,9 +11494,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -11471,15 +11644,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -11623,9 +11811,19 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 1779001251}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
@@ -11758,17 +11956,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
-      propertyPath: index
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
-        type: 2}
-    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
-        type: 3}
       propertyPath: equipButton
       value: 
       objectReference: {fileID: 1779001251}
@@ -11777,6 +11964,11 @@ PrefabInstance:
       propertyPath: selectionUI
       value: 
       objectReference: {fileID: 723186598}
+    - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
+        type: 3}
+      propertyPath: discardButton
+      value: 
+      objectReference: {fileID: 909942126}
     - target: {fileID: 6348170138132092375, guid: 6d513f1820e47a944941e77a6ee19987,
         type: 3}
       propertyPath: equippedPanel
