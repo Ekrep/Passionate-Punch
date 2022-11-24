@@ -10,10 +10,8 @@ namespace Items
     public class Item : MonoBehaviour
     {
         //The purpose of this class is to handle various functionalities that items will have apart form data class. 
-        [SerializeField] public ItemSettings itemSettings;
-        [SerializeField] public Transform player;
-        [SerializeField] private Rigidbody rigidBody;
-        public Rigidbody Rigidbody => rigidBody;
+        public ItemSettings itemSettings;
+        public Transform player;
 
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
         {
