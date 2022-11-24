@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 665904478874174898}
   - component: {fileID: 7580024234876718440}
   - component: {fileID: 4842648481019138837}
+  - component: {fileID: 1292383983062384147}
   m_Layer: 0
   m_Name: BlackMarket
   m_TagString: Untagged
@@ -758,6 +759,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1292383983062384147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171784489016062524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 016e18db2a7a34c2a8f6f1dde05a2b34, type: 3}
+  realWorldPos: {fileID: 0}
+  realWorldPosDynamic: {fileID: 0}
+  gameObjectOnMiniMap: {fileID: 0}
+  iconType: 0
 --- !u!1 &9171817510886035654
 GameObject:
   m_ObjectHideFlags: 0

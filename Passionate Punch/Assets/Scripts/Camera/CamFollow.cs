@@ -44,6 +44,7 @@ public class CamFollow : MonoBehaviour
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
         _followedbyCamObject = obj.gameObject;
+        _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
     }
 
     private void OnDisable()
@@ -56,7 +57,7 @@ public class CamFollow : MonoBehaviour
 
     void Start()
     {
-        _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
+        
         
     }
 

@@ -111,7 +111,7 @@ namespace Items
                 itemPrefab.GetComponent<Item>().itemSettings = item;
                 itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
                 GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x + randomX,
-                this.gameObject.transform.position.y, this.gameObject.transform.position.z + randomZ), Quaternion.identity);
+                this.gameObject.transform.position.y+1f, this.gameObject.transform.position.z + randomZ), Quaternion.identity);
                 if (item.countInInventory > 0)
                 {
                     var instance = ScriptableObject.CreateInstance<ItemSettings>();

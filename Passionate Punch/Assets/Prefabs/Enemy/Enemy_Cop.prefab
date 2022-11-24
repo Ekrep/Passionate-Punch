@@ -5527,6 +5527,7 @@ GameObject:
   - component: {fileID: 8881682385672408610}
   - component: {fileID: 1083167228264909244}
   - component: {fileID: -6332712240909679337}
+  - component: {fileID: 4438279418015237598}
   m_Layer: 6
   m_Name: Enemy_Cop
   m_TagString: Untagged
@@ -5659,6 +5660,23 @@ MonoBehaviour:
   isPatrollingEnemy: 0
   enemyNavMesh: {fileID: 0}
   enemy: {fileID: 0}
+--- !u!114 &4438279418015237598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642943200961913062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: c1a0e802dc02a4b33af002964ba32ba9, type: 3}
+  realWorldPos: {fileID: 0}
+  realWorldPosDynamic: {fileID: 0}
+  gameObjectOnMiniMap: {fileID: 0}
+  iconType: 1
 --- !u!1 &7642951488233515890
 GameObject:
   m_ObjectHideFlags: 0
