@@ -7436,6 +7436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMapIcon: {fileID: 0}
   chestLid: {fileID: 1719491128465870}
   _explosionForce: 250
   _lidDissappearTime: 2
