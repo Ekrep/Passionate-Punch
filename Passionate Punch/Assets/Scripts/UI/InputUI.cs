@@ -93,6 +93,7 @@ namespace UI
         public void ActivatePickUp()
         {
             UIManager.Instance.isPickUpButtonPressed = true;
+            StartCoroutine(DisablePickUpButton());
         }
 
         IEnumerator DisablePickUpButton()
