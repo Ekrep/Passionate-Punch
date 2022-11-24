@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlackMarketExit : MonoBehaviour
 {
     public ScriptableBool isInDialogue, blackMarket;
+    public ScriptableString npcName;
     private void OnEnable()
     {
         BlackMarket.OnBlackMarketExit += OnMarketExit;
@@ -15,6 +16,7 @@ public class BlackMarketExit : MonoBehaviour
     }
     public void OnMarketExit()
     {
+        npcName.value = "";
         if (UIManager.Instance.interactionButton.interactable)
         {
             UIManager.Instance.interactionButton.interactable = false;

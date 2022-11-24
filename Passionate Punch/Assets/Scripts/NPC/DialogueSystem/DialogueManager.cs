@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] Animator dialoguePanelAnimator;
     [SerializeField] TextMeshProUGUI dialogueText;
+    [SerializeField] TextMeshProUGUI nameText;
+    public ScriptableString npcName;
 
     [Header("Choices UI")]
     [SerializeField] GameObject[] choices;
@@ -20,7 +22,6 @@ public class DialogueManager : MonoBehaviour
     public bool isDialoguePlaying { get; private set; }
     bool isAtChoice, isEnough;
     int isEnoughToSucceed;
-
     static DialogueManager instance;
     private void Awake()
     {
@@ -90,7 +91,6 @@ public class DialogueManager : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
         StartCoroutine(SelectFirstChoice());
-        //Debug.Log("Chosen button: " + currentStory.currentChoices[1].text);
     }
     public void MakeChoice(int choiceIndex)
     {
@@ -115,7 +115,6 @@ public class DialogueManager : MonoBehaviour
     {
         currentStory = new Story(inkJSON.text);
         isDialoguePlaying = true;
-        //dialoguePanel.gameObject.SetActive(true);
         dialoguePanelAnimator.SetBool("IsOpen", true);
         ContinueStory();
     }
@@ -123,6 +122,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
+            // Set NPC name for the current dialogue
+            nameText.text = npcName.value;
             // set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
             // Display choices, if any, for this dialogue line

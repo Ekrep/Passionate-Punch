@@ -10,6 +10,7 @@ public class BlackMarketEnter : MonoBehaviour
 
     public static Action TriggerBMDialogue;
     public ScriptableBool isInDialogue, blackMarket;
+    public ScriptableString npcName;
     private void OnEnable()
     {
         // Initialize the blackmarket scriptable value with false
@@ -22,6 +23,7 @@ public class BlackMarketEnter : MonoBehaviour
     }
     public void OnMarketEnter()
     {
+        npcName.value = gameObject.name;
         if (!UIManager.Instance.interactionButton.gameObject.activeInHierarchy)
         {
             UIManager.Instance.interactionButton.gameObject.SetActive(true);
