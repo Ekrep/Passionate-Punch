@@ -43,11 +43,9 @@ namespace Items
             {
                 if (UIManager.Instance.isPickUpButtonPressed)
                 {
-                    
                     PickedUp(collider);
                 }
             }
-
         }
 
         /*void CheckDistance()
@@ -64,7 +62,9 @@ namespace Items
         {
             if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
             {
+                UIManager.Instance.TriggeredWithItem();
                 Destroy(this.gameObject);
+                UIManager.Instance.isPickUpButtonPressed = false;
             }
             else
             {
