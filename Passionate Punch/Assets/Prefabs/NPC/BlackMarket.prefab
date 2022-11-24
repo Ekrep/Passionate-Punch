@@ -717,6 +717,7 @@ MonoBehaviour:
   inkJSON: {fileID: 4900000, guid: 2cdbd63fbcb57aa4fb2e4a2cd428022b, type: 3}
   isInDialogue: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9, type: 2}
   blackMarket: {fileID: 11400000, guid: d1afeaf05a2c1294ca4721980818b516, type: 2}
+  npcName: {fileID: 11400000, guid: 7cb2a0c6bcd4f4a4f96d753ec342e855, type: 2}
 --- !u!114 &665904478874174898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInDialogue: {fileID: 11400000, guid: 5a99c97394ca50c4f9cac88a951776d9, type: 2}
   blackMarket: {fileID: 11400000, guid: d1afeaf05a2c1294ca4721980818b516, type: 2}
+  npcName: {fileID: 11400000, guid: 7cb2a0c6bcd4f4a4f96d753ec342e855, type: 2}
 --- !u!114 &7580024234876718440
 MonoBehaviour:
   m_ObjectHideFlags: 0
