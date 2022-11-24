@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69065ab5096e70147a9b070b440e20e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMapIcon: {fileID: 2072366853723103802}
   chestLid: {fileID: 2072366852781368162}
   _explosionForce: 250
   _lidDissappearTime: 1
