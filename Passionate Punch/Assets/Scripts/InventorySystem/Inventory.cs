@@ -10,7 +10,7 @@ namespace InventorySystem
     public class Inventory : MonoBehaviour
     {
         public static int inventorySize = 16; //can be changed later.        
-        [SerializeField] public static List<ItemSettings> inventoryList; 
+        public static List<ItemSettings> inventoryList; 
         public static event Action OnItemPickedUp;
         private CharacterBaseStateMachine _Character{
             get {

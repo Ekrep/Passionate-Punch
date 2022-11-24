@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public bool isPressedSkillTwo;
 
+    [HideInInspector]
+    public bool isPickUpButtonPressed;
+
 
     private void Awake()
     {
@@ -39,6 +42,8 @@ public class UIManager : MonoBehaviour
 
     public static event Action<MiniMapIcon> OnCreateIcons;
 
+    public static event Action OnTriggeredWithItem;
+
     public void CreateIcons(MiniMapIcon miniMapIcon)
     {
         if (OnCreateIcons!=null)
@@ -47,6 +52,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+     public void TriggeredWithItem()
+    {
+        if (OnTriggeredWithItem!=null)
+        {
+            OnTriggeredWithItem();
+        }
+    }
 
 
     public void RefreshMiniMap(MiniMapIcon miniMapIcon)

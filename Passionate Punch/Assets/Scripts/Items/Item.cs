@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem;
 using TMPro;
+using UnityEngine.UI;
 
 
 namespace Items
@@ -32,11 +33,21 @@ namespace Items
         {
             if (collider.gameObject.GetComponent<Inventory>() != null)
             {
-                if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
+                UIManager.Instance.TriggeredWithItem();
+            }
+        }
+
+        void OnTriggerStay(Collider collider)
+        {
+            if (collider.gameObject.GetComponent<Inventory>() != null)
+            {
+
+                if (UIManager.Instance.isPickUpButtonPressed)
                 {
-                    PickedUp();
+                    PickedUp(collider);
                 }
             }
+
         }
 
         /*void CheckDistance()
@@ -49,9 +60,16 @@ namespace Items
             }
         }*/
 
-        public void PickedUp()
+        public void PickedUp(Collider collider)
         {
-            Destroy(this.gameObject);
+            if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("Inventory is full");
+            }
         }
     }
 

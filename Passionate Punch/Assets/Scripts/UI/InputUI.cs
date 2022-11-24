@@ -9,9 +9,32 @@ namespace UI
     {
         public Joystick joystick;
         public InventoryUI inventory;
-
         public Button attackButton;
+        public Button pickUpButton;
 
+        void OnEnable()
+        {
+            UIManager.OnTriggeredWithItem += UIManager_OnTriggeredWithItem;
+        }
+
+        void UIManager_OnTriggeredWithItem()
+        {
+            if (pickUpButton.gameObject.activeSelf)
+            {
+                pickUpButton.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                pickUpButton.gameObject.SetActive(true);
+
+            }
+        }
+
+        void OnDisable()
+        {
+            UIManager.OnTriggeredWithItem -= UIManager_OnTriggeredWithItem;
+        }
 
         public void SendJoyStickInput()
         {
@@ -41,10 +64,10 @@ namespace UI
 
         public void CastSkillOne()
         {
-           
+
             UIManager.Instance.isPressedSkillOne = true;
             StartCoroutine(UnCastSkillOne());
-           
+
 
         }
         IEnumerator UnCastSkillOne()
@@ -54,21 +77,32 @@ namespace UI
         }
         public void CastSkillTwo()
         {
-           
+
             UIManager.Instance.isPressedSkillTwo = true;
             StartCoroutine(UnCastSkillTwo());
-            
+
 
 
         }
-        IEnumerator  UnCastSkillTwo()
+        IEnumerator UnCastSkillTwo()
         {
             yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillTwo = false;
         }
-       
-     
-        
+
+        public void ActivatePickUp()
+        {
+            UIManager.Instance.isPickUpButtonPressed = true;
+        }
+
+        IEnumerator DisablePickUpButton()
+        {
+            yield return new WaitForEndOfFrame();
+            UIManager.Instance.isPickUpButtonPressed = false;
+        }
+
+
+
     }
-   
+
 }
