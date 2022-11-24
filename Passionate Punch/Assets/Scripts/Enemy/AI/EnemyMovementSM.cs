@@ -8,12 +8,16 @@ using SkillSystem;
 
 public class EnemyMovementSM : EnemyStateMachine,IHealth
 {
+    public float tempHealth = 1000f;
+
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
     public GameObject stunParticles, warnEnemy, focusCanvas;
     public Animator enemyCanvasAnimator, enemyAnimator;
     int empty = 0;
+    [SerializeField]
+    private ParticleSystem _hitPs;
     [HideInInspector]
     public bool isPatrollingEnemy;
     [HideInInspector]
@@ -78,16 +82,38 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     }
     public void DecreaseHealth(float amount)
     {
-        throw new System.NotImplementedException();
+        tempHealth -= amount;
+        if (tempHealth<=0)
+        {
+            KillSelf();
+        }
     }
 
     public void KillSelf()
     {
-        throw new System.NotImplementedException();
+        ChangeState(enemyDieState);
     }
 
     public void Hit(SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount)
     {
-        Debug.Log("IAMENEMY");
+        switch (hitType)
+        {
+            case SkillSettings.HitType.Low:
+                _hitPs.Play();
+                DecreaseHealth(damage);
+                break;
+            case SkillSettings.HitType.Medium:
+                _hitPs.Play();
+                DecreaseHealth(damage);
+                
+                break;
+            case SkillSettings.HitType.Hard:
+                _hitPs.Play();
+                DecreaseHealth(damage);
+                ChangeState(enemyStunState);
+                break;
+            default:
+                break;
+        }
     }
 }
