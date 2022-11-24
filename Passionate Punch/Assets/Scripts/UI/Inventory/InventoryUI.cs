@@ -8,10 +8,8 @@ namespace UI
     {
         public Transform itemsParent;
         InventorySlot[] slots;
-        [SerializeField] public Image playerImageField;
-        [SerializeField] public Sprite playerImage;
-        [SerializeField] public ItemSelectionUI selectionUI;
-        [SerializeField] public GameObject unequipPanel;
+        public ItemSelectionUI selectionUI;
+        public GameObject unequipPanel;
 
         void Start()
         {
