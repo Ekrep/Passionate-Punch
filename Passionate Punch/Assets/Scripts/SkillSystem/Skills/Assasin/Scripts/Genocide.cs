@@ -160,6 +160,11 @@ public class Genocide : MonoBehaviourSkill
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", alphaValue);
             yield return Timing.WaitForOneFrame;
         }
+        //weapons on characters hands 
+        for (int i = 0; i < skillSettings.Character.characterWeapons.Count; i++)
+        {
+            skillSettings.Character.characterWeapons[i].SetActive(true);
+        }
         skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;
         skillSettings.Character.anim.SetBool(skillSettings.animationName, false);
         skillSettings.Character.ChangeState(skillSettings.Character.characterIdleState);
@@ -234,7 +239,12 @@ public class Genocide : MonoBehaviourSkill
     }
     IEnumerator<float> CreateAmbiance(float ambianceCreationSpeed)
     {
-        
+
+        //weapons on characters hands 
+        for (int i = 0; i < skillSettings.Character.characterWeapons.Count; i++)
+        {
+            skillSettings.Character.characterWeapons[i].SetActive(false);
+        }
         skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _silhoutteMat;
         while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != -1)
         {
@@ -246,7 +256,7 @@ public class Genocide : MonoBehaviourSkill
 
 
         }
-        
+       
         _dagger.SetActive(true);
         
         
@@ -271,6 +281,7 @@ public class Genocide : MonoBehaviourSkill
             yield return Timing.WaitForOneFrame;
         }
         _lightningParticle.Stop();
+
        
 
     }

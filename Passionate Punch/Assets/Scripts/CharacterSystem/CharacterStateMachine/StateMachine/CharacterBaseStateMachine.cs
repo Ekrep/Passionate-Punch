@@ -39,6 +39,8 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     
     public AutoAim autoAim;
 
+    public List<GameObject> characterWeapons;
+
 
     private void Awake()
     {
