@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ItemCategories;
 
+
+
 namespace Items
 {
     public class Chest : MonoBehaviour
@@ -30,12 +32,16 @@ namespace Items
         public List<ItemSettings> chestList;
         public GameObject itemPrefab;
 
-       
+
+
+
 
         // Start is called before the first frame update
         void Start()
         {
             FillChest();
+
+
         }
 
         // Update is called once per frame
@@ -62,6 +68,7 @@ namespace Items
             if (!_isOpened)
             {
                 OpenChestX();
+
             }
         }
 
@@ -97,10 +104,14 @@ namespace Items
             yield return new WaitForSeconds(1f);
             foreach (ItemSettings item in chestList)
             {
+
+                float value = 2f;
+                float randomX = (Random.Range(0, 1) * 2 - 1) * Random.Range(1, value);
+                float randomZ = (Random.Range(0, 1) * 2 - 1) * Random.Range(1, value);
                 itemPrefab.GetComponent<Item>().itemSettings = item;
                 itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
-                GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x+this.gameObject.transform.forward.x,
-                this.gameObject.transform.position.y+2f+ this.gameObject.transform.forward.y, this.gameObject.transform.position.z+ this.gameObject.transform.forward.z), Quaternion.identity);
+                GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x + randomX,
+                this.gameObject.transform.position.y, this.gameObject.transform.position.z + randomZ), Quaternion.identity);
                 if (item.countInInventory > 0)
                 {
                     var instance = ScriptableObject.CreateInstance<ItemSettings>();
@@ -108,7 +119,7 @@ namespace Items
                     instance = cloneItemSettings;
                     var settings = go.GetComponent<Item>().itemSettings;
                     Debug.Assert(settings.GetType() == instance.GetType(), "Same assert");
-                    go.GetComponent<Item>().itemSettings = (AttackItem) instance;
+                    go.GetComponent<Item>().itemSettings = (AttackItem)instance;
                     Debug.Log(instance.effectAmount);
 
                     Debug.Log(go.GetComponent<Item>().itemSettings.effectAmount);

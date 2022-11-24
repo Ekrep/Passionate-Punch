@@ -14,7 +14,6 @@ namespace UI
         void Start()
         {
             slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-           // playerImageField.sprite = playerImage;
         }
 
         void OnEnable()

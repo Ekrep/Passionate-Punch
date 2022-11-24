@@ -22,7 +22,6 @@ namespace UI
             if (pickUpButton.gameObject.activeSelf)
             {
                 pickUpButton.gameObject.SetActive(false);
-
             }
             else
             {
@@ -67,8 +66,6 @@ namespace UI
 
             UIManager.Instance.isPressedSkillOne = true;
             StartCoroutine(UnCastSkillOne());
-
-
         }
         IEnumerator UnCastSkillOne()
         {
@@ -80,9 +77,6 @@ namespace UI
 
             UIManager.Instance.isPressedSkillTwo = true;
             StartCoroutine(UnCastSkillTwo());
-
-
-
         }
         IEnumerator UnCastSkillTwo()
         {
@@ -95,12 +89,10 @@ namespace UI
             UIManager.Instance.isPickUpButtonPressed = true;
         }
 
-        IEnumerator DisablePickUpButton()
+        public void DisablePickUp()
         {
-            yield return new WaitForEndOfFrame();
             UIManager.Instance.isPickUpButtonPressed = false;
         }
-
 
 
     }
