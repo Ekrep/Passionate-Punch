@@ -81,7 +81,6 @@ public class EnemyPatrollingState : EnemyBaseState
     }
     void PatrolBetweenPoints()
     {
-        //enemy.transform.position = Vector3.MoveTowards(enemyCurrentPos, targetPos, patrolMoveSpeed); (OLD SYSTEM)
         enemyMovementSM.enemyNavMesh.SetDestination(targetPos);
     }
     void ArriveControl()
