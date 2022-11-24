@@ -30,6 +30,8 @@ namespace Items
         public List<ItemSettings> chestList;
         public GameObject itemPrefab;
 
+       
+
         // Start is called before the first frame update
         void Start()
         {
@@ -44,7 +46,7 @@ namespace Items
 
         public void FillChest()
         {
-            chestCount = Random.Range(3, 6);
+            chestCount = Random.Range(1, 4);
             for (int i = 0; i < chestCount; i++)
             {
                 itemIndex = Random.Range(0, allItemSettings.Count);
@@ -97,8 +99,8 @@ namespace Items
             {
                 itemPrefab.GetComponent<Item>().itemSettings = item;
                 itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
-                GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x - 0.5f,
-                this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
+                GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x+this.gameObject.transform.forward.x,
+                this.gameObject.transform.position.y+2f+ this.gameObject.transform.forward.y, this.gameObject.transform.position.z+ this.gameObject.transform.forward.z), Quaternion.identity);
                 if (item.countInInventory > 0)
                 {
                     var instance = ScriptableObject.CreateInstance<ItemSettings>();
