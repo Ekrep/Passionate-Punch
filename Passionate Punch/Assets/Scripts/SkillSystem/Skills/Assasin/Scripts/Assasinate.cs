@@ -7,6 +7,8 @@ using Interfaces;
 public class Assasinate : MonoBehaviourSkill
 {
 
+    [SerializeField]
+    private ParticleSystem _slashParticle;
 
     private void OnDestroy()
     {
@@ -21,11 +23,14 @@ public class Assasinate : MonoBehaviourSkill
             if (aim.targetEnemy != null)
             {
                 
-                SetRotationToEnemy(aim.targetEnemy);
+                SetRotationToEnemy(aim.targetEnemy, skillSettings.Character.gameObject.transform);
                 skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
                 skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
                 skillSettings.Character.transform.position =aim.targetEnemy.transform.position+aim.targetEnemy.forward*-1f;
                 aim.focusedEnemy.Hit(SkillSystem.SkillSettings.HitType.Low, skillSettings.skillDamage, Vector3.zero, 0);
+                _slashParticle.transform.position = new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z);
+                SetRotationToEnemy(aim.targetEnemy, _slashParticle.transform);
+                _slashParticle.Play();
                 Timing.RunCoroutine(ExitCastState(skillSettings.castTime));
                 Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
                 skillSettings.canCast = false;
@@ -52,12 +57,13 @@ public class Assasinate : MonoBehaviourSkill
         throw new System.NotImplementedException();
     }
 
-    private void SetRotationToEnemy(Transform targetEnemy)
+    private void SetRotationToEnemy(Transform targetEnemy,Transform objectTransform)
     {
+        //Needs adjustment on Rotation Calculation(-?,+?)
         Vector3 deltaPos = Vector3.zero;
-        deltaPos = skillSettings.Character.gameObject.transform.position - targetEnemy.position;
+        deltaPos = objectTransform.position - targetEnemy.position;
         float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
-        skillSettings.Character.gameObject.transform.rotation = Quaternion.Euler(skillSettings.Character.gameObject.transform.rotation.x, -target, skillSettings.Character.gameObject.transform.rotation.z);
+        objectTransform.rotation = Quaternion.Euler(skillSettings.Character.gameObject.transform.rotation.x, -target, skillSettings.Character.gameObject.transform.rotation.z);
     }
 
 }
