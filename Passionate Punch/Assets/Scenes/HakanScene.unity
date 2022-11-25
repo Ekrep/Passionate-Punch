@@ -1111,6 +1111,7 @@ MonoBehaviour:
   turnSmoothSpeed: 5
   canVisible: 0
   autoAim: {fileID: 0}
+  characterWeapons: []
 --- !u!1 &1730871283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1167,7 @@ PrefabInstance:
     - target: {fileID: 2072366853723103796, guid: 09c4f4c8b5a13804b922c41bb1e16165,
         type: 3}
       propertyPath: chestCount
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2072366853723103797, guid: 09c4f4c8b5a13804b922c41bb1e16165,
         type: 3}

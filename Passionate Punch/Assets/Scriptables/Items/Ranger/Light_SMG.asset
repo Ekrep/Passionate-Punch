@@ -16,13 +16,14 @@ MonoBehaviour:
   itemMaterial: {fileID: 2100000, guid: 55ce8a3b5a66efc4195e34019198cfba, type: 2}
   itemTitle: Light Smg
   itemImage: {fileID: 21300000, guid: c0c98ca90b3f57247a75db35e0b3467f, type: 3}
+  itemId: 0
   itemDescription: +40 AD, +0.5 Attack Speed
   effectAmount: 40
   worth: 110
   radius: 0
   isStackable: 0
   isApplied: 0
-  countInInventory: 0
-  itemCategory: 5
+  countInInventory: 12
+  itemCategory: 2
   itemType: 0
   speedEffectAmount: 0.5

@@ -16,13 +16,14 @@ MonoBehaviour:
   itemMaterial: {fileID: 2100000, guid: 55ce8a3b5a66efc4195e34019198cfba, type: 2}
   itemTitle: Small Axe
   itemImage: {fileID: 21300000, guid: b6f7b01567bc2a547875c04c0ca847e0, type: 3}
+  itemId: 0
   itemDescription: +55 AD, +0.5 Attack Speed
   effectAmount: 55
   worth: 180
   radius: 0
   isStackable: 0
   isApplied: 0
-  countInInventory: 10
-  itemCategory: 4
+  countInInventory: 26
+  itemCategory: 2
   itemType: 0
   speedEffectAmount: 0.5

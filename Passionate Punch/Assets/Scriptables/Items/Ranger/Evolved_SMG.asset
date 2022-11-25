@@ -16,13 +16,14 @@ MonoBehaviour:
   itemMaterial: {fileID: 2100000, guid: 55ce8a3b5a66efc4195e34019198cfba, type: 2}
   itemTitle: Evolved Smg
   itemImage: {fileID: 21300000, guid: 192429a28dfe9f649aa642ed34ec63c4, type: 3}
+  itemId: 0
   itemDescription: +65 AD, +0.5 Attack Speed
   effectAmount: 65
   worth: 180
   radius: 0
   isStackable: 0
   isApplied: 0
-  countInInventory: 0
-  itemCategory: 5
+  countInInventory: 11
+  itemCategory: 2
   itemType: 0
   speedEffectAmount: 0.5
