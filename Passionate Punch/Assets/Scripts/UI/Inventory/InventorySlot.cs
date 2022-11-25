@@ -27,10 +27,9 @@ namespace UI
         public Sprite defaultImage;
         public ItemSettings item;
         public int index;
-
         public static event Action<ItemSettings, int> OnItemEquip;
         public static event Action<ItemSettings, int> OnItemUnequip;
-        public static event Action OnItemDiscard;
+        public static event Action<ItemSettings, int> OnItemDiscard;
 
         public void DisplayItem(ItemSettings newItem)
         {
@@ -39,30 +38,9 @@ namespace UI
                 item = newItem;
                 slotIcon.sprite = newItem.itemImage;
                 slotIcon.enabled = true;
-                newItem = null;
             }
         }
-
-        public void DiscardItem()
-        {
-            if (item != null)
-            {
-                if (item.isApplied)
-                {
-                    _Character.equippedItemList.Remove(item);   
-                    item.RevertItemEffect(_Character, item.effectAmount);
-                    Equipment.equipmentList[index] = null;
-                }
-                Inventory.inventoryList.Remove(item);
-                _Character.ownedItemList.Remove(item);
-            
-            }
-            ClearSlot();
-            equippedPanel.SetActive(false);
-            OnItemDiscard?.Invoke();
-            
-        }
-
+        
         public void ClearSlot()
         {
             item = null;
@@ -75,12 +53,11 @@ namespace UI
         {
             if (item != null)
             {
-                index = ((int)item.itemCategory);
                 selectionUI.DesignSelectionScreen(item);
                 equipButton.onClick.RemoveAllListeners();
-                equipButton.onClick.AddListener(() => OnItemEquip(item, index));
+                equipButton.onClick.AddListener(() => OnItemEquip(item, (int)item.itemCategory));
                 discardButton.onClick.RemoveAllListeners();
-                discardButton.onClick.AddListener(() => DiscardItem());
+                discardButton.onClick.AddListener(() => OnItemDiscard(item, (int)item.itemCategory));
             }
         }
 
@@ -88,22 +65,10 @@ namespace UI
         {
             if (item != null)
             {
+                index = ((int)item.itemCategory);
                 equippedPanel.SetActive(true);
                 unequipButton.onClick.RemoveAllListeners();
-                unequipButton.onClick.AddListener(() => OnUnequipButtonPressed());
-                discardButton.onClick.RemoveAllListeners();
-                discardButton.onClick.AddListener(() => DiscardItem());
-            }
-        }
-
-        public void OnUnequipButtonPressed()
-        {
-            index = ((int)item.itemCategory);
-            if (Equipment.equipmentList[index] != null)
-            {
-                OnItemUnequip?.Invoke(item, index);
-                Equipment.equipmentList[index] = null;
-                equippedPanel.SetActive(false);
+                unequipButton.onClick.AddListener(() => OnItemUnequip(item, (int)item.itemCategory));
             }
         }
     }

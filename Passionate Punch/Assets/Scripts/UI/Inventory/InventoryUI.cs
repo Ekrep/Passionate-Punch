@@ -20,14 +20,12 @@ namespace UI
         {
             Inventory.OnItemPickedUp += UpdateUI;
             Equipment.OnEquipmentHappened += UpdateUI;
-            InventorySlot.OnItemDiscard += UpdateUI;
         }
 
         void OnDisable()
         {
             Inventory.OnItemPickedUp -= UpdateUI;
             Equipment.OnEquipmentHappened -= UpdateUI;
-            InventorySlot.OnItemDiscard -= UpdateUI;
         }
 
         void UpdateUI()
@@ -43,6 +41,7 @@ namespace UI
                     slots[i].ClearSlot();
                 }
             }
+            unequipPanel.SetActive(false);
         }
 
         public void CloseAllPanels()

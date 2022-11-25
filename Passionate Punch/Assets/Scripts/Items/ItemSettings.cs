@@ -10,6 +10,7 @@ namespace Items
         public Material itemMaterial;
         public string itemTitle;
         public Sprite itemImage;
+        public int itemId;
         public string itemDescription;
         public float effectAmount;
         public float worth;

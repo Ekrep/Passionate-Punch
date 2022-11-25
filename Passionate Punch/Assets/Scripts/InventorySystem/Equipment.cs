@@ -10,8 +10,16 @@ namespace InventorySystem
     public class Equipment : MonoBehaviour
     {
         //This is the class that handles equipment of items. 
+
+        [SerializeField]
+        private CharacterSettings _Character
+        {
+            get
+            {
+                return GameManager.Instance.character.characterStats;
+            }
+        }
         [SerializeField] private Inventory inventory;
-        [SerializeField] private CharacterSettings character;
         public static ItemSettings[] equipmentList;
         public static event Action OnEquipmentHappened;
 
@@ -25,12 +33,25 @@ namespace InventorySystem
         {
             InventorySlot.OnItemEquip += EquipItem;
             InventorySlot.OnItemUnequip += UnEquipItem;
+            InventorySlot.OnItemDiscard += DiscardItem;
         }
 
         void OnDisable()
         {
             InventorySlot.OnItemEquip -= EquipItem;
             InventorySlot.OnItemUnequip -= UnEquipItem;
+            InventorySlot.OnItemDiscard -= DiscardItem;
+        }
+
+        public void DiscardItem(ItemSettings item, int index)
+        {
+            if (item != null && !item.isApplied)
+            {
+                _Character.ownedItemList.Remove(item);
+                Inventory.inventoryList.Remove(item);
+                OnEquipmentHappened?.Invoke();
+            }
+
         }
 
         public void EquipItem(ItemSettings item, int index)
@@ -41,44 +62,45 @@ namespace InventorySystem
             {
                 oldItem = equipmentList[index];
                 Inventory.inventoryList.Add(oldItem);
-                character.equippedItemList.Remove(oldItem);
+                _Character.equippedItemList.Remove(oldItem);
+                oldItem.RevertItemEffect(_Character, oldItem.effectAmount);
             }
             equipmentList[index] = item;
-            character.equippedItemList.Add(item);
+            _Character.equippedItemList.Add(item);
             Inventory.inventoryList.Remove(item);
-            item.ApplyItemEffect(character, item.effectAmount);
+            item.ApplyItemEffect(_Character, item.effectAmount);
             OnEquipmentHappened?.Invoke();
         }
 
         public void UnEquipItem(ItemSettings item, int index)
         {
-            item.RevertItemEffect(character, item.effectAmount);
-            character.equippedItemList.Remove(item);
+            item.RevertItemEffect(_Character, item.effectAmount);
+            _Character.equippedItemList.Remove(item);
             Inventory.inventoryList.Add(item);
             equipmentList[index] = null;
             OnEquipmentHappened?.Invoke();
-        }   
+        }
 
-    public bool CheckItemFit(ItemSettings item)
-    {
-        if (character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
-            return true;
-        return false;
-    }
-
-    public void ApplyItemEffects(ItemSettings[] itemList)
-    {
-        foreach (ItemSettings item in itemList)
+        public bool CheckItemFit(ItemSettings item)
         {
-            if (item != null)
+            if (_Character.characterClass.Equals(item.itemType) || item.itemType == ClassType.ClassTypeEnum.All)
+                return true;
+            return false;
+        }
+
+        public void ApplyItemEffects(ItemSettings[] itemList)
+        {
+            foreach (ItemSettings item in itemList)
             {
-                if (!item.isApplied)
+                if (item != null)
                 {
-                    item.ApplyItemEffect(character, item.effectAmount);
+                    if (!item.isApplied)
+                    {
+                        item.ApplyItemEffect(_Character, item.effectAmount);
+                    }
                 }
             }
         }
     }
-}
 }
 
