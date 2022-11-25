@@ -79,7 +79,7 @@ public class AutoAim : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (focusedEnemy==null&& other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        if (other.gameObject.transform.parent != null && focusedEnemy==null&& other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
         {
             Debug.Log("enter Auto");
             targetEnemy = enemy.transform;
