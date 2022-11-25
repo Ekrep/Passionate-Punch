@@ -30,6 +30,7 @@ namespace UI
 
         public static event Action<ItemSettings, int> OnItemEquip;
         public static event Action<ItemSettings, int> OnItemUnequip;
+        public static event Action OnItemDiscard;
 
         public void DisplayItem(ItemSettings newItem)
         {
@@ -58,6 +59,8 @@ namespace UI
             }
             ClearSlot();
             equippedPanel.SetActive(false);
+            OnItemDiscard?.Invoke();
+            
         }
 
         public void ClearSlot()

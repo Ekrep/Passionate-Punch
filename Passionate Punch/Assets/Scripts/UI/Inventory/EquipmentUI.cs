@@ -15,11 +15,13 @@ namespace UI
         void OnEnable()
         {
             Equipment.OnEquipmentHappened += UpdateUI;
+            InventorySlot.OnItemDiscard += UpdateUI;
         }
 
         void OnDisable()
         {
             Equipment.OnEquipmentHappened -= UpdateUI;
+            InventorySlot.OnItemDiscard -= UpdateUI;
         }
 
         void UpdateUI()

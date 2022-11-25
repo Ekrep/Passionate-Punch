@@ -20,12 +20,14 @@ namespace UI
         {
             Inventory.OnItemPickedUp += UpdateUI;
             Equipment.OnEquipmentHappened += UpdateUI;
+            InventorySlot.OnItemDiscard += UpdateUI;
         }
 
         void OnDisable()
         {
             Inventory.OnItemPickedUp -= UpdateUI;
             Equipment.OnEquipmentHappened -= UpdateUI;
+            InventorySlot.OnItemDiscard -= UpdateUI;
         }
 
         void UpdateUI()
