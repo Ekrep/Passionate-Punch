@@ -83,6 +83,31 @@ namespace UI
             yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillTwo = false;
         }
+        public void CastSkillThree()
+        {
+
+            UIManager.Instance.isPressedSkillThree = true;
+            StartCoroutine(UnCastSkillThree());
+        }
+        IEnumerator UnCastSkillThree()
+        {
+            yield return new WaitForEndOfFrame();
+            UIManager.Instance.isPressedSkillThree = false;
+        }
+
+
+        public void CastSkillFour()
+        {
+
+            UIManager.Instance.isPressedSkillFour = true;
+            StartCoroutine(UnCastSkillFour());
+        }
+        IEnumerator UnCastSkillFour()
+        {
+            yield return new WaitForEndOfFrame();
+            UIManager.Instance.isPressedSkillFour = false;
+        }
+
 
         public void ActivatePickUp()
         {
