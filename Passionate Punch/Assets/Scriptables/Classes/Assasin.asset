@@ -40,5 +40,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 876376cb9fffd5b4687a5c4d1fda8ac8, type: 2}
   ownedItemList:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   equippedItemList: []
   characterClass: 0
