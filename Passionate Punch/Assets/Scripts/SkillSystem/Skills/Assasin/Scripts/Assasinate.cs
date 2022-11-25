@@ -59,10 +59,10 @@ public class Assasinate : MonoBehaviourSkill
 
     private void SetRotationToEnemy(Transform targetEnemy,Transform objectTransform)
     {
-        //Needs adjustment on Rotation Calculation(-?,+?)
+        
         Vector3 deltaPos = Vector3.zero;
         deltaPos = objectTransform.position - targetEnemy.position;
-        float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
+        float target = Mathf.Atan2(-deltaPos.x, +deltaPos.z) * Mathf.Rad2Deg;
         objectTransform.rotation = Quaternion.Euler(skillSettings.Character.gameObject.transform.rotation.x, -target, skillSettings.Character.gameObject.transform.rotation.z);
     }
 
