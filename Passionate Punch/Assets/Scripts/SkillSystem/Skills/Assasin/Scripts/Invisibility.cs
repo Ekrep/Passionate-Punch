@@ -15,6 +15,10 @@ public class Invisibility : MonoBehaviourSkill
     private float _characterFirstMovementSpeed;
 
 
+    [SerializeField]
+    private Material _characterWeaponFirstMat;
+
+
     private void OnDestroy()
     {
         skillSettings.canCast = true;
@@ -29,6 +33,10 @@ public class Invisibility : MonoBehaviourSkill
             stormExplodePsObject.GetComponent<ParticleSystem>().Play();
             stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = invisMat;
+            for (int i = 0; i < skillSettings.Character.characterWeapons.Count; i++)
+            {
+                skillSettings.Character.characterWeapons[i].GetComponent<MeshRenderer>().sharedMaterial = invisMat;
+            }
             Timing.RunCoroutine(RevertSkillEffect(skillSettings.activeTime));
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);//Needs animation Adjustment
@@ -55,6 +63,14 @@ public class Invisibility : MonoBehaviourSkill
         if (skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial == invisMat)
         {
             skillSettings.Character.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _firstMat;
+        }
+        for (int i = 0; i < skillSettings.Character.characterWeapons.Count; i++)
+        {
+            if (skillSettings.Character.characterWeapons[i].GetComponent<MeshRenderer>().sharedMaterial == invisMat)
+            {
+                skillSettings.Character.characterWeapons[i].GetComponent<MeshRenderer>().sharedMaterial = _characterWeaponFirstMat;
+            }
+            
         }
 
     }
