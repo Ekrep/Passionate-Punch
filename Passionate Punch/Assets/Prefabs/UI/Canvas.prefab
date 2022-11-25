@@ -13364,13 +13364,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AD Stat Text
       objectReference: {fileID: 0}
-    - target: {fileID: 2628921558053373144, guid: 348a1aa544c72254f85f2da3822e6b0f,
-        type: 3}
-      propertyPath: m_text
-      value: 'Attack Damage:
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 6950203333154045527, guid: 348a1aa544c72254f85f2da3822e6b0f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13475,13 +13468,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6960122233162535260, guid: 348a1aa544c72254f85f2da3822e6b0f,
-        type: 3}
-      propertyPath: m_text
-      value: '80
-
-'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348a1aa544c72254f85f2da3822e6b0f, type: 3}
