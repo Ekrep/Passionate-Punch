@@ -30,23 +30,37 @@ namespace Items
         }
 
         void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<Inventory>() != null)
         {
-            if (collider.gameObject.GetComponent<Inventory>() != null)
+            UIManager.Instance.TriggeredWithItem();
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out Inventory inventory))
+        {
+            UIManager.Instance.TriggeredWithItem();
+
+            if (UIManager.Instance.isPickUpButtonPressed)
             {
-                UIManager.Instance.TriggeredWithItem();
+                PickedUp(other);
+                UIManager.Instance.TriggerExitWithItem();
             }
+
         }
 
-        void OnTriggerStay(Collider collider)
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Item>() == null)
         {
-            if (collider.gameObject.GetComponent<Inventory>() != null)
-            {
-                if (UIManager.Instance.isPickUpButtonPressed)
-                {
-                    PickedUp(collider);
-                }
-            }
+            UIManager.Instance.TriggerExitWithItem();
         }
+    }
+
 
         /*void CheckDistance()
         {
@@ -62,9 +76,9 @@ namespace Items
         {
             if (collider.gameObject.GetComponent<Inventory>().AddItem(this.itemSettings))
             {
-                UIManager.Instance.TriggeredWithItem();
-                Destroy(this.gameObject);
                 UIManager.Instance.isPickUpButtonPressed = false;
+                Destroy(this.gameObject);
+                
             }
             else
             {

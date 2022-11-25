@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Items;
 
-public  class Character : MonoBehaviour
+public class Character : MonoBehaviour
 {
     public CharacterBaseStateMachine characterBaseStateMachine;
 
@@ -13,4 +14,5 @@ public  class Character : MonoBehaviour
     }
 
     
+
 }

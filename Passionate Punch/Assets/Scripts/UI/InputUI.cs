@@ -15,24 +15,23 @@ namespace UI
         void OnEnable()
         {
             UIManager.OnTriggeredWithItem += UIManager_OnTriggeredWithItem;
+            UIManager.OnTriggerExitWithItem += UIManager_OnTriggerExitWithItem;
         }
 
         void UIManager_OnTriggeredWithItem()
         {
-            if (pickUpButton.gameObject.activeSelf)
-            {
-                pickUpButton.gameObject.SetActive(false);
-            }
-            else
-            {
-                pickUpButton.gameObject.SetActive(true);
+            pickUpButton.gameObject.SetActive(true);
+        }
 
-            }
+        void UIManager_OnTriggerExitWithItem()
+        {
+            pickUpButton.gameObject.SetActive(false);
         }
 
         void OnDisable()
         {
             UIManager.OnTriggeredWithItem -= UIManager_OnTriggeredWithItem;
+            UIManager.OnTriggerExitWithItem -= UIManager_OnTriggerExitWithItem;
         }
 
         public void SendJoyStickInput()

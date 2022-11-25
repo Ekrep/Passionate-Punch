@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
     public static event Action<MiniMapIcon> OnCreateIcons;
 
     public static event Action OnTriggeredWithItem;
+    public static event Action OnTriggerExitWithItem;
 
     public void CreateIcons(MiniMapIcon miniMapIcon)
     {
@@ -59,11 +60,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-     public void TriggeredWithItem()
+    public void TriggeredWithItem()
     {
         if (OnTriggeredWithItem!=null)
         {
             OnTriggeredWithItem();
+        }
+    }
+
+    public void TriggerExitWithItem()
+    {
+        if (OnTriggerExitWithItem!=null)
+        {
+            OnTriggerExitWithItem();
         }
     }
 
