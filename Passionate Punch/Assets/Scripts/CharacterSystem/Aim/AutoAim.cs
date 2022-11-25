@@ -14,9 +14,10 @@ public class AutoAim : MonoBehaviour
     [SerializeField]
     private LayerMask _layer;
 
-
+    //needs adjustment
     private void Update()
     {
+       
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
@@ -75,6 +76,16 @@ public class AutoAim : MonoBehaviour
         }
 
 
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (focusedEnemy==null&& other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy))
+        {
+            Debug.Log("enter Auto");
+            targetEnemy = enemy.transform;
+            focusedEnemy = enemy;
+            focusedEnemy.FocusEnemy();
+        }
     }
 
     private void OnTriggerExit(Collider other)
