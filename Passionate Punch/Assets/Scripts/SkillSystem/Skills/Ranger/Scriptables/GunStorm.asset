@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GunStorm
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 0}
-  skillType: 0
+  skillType: 1
   hitType: 0
   animationName: 
-  skillName: 
+  skillName: GunStorm
   description: 
   skillSprite: {fileID: 0}
   skillPureDamage: 0
