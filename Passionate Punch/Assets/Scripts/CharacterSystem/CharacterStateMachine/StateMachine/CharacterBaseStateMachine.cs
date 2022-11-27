@@ -39,7 +39,13 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     
     public AutoAim autoAim;
 
+
+    //Needs refactor
     public List<GameObject> characterWeapons;
+
+    //0 leftHand, 1 rightHand
+    public List<ParticleSystem> characterWeaponsParticle;
+    
 
 
     private void Awake()
@@ -82,6 +88,8 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     public void CallAttackFunction()
     {
         characterAttackingState.Attack();
+        
+        
     }
   
     //works on animation
@@ -90,8 +98,26 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         characterAttackingState.ChangeAttackState();
     }
 
+    //works on animation
+    public void PlayLeftHandWeaponParticle()
+    {
+        if (characterWeaponsParticle[0]!=null)
+        {
+            characterWeaponsParticle[0].Play();
+        }
+    }
+    //works on animation
+    public void PlayRightHandWeaponParticle()
+    {
+        if (characterWeaponsParticle[1] != null)
+        {
+            characterWeaponsParticle[1].Play();
+        }
+    }
 
-    
+
 
 
 }
+
+

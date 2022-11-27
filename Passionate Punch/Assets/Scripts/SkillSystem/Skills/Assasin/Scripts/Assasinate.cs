@@ -35,6 +35,10 @@ public class Assasinate : MonoBehaviourSkill
                 Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
                 skillSettings.canCast = false;
             }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
