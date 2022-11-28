@@ -11,7 +11,12 @@ namespace UI
         public InventoryUI inventory;
         public Button attackButton;
         public Button pickUpButton;
+        public Joystick skill1Button;
+        public Joystick skill2Button;
 
+
+        private bool _isPressedSkillOne;
+        private bool _isPressedSkillTwo;
         void OnEnable()
         {
             UIManager.OnTriggeredWithItem += UIManager_OnTriggeredWithItem;
@@ -32,6 +37,19 @@ namespace UI
         {
             UIManager.OnTriggeredWithItem -= UIManager_OnTriggeredWithItem;
             UIManager.OnTriggerExitWithItem -= UIManager_OnTriggerExitWithItem;
+        }
+
+        private void Update()
+        {
+            if (_isPressedSkillOne)
+            {
+                SetRotationOfSkill1();
+            }
+            if (_isPressedSkillTwo)
+            {
+                SetRotationOfSkill2();
+            }
+
         }
 
         public void SendJoyStickInput()
@@ -106,6 +124,42 @@ namespace UI
             yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillFour = false;
         }
+
+        public void PressedSkillOne()
+        {
+            _isPressedSkillOne = true;
+
+            
+        }
+
+        public void PressedSkillTwo()
+        {
+            _isPressedSkillTwo = true;
+        }
+
+        public void ReleasedSkillOne()
+        {
+            _isPressedSkillOne = false;
+        }
+
+        public void ReleasedSkillTwo()
+        {
+            _isPressedSkillTwo = false;
+        }
+
+
+
+        public void SetRotationOfSkill1()
+        {
+            Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
+            GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+        }
+        public void SetRotationOfSkill2()
+        {
+            Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
+            GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+        }
+
 
 
         public void ActivatePickUp()

@@ -16,12 +16,12 @@ public class CharacterCanSkillCastableState : CharacterAliveState
         switch (Application.platform)
         {
             case RuntimePlatform.Android:
-                if (UIManager.Instance.isPressedSkillOne && sm.characterSkills[0].skillType == SkillSystem.SkillSettings.SkillType.Passive)
+                if (UIManager.Instance.isPressedSkillOne)
                 {
                     sm.characterSkills[0].Cast();
                     //sm.characterStats.mana = sm.characterSkills[0].manaCost;
                 }
-                if (UIManager.Instance.isPressedSkillTwo && sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active)
+                if (UIManager.Instance.isPressedSkillTwo)
                 {
                     sm.characterSkills[1].Cast();
                     //sm.characterStats.mana = sm.characterSkills[0].manaCost;
@@ -57,12 +57,12 @@ public class CharacterCanSkillCastableState : CharacterAliveState
                 }
                 break;
         }
-        if (UIManager.Instance.isPressedSkillOne && sm.characterSkills[0].skillType == SkillSystem.SkillSettings.SkillType.Passive)
+        if (UIManager.Instance.isPressedSkillOne)
         {
             sm.characterSkills[0].Cast();
             //sm.characterStats.mana = sm.characterSkills[0].manaCost;
         }
-        if (UIManager.Instance.isPressedSkillTwo && sm.characterSkills[1].skillType == SkillSystem.SkillSettings.SkillType.Active)
+        if (UIManager.Instance.isPressedSkillTwo)
         {
             sm.characterSkills[1].Cast();
             //sm.characterStats.mana = sm.characterSkills[0].manaCost;

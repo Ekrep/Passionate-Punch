@@ -4,10 +4,16 @@ using UnityEngine;
 
 namespace SkillSystem
 {
-    [CreateAssetMenu(menuName ="Skill/SkillData")]
+    [CreateAssetMenu(menuName = "Skill/SkillData")]
     public class SkillSettings : ScriptableObject
     {
         public GameObject skillPrefab;
+
+        public Decal skillDecal;
+
+        [HideInInspector]
+        public Decal skillDecalFlag;
+
         public enum HitType
         {
             Low,
@@ -35,7 +41,7 @@ namespace SkillSystem
         public float coolDown;
         public float stackCastCoolDown;
 
-        
+
 
         public int baseStackCount;
         [HideInInspector]
@@ -49,42 +55,78 @@ namespace SkillSystem
             }
         }
 
-        
+
         public float skillDamage
         {
             get
             {
                 return skillPureDamage + (percenteOfCharacterAttackDamage * Character.characterStats.attackDamage / 100f);
-                
+
             }
         }
 
         public bool canCast;
 
         private MonoBehaviourSkill _skillReference;
-        
+
         public void Cast()
         {
-            if (skillPrefab!=null&&canCast&&_skillReference==null)
+            if (skillPrefab != null && canCast && _skillReference == null)
             {
-                
+
                 GameObject gO;
                 gO = Instantiate(skillPrefab);
-                gO.TryGetComponent<MonoBehaviourSkill>(out MonoBehaviourSkill skill);
-                _skillReference =skill;
+                gO.TryGetComponent(out MonoBehaviourSkill skill);
+                _skillReference = skill;
                 if (_skillReference != null)
                 {
                     _skillReference.Cast();
+                    skillDecalFlag.gameObject.SetActive(false);
+
                 }
             }
-            if (skillPrefab!=null&&canCast&&_skillReference!=null)
+            if (skillPrefab != null && canCast && _skillReference != null)
             {
                 _skillReference.gameObject.SetActive(true);
                 _skillReference.Cast();
+                skillDecalFlag.gameObject.SetActive(false);
             }
-                
-            
-           
+
+
+
+
+        }
+
+        public void CreateDecal(Vector3 joystickPos)
+        {
+            if (canCast)
+            {
+                //Instantate and reference
+                if (skillDecalFlag != null)
+                {
+                    Debug.Log("decall");
+                    skillDecalFlag.gameObject.SetActive(true);
+                    skillDecalFlag.gameObject.transform.position = new Vector3(Character.transform.position.x, Character.transform.position.y - 0.02f, Character.transform.position.z);
+                    //_skillDecalFlag.circleProjector.transform.position = Character.transform.position;
+                    skillDecalFlag.SetDecalPosAndRot(Character.transform.position, joystickPos);
+                }
+                if (skillDecal != null && skillDecalFlag == null)
+                {
+                    GameObject decal;
+                    decal = Instantiate(skillDecal.gameObject);
+                    
+                    Debug.Log("decall");
+                    skillDecalFlag = decal.GetComponent<Decal>();
+                    skillDecalFlag.gameObject.transform.position = new Vector3(Character.transform.position.x, Character.transform.position.y - 0.02f, Character.transform.position.z);
+                    //_skillDecalFlag.circleProjector.transform.position = Character.transform.position;
+                    skillDecalFlag.SetDecalPosAndRot(Character.transform.position, joystickPos);
+
+
+
+                }
+            }
+
+
 
         }
 
@@ -97,7 +139,7 @@ namespace SkillSystem
 
         //public abstract IEnumerator Cooldown(float time);
 
-        
+
 
     }
 

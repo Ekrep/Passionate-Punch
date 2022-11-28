@@ -21,7 +21,7 @@ MonoBehaviour:
   maxHealth: 100
   mana: 0
   maxMana: 0
-  moveSpeed: 5
+  moveSpeed: 8
   defence: 0
   range: 10
   AEORange: 5
@@ -33,7 +33,8 @@ MonoBehaviour:
   manaRecoveryAmount: 0
   experience: 0
   money: 0
-  skillList: []
+  skillList:
+  - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
   ownedItemList: []
   equippedItemList: []
   characterClass: 1

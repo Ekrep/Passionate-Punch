@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
   m_Name: GunStorm
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
-  skillType: 1
+  skillPrefab: {fileID: 7807261638031181953, guid: 818bcc708f8995945a3ca97b02f0a6b3,
+    type: 3}
+  skillType: 0
   hitType: 0
-  animationName: 
+  animationName: GunStorm
   skillName: GunStorm
   description: 
   skillSprite: {fileID: 0}
@@ -23,10 +24,10 @@ MonoBehaviour:
   percenteOfCharacterAttackDamage: 0
   manaCost: 0
   activeTime: 0
-  castTime: 0
+  castTime: 1
   skillEffectAmount: 0
   coolDown: 0
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
-  canCast: 0
+  canCast: 1
