@@ -19,8 +19,8 @@ public class EnemyStunState : EnemyBaseState
         base.Enter();
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
-        enemyMovementSM.enemyNavMesh.enabled = false;
-        Debug.Log("Nav mesh enabled => " + enemyMovementSM.enemyNavMesh.enabled);
+        // Navmesh destination stopped
+        enemyMovementSM.enemyNavMesh.isStopped = true;
         // Stun particles activation
         enemyMovementSM.stunParticles.gameObject.SetActive(true);
         stunTime = 3f;
@@ -81,7 +81,6 @@ public class EnemyStunState : EnemyBaseState
         else if (distance <= enemyMovementSM.enemyAttackDistance.value)
         {
             enemyMovementSM.enemyAnimator.SetTrigger("Attack");
-            enemyStateMachine.ChangeState(enemyMovementSM.enemyAttackState);
         }
     }
 }
