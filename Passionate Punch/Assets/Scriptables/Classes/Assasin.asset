@@ -31,7 +31,7 @@ MonoBehaviour:
   manaRecoveryTime: 0
   manaRecoveryPeriod: 0
   manaRecoveryAmount: 0
-  experience: 0
+  experience: 50
   money: 0
   skillList:
   - {fileID: 11400000, guid: 2b0dc61fcfd7ad84a8a551aedfe498de, type: 2}
