@@ -34,6 +34,16 @@ namespace Items
         if (collider.gameObject.GetComponent<Inventory>() != null)
         {
             UIManager.Instance.TriggeredWithItem();
+                // 
+                if (!UIManager.Instance.pickUpButton.gameObject.activeInHierarchy)
+                {
+                    UIManager.Instance.pickUpButton.gameObject.SetActive(true);
+                }
+                if (!UIManager.Instance.pickUpButton.interactable)
+                {
+                    UIManager.Instance.pickUpButton.interactable = true;
+                }
+                //
         }
     }
 
@@ -58,6 +68,8 @@ namespace Items
         if (other.gameObject.GetComponent<Item>() == null)
         {
             UIManager.Instance.TriggerExitWithItem();
+                //
+                UIManager.Instance.pickUpButton.interactable = false;
         }
     }
 
