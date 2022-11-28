@@ -126,7 +126,6 @@ public class Genocide : MonoBehaviourSkill
     {
         if (other.gameObject.TryGetComponent(out IHealth damagables)&&damagables!=_characterIHealth&&other.gameObject.TryGetComponent(out EnemyMovementSM enemyState))
         {
-            Debug.Log(damagables);
             if (enemyState.currentEnemyState!=enemyState.enemyStunState&&enemyState.currentEnemyState!=enemyState.enemyDieState)
             {
                 damagables.Hit(SkillSystem.SkillSettings.HitType.Hard, 0, Vector3.zero, 0);

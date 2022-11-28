@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
         this.character = obj;
-        Debug.Log("girdim sendchar");
     }
 
     private void OnDisable()

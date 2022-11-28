@@ -164,7 +164,6 @@ public class MiniMap : MonoBehaviour
     }
     public void SetStaticIcons(MiniMapIcon miniMapIcon)
     {
-        Debug.Log("girdim static");
         GameObject gO;
         gO = Instantiate(EmptyIcon);
         gO.transform.SetParent(_iconsParentObject.transform);

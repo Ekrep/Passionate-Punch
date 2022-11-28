@@ -45,7 +45,6 @@ public class DirectionalLightControl : MonoBehaviour
             g = Mathf.MoveTowards(g, 0, darkenWorldSpeed * Time.deltaTime);
             b = Mathf.MoveTowards(b, 0, darkenWorldSpeed * Time.deltaTime);
             _mainLight.color = new Color(r, g, b);
-            Debug.Log("girdimcorotlight");
         }
         yield return new WaitForSeconds(enlightDelay);
         while (_mainLight.color != firstColor)
@@ -55,7 +54,6 @@ public class DirectionalLightControl : MonoBehaviour
             g = Mathf.MoveTowards(g, firstColor.g, darkenWorldSpeed * Time.deltaTime);
             b = Mathf.MoveTowards(b, firstColor.b, darkenWorldSpeed * Time.deltaTime);
             _mainLight.color = new Color(r, g, b);
-            Debug.Log("girdimcorotlight");
         }
     }
 }

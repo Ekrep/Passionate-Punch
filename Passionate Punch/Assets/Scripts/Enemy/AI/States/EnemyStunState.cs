@@ -19,6 +19,8 @@ public class EnemyStunState : EnemyBaseState
         base.Enter();
         enemyMovementSM.enemyAnimator.ResetTrigger("Run");
         enemyMovementSM.enemyAnimator.SetTrigger("Stun");
+        enemyMovementSM.enemyNavMesh.enabled = false;
+        Debug.Log("Nav mesh enabled => " + enemyMovementSM.enemyNavMesh.enabled);
         // Stun particles activation
         enemyMovementSM.stunParticles.gameObject.SetActive(true);
         stunTime = 3f;
