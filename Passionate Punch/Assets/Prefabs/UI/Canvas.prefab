@@ -7621,6 +7621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4106796251347508411}
   - component: {fileID: 9106121316988099237}
+  - component: {fileID: 4778756345207256016}
   m_Layer: 5
   m_Name: ExperienceBar
   m_TagString: Untagged
@@ -7695,12 +7696,26 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0.75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4778756345207256016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332601854858271200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a65457640c0a0458561c9a8ced1e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
+  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &7382990999576431397
 GameObject:
   m_ObjectHideFlags: 0

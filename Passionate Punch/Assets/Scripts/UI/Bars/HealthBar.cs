@@ -14,6 +14,6 @@ public class HealthBar : MonoBehaviour
         // Players max health
         healthBar.maxValue = assassin.maxHealth;
         // Players health
-        healthBar.value = 10;  // Temporary value
+        healthBar.value = assassin.maxHealth;  // Just for the start
     }
 }

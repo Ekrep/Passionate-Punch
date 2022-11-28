@@ -14,6 +14,6 @@ public class ManaBar : MonoBehaviour
         // Player max mana
         manaBar.maxValue = assassin.maxMana;
         // Player mana value
-        manaBar.value = assassin.mana;
+        manaBar.value = assassin.maxMana; // Just for the start
     }
 }
