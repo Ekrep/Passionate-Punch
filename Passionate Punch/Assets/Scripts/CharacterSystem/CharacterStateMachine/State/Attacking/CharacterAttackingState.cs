@@ -147,7 +147,6 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
         base.Exit();
 
 
-        Debug.Log("exx");
         sm.anim.SetBool("Attack", false);
 
 

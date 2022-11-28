@@ -5504,6 +5504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5715095135576184043}
   - component: {fileID: 392422010298801546}
+  - component: {fileID: 7095701366140657505}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -5584,6 +5585,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7095701366140657505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2844864916272515344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c9589be7345264c964c5feecb726db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
+  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &2861432022513209158
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,6 +6158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5299420494204826595}
   - component: {fileID: 603572957803033334}
+  - component: {fileID: 931174032431953909}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -6223,6 +6239,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &931174032431953909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333461676545667515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a81477693788847937e509e8ffae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
+  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &4606513058295089373
 GameObject:
   m_ObjectHideFlags: 0

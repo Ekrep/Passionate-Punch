@@ -1,20 +1,20 @@
-    Kardeş, sen neye baktın?
-        + [Hiç bakıyorum öyle]
+    You need somethin?
+        + [I'm just looking.]
             -> isFirstTrue
-        + [(Ters çıkış)]
+        + [(Go against him)]
             -> isFirstFalse
 
 === isFirstTrue ===
-Neye bakıyon lan kurabiye var simit var neye bakıyon
-    + [Manyak mısın sen be?]
+Then I am assuming that you're not a cop, right?
+    + [If I were a cop, you were already in jail.]
         -> isSecondTrue
-    + [Özür dilerim hemen gidiyorum.]
+    + [Maybe I am...]
         -> isFirstFalse
 -> END
 === isFirstFalse === 
-Çık dışarı, çık!
+Piss of, dumbass!
 -> END
 
 === isSecondTrue ===
-Lan manyaaaaaaağm
+OK. Be quick!...
 -> END

@@ -18,9 +18,9 @@ MonoBehaviour:
   attackDamage: 155
   attackSpeed: 30.15
   attackRayThickness: 0
-  maxHealth: 0
-  mana: 0
-  maxMana: 0
+  maxHealth: 100
+  mana: 100
+  maxMana: 100
   moveSpeed: 5
   defence: 0
   range: 2
