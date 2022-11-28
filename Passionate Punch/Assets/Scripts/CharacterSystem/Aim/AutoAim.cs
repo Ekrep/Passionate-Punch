@@ -91,7 +91,6 @@ public class AutoAim : MonoBehaviour
 
         if (other.gameObject.transform.parent != null && focusedEnemy == other.gameObject.transform.parent.TryGetComponent<EnemyMovementSM>(out EnemyMovementSM enemy) && enemy != null)
         {
-            Debug.Log("exit Auto");
             focusedEnemy.NotFocusEnemy();
             targetEnemy = null;
             focusedEnemy = null;

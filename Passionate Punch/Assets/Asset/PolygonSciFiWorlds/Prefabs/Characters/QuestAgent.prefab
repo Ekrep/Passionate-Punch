@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 4357111989687192}
   - component: {fileID: 95302532908535740}
   m_Layer: 0
-  m_Name: SM_Chr_ScifiWorlds_Strider_Male_01
+  m_Name: QuestAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
