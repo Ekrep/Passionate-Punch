@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public Button interactionButton, pickUpButton;
 
     [HideInInspector]
+    public bool castableSkillInvis, castableSkillWhirl; // Check the player's mana and if mana is enough, then this bools are set to true.
+    [HideInInspector]
     public float joystickHorizontalInput;
     [HideInInspector]
     public float joystickVerticalInput;
