@@ -23,8 +23,8 @@ MonoBehaviour:
   skillName: GunStorm
   description: 
   skillSprite: {fileID: 0}
-  skillPureDamage: 0
-  percenteOfCharacterAttackDamage: 0
+  skillPureDamage: 100
+  percenteOfCharacterAttackDamage: 50
   manaCost: 0
   activeTime: 0
   castTime: 1

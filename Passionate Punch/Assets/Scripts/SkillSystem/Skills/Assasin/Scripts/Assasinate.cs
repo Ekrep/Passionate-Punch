@@ -27,7 +27,7 @@ public class Assasinate : MonoBehaviourSkill
                 skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
                 skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
                 skillSettings.Character.transform.position =aim.targetEnemy.transform.position+aim.targetEnemy.forward*-1f;
-                aim.focusedEnemy.Hit(SkillSystem.SkillSettings.HitType.Low, skillSettings.skillDamage, Vector3.zero, 0);
+                aim.focusedEnemy.Hit(skillSettings.hitType, skillSettings.skillDamage, Vector3.zero, 0);
                 _slashParticle.transform.position = new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z);
                 SetRotationToEnemy(aim.targetEnemy, _slashParticle.transform);
                 _slashParticle.Play();

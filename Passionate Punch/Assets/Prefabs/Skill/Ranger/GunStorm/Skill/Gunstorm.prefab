@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7046660870821382382}
   - component: {fileID: 198117700765150249}
+  - component: {fileID: 9072450785254545675}
   m_Layer: 0
   m_Name: Gunstorm
   m_TagString: Untagged
@@ -47,3 +48,16 @@ MonoBehaviour:
   skillSettings: {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
   _travelDistance: 5
   _travelSpeed: 5
+--- !u!65 &9072450785254545675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7807261638031181953}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9813366, y: 1, z: 2.3172445}
+  m_Center: {x: -0.19402409, y: 2.09, z: 0.00830555}
