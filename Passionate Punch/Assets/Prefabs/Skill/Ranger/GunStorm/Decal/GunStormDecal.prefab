@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1182357095395037544}
   - component: {fileID: 1182357095395037545}
-  - component: {fileID: 8472360915674118360}
   m_Layer: 0
   m_Name: DecalTest
   m_TagString: Untagged
@@ -56,24 +55,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 2, y: 2, z: 1}
   m_FadeFactor: 1
---- !u!114 &8472360915674118360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182357095395037546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b57478fcb686f4092aebcb63f137f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decalSettings: {fileID: 11400000, guid: c036255db64f1364f838c1348f162135, type: 2}
-  circleProjector: {fileID: 1182357095395037545}
-  indicatorProjector: {fileID: 1269141823439352848}
-  parent: {fileID: 0}
-  decalHeight: 5
-  decalWidth: 5
 --- !u!1 &1269141823439352851
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +160,7 @@ MonoBehaviour:
   circleProjector: {fileID: 1182357095395037545}
   indicatorProjector: {fileID: 1269141823439352848}
   parent: {fileID: 2508933646077482072}
+  decalLastRotation: {x: 0, y: 0, z: 0}
   decalHeight: 5
   decalWidth: 5
 --- !u!1 &2508933646077482072

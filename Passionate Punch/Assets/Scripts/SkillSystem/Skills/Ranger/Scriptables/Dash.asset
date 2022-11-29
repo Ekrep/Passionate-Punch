@@ -29,7 +29,7 @@ MonoBehaviour:
   activeTime: 0
   castTime: 0.5
   skillEffectAmount: 0
-  coolDown: 0
+  coolDown: 3
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
