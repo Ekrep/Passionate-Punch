@@ -27,12 +27,6 @@ public class UIManager : MonoBehaviour
 
 
     [HideInInspector]
-    public bool isPressedSkillThree;
-
-    [HideInInspector]
-    public bool isPressedSkillFour;
-
-    [HideInInspector]
     public bool isPickUpButtonPressed;
 
 
