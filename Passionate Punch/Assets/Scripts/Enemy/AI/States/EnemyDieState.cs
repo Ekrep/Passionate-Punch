@@ -16,10 +16,12 @@ public class EnemyDieState : EnemyBaseState
         cleanUpTime = 3f;
         enemyMovementSM.enemyAnimator.SetTrigger("Die");
         enemyMovementSM.warnEnemy.gameObject.SetActive(false);
+        enemyMovementSM.enemy.GetComponent<Collider>().enabled = false;
     }
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        enemyMovementSM.focusCanvas.gameObject.SetActive(false);
         cleanUpTime -= Time.deltaTime;
         // If clean up time reached, enemy body will cleaned up
         if (cleanUpTime <= 0)
@@ -34,5 +36,6 @@ public class EnemyDieState : EnemyBaseState
     void CleanUpBody()
     {
         enemyMovementSM.enemy.gameObject.SetActive(false);
+        enemyMovementSM.enemy.GetComponent<Collider>().enabled = true;
     }
 }
