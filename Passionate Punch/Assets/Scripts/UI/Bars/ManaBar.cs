@@ -15,5 +15,26 @@ public class ManaBar : MonoBehaviour
         manaBar.maxValue = assassin.maxMana;
         // Player mana value
         manaBar.value = assassin.maxMana; // Just for the start
+        assassin.mana = assassin.maxMana; // Just for the start
+    }
+    public void CheckManaForInvisible()
+    {
+        // 10 is equal to the mana cost of this skill
+        if (assassin.mana >= 10)
+        {
+            Debug.Log("Invisible skill casted");
+            assassin.mana -= 10;
+            manaBar.value -= 10;
+        }
+    }
+    public void CheckManaForWhirl()
+    {
+        // 10 is equal to the mana cost of this skill
+        if (assassin.mana >= 30)
+        {
+            Debug.Log("Whirl skill casted");
+            assassin.mana -= 30;
+            manaBar.value -= 30;
+        }
     }
 }

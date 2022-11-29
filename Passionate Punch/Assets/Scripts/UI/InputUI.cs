@@ -77,10 +77,9 @@ namespace UI
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
         }
-
+        // Invisible Skill
         public void CastSkillOne()
         {
-
             UIManager.Instance.isPressedSkillOne = true;
             StartCoroutine(UnCastSkillOne());
         }
@@ -89,9 +88,9 @@ namespace UI
             yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillOne = false;
         }
+        // Whirl Skill
         public void CastSkillTwo()
         {
-
             UIManager.Instance.isPressedSkillTwo = true;
             StartCoroutine(UnCastSkillTwo());
         }
