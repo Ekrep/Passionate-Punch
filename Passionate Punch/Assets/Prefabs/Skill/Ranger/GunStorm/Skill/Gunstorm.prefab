@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSettings: {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
+  _travelDistance: 5
+  _travelSpeed: 5

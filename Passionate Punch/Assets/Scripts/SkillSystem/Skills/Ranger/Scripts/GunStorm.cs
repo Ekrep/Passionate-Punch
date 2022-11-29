@@ -10,6 +10,12 @@ public class GunStorm : MonoBehaviourSkill
     
     private bool isExitState;
 
+    [SerializeField]
+    private float _travelDistance;
+
+    [SerializeField]
+    private float _travelSpeed;
+
     private void OnDestroy()
     {
         skillSettings.canCast = true;
@@ -21,9 +27,9 @@ public class GunStorm : MonoBehaviourSkill
             isExitState = false;
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.transform.rotation = Quaternion.Euler(skillSettings.Character.transform.rotation.x, skillSettings.skillDecalFlag.decalLastRotation.y, skillSettings.Character.transform.rotation.z);
+            Timing.RunCoroutine(MovePlayerToTargetPosition(skillSettings.Character.transform.position));
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
             Timing.RunCoroutine(PlayGunParticleEffects());
-            Timing.RunCoroutine(ExitCastState(skillSettings.castTime));
             //gameObject.GetComponent<DecalProjector>().size-> Decal!!
            
         }
@@ -60,6 +66,17 @@ public class GunStorm : MonoBehaviourSkill
         }
        
 
+    }
+    IEnumerator<float> MovePlayerToTargetPosition(Vector3 playerFirstPos)
+    {
+        while (Vector3.Distance(skillSettings.Character.transform.position,playerFirstPos+skillSettings.Character.transform.forward*_travelDistance)>0.1f)
+        {
+
+            skillSettings.Character.gameObject.transform.position = Vector3.MoveTowards(skillSettings.Character.gameObject.transform.position, playerFirstPos + skillSettings.Character.transform.forward * _travelDistance, _travelSpeed*Time.fixedDeltaTime);
+            yield return Timing.WaitForOneFrame;
+
+        }
+        Timing.RunCoroutine(ExitCastState(skillSettings.castTime));
     }
   
 }
