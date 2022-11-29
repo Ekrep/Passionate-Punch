@@ -11,7 +11,7 @@ namespace SkillSystem
 
         public Decal skillDecal;
 
-        [HideInInspector]
+       
         public Decal skillDecalFlag;
 
         public enum HitType

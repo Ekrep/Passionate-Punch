@@ -35,6 +35,7 @@ MonoBehaviour:
   money: 0
   skillList:
   - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
+  - {fileID: 11400000, guid: 093034bbde9593a488e9b1f552468fa4, type: 2}
   ownedItemList: []
   equippedItemList: []
   characterClass: 1

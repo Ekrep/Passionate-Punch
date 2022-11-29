@@ -144,7 +144,7 @@ namespace UI
             {
                 
                     Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
-                    GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+                    GameManager.Instance.character.characterSkills[1].CreateDecal(joystickPos);
                 
                
             }

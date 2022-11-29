@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
-  m_Name: GunStorm
+  m_Name: Dash
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 7807261638031181953, guid: 818bcc708f8995945a3ca97b02f0a6b3,
+  skillPrefab: {fileID: 2000893094116749785, guid: ccc54943a06174741b9da182bd61d809,
     type: 3}
-  skillDecal: {fileID: 8387858773497202217, guid: 4019c2d053647414092734c570c1ad85,
+  skillDecal: {fileID: 8387858773497202217, guid: 1270fa8b2152477459ddd245d70d9709,
     type: 3}
   skillDecalFlag: {fileID: 0}
-  skillType: 1
+  skillType: 0
   hitType: 0
-  animationName: GunStorm
-  skillName: GunStorm
+  animationName: Dash
+  skillName: Dash
   description: 
   skillSprite: {fileID: 0}
-  skillPureDamage: 100
-  percenteOfCharacterAttackDamage: 50
-  manaCost: 0
+  skillPureDamage: 0
+  percenteOfCharacterAttackDamage: 0
+  manaCost: 25
   activeTime: 0
   castTime: 0.5
   skillEffectAmount: 0
-  coolDown: 5
+  coolDown: 0
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
