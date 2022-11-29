@@ -80,11 +80,8 @@ namespace UI
         // Invisible Skill
         public void CastSkillOne()
         {
-            if (UIManager.Instance.castableSkillInvis)
-            {
-                UIManager.Instance.isPressedSkillOne = true;
-                StartCoroutine(UnCastSkillOne());
-            }
+            UIManager.Instance.isPressedSkillOne = true;
+            StartCoroutine(UnCastSkillOne());
         }
         IEnumerator UnCastSkillOne()
         {
@@ -94,11 +91,8 @@ namespace UI
         // Whirl Skill
         public void CastSkillTwo()
         {
-            if (UIManager.Instance.castableSkillWhirl)
-            {
-                UIManager.Instance.isPressedSkillTwo = true;
-                StartCoroutine(UnCastSkillTwo());
-            }
+            UIManager.Instance.isPressedSkillTwo = true;
+            StartCoroutine(UnCastSkillTwo());
         }
         IEnumerator UnCastSkillTwo()
         {
