@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class ExpBar : MonoBehaviour
 {
+    CharacterSettings charSettings;
+    GameManager gameManager;
     Slider expBar;
-    public CharacterSettings assassin, ranger;
     private void Start()
     {
+        gameManager = GameManager.Instance;
+        charSettings = gameManager.character.characterStats;
         expBar = GetComponent<Slider>();
         // Update the experience bar values wheter player is an assassin or a ranger
         // Set the max experience point to reach next level.
-        expBar.value = assassin.experience; // Temporary value
+        expBar.value = charSettings.experience; // Temporary value
     }
 }

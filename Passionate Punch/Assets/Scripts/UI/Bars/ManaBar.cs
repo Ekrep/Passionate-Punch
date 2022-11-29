@@ -5,35 +5,38 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ManaBar : MonoBehaviour
 {
+    CharacterSettings charSettings;
+    GameManager gameManager;
     Slider manaBar;
-    public CharacterSettings assassin, ranger;
     private void Start()
     {
+        gameManager = GameManager.Instance;
+        charSettings = gameManager.character.characterStats;
         manaBar = GetComponent<Slider>();
         // Update the mana bar values wheter player is an assassin or a ranger
         // Player max mana
-        manaBar.maxValue = assassin.maxMana;
+        manaBar.maxValue = charSettings.maxMana;
         // Player mana value
-        manaBar.value = assassin.maxMana; // Just for the start
-        assassin.mana = assassin.maxMana; // Just for the start
+        manaBar.value = charSettings.maxMana; // Just for the start
+        charSettings.mana = charSettings.maxMana; // Just for the start
     }
     public void CheckManaForInvisible()
     {
         // 10 is equal to the mana cost of this skill
-        if (assassin.mana >= 10)
+        if (charSettings.mana >= 10)
         {
             Debug.Log("Invisible skill casted");
-            assassin.mana -= 10;
+            charSettings.mana -= 10;
             manaBar.value -= 10;
         }
     }
     public void CheckManaForWhirl()
     {
         // 10 is equal to the mana cost of this skill
-        if (assassin.mana >= 30)
+        if (charSettings.mana >= 30)
         {
             Debug.Log("Whirl skill casted");
-            assassin.mana -= 30;
+            charSettings.mana -= 30;
             manaBar.value -= 30;
         }
     }
