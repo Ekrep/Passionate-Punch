@@ -1131,6 +1131,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1671726133289503665, guid: ae62b19ed8ae0d44897b3101ead102b0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8158417
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671726133289503665, guid: ae62b19ed8ae0d44897b3101ead102b0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.14039999
+      objectReference: {fileID: 0}
     - target: {fileID: 5004624968737814029, guid: ae62b19ed8ae0d44897b3101ead102b0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3936,6 +3946,11 @@ PrefabInstance:
       propertyPath: enemyCampPos
       value: 
       objectReference: {fileID: 1963691642}
+    - target: {fileID: 49445227873797245, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1083167228264909244, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_AgentTypeID
