@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1a3d266a1660748ab6c506d3623bf7, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  circleRangeProjectorTexture: {fileID: 0}
-  indicatorProjectorTexture: {fileID: 0}
+  circleRangeProjectorTexture: {fileID: 2800000, guid: 2752f07ac8ff1524289d90fdcd7284d6,
+    type: 3}
+  indicatorProjectorTexture: {fileID: 2800000, guid: 9fd3d60b818589c41be6289a7e275874,
+    type: 3}

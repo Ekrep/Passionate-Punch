@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 7807261638031181953, guid: 818bcc708f8995945a3ca97b02f0a6b3,
     type: 3}
+  skillDecal: {fileID: 8387858773497202217, guid: 4019c2d053647414092734c570c1ad85,
+    type: 3}
+  skillDecalFlag: {fileID: 0}
   skillType: 0
   hitType: 0
   animationName: GunStorm
