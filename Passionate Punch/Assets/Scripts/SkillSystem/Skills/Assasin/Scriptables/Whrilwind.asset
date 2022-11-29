@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 6062186676599429826, guid: 68fdd12ce657fb84193395a90403a9cc,
     type: 3}
+  skillDecal: {fileID: 0}
+  skillDecalFlag: {fileID: 0}
   skillType: 1
   hitType: 1
   animationName: Whirlwind
@@ -22,7 +24,7 @@ MonoBehaviour:
   skillSprite: {fileID: 0}
   skillPureDamage: 50
   percenteOfCharacterAttackDamage: 30
-  manaCost: 0
+  manaCost: 25
   activeTime: 0
   castTime: 0.7
   skillEffectAmount: 0

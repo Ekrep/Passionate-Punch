@@ -29,6 +29,7 @@ public class Invisibility : MonoBehaviourSkill
     {
         if (skillSettings.canCast)
         {
+            GameManager.Instance.SkillCasted(skillSettings.manaCost);
             _characterFirstMovementSpeed = skillSettings.Character.characterStats.moveSpeed;
             stormExplodePsObject.GetComponent<ParticleSystem>().Play();
             stormExplodePsObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);

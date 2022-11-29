@@ -136,6 +136,7 @@ public class Genocide : MonoBehaviourSkill
 
     public override void Cast()
     {
+        GameManager.Instance.SkillCasted(skillSettings.manaCost);
         Timing.RunCoroutine(CreateAmbiance(_ambianceCreationSpeed));
         skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
         skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);

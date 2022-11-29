@@ -17,7 +17,7 @@ MonoBehaviour:
   skillDecal: {fileID: 8387858773497202217, guid: 4019c2d053647414092734c570c1ad85,
     type: 3}
   skillDecalFlag: {fileID: 0}
-  skillType: 0
+  skillType: 1
   hitType: 0
   animationName: GunStorm
   skillName: GunStorm

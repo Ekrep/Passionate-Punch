@@ -39,7 +39,8 @@ public class GunStorm : MonoBehaviourSkill
     {
         if (skillSettings.canCast)
         {
-           
+
+            GameManager.Instance.SkillCasted(skillSettings.manaCost);
             isExitState = false;
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
             skillSettings.Character.transform.rotation = Quaternion.Euler(skillSettings.Character.transform.rotation.x, skillSettings.skillDecalFlag.decalLastRotation.y, skillSettings.Character.transform.rotation.z);

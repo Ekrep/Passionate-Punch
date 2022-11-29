@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 3021625406065163208, guid: fb1d3b4c4a06a7b4b98b6cb379bc9f1a,
     type: 3}
+  skillDecal: {fileID: 0}
+  skillDecalFlag: {fileID: 0}
   skillType: 1
   hitType: 2
   animationName: Genocide
@@ -22,7 +24,7 @@ MonoBehaviour:
   skillSprite: {fileID: 0}
   skillPureDamage: 50
   percenteOfCharacterAttackDamage: 90
-  manaCost: 0
+  manaCost: 25
   activeTime: 0
   castTime: 9.5
   skillEffectAmount: 0

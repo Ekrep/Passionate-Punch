@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 3494058368247836361, guid: 9e311bb86c250c048be7729baeb3fb7b,
     type: 3}
+  skillDecal: {fileID: 0}
+  skillDecalFlag: {fileID: 0}
   skillType: 0
   hitType: 0
   animationName: Invisibility
@@ -22,7 +24,7 @@ MonoBehaviour:
   skillSprite: {fileID: 0}
   skillPureDamage: 0
   percenteOfCharacterAttackDamage: 0
-  manaCost: 0
+  manaCost: 25
   activeTime: 5
   castTime: 0.5
   skillEffectAmount: 3

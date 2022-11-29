@@ -21,7 +21,7 @@ public class Whirlwind : MonoBehaviourSkill
     {
         if (skillSettings.canCast)
         {
-
+            GameManager.Instance.SkillCasted(skillSettings.manaCost);
             gameObject.transform.SetPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1f, skillSettings.Character.transform.position.z), Quaternion.identity);
             _ps.GetComponent<ParticleSystem>().Play();
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);

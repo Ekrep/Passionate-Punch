@@ -22,7 +22,7 @@ public class Assasinate : MonoBehaviourSkill
             skillSettings.Character.TryGetComponent<AutoAim>(out AutoAim aim);
             if (aim.targetEnemy != null)
             {
-                
+                GameManager.Instance.SkillCasted(skillSettings.manaCost);
                 SetRotationToEnemy(aim.targetEnemy, skillSettings.Character.gameObject.transform);
                 skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
                 skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);

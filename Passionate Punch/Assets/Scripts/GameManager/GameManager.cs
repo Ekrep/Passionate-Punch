@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public static event Action OnStopShakeCam;
 
+    public static event Action<float> OnSkillCasted;
+
     public void SendCharacter(CharacterBaseStateMachine character)
     {
         if (OnSendCharacter != null)
@@ -59,6 +61,14 @@ public class GameManager : MonoBehaviour
         if (OnStopShakeCam!=null)
         {
             OnStopShakeCam();
+        }
+    }
+
+    public void SkillCasted(float skillManaCost)
+    {
+        if (OnSkillCasted!=null)
+        {
+            OnSkillCasted(skillManaCost);
         }
     }
 
