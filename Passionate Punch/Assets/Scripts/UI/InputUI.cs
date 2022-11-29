@@ -128,13 +128,27 @@ namespace UI
 
         public void SetRotationOfSkill1()
         {
-            Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
-            GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+            if (GameManager.Instance.character.characterSkills.Count > 0)
+            {
+               
+                    Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
+                    GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+                
+
+            }
+
         }
         public void SetRotationOfSkill2()
         {
-            Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
-            GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+            if ( GameManager.Instance.character.characterSkills.Count > 1)
+            {
+                
+                    Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
+                    GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+                
+               
+            }
+            
         }
 
 
