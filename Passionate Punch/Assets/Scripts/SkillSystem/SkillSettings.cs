@@ -81,7 +81,11 @@ namespace SkillSystem
                 if (_skillReference != null)
                 {
                     _skillReference.Cast();
-                    skillDecalFlag.gameObject.SetActive(false);
+                    if (skillDecal!=null)
+                    {
+                        skillDecalFlag.gameObject.SetActive(false);
+                    }
+                   
 
                 }
             }
@@ -89,7 +93,11 @@ namespace SkillSystem
             {
                 _skillReference.gameObject.SetActive(true);
                 _skillReference.Cast();
-                skillDecalFlag.gameObject.SetActive(false);
+                if (skillDecal!=null)
+                {
+                    skillDecalFlag.gameObject.SetActive(false);
+                }
+                
             }
 
 
@@ -99,7 +107,7 @@ namespace SkillSystem
 
         public void CreateDecal(Vector3 joystickPos)
         {
-            if (canCast)
+            if (canCast&&skillDecal!=null)
             {
                 //Instantate and reference
                 if (skillDecalFlag != null)

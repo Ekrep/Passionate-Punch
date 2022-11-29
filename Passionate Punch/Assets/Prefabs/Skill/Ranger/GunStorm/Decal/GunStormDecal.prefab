@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1269141824240775065}
   - component: {fileID: 8387858773497202217}
   m_Layer: 0
-  m_Name: DecalTest
+  m_Name: GunStormDecal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
