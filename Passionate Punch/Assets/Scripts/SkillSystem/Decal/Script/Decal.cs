@@ -13,6 +13,8 @@ public abstract class Decal : MonoBehaviour
 
     public GameObject parent;
 
+    [HideInInspector]
+    public Vector3 decalLastRotation;
 
     public float decalHeight;
     public float decalWidth;

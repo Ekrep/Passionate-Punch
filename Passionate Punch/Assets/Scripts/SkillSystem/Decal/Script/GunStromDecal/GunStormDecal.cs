@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GunStormDecal : Decal
 {
-
+    
+    
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class GunStormDecal : Decal
         float angle=0f;
         angle = Mathf.Atan2(lookPos.x, lookPos.y)*Mathf.Rad2Deg;
         parent.transform.rotation = Quaternion.Euler(0, angle, 0);
+        decalLastRotation = parent.transform.rotation.eulerAngles;
 
 
     }

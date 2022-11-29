@@ -20,7 +20,7 @@ public class GunStorm : MonoBehaviourSkill
         {
             isExitState = false;
             skillSettings.Character.ChangeState(skillSettings.Character.characterSkillCastState);
-            skillSettings.Character.transform.rotation = Quaternion.Euler(skillSettings.Character.transform.rotation.x, skillSettings.skillDecalFlag.parent.transform.rotation.x, skillSettings.Character.transform.rotation.z);
+            skillSettings.Character.transform.rotation = Quaternion.Euler(skillSettings.Character.transform.rotation.x, skillSettings.skillDecalFlag.decalLastRotation.y, skillSettings.Character.transform.rotation.z);
             skillSettings.Character.anim.SetBool(skillSettings.animationName, true);
             Timing.RunCoroutine(PlayGunParticleEffects());
             Timing.RunCoroutine(ExitCastState(skillSettings.castTime));

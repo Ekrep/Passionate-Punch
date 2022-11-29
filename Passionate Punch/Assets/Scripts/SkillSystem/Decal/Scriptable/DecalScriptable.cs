@@ -9,6 +9,8 @@ public class DecalScriptable : ScriptableObject
 
     public Texture circleRangeProjectorTexture;
     public Texture indicatorProjectorTexture;
+
+    public Vector3 decalLastPos;
   
   
 }
