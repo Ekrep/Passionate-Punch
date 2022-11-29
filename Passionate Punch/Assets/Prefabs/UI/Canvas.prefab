@@ -5265,8 +5265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c9589be7345264c964c5feecb726db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
-  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &2861432022513209158
 GameObject:
   m_ObjectHideFlags: 0
@@ -6053,8 +6051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a81477693788847937e509e8ffae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
-  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &4606513058295089373
 GameObject:
   m_ObjectHideFlags: 0
@@ -7674,8 +7670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a65457640c0a0458561c9a8ced1e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assassin: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
-  ranger: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &7382990999576431397
 GameObject:
   m_ObjectHideFlags: 0
@@ -13429,18 +13423,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 931174032431953909}
-          m_TargetAssemblyTypeName: ManaBar, Assembly-CSharp
-          m_MethodName: CheckManaForWhirl
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &7310665540982052509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -14577,18 +14559,6 @@ MonoBehaviour:
         - m_Target: {fileID: 5307667753361529503}
           m_TargetAssemblyTypeName: UI.InputUI, Assembly-CSharp
           m_MethodName: PressedSkillOne
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 931174032431953909}
-          m_TargetAssemblyTypeName: ManaBar, Assembly-CSharp
-          m_MethodName: CheckManaForInvisible
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
