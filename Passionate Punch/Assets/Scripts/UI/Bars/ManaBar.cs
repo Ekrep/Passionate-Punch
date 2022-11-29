@@ -30,12 +30,10 @@ public class ManaBar : MonoBehaviour
             Debug.Log("Invisible skill casted");
             charSettings.mana -= 10; // This will change
             manaBar.value -= 10;
-            //UImanager.castableSkillInvis = true;
         }
         else
         {
             Debug.Log("Unable to cast this skill");
-            //UImanager.castableSkillInvis = false;
         }
     }
     public void CheckManaForWhirl()
@@ -46,12 +44,10 @@ public class ManaBar : MonoBehaviour
             Debug.Log("Whirl skill casted");
             charSettings.mana -= 30;
             manaBar.value -= 30;
-            //UImanager.castableSkillWhirl = true;
         }
         else
         {
             Debug.Log("Unable to cast this skill");
-            //UImanager.castableSkillWhirl = false;
         }
     }
 }
