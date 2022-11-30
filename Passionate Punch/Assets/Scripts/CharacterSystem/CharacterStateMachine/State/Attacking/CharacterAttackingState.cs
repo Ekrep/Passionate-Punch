@@ -41,7 +41,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
         base.Update();
         //Debug.Log(_pressCount);
         //ControlPressCount();
-        SetRotationWhileAttacking();
+       
         ControlStuck();
 
 
@@ -107,7 +107,7 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     }
     public void Attack()
     {
-       
+        SetRotationWhileAttacking();
         RaycastHit[] raycastHits = new RaycastHit[1];
         //Physics.CapsuleCastNonAlloc()
         Physics.RaycastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y+0.5f, sm.transform.position.z), sm.transform.forward, raycastHits, sm.characterStats.range);
