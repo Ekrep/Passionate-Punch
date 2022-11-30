@@ -7,18 +7,30 @@ using InventorySystem;
 public class StatScreen : MonoBehaviour
 {
     [SerializeField]
-        private CharacterSettings _Character
-        {
-            get
-            {
-                return GameManager.Instance.character.characterStats;
-            }
-        }
+    private CharacterSettings _Character;
+        
 
     [SerializeField] private List<StatText> statTextList;
 
     void Start()
     {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void OnEnable(){
+        Equipment.OnEquipmentHappened += UpdateUI;
+        GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+    }
+
+    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+    {
+        _Character = obj.characterStats;
         _Character.characterStats.Add(_Character.attackDamage);
         _Character.characterStats.Add(_Character.attackSpeed);
         _Character.characterStats.Add(_Character.maxHealth);
@@ -32,7 +44,8 @@ public class StatScreen : MonoBehaviour
         _Character.characterStats.Add(_Character.manaRecoveryAmount);
         _Character.characterStats.Add(_Character.experience);
 
-        for(int i = 0; i < statTextList.Count; i++){
+        for (int i = 0; i < statTextList.Count; i++)
+        {
             Debug.Log("jknad : " + _Character.characterStats[i].ToString());
             statTextList[i].statValueText.text = _Character.characterStats[i].ToString();
             //Debug.Log("deneme stat text" + i + statTextList[i]);
@@ -41,18 +54,9 @@ public class StatScreen : MonoBehaviour
         _Character.characterStats.Clear();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnEnable(){
-        Equipment.OnEquipmentHappened += UpdateUI;   
-    }
-
     void OnDisable(){
-        Equipment.OnEquipmentHappened -= UpdateUI;   
+        Equipment.OnEquipmentHappened -= UpdateUI;
+        GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
 
     public void UpdateUI(){
