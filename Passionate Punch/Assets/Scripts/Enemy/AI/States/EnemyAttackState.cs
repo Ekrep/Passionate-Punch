@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
+    public static Action OnPlayerTakeDamage;
+    // Player takes hit in time
+    float hitPlayerTime; 
     private EnemyMovementSM enemyMovementSM;
     float distance;
     GameObject player, enemy;
@@ -15,6 +19,7 @@ public class EnemyAttackState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
+        hitPlayerTime = 0;
         enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
@@ -40,6 +45,7 @@ public class EnemyAttackState : EnemyBaseState
     }
     void CalculateDistanceAndAttack()
     {
+        hitPlayerTime -= Time.deltaTime;
         distance = Vector3.Distance(enemyPos, playerPos);
         if (distance > enemyMovementSM.enemyAttackDistance.value)
         {
@@ -49,6 +55,11 @@ public class EnemyAttackState : EnemyBaseState
         {
             // Attack to the player
             enemyMovementSM.enemy.transform.LookAt(player.transform);
+            if (hitPlayerTime <= 0)
+            {
+                OnPlayerTakeDamage?.Invoke();
+                hitPlayerTime = 2f; // Attack Animation's total time (2f)
+            }
         }
     }
     void StunEnemy()
