@@ -74,7 +74,7 @@ public class LandMine : MonoBehaviour
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
                 if (value>=0.1f)
                 {
-                    increase = true;
+                    increase=true;
                 }
                 
             }

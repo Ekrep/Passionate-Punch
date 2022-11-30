@@ -72,7 +72,7 @@ public class ExplosiveTrap : MonoBehaviourSkill
 
     private void CreateQueue()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 3; i++)
         {
             LandMine holder;
             holder = Instantiate(_minePrefab);
