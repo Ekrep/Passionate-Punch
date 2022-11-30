@@ -24,7 +24,7 @@ MonoBehaviour:
   skillSprite: {fileID: 0}
   skillPureDamage: 100
   percenteOfCharacterAttackDamage: 25
-  manaCost: 0
+  manaCost: 25
   activeTime: 0
   castTime: 0.2
   skillEffectAmount: 0
