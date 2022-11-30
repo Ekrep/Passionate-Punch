@@ -107,7 +107,7 @@ namespace SkillSystem
 
         public void CreateDecal(Vector3 joystickPos)
         {
-            if (canCast&&skillDecal!=null)
+            if (canCast&&skillDecal!=null&&Character.currentState!=Character.characterSkillCastState)
             {
                 //Instantate and reference
                 if (skillDecalFlag != null)
@@ -133,6 +133,7 @@ namespace SkillSystem
 
                 }
             }
+           
 
 
 
