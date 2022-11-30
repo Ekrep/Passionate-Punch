@@ -4609,6 +4609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119aa0483e1dce640887a07812fb4387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Character: {fileID: 0}
   statTextList:
   - {fileID: 6616720074247933898}
   - {fileID: 8841721682752239121}
@@ -4630,9 +4631,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2201812987372130480}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &2365660011185376455
 GameObject:
