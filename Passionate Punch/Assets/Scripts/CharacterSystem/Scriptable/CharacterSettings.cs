@@ -34,6 +34,7 @@ namespace CharacterSystem
         public List<SkillSettings> skillList;
         public List<ItemSettings> ownedItemList;
         public List<ItemSettings> equippedItemList;
+        public List<float> characterStats;
         public ClassType.ClassTypeEnum characterClass;
     }
 }

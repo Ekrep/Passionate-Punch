@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class StatText : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI statValueText;
     void Start()
     {
         

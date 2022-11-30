@@ -9,6 +9,7 @@ namespace UI
     {
         public Joystick joystick;
         public InventoryUI inventory;
+        public StatScreen statScreen;
         public Button attackButton;
         public Button pickUpButton;
         public Joystick skill1Button;
@@ -77,6 +78,24 @@ namespace UI
             canvasGroup.blocksRaycasts = true;
             canvasGroup.interactable = true;
         }
+
+        public void DisplayStatScreen()
+        {
+            CanvasGroup canvasGroup = statScreen.GetComponent<CanvasGroup>();
+            if (canvasGroup.alpha == 0f)
+            {
+                canvasGroup.alpha = 1f;
+                canvasGroup.blocksRaycasts = true;
+                canvasGroup.interactable = true;
+            }
+            else
+            {
+                canvasGroup.alpha = 0f;
+                canvasGroup.blocksRaycasts = false;
+                canvasGroup.interactable = false;
+            }
+
+        }
         // Invisible Skill
         public void CastSkillOne()
         {
@@ -99,14 +118,14 @@ namespace UI
             yield return new WaitForEndOfFrame();
             UIManager.Instance.isPressedSkillTwo = false;
         }
-      
+
 
 
         public void PressedSkillOne()
         {
             _isPressedSkillOne = true;
 
-            
+
         }
 
         public void PressedSkillTwo()
@@ -130,25 +149,25 @@ namespace UI
         {
             if (GameManager.Instance.character.characterSkills.Count > 0)
             {
-               
-                    Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
-                    GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
-                
+
+                Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
+                GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+
 
             }
 
         }
         public void SetRotationOfSkill2()
         {
-            if ( GameManager.Instance.character.characterSkills.Count > 1)
+            if (GameManager.Instance.character.characterSkills.Count > 1)
             {
-                
-                    Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
-                    GameManager.Instance.character.characterSkills[1].CreateDecal(joystickPos);
-                
-               
+
+                Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
+                GameManager.Instance.character.characterSkills[1].CreateDecal(joystickPos);
+
+
             }
-            
+
         }
 
 
