@@ -18,4 +18,18 @@ namespace Interfaces
 
         public void Hit(SkillSystem.SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount);
     }
+
+    public interface IPlayerHealth
+    {
+        float Health
+        {
+            get;
+            set;
+        }
+
+        public void DecreaseHealth(float amount);
+        public void KillSelf();
+
+        public void Hit(SkillSystem.SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount);
+    }
 }

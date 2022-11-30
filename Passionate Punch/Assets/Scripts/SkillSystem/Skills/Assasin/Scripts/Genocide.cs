@@ -77,7 +77,7 @@ public class Genocide : MonoBehaviourSkill
     private List<IHealth> _nestedEnemies=new List<IHealth>();
 
 
-    private IHealth _characterIHealth;
+    
 
     //true when skill damage
     private bool canHit;
@@ -110,13 +110,13 @@ public class Genocide : MonoBehaviourSkill
 
     private void Start()
     {
-         skillSettings.Character.TryGetComponent<IHealth>(out IHealth characterHealth);
-         _characterIHealth = characterHealth;
+         
+         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out IHealth damagables) && damagables != _characterIHealth)
+        if (other.gameObject.TryGetComponent(out IHealth damagables))
         {
             _nestedEnemies.Add(damagables);
 
@@ -124,7 +124,7 @@ public class Genocide : MonoBehaviourSkill
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out IHealth damagables)&&damagables!=_characterIHealth&&other.gameObject.TryGetComponent(out EnemyMovementSM enemyState))
+        if (other.gameObject.TryGetComponent(out IHealth damagables)&&other.gameObject.TryGetComponent(out EnemyMovementSM enemyState))
         {
             if (enemyState.currentEnemyState!=enemyState.enemyStunState&&enemyState.currentEnemyState!=enemyState.enemyDieState)
             {

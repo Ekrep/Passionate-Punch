@@ -78,14 +78,14 @@ public class Whirlwind : MonoBehaviourSkill
 
     private void Hit()
     {
-        skillSettings.Character.TryGetComponent<IHealth>(out IHealth playerHealth);
+       
         Collider[] colliders = new Collider[10];
         int count=0;
         count=Physics.OverlapSphereNonAlloc(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y + 1, skillSettings.Character.transform.position.z), 2, colliders);
         Debug.Log(colliders.Length);
         for (int i = 0; i < count; i++)
         {
-            if (colliders[i].TryGetComponent<IHealth>(out IHealth enemyHealth) && enemyHealth != playerHealth)
+            if (colliders[i].TryGetComponent<IHealth>(out IHealth enemyHealth))
             {
                 //needs vec3
                 enemyHealth.Hit(skillSettings.hitType, skillSettings.skillDamage, colliders[i].gameObject.transform.forward*-1, 350000f);
