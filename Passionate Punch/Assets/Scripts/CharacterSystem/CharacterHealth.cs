@@ -10,6 +10,17 @@ namespace CharacterSystem
 
     public class CharacterHealth : MonoBehaviour, IHealth
     {
+        // This Action (OnPlayerDead) will invoke when player's health is less then 0. Then the killself function can trigger
+        private void OnEnable()
+        {
+            HealthBar.OnPlayerDead += KillSelf;    
+        }
+        private void OnDisable()
+        {
+            HealthBar.OnPlayerDead -= KillSelf;
+        }
+        //////////////////////////////////////////
+
         private CharacterBaseStateMachine _Character
         {
             get
