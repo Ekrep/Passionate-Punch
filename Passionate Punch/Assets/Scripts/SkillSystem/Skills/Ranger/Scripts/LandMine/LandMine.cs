@@ -29,6 +29,7 @@ public class LandMine : MonoBehaviour
         {
            Timing.KillCoroutines(coroutineHandles[i]);
         }
+        _warningFresnelMat.material.SetFloat("_Alpha", 0.1f);
     }
     private void OnEnable()
     {
@@ -52,23 +53,33 @@ public class LandMine : MonoBehaviour
 
     IEnumerator<float> WarningSign()
     {
+        bool increase=false;
         while (gameObject.activeSelf)
         {
-            while (_warningFresnelMat.material.GetFloat("_Alpha") > -0.3f)
+            if (increase)
             {
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, -0.3f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
-                yield return Timing.WaitForOneFrame;
+                if (value<=-0.3f)
+                {
+                    increase = false;
+                }
+                
             }
-            yield return Timing.WaitForOneFrame;
-            while (_warningFresnelMat.material.GetFloat("_Alpha") < 0.1f)
+            else
             {
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, 0.1f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
-                yield return Timing.WaitForOneFrame;
+                if (value>=0.1f)
+                {
+                    increase = true;
+                }
+                
             }
+            
+            
             yield return Timing.WaitForOneFrame;
         }
        

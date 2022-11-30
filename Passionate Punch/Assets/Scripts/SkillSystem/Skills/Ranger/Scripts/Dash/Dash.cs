@@ -54,13 +54,14 @@ public class Dash : MonoBehaviourSkill
         {
 
             RaycastHit hit;
-            if (Physics.Raycast(skillSettings.Character.transform.position, skillSettings.Character.transform.forward, out hit, Mathf.Infinity) && Vector3.Distance(hit.collider.transform.position, skillSettings.Character.transform.position) < 3f)
+            if (Physics.Raycast(skillSettings.Character.transform.position, skillSettings.Character.transform.forward, out hit, 1f) /*&& Vector3.Distance(hit.collider.transform.position, skillSettings.Character.transform.position) < 3f*/)
             {
                 Debug.Log("break");
                 break;
             }
             skillSettings.Character.gameObject.transform.position = Vector3.MoveTowards(skillSettings.Character.gameObject.transform.position, playerFirstPos + skillSettings.Character.transform.forward * _travelDistance, _travelSpeed * Time.fixedDeltaTime);
             gameObject.transform.position = skillSettings.Character.transform.position;
+            Debug.Log("girdin");
             yield return Timing.WaitForOneFrame;
 
 

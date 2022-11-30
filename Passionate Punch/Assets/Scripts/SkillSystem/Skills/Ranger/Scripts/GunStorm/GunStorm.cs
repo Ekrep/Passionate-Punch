@@ -91,7 +91,7 @@ public class GunStorm : MonoBehaviourSkill
         {
            
             RaycastHit hit;
-            if  (Physics.Raycast(skillSettings.Character.transform.position, skillSettings.Character.transform.forward,out hit, Mathf.Infinity) && Vector3.Distance(hit.collider.transform.position, skillSettings.Character.transform.position) < 3f)
+            if  (Physics.Raycast(skillSettings.Character.transform.position, skillSettings.Character.transform.forward,out hit, 2f) /*&& Vector3.Distance(hit.collider.transform.position, skillSettings.Character.transform.position) < 3f*/)
             {
                 Debug.Log("break");
                 break;
