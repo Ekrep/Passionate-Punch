@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CharacterSystem;
@@ -5,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
+    public static Action OnPlayerDead;
     CharacterSettings charSettings;
     GameManager gameManager;
     Slider healthBar;
@@ -18,5 +20,24 @@ public class HealthBar : MonoBehaviour
         healthBar.maxValue = charSettings.maxHealth;
         // Players health
         healthBar.value = charSettings.maxHealth;  // Just for the start
+    }
+    private void OnEnable()
+    {
+        EnemyAttackState.OnPlayerTakeDamage += PlayerTakesHit;
+    }
+    private void OnDisable()
+    {
+        EnemyAttackState.OnPlayerTakeDamage -= PlayerTakesHit;
+    }
+    void PlayerTakesHit()
+    {
+        // Temporary, player takes constant damage, will replace with the actual hit power
+        healthBar.value -= 5; // 5 is a constant temporary value
+        // Player dies
+        if (healthBar.value <= 0) // Will changed with character's health <= 0 ...
+        {
+            // Listen to this action
+            OnPlayerDead?.Invoke();
+        }
     }
 }
