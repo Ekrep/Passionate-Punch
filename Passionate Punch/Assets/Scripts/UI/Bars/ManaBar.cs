@@ -9,6 +9,14 @@ public class ManaBar : MonoBehaviour
     GameManager gameManager;
     Slider manaBar;
     UIManager UImanager;
+    private void OnEnable()
+    {
+        GameManager.OnSkillCasted += CheckManaForSkills;
+    }
+    private void OnDisable()
+    {
+        GameManager.OnSkillCasted -= CheckManaForSkills;
+    }
     private void Start()
     {
         UImanager = UIManager.Instance;
@@ -22,8 +30,23 @@ public class ManaBar : MonoBehaviour
         manaBar.value = charSettings.maxMana; // Just for the start
         charSettings.mana = charSettings.maxMana; // Just for the start
     }
-    public void CheckManaForInvisible()
+    public void CheckManaForSkills(float manaCost)
     {
+        if (charSettings.mana >= manaCost)
+        {
+            Debug.Log("Skill casted, mana cost => " + manaCost);
+            charSettings.mana -= manaCost; // This will change (left side of the equalization)
+            manaBar.value -= manaCost;
+        }
+        else
+        {
+            Debug.LogError("Unable to cast this skill, mana is not enough");
+        }
+    }
+    /* Old 
+    public void CheckManaForInvisible(float manaCost)
+    {
+        Debug.Log("Mana cost is => " + manaCost);
         // 10 is equal to the mana cost of this skill
         if (charSettings.mana >= 10)
         {
@@ -50,4 +73,5 @@ public class ManaBar : MonoBehaviour
             Debug.Log("Unable to cast this skill");
         }
     }
+    */
 }
