@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CharacterSystem;
 public class EnemyAttackState : EnemyBaseState
 {
     public static Action<float> OnPlayerTakeDamage;
@@ -57,18 +57,9 @@ public class EnemyAttackState : EnemyBaseState
             enemyMovementSM.enemy.transform.LookAt(player.transform);
             if (hitPlayerTime <= 0)
             {
-                OnPlayerTakeDamage?.Invoke(5); // Enemy hits 5 attack damage to the player 
+                player.GetComponent<CharacterHealth>().Hit(SkillSystem.SkillSettings.HitType.Low, 5, enemyPos, 1); // 5 will be attack damage of the enemy
                 hitPlayerTime = 2f; // Attack Animation's total time (2f)
             }
         }
-    }
-    void StunEnemy()
-    {
-        enemyStateMachine.ChangeState(enemyMovementSM.enemyStunState);
-    }
-    void KillEnemy()
-    {
-        enemyMovementSM.enemyAnimator.ResetTrigger("Attack");
-        enemyMovementSM.ChangeState(enemyMovementSM.enemyDieState);
     }
 }
