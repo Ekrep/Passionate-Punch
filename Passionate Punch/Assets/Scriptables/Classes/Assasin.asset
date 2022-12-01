@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterImage: {fileID: 0}
-  inventorySprite: {fileID: 21300000, guid: a7cc67313a1910f4998619c5b6a81538, type: 3}
+  inventorySprite: {fileID: 0}
   attackDamage: 460
   attackSpeed: 4.3500004
   attackRayThickness: 0
@@ -32,71 +32,15 @@ MonoBehaviour:
   manaRecoveryPeriod: 0.5
   manaRecoveryAmount: 5
   experience: 50
+  experienceThreshold: 0
+  level: 1
   money: 0
   skillList:
   - {fileID: 11400000, guid: 2b0dc61fcfd7ad84a8a551aedfe498de, type: 2}
   - {fileID: 11400000, guid: d933dbd5dab75274aad773c05b97c88d, type: 2}
   - {fileID: 11400000, guid: 32813748e0f6808488cab9db996c183b, type: 2}
   - {fileID: 11400000, guid: 876376cb9fffd5b4687a5c4d1fda8ac8, type: 2}
-  ownedItemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  equippedItemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ownedItemList: []
+  equippedItemList: []
   characterStats: []
   characterClass: 0

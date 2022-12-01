@@ -1,12 +1,23 @@
 using UnityEngine;
 using InventorySystem;
 using UnityEngine.UI;
+using CharacterSystem;
 
 namespace UI
 {
     public class InventoryUI : MonoBehaviour
     {
+
+        [SerializeField]
+        private CharacterSettings _Character
+        {
+            get
+            {
+                return GameManager.Instance.character.characterStats;
+            }
+        }
         public Transform itemsParent;
+        public Image playerImage;
         InventorySlot[] slots;
         public ItemSelectionUI selectionUI;
         public GameObject unequipPanel;
@@ -14,6 +25,7 @@ namespace UI
         void Start()
         {
             slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+            playerImage.sprite = _Character.inventorySprite;
         }
 
         void OnEnable()
