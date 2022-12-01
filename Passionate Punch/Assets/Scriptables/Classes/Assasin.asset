@@ -25,9 +25,9 @@ MonoBehaviour:
   defence: 20
   range: 2
   AEORange: 5
-  healthRecoveryTime: 3
-  healthRecoveryPeriod: 0.5
-  healthRecoveryAmount: 5
+  healthRecoveryTime: 7.5
+  healthRecoveryPeriod: 0.1
+  healthRecoveryAmount: 0.5
   manaRecoveryTime: 3
   manaRecoveryPeriod: 0.5
   manaRecoveryAmount: 5

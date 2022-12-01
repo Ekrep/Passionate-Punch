@@ -12,7 +12,7 @@ namespace CharacterSystem
     public class CharacterHealth : MonoBehaviour, IPlayerHealth
     {
         public static event Action<float> OnTakeDamage;
-        public static event Action OnHealthRecovery;
+        public static event Action<float> OnHealthRecovery;
         public static event Action OnPlayerDeath;
         // This Action (OnPlayerDead) will invoke when player's health is less then 0. Then the killself function can trigger
         private void OnEnable()
@@ -68,7 +68,7 @@ namespace CharacterSystem
                 {
                     this.Health += _Character.characterStats.healthRecoveryAmount;
                     lastRecoveredTime = Time.time;
-                    OnHealthRecovery?.Invoke();
+                    OnHealthRecovery?.Invoke(this.Health);
                 }
             }
         }

@@ -15,9 +15,10 @@ public class HealthBar : MonoBehaviour
     GameManager gameManager;
     Slider healthBar;
 
-
+    bool isRegenerating;
     private void Start()
     {
+
         healthBar = GetComponent<Slider>();
         // Change the health bar value wheter the player is an assassin or ranger.
         // Players max health
@@ -28,11 +29,13 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         CharacterHealth.OnTakeDamage += PlayerTakesHit;
+        CharacterHealth.OnHealthRecovery += RegenerateHealth;
         GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
         CharacterHealth.OnTakeDamage -= PlayerTakesHit;
+        CharacterHealth.OnHealthRecovery -= RegenerateHealth;
         GameManager.OnSendCharacter -= PullChar;
     }
     void PlayerTakesHit(float health)
@@ -46,6 +49,11 @@ public class HealthBar : MonoBehaviour
             // Listen to this action
             OnPlayerDead?.Invoke();
         }
+    }
+    void RegenerateHealth(float health)
+    {
+        Debug.Log("Health regenerating => " + health);
+        healthBar.value += charSettings.healthRecoveryAmount;
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
