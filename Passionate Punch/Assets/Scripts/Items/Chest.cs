@@ -44,7 +44,7 @@ namespace Items
 
         public void FillChest()
         {
-            chestCount = Random.Range(3, maxChestCount);
+            chestCount = Random.Range(0, maxChestCount);
             for (int i = 0; i < chestCount; i++)
             {
                 itemIndex = Random.Range(0, allItemSettings.Count);

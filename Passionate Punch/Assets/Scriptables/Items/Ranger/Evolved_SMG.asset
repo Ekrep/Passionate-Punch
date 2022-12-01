@@ -23,7 +23,7 @@ MonoBehaviour:
   radius: 0
   isStackable: 0
   isApplied: 0
-  countInInventory: 11
+  countInInventory: 24
   itemCategory: 2
-  itemType: 0
+  itemType: 1
   speedEffectAmount: 0.5

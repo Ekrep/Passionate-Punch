@@ -24,6 +24,7 @@ namespace UI
         [SerializeField] private Button equipButton;
         [SerializeField] private Button unequipButton;
         [SerializeField] private Button discardButton;
+        [SerializeField] private Image itemImage;
         public Sprite defaultImage;
         public ItemSettings item;
         public int index;
@@ -36,7 +37,10 @@ namespace UI
             if (newItem != null)
             {
                 item = newItem;
-                slotIcon.sprite = newItem.itemImage;
+                itemImage.sprite = newItem.itemImage;
+                Color tempColor = itemImage.color;
+                tempColor.a = 255;
+                itemImage.color = tempColor;
                 slotIcon.enabled = true;
             }
         }
@@ -44,7 +48,10 @@ namespace UI
         public void ClearSlot()
         {
             item = null;
-            slotIcon.sprite = defaultImage;
+            itemImage.sprite = null;
+            Color tempColor = itemImage.color;
+            tempColor.a = 0;
+            itemImage.color = tempColor;
             slotIcon.enabled = true;
             selectionUI.gameObject.SetActive(false);
         }
