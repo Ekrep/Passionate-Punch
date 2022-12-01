@@ -94,7 +94,8 @@ namespace Items
                 itemPrefab.GetComponent<Item>().itemSettings = item;
                 itemPrefab.GetComponent<Item>().itemSettings.ConfigureDescription();
                 GameObject go = Instantiate(itemPrefab, new Vector3(this.gameObject.transform.position.x+this.gameObject.transform.forward.x,
-                this.gameObject.transform.position.y+2f+ this.gameObject.transform.forward.y, this.gameObject.transform.position.z+ this.gameObject.transform.forward.z), Quaternion.identity);
+                this.gameObject.transform.position.y+2f+ this.gameObject.transform.forward.y, this.gameObject.transform.position.z+ this.gameObject.transform.forward.z), Quaternion.Euler(0, 0, 90));
+                
                 if (item.countInInventory > 0)
                 {
                     var instance = ScriptableObject.CreateInstance<ItemSettings>();
