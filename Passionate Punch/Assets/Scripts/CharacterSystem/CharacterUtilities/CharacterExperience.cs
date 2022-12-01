@@ -41,12 +41,11 @@ namespace CharacterUtilities
 
         void Update()
         {
-            if(isPeriodPassed)
+            if(isPeriodPassed && _Character.mana < _Character.maxMana)
             {
                 onGainExperience?.Invoke();
                 lastGainedTime = Time.time;
             }
-
         }
 
         //This function will be called when an enemy is killed by player. 
