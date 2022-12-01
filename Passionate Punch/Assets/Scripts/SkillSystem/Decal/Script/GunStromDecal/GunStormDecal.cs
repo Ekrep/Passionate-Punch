@@ -10,7 +10,7 @@ public class GunStormDecal : Decal
     private void Start()
     {
         SetDecalImages();
-        indicatorProjector.transform.localPosition = new Vector3(indicatorProjector.transform.localPosition.x, indicatorProjector.transform.localPosition.y, indicatorProjector.transform.localPosition.z +decalHeight/10f);
+        indicatorProjector.transform.localPosition = new Vector3(indicatorProjector.transform.localPosition.x, indicatorProjector.transform.localPosition.y, indicatorProjector.transform.localPosition.z);
     }
     public override void SetDecalPosAndRot(Vector3 decaltargetPosition, Vector3 lookPos)
     {    

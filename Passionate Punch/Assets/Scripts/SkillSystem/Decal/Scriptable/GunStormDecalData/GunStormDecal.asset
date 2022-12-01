@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleRangeProjectorTexture: {fileID: 2800000, guid: 2752f07ac8ff1524289d90fdcd7284d6,
     type: 3}
-  indicatorProjectorTexture: {fileID: 2800000, guid: f7abe4df8fac2584cbe41f2dd9d38c13,
+  indicatorProjectorTexture: {fileID: 2800000, guid: b9b64fcd8baab9443b67cd8d35279651,
     type: 3}
   decalLastPos: {x: 0, y: 0, z: 0}

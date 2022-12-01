@@ -19,6 +19,9 @@ public abstract class Decal : MonoBehaviour
     public float decalHeight;
     public float decalWidth;
 
+    public float indicatorHeight;
+    public float indicatorWidth;
+
 
 
     public virtual void SetDecalImages()
@@ -26,7 +29,7 @@ public abstract class Decal : MonoBehaviour
         circleProjector.material.SetTexture("Base_Map", decalSettings.circleRangeProjectorTexture);
         indicatorProjector.material.SetTexture("Base_Map", decalSettings.indicatorProjectorTexture);
         circleProjector.size = new Vector3(decalWidth, decalHeight, circleProjector.size.z);
-        indicatorProjector.size= new Vector3(decalWidth/2f, decalHeight/2f, indicatorProjector.size.z);
+        indicatorProjector.size= new Vector3(indicatorHeight, indicatorWidth, indicatorProjector.size.z);
     }
 
 

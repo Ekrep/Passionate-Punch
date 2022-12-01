@@ -163,6 +163,8 @@ MonoBehaviour:
   decalLastRotation: {x: 0, y: 0, z: 0}
   decalHeight: 10
   decalWidth: 10
+  indicatorHeight: 5
+  indicatorWidth: 8
 --- !u!1 &2508933646077482072
 GameObject:
   m_ObjectHideFlags: 0
