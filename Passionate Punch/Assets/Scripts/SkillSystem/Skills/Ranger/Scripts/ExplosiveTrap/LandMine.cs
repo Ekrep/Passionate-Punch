@@ -30,6 +30,7 @@ public class LandMine : MonoBehaviour
            Timing.KillCoroutines(coroutineHandles[i]);
         }
         _warningFresnelMat.material.SetFloat("_Alpha", 0.1f);
+        _warningFresnelMat.transform.localScale = Vector3.one;
     }
     private void OnEnable()
     {
@@ -61,6 +62,7 @@ public class LandMine : MonoBehaviour
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, -0.3f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
+                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(4f, 4f, 4f), 30f * Time.deltaTime);
                 if (value<=-0.3f)
                 {
                     increase = false;
@@ -72,6 +74,8 @@ public class LandMine : MonoBehaviour
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, 0.1f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
+                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(1f, 1f, 1f), 30f * Time.deltaTime);
+
                 if (value>=0.1f)
                 {
                     increase=true;

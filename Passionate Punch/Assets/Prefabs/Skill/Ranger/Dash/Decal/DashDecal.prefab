@@ -161,8 +161,8 @@ MonoBehaviour:
   indicatorProjector: {fileID: 1269141823439352848}
   parent: {fileID: 2508933646077482072}
   decalLastRotation: {x: 0, y: 0, z: 0}
-  decalHeight: 5
-  decalWidth: 5
+  decalHeight: 10
+  decalWidth: 10
 --- !u!1 &2508933646077482072
 GameObject:
   m_ObjectHideFlags: 0
