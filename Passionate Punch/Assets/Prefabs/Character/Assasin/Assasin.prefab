@@ -495,6 +495,8 @@ GameObject:
   - component: {fileID: 1124418673}
   - component: {fileID: 1642363044}
   - component: {fileID: 1524177590}
+  - component: {fileID: -3371116244464198592}
+  - component: {fileID: -3373074454312720643}
   - component: {fileID: 1524177598}
   m_Layer: 0
   m_Name: Assasin
@@ -593,6 +595,7 @@ MonoBehaviour:
   characterWeapons:
   - {fileID: 8939636063392301687}
   - {fileID: 4134077397912199997}
+  characterWeaponsParticle: []
 --- !u!114 &1124418673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +635,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastDamageTakenTime: 0
   lastRecoveredTime: 0
+--- !u!114 &-3371116244464198592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108b405954b90a0438bf22bfe546a957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastManaUsedTime: 0
+  lastRecoveredTime: 0
+--- !u!114 &-3373074454312720643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011180708296619035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d582278bf59c743857a1e1eddb0bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1524177598
 MonoBehaviour:
   m_ObjectHideFlags: 0
