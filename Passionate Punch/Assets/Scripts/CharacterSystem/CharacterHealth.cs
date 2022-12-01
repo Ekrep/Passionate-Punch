@@ -32,7 +32,7 @@ namespace CharacterSystem
                 return GameManager.Instance.character;
             }
         }
-        private float health = 100f;
+        private float health = 100f; // For the test purposes only. 
         public float Health { get => health; set => health = value; }
         public float lastDamageTakenTime; //This variable needs to be updated when player gets in a fight.
         public float lastRecoveredTime;
@@ -41,6 +41,7 @@ namespace CharacterSystem
 
         public void DecreaseHealth(float amount)
         {
+            lastDamageTakenTime = Time.time;
             this.Health -= amount;
             OnTakeDamage?.Invoke(this.Health);
             if (this.Health <= 0)
