@@ -31,6 +31,7 @@ public class StatScreen : MonoBehaviour
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
         _Character = obj.characterStats;
+        _Character.characterStats.Add(_Character.level);
         _Character.characterStats.Add(_Character.attackDamage);
         _Character.characterStats.Add(_Character.attackSpeed);
         _Character.characterStats.Add(_Character.maxHealth);
@@ -60,6 +61,7 @@ public class StatScreen : MonoBehaviour
     }
 
     public void UpdateUI(){
+        _Character.characterStats.Add(_Character.level);
         _Character.characterStats.Add(_Character.attackDamage);
         _Character.characterStats.Add(_Character.attackSpeed);
         _Character.characterStats.Add(_Character.maxHealth);
