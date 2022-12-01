@@ -12,8 +12,7 @@ namespace CharacterUtilities
         private float lastGainedTime;
         [SerializeField] private float experienceIncreaseTime;
         private bool isPeriodPassed => Time.time > lastGainedTime + experienceIncreaseTime;
-
-        public static event Action onGainExperience;
+        public static event Action<float> onGainExperience;
 
         [SerializeField]
         private CharacterSettings _Character
@@ -36,19 +35,13 @@ namespace CharacterUtilities
 
         void Start()
         {
-
         }
 
         void Update()
         {
-            if(isPeriodPassed)
-            {
-                onGainExperience?.Invoke();
-                lastGainedTime = Time.time;
-            }
         }
 
-        //This function will be called when an enemy is killed by player. 
+        //This function will be called when an enemy is killed by player.
         public void GainExperience()
         {
             _Character.experience += 10; // Dummy for now
@@ -60,6 +53,8 @@ namespace CharacterUtilities
                 _Character.experienceThreshold += 30;
                 _Character.experience = temp;
             }
+
+            onGainExperience?.Invoke(10);
         }
     }
 }
