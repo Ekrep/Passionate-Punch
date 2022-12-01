@@ -32,7 +32,8 @@ namespace CharacterSystem
             lastManaUsedTime = Time.time;
         }
 
-        void OnDisable(){
+        void OnDisable()
+        {
             GameManager.OnSkillCasted -= UpdateLastManaTime;
         }
 
@@ -46,9 +47,12 @@ namespace CharacterSystem
             if (canRecover && _Character.mana < _Character.maxMana)
             {
                 if (isPeriodPassed)
+                {
                     _Character.mana += _Character.manaRecoveryAmount;
-                OnManaRecoveryEnabled?.Invoke();
-                lastRecoveredTime = Time.time;
+                    OnManaRecoveryEnabled?.Invoke();
+                    lastRecoveredTime = Time.time;
+
+                }
             }
 
         }
