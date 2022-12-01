@@ -7,7 +7,14 @@ using InventorySystem;
 
 public class ItemSelectionUI : MonoBehaviour
 {
-    [SerializeField] CharacterSettings player;
+    [SerializeField]
+    private CharacterSettings _Character
+    {
+        get
+        {
+            return GameManager.Instance.character.characterStats;
+        }
+    }
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI warningText;
@@ -41,7 +48,7 @@ public class ItemSelectionUI : MonoBehaviour
         this.gameObject.SetActive(true);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
-        if (player.characterClass != item.itemType && item.itemType != ClassType.ClassTypeEnum.All)
+        if (_Character.characterClass != item.itemType && item.itemType != ClassType.ClassTypeEnum.All)
         {
             DisableEquipButton();
         }
