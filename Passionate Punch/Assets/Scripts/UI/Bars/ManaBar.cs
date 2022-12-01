@@ -10,11 +10,13 @@ public class ManaBar : MonoBehaviour
     UIManager UImanager;
     private void OnEnable()
     {
+        CharacterMana.OnManaRecoveryEnabled += RegenerateMana;
         GameManager.OnSkillCasted += CheckManaForSkills;
         GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
+        CharacterMana.OnManaRecoveryEnabled -= RegenerateMana;
         GameManager.OnSkillCasted -= CheckManaForSkills;
         GameManager.OnSendCharacter -= PullChar;
     }
@@ -42,40 +44,13 @@ public class ManaBar : MonoBehaviour
             Debug.LogError("Unable to cast this skill, mana is not enough");
         }
     }
+    void RegenerateMana()
+    {
+        Debug.Log("Mana regenerating: " + charSettings.mana);
+        manaBar.value += charSettings.manaRecoveryAmount;
+    }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
         charSettings = characterBaseStateMachine.characterStats;
-        Debug.Log("Character pulled succesfully");
     }
-    /* Old 
-    public void CheckManaForInvisible(float manaCost)
-    {
-        Debug.Log("Mana cost is => " + manaCost);
-        // 10 is equal to the mana cost of this skill
-        if (charSettings.mana >= 10)
-        {
-            Debug.Log("Invisible skill casted");
-            charSettings.mana -= 10; // This will change
-            manaBar.value -= 10;
-        }
-        else
-        {
-            Debug.Log("Unable to cast this skill");
-        }
-    }
-    public void CheckManaForWhirl()
-    {
-        // 10 is equal to the mana cost of this skill
-        if (charSettings.mana >= 30)
-        {
-            Debug.Log("Whirl skill casted");
-            charSettings.mana -= 30;
-            manaBar.value -= 30;
-        }
-        else
-        {
-            Debug.Log("Unable to cast this skill");
-        }
-    }
-    */
 }
