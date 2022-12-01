@@ -32,7 +32,7 @@ namespace CharacterSystem
                 return GameManager.Instance.character;
             }
         }
-        private float health;
+        private float health = 100f;
         public float Health { get => health; set => health = value; }
         public float lastDamageTakenTime; //This variable needs to be updated when player gets in a fight.
         public float lastRecoveredTime;
