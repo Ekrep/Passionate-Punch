@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
 {
     public static Action OnPlayerDead;
     CharacterSettings charSettings;
+    CharacterBaseStateMachine character;
     GameManager gameManager;
     Slider healthBar;
 
@@ -29,13 +30,18 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         EnemyAttackState.OnPlayerTakeDamage += PlayerTakesHit;
+        CharacterHealth.OnTakeDamage += PlayerTakesHit;
+        GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
         EnemyAttackState.OnPlayerTakeDamage -= PlayerTakesHit;
+        CharacterHealth.OnTakeDamage -= PlayerTakesHit;
+        GameManager.OnSendCharacter -= PullChar;
     }
-    void PlayerTakesHit()
+    void PlayerTakesHit(float health)
     {
+        Debug.Log("Health:  " + health);
         // Temporary, player takes constant damage, will replace with the actual hit power
         healthBar.value -= 5; // 5 is a constant temporary value
         // Player dies
@@ -44,5 +50,11 @@ public class HealthBar : MonoBehaviour
             // Listen to this action
             OnPlayerDead?.Invoke();
         }
+    }
+    void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
+    {
+        charSettings = characterBaseStateMachine.characterStats;
+        character = characterBaseStateMachine;
+        Debug.Log("Character pulled succesfully" + character);
     }
 }
