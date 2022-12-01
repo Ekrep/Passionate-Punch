@@ -25,6 +25,7 @@ namespace UI
         void GameManager_OnSendCharacter(CharacterBaseStateMachine obj){
             _Character = obj.characterStats;
             playerImage.sprite = _Character.inventorySprite;
+            
         }
         void OnEnable()
         {

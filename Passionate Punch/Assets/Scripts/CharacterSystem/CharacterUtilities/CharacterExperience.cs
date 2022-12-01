@@ -18,6 +18,16 @@ namespace CharacterUtilities
             }
         }
 
+        void OnEnable()
+        {
+            EnemyDieState.OnEnemyDie += GainExperience;
+        }
+
+        void OnDisable()
+        {
+            EnemyDieState.OnEnemyDie -= GainExperience;
+        }
+
         void Start()
         {
 
