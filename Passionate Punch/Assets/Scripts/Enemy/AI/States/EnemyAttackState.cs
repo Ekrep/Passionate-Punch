@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
-    public static Action OnPlayerTakeDamage;
+    public static Action<float> OnPlayerTakeDamage;
     // Player takes hit in time
     float hitPlayerTime; 
     private EnemyMovementSM enemyMovementSM;
@@ -57,7 +57,7 @@ public class EnemyAttackState : EnemyBaseState
             enemyMovementSM.enemy.transform.LookAt(player.transform);
             if (hitPlayerTime <= 0)
             {
-                OnPlayerTakeDamage?.Invoke();
+                OnPlayerTakeDamage?.Invoke(5); // Enemy hits 5 attack damage to the player 
                 hitPlayerTime = 2f; // Attack Animation's total time (2f)
             }
         }
