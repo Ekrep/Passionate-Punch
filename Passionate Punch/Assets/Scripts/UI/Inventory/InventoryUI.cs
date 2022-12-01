@@ -9,13 +9,7 @@ namespace UI
     {
 
         [SerializeField]
-        private CharacterSettings _Character
-        {
-            get
-            {
-                return GameManager.Instance.character.characterStats;
-            }
-        }
+        private CharacterSettings _Character;
         public Transform itemsParent;
         public Image playerImage;
         InventorySlot[] slots;
@@ -25,17 +19,23 @@ namespace UI
         void Start()
         {
             slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-            playerImage.sprite = _Character.inventorySprite;
+            
         }
 
+        void GameManager_OnSendCharacter(CharacterBaseStateMachine obj){
+            _Character = obj.characterStats;
+            playerImage.sprite = _Character.inventorySprite;
+        }
         void OnEnable()
         {
+            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
             Inventory.OnItemPickedUp += UpdateUI;
             Equipment.OnEquipmentHappened += UpdateUI;
         }
 
         void OnDisable()
         {
+            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
             Inventory.OnItemPickedUp -= UpdateUI;
             Equipment.OnEquipmentHappened -= UpdateUI;
         }
