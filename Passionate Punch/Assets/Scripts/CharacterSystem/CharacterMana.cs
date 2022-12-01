@@ -19,13 +19,11 @@ namespace CharacterSystem
         public bool canRecover => Time.time >= lastManaUsedTime + _Character.manaRecoveryTime;
         public bool isPeriodPassed => Time.time > lastRecoveredTime + _Character.manaRecoveryPeriod;
 
-        // Start is called before the first frame update
         void Start()
         {
 
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (canRecover && _Character.mana < _Character.maxMana)
