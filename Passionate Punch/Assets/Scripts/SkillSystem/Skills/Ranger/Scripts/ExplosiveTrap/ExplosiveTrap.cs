@@ -76,7 +76,7 @@ public class ExplosiveTrap : MonoBehaviourSkill
         {
             LandMine holder;
             holder = Instantiate(_minePrefab);
-            holder.gameObject.SetActive(false);
+            //holder.gameObject.SetActive(false);
             _landMines.Enqueue(holder);
 
         }

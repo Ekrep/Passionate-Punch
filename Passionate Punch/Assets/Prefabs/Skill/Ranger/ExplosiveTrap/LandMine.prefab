@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 1451404926761890921}
   - component: {fileID: 2875216239666811073}
   - component: {fileID: 5115977078848226558}
+  - component: {fileID: 2246623622576306534}
   m_Layer: 0
   m_Name: LandMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1476886342734725475
 Transform:
   m_ObjectHideFlags: 0
@@ -116,6 +117,23 @@ MonoBehaviour:
   _explodeParticle: {fileID: 3021803015011334545}
   _warningFresnelMat: {fileID: 4570178471709020551}
   _signSpeed: 0.01
+--- !u!114 &2246623622576306534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474086165842163911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ffc137dc690c4692509a972afe766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: fd0d347ad4b274970ae3e17731322b39, type: 3}
+  realWorldPos: {fileID: 0}
+  realWorldPosDynamic: {fileID: 0}
+  gameObjectOnMiniMap: {fileID: 0}
+  iconType: 0
 --- !u!1 &3477350250771363823
 GameObject:
   m_ObjectHideFlags: 0
