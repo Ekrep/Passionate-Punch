@@ -46,7 +46,6 @@ public class ManaBar : MonoBehaviour
     }
     void RegenerateMana()
     {
-        Debug.Log("Mana regenerating: " + charSettings.mana);
         manaBar.value += charSettings.manaRecoveryAmount;
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
