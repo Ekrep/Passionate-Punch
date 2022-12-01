@@ -52,13 +52,11 @@ public class HealthBar : MonoBehaviour
     }
     void RegenerateHealth(float health)
     {
-        Debug.Log("Health regenerating => " + health);
         healthBar.value += charSettings.healthRecoveryAmount;
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
         charSettings = characterBaseStateMachine.characterStats;
         character = characterBaseStateMachine;
-        Debug.Log("Character pulled succesfully");
     }
 }
