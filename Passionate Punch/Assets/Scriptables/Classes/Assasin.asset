@@ -19,7 +19,7 @@ MonoBehaviour:
   attackSpeed: 1
   attackRayThickness: 0
   maxHealth: 100
-  mana: 87.5
+  mana: 100
   maxMana: 100
   moveSpeed: 5
   defence: 20
@@ -32,7 +32,7 @@ MonoBehaviour:
   manaRecoveryPeriod: 0.1
   manaRecoveryAmount: 0.25
   experience: 50
-  experienceThreshold: 0
+  experienceThreshold: 100
   level: 1
   money: 0
   skillList:
