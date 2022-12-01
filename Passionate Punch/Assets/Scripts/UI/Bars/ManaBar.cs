@@ -6,22 +6,21 @@ using UnityEngine.UI;
 public class ManaBar : MonoBehaviour
 {
     CharacterSettings charSettings;
-    GameManager gameManager;
     Slider manaBar;
     UIManager UImanager;
     private void OnEnable()
     {
         GameManager.OnSkillCasted += CheckManaForSkills;
+        GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
         GameManager.OnSkillCasted -= CheckManaForSkills;
+        GameManager.OnSendCharacter -= PullChar;
     }
     private void Start()
     {
         UImanager = UIManager.Instance;
-        gameManager = GameManager.Instance;
-        charSettings = gameManager.character.characterStats;
         manaBar = GetComponent<Slider>();
         // Update the mana bar values wheter player is an assassin or a ranger
         // Player max mana
@@ -42,6 +41,11 @@ public class ManaBar : MonoBehaviour
         {
             Debug.LogError("Unable to cast this skill, mana is not enough");
         }
+    }
+    void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
+    {
+        charSettings = characterBaseStateMachine.characterStats;
+        Debug.Log("Character pulled succesfully");
     }
     /* Old 
     public void CheckManaForInvisible(float manaCost)
