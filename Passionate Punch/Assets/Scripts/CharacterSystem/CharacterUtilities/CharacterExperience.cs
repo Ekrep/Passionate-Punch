@@ -41,7 +41,7 @@ namespace CharacterUtilities
 
         void Update()
         {
-            if(isPeriodPassed && _Character.mana < _Character.maxMana)
+            if(isPeriodPassed)
             {
                 onGainExperience?.Invoke();
                 lastGainedTime = Time.time;
