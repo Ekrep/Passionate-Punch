@@ -42,6 +42,7 @@ namespace UI
                 tempColor.a = 255;
                 itemImage.color = tempColor;
                 slotIcon.enabled = true;
+                
             }
         }
         
