@@ -22,6 +22,20 @@ namespace CharacterSystem
         public bool canRecover => Time.time >= lastManaUsedTime + _Character.manaRecoveryTime;
         public bool isPeriodPassed => Time.time > lastRecoveredTime + _Character.manaRecoveryPeriod;
 
+        void OnEnable()
+        {
+            GameManager.OnSkillCasted += UpdateLastManaTime;
+        }
+
+        void UpdateLastManaTime(float amount)
+        {
+            lastManaUsedTime = Time.time;
+        }
+
+        void OnDisable(){
+            GameManager.OnSkillCasted -= UpdateLastManaTime;
+        }
+
         void Start()
         {
 
