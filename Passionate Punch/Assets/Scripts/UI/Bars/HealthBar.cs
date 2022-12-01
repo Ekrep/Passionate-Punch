@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using CharacterSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using Interfaces;
+using SkillSystem;
+
 public class HealthBar : MonoBehaviour
 {
     public static Action OnPlayerDead;
     CharacterSettings charSettings;
     GameManager gameManager;
     Slider healthBar;
+
+
     private void Start()
     {
         gameManager = GameManager.Instance;
