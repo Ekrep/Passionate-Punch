@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CharacterSystem;
+using System;
 
 namespace CharacterUtilities
 {
 
     public class CharacterExperience : MonoBehaviour
     {
+        private float lastGainedTime;
+        [SerializeField] private float experienceIncreaseTime;
+        private bool isPeriodPassed => Time.time > lastGainedTime + experienceIncreaseTime;
+
+        public static event Action onGainExperience;
 
         [SerializeField]
         private CharacterSettings _Character
@@ -35,6 +41,11 @@ namespace CharacterUtilities
 
         void Update()
         {
+            if(isPeriodPassed)
+            {
+                onGainExperience?.Invoke();
+                lastGainedTime = Time.time;
+            }
 
         }
 
@@ -43,7 +54,7 @@ namespace CharacterUtilities
         {
             _Character.experience += 10; // Dummy for now
 
-            if(_Character.experience >= _Character.experienceThreshold)
+            if (_Character.experience >= _Character.experienceThreshold)
             {
                 float temp = _Character.experience - _Character.experienceThreshold;
                 _Character.level++;
