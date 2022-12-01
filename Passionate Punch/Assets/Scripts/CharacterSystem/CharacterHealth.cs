@@ -13,6 +13,7 @@ namespace CharacterSystem
     {
         public static event Action<float> OnTakeDamage;
         public static event Action OnHealthRecovery;
+        public static event Action OnPlayerDeath;
         // This Action (OnPlayerDead) will invoke when player's health is less then 0. Then the killself function can trigger
         private void OnEnable()
         {
@@ -48,6 +49,7 @@ namespace CharacterSystem
 
         public void KillSelf()
         {
+            OnPlayerDeath?.Invoke();
             Debug.Log("YOU DIED");
         }
 
@@ -56,7 +58,6 @@ namespace CharacterSystem
         {
 
         }
-
 
         void Update()
         {
