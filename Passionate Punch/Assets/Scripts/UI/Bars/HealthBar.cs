@@ -18,8 +18,6 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GameManager.Instance;
-        charSettings = gameManager.character.characterStats;
         healthBar = GetComponent<Slider>();
         // Change the health bar value wheter the player is an assassin or ranger.
         // Players max health
@@ -29,13 +27,11 @@ public class HealthBar : MonoBehaviour
     }
     private void OnEnable()
     {
-        EnemyAttackState.OnPlayerTakeDamage += PlayerTakesHit;
         CharacterHealth.OnTakeDamage += PlayerTakesHit;
         GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
-        EnemyAttackState.OnPlayerTakeDamage -= PlayerTakesHit;
         CharacterHealth.OnTakeDamage -= PlayerTakesHit;
         GameManager.OnSendCharacter -= PullChar;
     }
@@ -43,9 +39,9 @@ public class HealthBar : MonoBehaviour
     {
         Debug.Log("Health:  " + health);
         // Temporary, player takes constant damage, will replace with the actual hit power
-        healthBar.value -= 5; // 5 is a constant temporary value
+        healthBar.value = health; 
         // Player dies
-        if (healthBar.value <= 0) // Will changed with character's health <= 0 ...
+        if (health <= 0)
         {
             // Listen to this action
             OnPlayerDead?.Invoke();
@@ -55,6 +51,6 @@ public class HealthBar : MonoBehaviour
     {
         charSettings = characterBaseStateMachine.characterStats;
         character = characterBaseStateMachine;
-        Debug.Log("Character pulled succesfully" + character);
+        Debug.Log("Character pulled succesfully");
     }
 }
