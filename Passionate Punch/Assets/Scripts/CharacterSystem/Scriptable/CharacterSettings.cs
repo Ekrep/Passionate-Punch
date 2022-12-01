@@ -31,6 +31,7 @@ namespace CharacterSystem
         public float manaRecoveryAmount;
         public float experience;
         public float experienceThreshold;
+        public float level;
         public int money;
         public List<SkillSettings> skillList;
         public List<ItemSettings> ownedItemList;

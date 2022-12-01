@@ -36,6 +36,7 @@ namespace CharacterUtilities
             if(_Character.experience >= _Character.experienceThreshold)
             {
                 float temp = _Character.experience - _Character.experienceThreshold;
+                _Character.level++;
                 _Character.experienceThreshold += 30;
                 _Character.experience = temp;
             }
