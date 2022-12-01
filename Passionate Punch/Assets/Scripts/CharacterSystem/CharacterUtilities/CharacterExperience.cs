@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CharacterSystem;
 
-public class CharacterExperience : MonoBehaviour
+namespace CharacterUtilities
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class CharacterExperience : MonoBehaviour
     {
-        
+
+        [SerializeField]
+        private CharacterSettings _Character
+        {
+            get
+            {
+                return GameManager.Instance.character.characterStats;
+            }
+        }
+
+        void Start()
+        {
+
+        }
+
+        void Update()
+        {
+
+        }
+
+        //This function will be called when an enemy is killed by player. 
+        public void GainExperience()
+        {
+            _Character.experience += 10; // Dummy for now
+
+            if(_Character.experience >= _Character.experienceThreshold)
+            {
+                float temp = _Character.experience - _Character.experienceThreshold;
+                _Character.experienceThreshold += 30;
+                _Character.experience = temp;
+            }
+        }
     }
 }

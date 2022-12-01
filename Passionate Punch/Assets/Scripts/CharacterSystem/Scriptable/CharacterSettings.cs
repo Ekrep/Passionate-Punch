@@ -30,6 +30,7 @@ namespace CharacterSystem
         public float manaRecoveryPeriod;
         public float manaRecoveryAmount;
         public float experience;
+        public float experienceThreshold;
         public int money;
         public List<SkillSettings> skillList;
         public List<ItemSettings> ownedItemList;
