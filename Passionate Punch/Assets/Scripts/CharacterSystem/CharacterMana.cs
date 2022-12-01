@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace CharacterSystem
 {
     public class CharacterMana : MonoBehaviour
     {
+        public static event Action OnManaRecoveryEnabled;
+
         private CharacterSettings _Character
         {
             get
@@ -30,6 +33,7 @@ namespace CharacterSystem
             {
                 if (isPeriodPassed)
                     _Character.mana += _Character.manaRecoveryAmount;
+                OnManaRecoveryEnabled?.Invoke();
                 lastRecoveredTime = Time.time;
             }
 
