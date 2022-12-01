@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class EnemyDieState : EnemyBaseState         
 {
     private EnemyMovementSM enemyMovementSM;
+    public static Action OnEnemyDie;
     float cleanUpTime;
     public EnemyDieState(EnemyMovementSM enemyStateMachine) : base("Die", enemyStateMachine)
     {
@@ -13,6 +15,7 @@ public class EnemyDieState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
+        OnEnemyDie?.Invoke();
         cleanUpTime = 3f;
         enemyMovementSM.enemyAnimator.SetTrigger("Die");
         enemyMovementSM.warnEnemy.gameObject.SetActive(false);
