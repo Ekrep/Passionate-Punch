@@ -1045,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd97fb8bb51484fbe4087adcaaf3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
   itemDescription: {fileID: 153827235}
   itemImage: {fileID: 1468925511}
   warningText: {fileID: 505903002}
