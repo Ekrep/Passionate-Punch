@@ -6263,6 +6263,7 @@ MonoBehaviour:
   autoAim: {fileID: 0}
   characterWeapons: []
   characterWeaponsParticle: []
+  healthRegenParticle: {fileID: 0}
 --- !u!1 &1568459524
 GameObject:
   m_ObjectHideFlags: 0
@@ -8277,7 +8278,27 @@ PrefabInstance:
     - target: {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613674666433225152, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613674666433225152, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625754415985615816, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715510638659512924, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e374de0998e2f4fb58bcac22cae221, type: 3}
@@ -8288,6 +8309,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2596544987458165060, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596841890177690084, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596841890177690084, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596841890177690084, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
       propertyPath: m_Name
@@ -8296,7 +8337,7 @@ PrefabInstance:
     - target: {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2799079788617033246, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
