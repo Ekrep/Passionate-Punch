@@ -14,11 +14,13 @@ public class ExpBar : MonoBehaviour
     private void OnEnable()
     {
         CharacterExperience.OnGainExperience += GainExperience;
+        CharacterExperience.OnLevelUp += OnLevelUp;
         GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
         CharacterExperience.OnGainExperience -= GainExperience;
+        CharacterExperience.OnLevelUp -= OnLevelUp;
         GameManager.OnSendCharacter -= PullChar;
     }
     private void Start()
@@ -33,11 +35,10 @@ public class ExpBar : MonoBehaviour
     {
         Debug.Log("Experience gained: " + expAmount);
         expBar.value += expAmount;
-        // Level Up
-        if (expAmount == 0) // If the action sends the value "0", it means that player levels up
-        {
-            StartCoroutine(LevelUp());
-        }
+    }
+    void OnLevelUp()
+    {
+        StartCoroutine(LevelUp());
     }
     // Experience bar is waiting for some time before levels up and update itself.
     IEnumerator LevelUp()
