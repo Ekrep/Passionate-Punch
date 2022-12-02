@@ -10,6 +10,7 @@ public class ExpBar : MonoBehaviour
     CharacterSettings charSettings;
     GameManager gameManager;
     Slider expBar;
+    float levelUpWaitingTime;
     private void OnEnable()
     {
         CharacterExperience.onGainExperience += GainExperience;
@@ -22,6 +23,7 @@ public class ExpBar : MonoBehaviour
     }
     private void Start()
     {
+        levelUpWaitingTime = 2f;
         expBar = GetComponent<Slider>();
         // Set the max experience point to reach next level.
         expBar.maxValue = charSettings.experienceThreshold;
@@ -32,11 +34,17 @@ public class ExpBar : MonoBehaviour
         Debug.Log("Experience gained: " + expAmount);
         expBar.value += expAmount;
         // Level Up
-        if (expAmount == 0)
+        if (expAmount == 0) // If the action sends the value "0", it means that player levels up
         {
-            expBar.maxValue = charSettings.experienceThreshold;
-            expBar.value = charSettings.experience;
+            StartCoroutine(LevelUp());
         }
+    }
+    // Experience bar is waiting for some time before levels up and update itself.
+    IEnumerator LevelUp()
+    {
+        yield return new WaitForSeconds(levelUpWaitingTime);
+        expBar.maxValue = charSettings.experienceThreshold;
+        expBar.value = charSettings.experience;
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
