@@ -12,7 +12,8 @@ namespace CharacterUtilities
         private float lastGainedTime;
         [SerializeField] private float experienceIncreaseTime;
         private bool isPeriodPassed => Time.time > lastGainedTime + experienceIncreaseTime;
-        public static event Action<float> onGainExperience;
+        public static event Action<float> OnGainExperience;
+        public static event Action OnLevelUp;
 
         [SerializeField]
         private CharacterSettings _Character
@@ -45,7 +46,7 @@ namespace CharacterUtilities
         public void GainExperience()
         {
             _Character.experience += 10; // Dummy for now
-            onGainExperience?.Invoke(10);
+            OnGainExperience?.Invoke(10);
 
             if (_Character.experience >= _Character.experienceThreshold)
             {
@@ -53,7 +54,7 @@ namespace CharacterUtilities
                 _Character.level++;
                 _Character.experienceThreshold += 30;
                 _Character.experience = temp;
-                onGainExperience?.Invoke(0); // Level Up Action
+                OnLevelUp?.Invoke();
             }
 
         }

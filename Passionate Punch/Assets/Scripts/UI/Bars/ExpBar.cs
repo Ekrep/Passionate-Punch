@@ -13,12 +13,12 @@ public class ExpBar : MonoBehaviour
     float levelUpWaitingTime;
     private void OnEnable()
     {
-        CharacterExperience.onGainExperience += GainExperience;
+        CharacterExperience.OnGainExperience += GainExperience;
         GameManager.OnSendCharacter += PullChar;
     }
     private void OnDisable()
     {
-        CharacterExperience.onGainExperience -= GainExperience;
+        CharacterExperience.OnGainExperience -= GainExperience;
         GameManager.OnSendCharacter -= PullChar;
     }
     private void Start()
