@@ -6264,6 +6264,7 @@ MonoBehaviour:
   characterWeapons: []
   characterWeaponsParticle: []
   healthRegenParticle: {fileID: 0}
+  levelUpParticle: {fileID: 0}
 --- !u!1 &1568459524
 GameObject:
   m_ObjectHideFlags: 0
