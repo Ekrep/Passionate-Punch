@@ -4,6 +4,7 @@ using UnityEngine;
 using CharacterSystem;
 using Items;
 using SkillSystem;
+using CharacterUtilities;
 
 public class CharacterBaseStateMachine : CharacterStateMachine
 {
@@ -45,6 +46,9 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
     //0 leftHand, 1 rightHand
     public List<ParticleSystem> characterWeaponsParticle;
+
+    public ParticleSystem healthRegenParticle;
+    public ParticleSystem levelUpParticle;
     
 
 
@@ -67,6 +71,14 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     private void OnEnable()
     {
         CharacterHealth.OnPlayerDeath += CharacterHealth_OnPlayerDeath;
+        CharacterHealth.OnHealthRecovery += CharacterHealth_OnHealthRecovery;
+        
+        
+    }
+
+    private void CharacterHealth_OnHealthRecovery(float obj)
+    {
+        healthRegenParticle.Play();
     }
 
     private void CharacterHealth_OnPlayerDeath()
@@ -77,6 +89,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     private void OnDisable()
     {
         CharacterHealth.OnPlayerDeath -= CharacterHealth_OnPlayerDeath;
+        CharacterHealth.OnHealthRecovery -= CharacterHealth_OnHealthRecovery;
     }
 
     private void OnTriggerEnter(Collider other)

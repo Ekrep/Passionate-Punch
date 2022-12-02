@@ -25,20 +25,20 @@ MonoBehaviour:
   defence: 0
   range: 10
   AEORange: 5
-  healthRecoveryTime: 0
-  healthRecoveryPeriod: 0
-  healthRecoveryAmount: 0
-  manaRecoveryTime: 0
-  manaRecoveryPeriod: 0
-  manaRecoveryAmount: 0
-  experience: 20
+  healthRecoveryTime: 10
+  healthRecoveryPeriod: 0.1
+  healthRecoveryAmount: 0.5
+  manaRecoveryTime: 7.5
+  manaRecoveryPeriod: 0.1
+  manaRecoveryAmount: 0.25
+  experience: 60
   experienceThreshold: 120
   level: 4
   money: 0
   skillList:
   - {fileID: 11400000, guid: 093034bbde9593a488e9b1f552468fa4, type: 2}
-  - {fileID: 11400000, guid: 1303c093c1561354797909f85be4f55c, type: 2}
   - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
+  - {fileID: 11400000, guid: 1303c093c1561354797909f85be4f55c, type: 2}
   ownedItemList: []
   equippedItemList: []
   characterStats: []
