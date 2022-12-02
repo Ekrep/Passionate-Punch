@@ -2228,7 +2228,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.48965526, g: 1, b: 0, a: 0.659}
+      maxColor: {r: 0, g: 1, b: 0, a: 0.659}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7021,14 +7021,29 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198108421688386642, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198457394227140346, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198457394227140346, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198488942651934914, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
         type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198488942651934914, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
         type: 3}
-      propertyPath: playOnAwake
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198756768194489796, guid: c9eb15264aa6c4348b00d5b9b3daab2a,
