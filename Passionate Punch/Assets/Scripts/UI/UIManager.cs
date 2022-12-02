@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public MiniMap miniMap;
-    public Button interactionButton, pickUpButton;
+    public Button interactionButton;
 
     [HideInInspector]
     public float joystickHorizontalInput;
@@ -37,7 +37,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         interactionButton.gameObject.SetActive(false);
-        pickUpButton.gameObject.SetActive(false);
     }
 
     public static event Action<MiniMapIcon> OnRefreshMiniMap;

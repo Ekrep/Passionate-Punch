@@ -72,8 +72,13 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     {
         CharacterHealth.OnPlayerDeath += CharacterHealth_OnPlayerDeath;
         CharacterHealth.OnHealthRecovery += CharacterHealth_OnHealthRecovery;
+        CharacterExperience.OnLevelUp += CharacterExperience_OnLevelUp;
         
-        
+    }
+
+    private void CharacterExperience_OnLevelUp()
+    {
+        levelUpParticle.Play();
     }
 
     private void CharacterHealth_OnHealthRecovery(float obj)
@@ -90,6 +95,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
     {
         CharacterHealth.OnPlayerDeath -= CharacterHealth_OnPlayerDeath;
         CharacterHealth.OnHealthRecovery -= CharacterHealth_OnHealthRecovery;
+        CharacterExperience.OnLevelUp -= CharacterExperience_OnLevelUp;
     }
 
     private void OnTriggerEnter(Collider other)

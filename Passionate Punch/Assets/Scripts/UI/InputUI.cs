@@ -11,7 +11,6 @@ namespace UI
         public InventoryUI inventory;
         public StatScreen statScreen;
         public Button attackButton;
-        public Button pickUpButton;
         public Joystick skill1Button;
         public Joystick skill2Button;
 
@@ -26,12 +25,12 @@ namespace UI
 
         void UIManager_OnTriggeredWithItem()
         {
-            pickUpButton.gameObject.SetActive(true);
+            //pickUpButton.gameObject.SetActive(true);
         }
 
         void UIManager_OnTriggerExitWithItem()
         {
-            pickUpButton.gameObject.SetActive(false);
+            //pickUpButton.gameObject.SetActive(false);
         }
 
         void OnDisable()
