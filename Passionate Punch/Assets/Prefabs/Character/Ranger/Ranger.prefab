@@ -6067,6 +6067,7 @@ MonoBehaviour:
   - {fileID: 3900614714199095160}
   - {fileID: 9068619716971636462}
   healthRegenParticle: {fileID: 2596841890177690084}
+  levelUpParticle: {fileID: 0}
 --- !u!114 &79715488133746624
 MonoBehaviour:
   m_ObjectHideFlags: 0
