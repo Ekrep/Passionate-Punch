@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6ee322c2491ed4cb21214b8ff0b008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSettings: {fileID: 11400000, guid: d81724d2929a86147b7a1fc31402b53e, type: 2}
+  itemSettings: {fileID: 11400000, guid: f5cdc4e6a06881e4ca16e79da3bb6e99, type: 2}
   player: {fileID: 0}
 --- !u!33 &1399023136
 MeshFilter:
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2222350568722121816}
-  - component: {fileID: 857486007926453944}
+  - component: {fileID: 8334458549741043520}
   m_Layer: 0
   m_Name: TriggerCollider
   m_TagString: Untagged
@@ -162,8 +162,8 @@ Transform:
   m_Father: {fileID: 9193552628027157884}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &857486007926453944
-BoxCollider:
+--- !u!135 &8334458549741043520
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -173,5 +173,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
