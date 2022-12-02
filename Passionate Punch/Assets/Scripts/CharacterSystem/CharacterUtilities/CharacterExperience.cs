@@ -45,6 +45,7 @@ namespace CharacterUtilities
         public void GainExperience()
         {
             _Character.experience += 10; // Dummy for now
+            onGainExperience?.Invoke(10);
 
             if (_Character.experience >= _Character.experienceThreshold)
             {
@@ -52,9 +53,9 @@ namespace CharacterUtilities
                 _Character.level++;
                 _Character.experienceThreshold += 30;
                 _Character.experience = temp;
+                onGainExperience?.Invoke(0); // Level Up Action
             }
 
-            onGainExperience?.Invoke(10);
         }
     }
 }

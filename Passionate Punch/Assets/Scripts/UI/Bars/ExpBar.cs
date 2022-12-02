@@ -31,6 +31,12 @@ public class ExpBar : MonoBehaviour
     {
         Debug.Log("Experience gained: " + expAmount);
         expBar.value += expAmount;
+        // Level Up
+        if (expAmount == 0)
+        {
+            expBar.maxValue = charSettings.experienceThreshold;
+            expBar.value = charSettings.experience;
+        }
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
