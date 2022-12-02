@@ -31,7 +31,7 @@ MonoBehaviour:
   manaRecoveryTime: 0
   manaRecoveryPeriod: 0
   manaRecoveryAmount: 0
-  experience: 0
+  experience: 20
   experienceThreshold: 120
   level: 4
   money: 0
@@ -39,18 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 093034bbde9593a488e9b1f552468fa4, type: 2}
   - {fileID: 11400000, guid: 1303c093c1561354797909f85be4f55c, type: 2}
   - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
-  ownedItemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ownedItemList: []
   equippedItemList: []
   characterStats: []
   characterClass: 1

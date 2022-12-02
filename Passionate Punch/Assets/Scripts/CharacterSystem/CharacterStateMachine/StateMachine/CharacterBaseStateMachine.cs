@@ -64,7 +64,20 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         canVisible = true;
         
     }
-   
+    private void OnEnable()
+    {
+        CharacterHealth.OnPlayerDeath += CharacterHealth_OnPlayerDeath;
+    }
+
+    private void CharacterHealth_OnPlayerDeath()
+    {
+        ChangeState(characterDeadState);
+    }
+
+    private void OnDisable()
+    {
+        CharacterHealth.OnPlayerDeath -= CharacterHealth_OnPlayerDeath;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

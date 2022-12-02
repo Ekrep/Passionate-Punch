@@ -44,8 +44,8 @@ namespace CharacterSystem
             lastDamageTakenTime = Time.time;
             this.Health -= amount;
             OnTakeDamage?.Invoke(this.Health);
-            if (this.Health <= 0)
-                KillSelf();
+            if (this.Health <= 0) { }
+                //KillSelf();
         }
 
         public void KillSelf()

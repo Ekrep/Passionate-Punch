@@ -8,4 +8,18 @@ public class CharacterDeadState : CharacterAliveState
     {
 
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        sm.anim.SetBool("Dead", true);
+
+    }
+
+
+    public override void Exit()
+    {
+        base.Exit();
+        sm.anim.SetBool("Dead", false);
+    }
 }
