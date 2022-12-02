@@ -22,7 +22,7 @@ namespace CharacterSystem
         public float moveSpeed;
         public float defence;
         public float range;
-        public float AEORange; 
+        public float AEORange;
         public float healthRecoveryTime;
         public float healthRecoveryPeriod;
         public float healthRecoveryAmount;
@@ -38,6 +38,22 @@ namespace CharacterSystem
         public List<ItemSettings> equippedItemList;
         public List<float> characterStats;
         public ClassType.ClassTypeEnum characterClass;
+
+        public void LevelUp()
+        {
+            List<float> stats = new List<float>{attackDamage, attackSpeed, maxHealth, maxMana,
+            defence, healthRecoveryAmount, manaRecoveryAmount};
+
+            for (int i = 0; i < stats.Count; i++)
+            {
+                stats[i] += 2;
+            }
+
+            healthRecoveryTime -= 0.15f;
+            manaRecoveryTime -= 0.05f;
+            level++;
+            experienceThreshold += 30;
+        }
     }
 }
 

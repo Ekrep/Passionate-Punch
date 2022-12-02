@@ -54,9 +54,11 @@ namespace CharacterUtilities
                 _Character.level++;
                 _Character.experienceThreshold += 30;
                 _Character.experience = temp;
+                _Character.LevelUp();
                 OnLevelUp?.Invoke();
             }
 
         }
+
     }
 }
