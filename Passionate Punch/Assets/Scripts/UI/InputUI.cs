@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
 
 namespace UI
 {
@@ -13,6 +15,9 @@ namespace UI
         public Button attackButton;
         public Joystick skill1Button;
         public Joystick skill2Button;
+        public List<Image> skillButtonImages;
+
+        
 
         public Button pickUpButton;
 
@@ -20,8 +25,18 @@ namespace UI
         private bool _isPressedSkillTwo;
         void OnEnable()
         {
+            
             UIManager.OnTriggeredWithItem += UIManager_OnTriggeredWithItem;
             UIManager.OnTriggerExitWithItem += UIManager_OnTriggerExitWithItem;
+            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+        }
+
+        private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+        {
+            for (int i = 0; i < skillButtonImages.Count; i++)
+            {
+                skillButtonImages[i].sprite = obj.characterSkills[i].skillSprite;
+            }
         }
 
         void UIManager_OnTriggeredWithItem()
@@ -38,6 +53,7 @@ namespace UI
         {
             UIManager.OnTriggeredWithItem -= UIManager_OnTriggeredWithItem;
             UIManager.OnTriggerExitWithItem -= UIManager_OnTriggerExitWithItem;
+            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
         }
 
         private void Update()
