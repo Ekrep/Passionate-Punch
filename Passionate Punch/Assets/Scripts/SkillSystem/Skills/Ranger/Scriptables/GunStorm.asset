@@ -22,7 +22,7 @@ MonoBehaviour:
   animationName: GunStorm
   skillName: GunStorm
   description: 
-  skillSprite: {fileID: 0}
+  skillSprite: {fileID: 21300000, guid: 0bd3e6991ca45db613c90dfa3ea9152b, type: 3}
   skillPureDamage: 100
   percenteOfCharacterAttackDamage: 50
   manaCost: 0

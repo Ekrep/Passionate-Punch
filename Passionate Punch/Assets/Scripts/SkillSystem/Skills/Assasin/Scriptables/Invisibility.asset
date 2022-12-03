@@ -21,7 +21,7 @@ MonoBehaviour:
   animationName: Invisibility
   skillName: 
   description: 
-  skillSprite: {fileID: 0}
+  skillSprite: {fileID: 21300000, guid: f41d2ca11bced6bb2d716af086f2870a, type: 3}
   skillPureDamage: 0
   percenteOfCharacterAttackDamage: 0
   manaCost: 25

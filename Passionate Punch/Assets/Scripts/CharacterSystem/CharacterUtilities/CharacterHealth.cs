@@ -14,24 +14,27 @@ namespace CharacterSystem
         public static event Action<float> OnTakeDamage;
         public static event Action<float> OnHealthRecovery;
         public static event Action OnPlayerDeath;
+
+        private CharacterBaseStateMachine _Character;
         // This Action (OnPlayerDead) will invoke when player's health is less then 0. Then the killself function can trigger
         private void OnEnable()
         {
             HealthBar.OnPlayerDead += KillSelf;
+            GameManager.OnSendCharacter += GameManager_OnSendCharacter;
         }
         private void OnDisable()
         {
             HealthBar.OnPlayerDead -= KillSelf;
+            GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
         }
         //////////////////////////////////////////
 
-        private CharacterBaseStateMachine _Character
-        {
-            get
-            {
-                return GameManager.Instance.character;
-            }
+
+         void GameManager_OnSendCharacter(CharacterBaseStateMachine obj){
+            _Character = obj;
+            
         }
+
         private float health = 100f; // For the test purposes only. 
         public float Health { get => health; set => health = value; }
         public float lastDamageTakenTime; //This variable needs to be updated when player gets in a fight.

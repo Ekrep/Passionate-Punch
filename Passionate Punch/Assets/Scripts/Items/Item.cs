@@ -12,12 +12,7 @@ namespace Items
     {
         //The purpose of this class is to handle various functionalities that items will have apart form data class. 
         public ItemSettings itemSettings;
-        public Transform player;
 
-        private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
-        {
-            player = obj.gameObject.transform;
-        }
         void Start()
         {
             GetComponent<MeshFilter>().mesh = itemSettings.itemMesh;
@@ -26,7 +21,6 @@ namespace Items
 
         void Update()
         {
-            //CheckDistance();
         }
 
         void OnTriggerEnter(Collider collider)
@@ -72,17 +66,6 @@ namespace Items
                 //UIManager.Instance.pickUpButton.interactable = false;
         }
     }
-
-
-        /*void CheckDistance()
-        {
-            if (player.position.x - this.transform.position.x < itemSettings.radius ||
-            player.position.z - this.transform.position.z < itemSettings.radius)
-            {
-                itemText.GetComponent<TextMeshProUGUI>().text = itemSettings.itemTitle;
-                itemText.SetActive(true);
-            }
-        }*/
 
         public void PickedUp(Collider collider)
         {

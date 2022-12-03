@@ -22,7 +22,7 @@ MonoBehaviour:
   animationName: Dash
   skillName: Dash
   description: 
-  skillSprite: {fileID: 0}
+  skillSprite: {fileID: 21300000, guid: 4ea1b977fca25cc2b2c77f994fca9b7f, type: 3}
   skillPureDamage: 0
   percenteOfCharacterAttackDamage: 0
   manaCost: 25

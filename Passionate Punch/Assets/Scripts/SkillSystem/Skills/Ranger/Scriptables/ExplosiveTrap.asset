@@ -21,7 +21,7 @@ MonoBehaviour:
   animationName: ExplosiveTrap
   skillName: ExplosiveTrap
   description: 
-  skillSprite: {fileID: 0}
+  skillSprite: {fileID: 21300000, guid: 4d8af5ce17e606451fd13a5a1567af17, type: 3}
   skillPureDamage: 100
   percenteOfCharacterAttackDamage: 25
   manaCost: 25
