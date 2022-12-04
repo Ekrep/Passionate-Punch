@@ -63,8 +63,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
 
 
-        characterMovementSpeed = characterStats.moveSpeed;
-        characterSkills = characterStats.skillList;
+       
         canVisible = true;
         
     }
@@ -73,7 +72,14 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterHealth.OnPlayerDeath += CharacterHealth_OnPlayerDeath;
         CharacterHealth.OnHealthRecovery += CharacterHealth_OnHealthRecovery;
         CharacterExperience.OnLevelUp += CharacterExperience_OnLevelUp;
+        GameManager.OnSendCharacter += GameManager_OnSendCharacter;
         
+    }
+
+    private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
+    {
+        characterMovementSpeed = characterStats.moveSpeed;
+        characterSkills = characterStats.skillList;
     }
 
     private void CharacterExperience_OnLevelUp()
@@ -96,6 +102,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterHealth.OnPlayerDeath -= CharacterHealth_OnPlayerDeath;
         CharacterHealth.OnHealthRecovery -= CharacterHealth_OnHealthRecovery;
         CharacterExperience.OnLevelUp -= CharacterExperience_OnLevelUp;
+        GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
 
     private void OnTriggerEnter(Collider other)

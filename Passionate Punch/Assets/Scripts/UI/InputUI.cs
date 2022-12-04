@@ -17,12 +17,13 @@ namespace UI
         public Joystick skill2Button;
         public List<Image> skillButtonImages;
 
-        
-
         public Button pickUpButton;
 
         private bool _isPressedSkillOne;
         private bool _isPressedSkillTwo;
+
+
+      
         void OnEnable()
         {
             
@@ -34,7 +35,7 @@ namespace UI
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
         {
             for (int i = 0; i < skillButtonImages.Count; i++)
-            {
+            {               
                 skillButtonImages[i].sprite = obj.characterSkills[i].skillSprite;
             }
         }

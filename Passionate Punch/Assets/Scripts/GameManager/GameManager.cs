@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public CharacterBaseStateMachine character;
 
+  
+
     //player referans eventle aktar.
     // Start is called before the first frame update
     private void Awake()
@@ -19,16 +21,21 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         OnSendCharacter += GameManager_OnSendCharacter;
+       
     }
+
+   
 
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
         this.character = obj;
+        
     }
 
     private void OnDisable()
     {
         OnSendCharacter -= GameManager_OnSendCharacter;
+     
     }
 
     public static event Action<CharacterBaseStateMachine> OnSendCharacter;
@@ -39,6 +46,11 @@ public class GameManager : MonoBehaviour
 
     public static event Action<float> OnSkillCasted;
 
+   
+
+
+
+   
     public void SendCharacter(CharacterBaseStateMachine character)
     {
         if (OnSendCharacter != null)
