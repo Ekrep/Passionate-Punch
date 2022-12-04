@@ -8,6 +8,8 @@ public class CharacterSelection : MonoBehaviour
 
     public List<Transform> camPositions;
 
+    public List<GameObject> characterSpotLights;
+
     public float moveSpeed;
     public float rotateSpeed;
 
@@ -40,12 +42,21 @@ public class CharacterSelection : MonoBehaviour
 
     IEnumerator MoveCam(int listIndex)
     {
+        for (int i = 0; i < characterSpotLights.Count; i++)
+        {
+            if (listIndex!=i)
+            {
+                characterSpotLights[i].SetActive(false);
+            }
+
+        }
         isMoving = true;
         while (Vector3.Distance(cam.transform.position, camPositions[listIndex].position) > 0.1f)
         {
             cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPositions[listIndex].position, moveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        characterSpotLights[listIndex].SetActive(true);
         isMoving = false;
     }
     IEnumerator RotateCam(int listIndex)
