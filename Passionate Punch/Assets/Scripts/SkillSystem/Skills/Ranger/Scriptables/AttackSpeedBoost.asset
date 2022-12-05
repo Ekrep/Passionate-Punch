@@ -27,7 +27,7 @@ MonoBehaviour:
   manaCost: 25
   activeTime: 4
   castTime: 0
-  skillEffectAmount: 0
+  skillEffectAmount: 1.2
   coolDown: 6
   stackCastCoolDown: 0
   baseStackCount: 0
