@@ -34,10 +34,15 @@ namespace UI
 
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
         {
-            for (int i = 0; i < skillButtonImages.Count; i++)
-            {
-                skillButtonImages[i].sprite = obj.characterSkills[i].skillSprite;
-            }
+            Debug.Log(obj.characterSkills.Count);
+           
+           
+                for (int i = 0; i < skillButtonImages.Count; i++)
+                {
+                    skillButtonImages[i].sprite = obj.characterSkills[i].skillSprite;
+                }
+           
+            
         }
 
         void UIManager_OnTriggeredWithItem()

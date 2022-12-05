@@ -11,16 +11,23 @@ public class DataManager : MonoBehaviour
     public CharacterSettings holderData;
 
 
-
-    public static event Action<CharacterBaseStateMachine> OnSendDataPullRequest;
-
-
-
+   
 
     private void Awake()
     {
         Instance = this;
 
+    }
+
+    public static event Action OnDataPulled;
+
+
+    public void DataPulled()
+    {
+        if (OnDataPulled!=null)
+        {
+            OnDataPulled();
+        }
     }
 
 
@@ -31,21 +38,9 @@ public class DataManager : MonoBehaviour
         obj.characterStats = newData;
     }
 
-    private void OnDisable()
-    {
+    
 
-    }
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+ 
 
     private void SetDataVariables(CharacterSettings newData)
     {

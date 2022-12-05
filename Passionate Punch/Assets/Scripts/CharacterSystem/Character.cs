@@ -9,12 +9,13 @@ public class Character : MonoBehaviour
 
     private void OnEnable()
     {
-
+       
     }
 
     void Start()
     {
         DataManager.Instance.SendDataPullRequest(characterBaseStateMachine);
+        DataManager.Instance.DataPulled();
         GameManager.Instance.SendCharacter(characterBaseStateMachine);
     }
 
