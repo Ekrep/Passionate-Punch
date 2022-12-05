@@ -23,10 +23,10 @@ namespace UI
         private bool _isPressedSkillTwo;
 
 
-      
+
         void OnEnable()
         {
-            
+
             UIManager.OnTriggeredWithItem += UIManager_OnTriggeredWithItem;
             UIManager.OnTriggerExitWithItem += UIManager_OnTriggerExitWithItem;
             GameManager.OnSendCharacter += GameManager_OnSendCharacter;
@@ -57,18 +57,7 @@ namespace UI
             GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
         }
 
-        private void Update()
-        {
-            if (_isPressedSkillOne)
-            {
-                SetRotationOfSkill1();
-            }
-            if (_isPressedSkillTwo)
-            {
-                SetRotationOfSkill2();
-            }
-
-        }
+       
 
         public void SendJoyStickInput()
         {
@@ -164,27 +153,53 @@ namespace UI
 
         public void SetRotationOfSkill1()
         {
-            if (GameManager.Instance.character.characterSkills.Count > 0)
+            if (GameManager.Instance.character.characterSkills[0].skillDecal != null)
             {
-
-                Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
-                GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
-
-
+                StartCoroutine(SetRotSkill1());
             }
-
+          
         }
         public void SetRotationOfSkill2()
         {
+            if (GameManager.Instance.character.characterSkills[1].skillDecal!=null)
+            {
+                StartCoroutine(SetRotSkill2());
+            }
+            
+
+        }
+        IEnumerator SetRotSkill1()
+        {
+           
+            if (GameManager.Instance.character.characterSkills.Count > 0)
+            {
+                while (_isPressedSkillOne)
+                {
+                    Vector3 joystickPos = new Vector3(skill1Button.Horizontal, skill1Button.Vertical);
+                    GameManager.Instance.character.characterSkills[0].CreateDecal(joystickPos);
+                    yield return new WaitForEndOfFrame();
+                }
+             
+            }
+            //just in case
+            StopCoroutine(SetRotSkill1());
+        }
+
+        IEnumerator SetRotSkill2()
+        {
+           
             if (GameManager.Instance.character.characterSkills.Count > 1)
             {
-
-                Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
-                GameManager.Instance.character.characterSkills[1].CreateDecal(joystickPos);
-
+                while (_isPressedSkillTwo)
+                {
+                    Vector3 joystickPos = new Vector3(skill2Button.Horizontal, skill2Button.Vertical);
+                    GameManager.Instance.character.characterSkills[1].CreateDecal(joystickPos);
+                    yield return new WaitForEndOfFrame();
+                }
 
             }
-
+            //just in case
+            StopCoroutine(SetRotSkill2());
         }
 
 
