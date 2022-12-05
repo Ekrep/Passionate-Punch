@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CharacterSystem;
+using SkillSystem;
 
 public class SkillTree : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] private List<Image> skillButtons;
 
     [SerializeField] private CharacterSettings _Character;
+    [SerializeField] private GameObject skillSelectionUI;
 
 
     void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
@@ -30,13 +32,11 @@ public class SkillTree : MonoBehaviour
         GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -50,8 +50,25 @@ public class SkillTree : MonoBehaviour
         }
     }
 
-    public void ChangeSkillPreference(Image skillImage)
+    public void ChangeSkill(int index)
     {
-        
+            SkillSettings temp = _Character.skillList[0];
+            _Character.skillList[0] = _Character.skillList[index];
+            _Character.skillList[index] = temp;
+            UpdateSkillButtons();
+    }
+
+
+
+    public void SetSkillSelection()
+    {
+        if (skillSelectionUI.activeSelf)
+        {
+            skillSelectionUI.SetActive(false);
+        }
+        else
+        {
+            skillSelectionUI.SetActive(true);
+        }
     }
 }
