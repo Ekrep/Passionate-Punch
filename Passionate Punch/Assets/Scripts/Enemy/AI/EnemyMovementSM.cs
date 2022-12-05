@@ -8,8 +8,11 @@ using SkillSystem;
 
 public class EnemyMovementSM : EnemyStateMachine,IHealth
 {
-    public float tempHealth = 1000f;
-
+    ///////////////////////////////
+    float currentHealth, maxHealth;
+    public Slider enemyHealthBar;
+    Animator enemyHealthBarAnimator;
+    ////////////////////////////////
     public Collider enemySphereCollider;
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
@@ -47,6 +50,11 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     private void Awake()
     {
         enemyNavMesh = GetComponent<NavMeshAgent>();
+        // Health of an enemy
+        maxHealth = 500f;
+        currentHealth = maxHealth;
+        enemyHealthBarAnimator = enemyHealthBar.GetComponent<Animator>();
+        //enemyHealthBar.gameObject.SetActive(false);
         // Set pasive the stun particles & Warn enemy canvas
         stunParticles.gameObject.SetActive(false);
         warnEnemy.gameObject.SetActive(false);
@@ -83,7 +91,6 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     }
     void PlayerKilled()
     {
-        Debug.Log("Player has been killed");
         enemySphereCollider.enabled = false;
         enemyAnimator.ResetTrigger("Idle");
         enemyAnimator.ResetTrigger("Run");
@@ -93,18 +100,29 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
         enemyAnimator.ResetTrigger("Stun");
         ChangeState(enemyReturnState);
     }
+    void UpdateHealthBar()
+    {
+        enemyHealthBar.maxValue = maxHealth;
+        enemyHealthBar.value = currentHealth;
+    }
     public void FocusEnemy()
     {
         focusCanvas.gameObject.SetActive(true);
+        //enemyHealthBar.gameObject.SetActive(true);
+        enemyHealthBarAnimator.SetTrigger("Activate");
+        UpdateHealthBar();
     }
     public void NotFocusEnemy()
     {
         focusCanvas.gameObject.SetActive(false);
+        //enemyHealthBar.gameObject.SetActive(false);
+        enemyHealthBarAnimator.SetBool("Animate", false);
     }
     public void DecreaseHealth(float amount)
     {
-        tempHealth -= amount;
-        if (tempHealth<=0)
+        currentHealth -= amount;
+        UpdateHealthBar();
+        if (currentHealth <= 0)
         {
             KillSelf();
         }
