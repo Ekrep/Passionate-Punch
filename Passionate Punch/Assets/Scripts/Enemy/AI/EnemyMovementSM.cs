@@ -92,7 +92,6 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
         enemyAnimator.ResetTrigger("Die");
         enemyAnimator.ResetTrigger("Stun");
         ChangeState(enemyReturnState);
-
     }
     public void FocusEnemy()
     {
