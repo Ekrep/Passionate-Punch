@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CharacterSystem;
 using UnityEngine;
 
 public class EnemyStunState : EnemyBaseState

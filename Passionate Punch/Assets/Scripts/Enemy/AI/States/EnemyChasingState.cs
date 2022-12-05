@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CharacterSystem;
 using UnityEngine;
 
 public class EnemyChasingState : EnemyBaseState
@@ -65,7 +66,6 @@ public class EnemyChasingState : EnemyBaseState
         enemyMovementSM.enemyNavMesh.speed = chaseSpeed;
         playerPos = player.transform.position;
         enemyPos = enemy.transform.position;
-        //enemy.transform.position = Vector3.MoveTowards(enemyPos, playerPos, chaseSpeed);
         enemyMovementSM.enemyNavMesh.SetDestination(playerPos);
     }
     void CalculateDistanceToPlayer()

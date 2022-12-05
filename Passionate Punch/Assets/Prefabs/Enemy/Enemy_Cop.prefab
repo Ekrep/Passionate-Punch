@@ -5642,6 +5642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempHealth: 1000
+  enemySphereCollider: {fileID: 7687837470644327752}
   enemyMovementSpeed: {fileID: 11400000, guid: cc7a2aec29033cd409977acf9cb6ade2, type: 2}
   enemyReturningSpeed: {fileID: 11400000, guid: de7e423170081714996d205e29892f12,
     type: 2}

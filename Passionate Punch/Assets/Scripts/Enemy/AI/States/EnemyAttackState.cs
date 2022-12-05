@@ -28,7 +28,7 @@ public class EnemyAttackState : EnemyBaseState
     }
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
+        base.UpdateLogic();  
         enemyMovementSM.enemyAnimator.SetTrigger("Attack");
         // Enemy's warning UI must always looks at to the camera
         enemyMovementSM.warnEnemy.transform.LookAt(Camera.main.transform);

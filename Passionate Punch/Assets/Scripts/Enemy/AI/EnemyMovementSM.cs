@@ -10,6 +10,7 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
 {
     public float tempHealth = 1000f;
 
+    public Collider enemySphereCollider;
     public ScriptableFloat enemyMovementSpeed, enemyReturningSpeed, enemyPatrollingSpeed, enemyAttackDistance;
     public Transform enemyCampPos;
     public List<Transform> patrolPositions;
@@ -71,6 +72,27 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
             isPatrollingEnemy = false;
             return enemyIdleState;
         }
+    }
+    private void OnEnable()
+    {
+        HealthBar.OnPlayerDead += PlayerKilled;
+    }
+    private void OnDisable()
+    {
+        HealthBar.OnPlayerDead -= PlayerKilled;
+    }
+    void PlayerKilled()
+    {
+        Debug.Log("Player has been killed");
+        enemySphereCollider.enabled = false;
+        enemyAnimator.ResetTrigger("Idle");
+        enemyAnimator.ResetTrigger("Run");
+        enemyAnimator.ResetTrigger("Walk");
+        enemyAnimator.ResetTrigger("Attack");
+        enemyAnimator.ResetTrigger("Die");
+        enemyAnimator.ResetTrigger("Stun");
+        ChangeState(enemyReturnState);
+
     }
     public void FocusEnemy()
     {
