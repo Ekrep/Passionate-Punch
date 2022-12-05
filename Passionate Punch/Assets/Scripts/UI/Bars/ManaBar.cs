@@ -22,14 +22,7 @@ public class ManaBar : MonoBehaviour
     }
     private void Start()
     {
-        UImanager = UIManager.Instance;
-        manaBar = GetComponent<Slider>();
-        // Update the mana bar values wheter player is an assassin or a ranger
-        // Player max mana
-        manaBar.maxValue = charSettings.maxMana;
-        // Player mana value
-        manaBar.value = charSettings.maxMana; // Just for the start
-        charSettings.mana = charSettings.maxMana; // Just for the start
+
     }
     public void CheckManaForSkills(float manaCost)
     {
@@ -51,5 +44,13 @@ public class ManaBar : MonoBehaviour
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
         charSettings = characterBaseStateMachine.characterStats;
+        UImanager = UIManager.Instance;
+        manaBar = GetComponent<Slider>();
+        // Update the mana bar values wheter player is an assassin or a ranger
+        // Player max mana
+        manaBar.maxValue = charSettings.maxMana;
+        // Player mana value
+        manaBar.value = charSettings.maxMana; // Just for the start
+        charSettings.mana = charSettings.maxMana; // Just for the start
     }
 }

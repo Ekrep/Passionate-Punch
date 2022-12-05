@@ -25,11 +25,7 @@ public class ExpBar : MonoBehaviour
     }
     private void Start()
     {
-        levelUpWaitingTime = 2f;
-        expBar = GetComponent<Slider>();
-        // Set the max experience point to reach next level.
-        expBar.maxValue = charSettings.experienceThreshold;
-        expBar.value = charSettings.experience; 
+
     }
     void GainExperience(float expAmount)
     {
@@ -50,5 +46,10 @@ public class ExpBar : MonoBehaviour
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
         charSettings = characterBaseStateMachine.characterStats;
+        levelUpWaitingTime = 2f;
+        expBar = GetComponent<Slider>();
+        // Set the max experience point to reach next level.
+        expBar.maxValue = charSettings.experienceThreshold;
+        expBar.value = charSettings.experience;
     }
 }

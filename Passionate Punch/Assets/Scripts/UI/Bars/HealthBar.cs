@@ -16,16 +16,6 @@ public class HealthBar : MonoBehaviour
     Slider healthBar;
 
     bool isRegenerating;
-    private void Start()
-    {
-
-        healthBar = GetComponent<Slider>();
-        // Change the health bar value wheter the player is an assassin or ranger.
-        // Players max health
-        healthBar.maxValue = charSettings.maxHealth;
-        // Players health
-        healthBar.value = charSettings.maxHealth;  // Just for the start
-    }
     private void OnEnable()
     {
         CharacterHealth.OnTakeDamage += PlayerTakesHit;
@@ -58,5 +48,11 @@ public class HealthBar : MonoBehaviour
     {
         charSettings = characterBaseStateMachine.characterStats;
         character = characterBaseStateMachine;
+        healthBar = GetComponent<Slider>();
+        // Change the health bar value wheter the player is an assassin or ranger.
+        // Players max health
+        healthBar.maxValue = charSettings.maxHealth;
+        // Players health
+        healthBar.value = charSettings.maxHealth;  // Just for the start
     }
 }
