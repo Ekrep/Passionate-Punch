@@ -131,6 +131,7 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     public void KillSelf()
     {
         ChangeState(enemyDieState);
+        enemyHealthBarAnimator.SetBool("Animate", false);
     }
 
     public void Hit(SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount)

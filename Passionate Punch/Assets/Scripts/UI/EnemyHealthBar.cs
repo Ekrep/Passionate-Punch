@@ -11,12 +11,10 @@ public class EnemyHealthBar : MonoBehaviour
     }
     public void AnimateBar()
     {
-        Debug.Log("This is the function");
         healthBarAnimator.SetBool("Animate", true);
     }
     public void NotAnimateBar()
     {
-        Debug.Log("This is the OTHER function");
         healthBarAnimator.SetBool("Animate", false);
     }
 }
