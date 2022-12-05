@@ -7,6 +7,7 @@ using CharacterSystem;
 public class SkillTree : MonoBehaviour
 {
     [SerializeField] private List<Image> skillTreeSlots;
+    [SerializeField] private List<Image> skillButtons;
 
     [SerializeField] private CharacterSettings _Character;
 
@@ -16,6 +17,11 @@ public class SkillTree : MonoBehaviour
             for(int i = 0; i < skillTreeSlots.Count; i++)
             {
                 skillTreeSlots[i].sprite = _Character.skillList[i].skillSprite;
+            }
+
+            for(int i = 0; i < skillButtons.Count; i++)
+            {
+                skillButtons[i].GetComponentInChildren<Image>().sprite = skillTreeSlots[i].sprite;
             }
         }
         void OnEnable()
