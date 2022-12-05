@@ -10,16 +10,22 @@ public class SkillTree : MonoBehaviour
     [SerializeField] private List<Image> skillTreeSlots;
     [SerializeField] private List<Image> skillButtons;
 
-    [SerializeField] private CharacterSettings _Character;
+    [SerializeField] private CharacterSettings _CharacterStats;
+    [SerializeField] private CharacterBaseStateMachine _Character;
+
     [SerializeField] private GameObject skillSelectionUI;
+
+    [SerializeField] private Button firstSkillButton;
+    [SerializeField] private Button secondSkillButton;
 
 
     void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
-        _Character = obj.characterStats;
+        _Character = obj;
+        _CharacterStats = obj.characterStats;
         for (int i = 0; i < skillTreeSlots.Count; i++)
         {
-            skillTreeSlots[i].sprite = _Character.skillList[i].skillSprite;
+            skillTreeSlots[i].sprite = _Character.characterSkills[i].skillSprite;
         }
     }
     void OnEnable()
@@ -32,35 +38,15 @@ public class SkillTree : MonoBehaviour
         GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void UpdateSkillButtons()
     {
         for (int i = 0; i < skillButtons.Count; i++)
         {
-            skillButtons[i].GetComponentInChildren<Image>().sprite = _Character.skillList[i].skillSprite;
+            skillButtons[i].GetComponentInChildren<Image>().sprite = _Character.characterSkills[i].skillSprite;
         }
     }
 
-    public void ChangeSkill(int index)
-    {
-            SkillSettings temp = _Character.skillList[0];
-            _Character.skillList[0] = _Character.skillList[index];
-            _Character.skillList[index] = temp;
-            UpdateSkillButtons();
-    }
-
-
-
-    public void SetSkillSelection()
+    public void SetSkillSelection(int index)
     {
         if (skillSelectionUI.activeSelf)
         {
@@ -70,5 +56,34 @@ public class SkillTree : MonoBehaviour
         {
             skillSelectionUI.SetActive(true);
         }
+
+        firstSkillButton.onClick.AddListener(() => ChangeFirstSkill(index));
+        secondSkillButton.onClick.AddListener(() => ChangeSecondSkill(index));
+    }
+
+    public void ChangeFirstSkill(int index)
+    {
+        if(index == 0)
+        {
+            return;
+        }
+        SkillSettings temp = _Character.characterSkills[0];
+        _Character.characterSkills[0] = _Character.characterSkills[index];
+        _Character.characterSkills[index] = temp;
+        UpdateSkillButtons();
+        skillSelectionUI.SetActive(false);
+    }
+
+    public void ChangeSecondSkill(int index)
+    {
+        if(index == 1)
+        {
+            return;
+        }
+        SkillSettings temp = _Character.characterSkills[1];
+        _Character.characterSkills[1] = _Character.characterSkills[index];
+        _Character.characterSkills[index] = temp;
+        UpdateSkillButtons();
+        skillSelectionUI.SetActive(false);
     }
 }

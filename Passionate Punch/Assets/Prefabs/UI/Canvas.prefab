@@ -1820,8 +1820,11 @@ MonoBehaviour:
   skillButtons:
   - {fileID: 9192390152455415931}
   - {fileID: 7249882030725782215}
+  _CharacterStats: {fileID: 0}
   _Character: {fileID: 0}
   skillSelectionUI: {fileID: 9161397074392523412}
+  firstSkillButton: {fileID: 6552274792118637731}
+  secondSkillButton: {fileID: 5046621141161022254}
 --- !u!1 &882489732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2455,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-          m_MethodName: ChangeSkill
+          m_MethodName: SetSkillSelection
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3908,7 +3911,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-          m_MethodName: ChangeSkill
+          m_MethodName: SetSkillSelection
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4244,7 +4247,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-          m_MethodName: ChangeSkill
+          m_MethodName: SetSkillSelection
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4473,7 +4476,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-          m_MethodName: ChangeSkill
+          m_MethodName: SetSkillSelection
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

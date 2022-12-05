@@ -80,7 +80,10 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
     private void DataManager_OnDataPulled()
     {
-        characterSkills = characterStats.skillList;
+        for(int i = 0; i < characterStats.skillList.Count; i++)
+        {
+            characterSkills.Add(characterStats.skillList[i]);
+        }
         characterMovementSpeed = characterStats.moveSpeed;
     }
 
