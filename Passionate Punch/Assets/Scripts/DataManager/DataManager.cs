@@ -15,22 +15,16 @@ public class DataManager : MonoBehaviour
     public static event Action<CharacterBaseStateMachine> OnSendDataPullRequest;
 
 
-    public void SendDataPullRequest(CharacterBaseStateMachine obj)
-    {
-        if (OnSendDataPullRequest != null)
-        {
-            OnSendDataPullRequest(obj);
-        }
-    }
+
 
     private void Awake()
     {
         Instance = this;
-        OnSendDataPullRequest += DataManager_OnSendDataPullRequest;
-    }
-   
 
-    private void DataManager_OnSendDataPullRequest(CharacterBaseStateMachine obj)
+    }
+
+
+    public void SendDataPullRequest(CharacterBaseStateMachine obj)
     {
         CharacterSettings newData = ScriptableObject.CreateInstance<CharacterSettings>();
         SetDataVariables(newData);
@@ -39,7 +33,7 @@ public class DataManager : MonoBehaviour
 
     private void OnDisable()
     {
-        OnSendDataPullRequest -= DataManager_OnSendDataPullRequest;
+
     }
     void Start()
     {

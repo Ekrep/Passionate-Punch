@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterDatas: []
-  holderData: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
+  holderData: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1001 &1130888528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8489,8 +8489,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterStats
       value: 
-      objectReference: {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
       propertyPath: m_Name
@@ -8499,7 +8498,7 @@ PrefabInstance:
     - target: {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7613674666433225152, guid: d7e374de0998e2f4fb58bcac22cae221,
         type: 3}
@@ -8558,7 +8557,7 @@ PrefabInstance:
     - target: {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2799079788617033246, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
