@@ -9,7 +9,7 @@ public class ExpBar : MonoBehaviour
 {
     CharacterSettings charSettings;
     GameManager gameManager;
-    Slider expBar;
+    Image expBar;
     float levelUpWaitingTime;
     private void OnEnable()
     {
@@ -30,7 +30,13 @@ public class ExpBar : MonoBehaviour
     void GainExperience(float expAmount)
     {
         Debug.Log("Experience gained: " + expAmount);
-        expBar.value += expAmount;
+        expBar.fillAmount = CalculateExp(expAmount);
+    }
+    float CalculateExp(float expAmount)
+    {
+        expBar.fillAmount = charSettings.experience / charSettings.experienceThreshold;
+        expAmount = expBar.fillAmount;
+        return expAmount;
     }
     void OnLevelUp()
     {
@@ -40,16 +46,16 @@ public class ExpBar : MonoBehaviour
     IEnumerator LevelUp()
     {
         yield return new WaitForSeconds(levelUpWaitingTime);
-        expBar.maxValue = charSettings.experienceThreshold;
-        expBar.value = charSettings.experience;
+        expBar.fillAmount = charSettings.experienceThreshold;
+        expBar.fillAmount = charSettings.experience;
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {
         charSettings = characterBaseStateMachine.characterStats;
         levelUpWaitingTime = 2f;
-        expBar = GetComponent<Slider>();
+        expBar = GetComponent<Image>();
         // Set the max experience point to reach next level.
-        expBar.maxValue = charSettings.experienceThreshold;
-        expBar.value = charSettings.experience;
+        expBar.fillAmount = charSettings.experience / charSettings.experienceThreshold;
+        //expBar.fillAmount = charSettings.experience;
     }
 }
