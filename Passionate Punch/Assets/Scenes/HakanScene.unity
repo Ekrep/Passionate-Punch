@@ -295,6 +295,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 79715488133746623, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: characterStats
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
       propertyPath: m_Name
@@ -585,6 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082482953}
   - component: {fileID: 1082482952}
+  - component: {fileID: 1082482954}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -621,6 +627,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1082482954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082482951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace5638fe71d854b9675c3238faba5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDatas: []
+  holderData: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
 --- !u!1 &1087623522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,16 +1545,6 @@ PrefabInstance:
     - target: {fileID: 1130674352562292227, guid: ae62b19ed8ae0d44897b3101ead102b0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1213321093271813235, guid: ae62b19ed8ae0d44897b3101ead102b0,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1213321093271813235, guid: ae62b19ed8ae0d44897b3101ead102b0,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1335622115568747358, guid: ae62b19ed8ae0d44897b3101ead102b0,

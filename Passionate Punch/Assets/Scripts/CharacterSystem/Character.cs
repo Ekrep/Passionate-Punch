@@ -9,15 +9,15 @@ public class Character : MonoBehaviour
 
     private void OnEnable()
     {
-        //DataManager.Instance.SendDataPullRequest(characterBaseStateMachine);
+
     }
 
     void Start()
     {
-          
+        DataManager.Instance.SendDataPullRequest(characterBaseStateMachine);
         GameManager.Instance.SendCharacter(characterBaseStateMachine);
     }
 
-    
+
 
 }

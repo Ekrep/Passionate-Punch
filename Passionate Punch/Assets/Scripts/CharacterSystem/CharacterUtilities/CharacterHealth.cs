@@ -16,6 +16,10 @@ namespace CharacterSystem
         public static event Action OnPlayerDeath;
 
         private CharacterBaseStateMachine _Character;
+        private float healthRecoveryTime;
+        private float healthRecoveryPeriod;
+        private float maxHealth;
+        private float healthRecoveryAmount;
         // This Action (OnPlayerDead) will invoke when player's health is less then 0. Then the killself function can trigger
         private void OnEnable()
         {
@@ -32,15 +36,19 @@ namespace CharacterSystem
 
          void GameManager_OnSendCharacter(CharacterBaseStateMachine obj){
             _Character = obj;
-            
+            healthRecoveryTime = _Character.characterStats.healthRecoveryTime;
+            healthRecoveryPeriod = _Character.characterStats.healthRecoveryPeriod;
+            maxHealth = _Character.characterStats.maxHealth;
+            healthRecoveryAmount = _Character.characterStats.healthRecoveryAmount;
+
         }
 
         private float health = 100f; // For the test purposes only. 
         public float Health { get => health; set => health = value; }
         public float lastDamageTakenTime; //This variable needs to be updated when player gets in a fight.
         public float lastRecoveredTime;
-        public bool canRecover => Time.time >= lastDamageTakenTime + _Character.characterStats.healthRecoveryTime;
-        public bool isPeriodPassed => Time.time > lastRecoveredTime + _Character.characterStats.healthRecoveryPeriod;
+        public bool canRecover => Time.time >= lastDamageTakenTime + healthRecoveryTime;
+        public bool isPeriodPassed => Time.time > lastRecoveredTime + healthRecoveryPeriod;
 
         public void DecreaseHealth(float amount)
         {
@@ -65,11 +73,11 @@ namespace CharacterSystem
 
         void Update()
         {
-            if (canRecover && this.Health < _Character.characterStats.maxHealth)
+            if (canRecover && this.Health < maxHealth)
             {
                 if (isPeriodPassed)
                 {
-                    this.Health += _Character.characterStats.healthRecoveryAmount;
+                    this.Health += healthRecoveryAmount;
                     lastRecoveredTime = Time.time;
                     OnHealthRecovery?.Invoke(this.Health);
                 }

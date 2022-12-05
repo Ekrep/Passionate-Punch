@@ -35,7 +35,7 @@ namespace UI
         private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
         {
             for (int i = 0; i < skillButtonImages.Count; i++)
-            {               
+            {
                 skillButtonImages[i].sprite = obj.characterSkills[i].skillSprite;
             }
         }
