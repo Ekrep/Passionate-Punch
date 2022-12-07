@@ -32,7 +32,7 @@ MonoBehaviour:
   manaRecoveryPeriod: 0.1
   manaRecoveryAmount: 0.25
   experience: 0
-  experienceThreshold: 20
+  experienceThreshold: 10
   level: 6
   money: 0
   skillList:
