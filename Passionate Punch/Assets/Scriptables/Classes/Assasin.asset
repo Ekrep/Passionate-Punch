@@ -24,7 +24,7 @@ MonoBehaviour:
   moveSpeed: 5
   defence: 20
   range: 2
-  AEORange: 5
+  AEORange: 3
   healthRecoveryTime: 10
   healthRecoveryPeriod: 0.1
   healthRecoveryAmount: 0.5
