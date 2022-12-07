@@ -6054,7 +6054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSkills: []
-  characterStats: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
+  characterStats: {fileID: 0}
   anim: {fileID: 2847888909964114490}
   characterMovementSpeed: 0
   turnSmoothSpeed: 10
@@ -7163,9 +7163,25 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19883024, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19932288, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
       propertyPath: m_Materials.Array.size
@@ -7388,9 +7404,25 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19883024, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19890378, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19932288, guid: 79b0a8abb1f641b4a8faa10b904758ea, type: 3}
       propertyPath: m_Materials.Array.size

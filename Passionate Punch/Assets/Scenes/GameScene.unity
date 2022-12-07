@@ -158,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
@@ -204,6 +204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Garder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c65eb9eb4fa746bac20fe877579bb, type: 3}
@@ -3455,7 +3460,7 @@ PrefabInstance:
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
@@ -4497,6 +4502,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.000000001633758
       objectReference: {fileID: 0}
+    - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c65eb9eb4fa746bac20fe877579bb, type: 3}
 --- !u!1001 &794652583
@@ -4869,17 +4879,17 @@ PrefabInstance:
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9.55
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -8.28
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
@@ -5915,6 +5925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.000000001633758
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c65eb9eb4fa746bac20fe877579bb, type: 3}
@@ -7789,6 +7804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.000000001633758
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c65eb9eb4fa746bac20fe877579bb, type: 3}
@@ -9693,7 +9713,7 @@ PrefabInstance:
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7640133162043851762, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
@@ -9739,6 +9759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Garder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729999935695124312, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314c65eb9eb4fa746bac20fe877579bb, type: 3}
