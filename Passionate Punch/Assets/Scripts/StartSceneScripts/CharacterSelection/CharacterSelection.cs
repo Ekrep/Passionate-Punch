@@ -13,6 +13,7 @@ public class CharacterSelection : MonoBehaviour
 
     public List<GameObject> characterSpotLights;
 
+    
     private int index=0;
 
 
@@ -30,14 +31,14 @@ public class CharacterSelection : MonoBehaviour
     
     public void SelectionRight()
     {
-        if (!isMoving && !isRotating&&index<characterDatas.Count)
+        if (!isMoving && !isRotating&&index<characterDatas.Count-1)
         {
-            DataManager.Instance.holderData = characterDatas[index+1];
             index++;
+            DataManager.Instance.holderData = characterDatas[index];           
             StopCoroutine(MoveCam(0));
             StopCoroutine(RotateCam(0));
-            StartCoroutine(MoveCam(1));
-            StartCoroutine(RotateCam(1));
+            StartCoroutine(MoveCam(index));
+            StartCoroutine(RotateCam(index));
         }
        
     }
@@ -45,12 +46,12 @@ public class CharacterSelection : MonoBehaviour
     {
         if (!isMoving && !isRotating&&index>0)
         {
-            DataManager.Instance.holderData = characterDatas[index-1];
             index--;
+            DataManager.Instance.holderData = characterDatas[index];           
             StopCoroutine(MoveCam(0));
             StopCoroutine(RotateCam(0));
-            StartCoroutine(MoveCam(0));
-            StartCoroutine(RotateCam(0));
+            StartCoroutine(MoveCam(index));
+            StartCoroutine(RotateCam(index));
         }
         
     }
