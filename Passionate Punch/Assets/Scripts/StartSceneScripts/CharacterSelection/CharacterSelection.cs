@@ -1,44 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CharacterSystem;
 
 public class CharacterSelection : MonoBehaviour
 {
     public GameObject cam;
 
+    public List<CharacterSettings> characterDatas;
+
     public List<Transform> camPositions;
 
     public List<GameObject> characterSpotLights;
+
+   
 
     public float moveSpeed;
     public float rotateSpeed;
 
     private bool isMoving;
     private bool isRotating;
-    void Start()
+    private void Start()
     {
-        
+        DataManager.Instance.holderData = characterDatas[0];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SelectionRight()
     {
-        if (Input.GetKeyDown(KeyCode.K)&&!isMoving&&!isRotating)
+        if (!isMoving && !isRotating)
         {
-            StopCoroutine(MoveCam(0));
-            StopCoroutine(RotateCam(0));
-            StartCoroutine(MoveCam(0));
-            StartCoroutine(RotateCam(0));
-        }
-        if (Input.GetKeyDown(KeyCode.L) && !isMoving && !isRotating)
-        {
+            DataManager.Instance.holderData = characterDatas[1];
             StopCoroutine(MoveCam(0));
             StopCoroutine(RotateCam(0));
             StartCoroutine(MoveCam(1));
             StartCoroutine(RotateCam(1));
         }
+       
     }
-
+    public void SelectionLeft()
+    {
+        if (!isMoving && !isRotating)
+        {
+            DataManager.Instance.holderData = characterDatas[0];
+            StopCoroutine(MoveCam(0));
+            StopCoroutine(RotateCam(0));
+            StartCoroutine(MoveCam(0));
+            StartCoroutine(RotateCam(0));
+        }
+        
+    }
 
     IEnumerator MoveCam(int listIndex)
     {

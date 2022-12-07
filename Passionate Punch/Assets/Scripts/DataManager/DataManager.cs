@@ -16,6 +16,7 @@ public class DataManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this.gameObject);
 
     }
 

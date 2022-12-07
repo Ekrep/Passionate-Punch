@@ -8,6 +8,9 @@ public class AttackSpeedBoost : MonoBehaviourSkill
     
     public List<ParticleSystem> particles;
 
+    [SerializeField]
+    private ParticleSystem _boostIcon;
+
     private float _characterFirstAttackSpeed;
 
     private void OnDestroy()
@@ -25,6 +28,7 @@ public class AttackSpeedBoost : MonoBehaviourSkill
             Timing.RunCoroutine(Cooldown(skillSettings.coolDown));
             Timing.RunCoroutine(RevertSkillEffect(skillSettings.activeTime));
             SetParticles();
+            SetBoostIcon();
             skillSettings.canCast = false;
             
 
@@ -54,6 +58,7 @@ public class AttackSpeedBoost : MonoBehaviourSkill
             particles[i].transform.SetParent(this.gameObject.transform);
             particles[i].transform.position = Vector3.zero;
         }
+        _boostIcon.transform.SetParent(this.gameObject.transform);
         gameObject.SetActive(false);
     }
 
@@ -66,5 +71,12 @@ public class AttackSpeedBoost : MonoBehaviourSkill
         particles[1].transform.SetParent(skillSettings.Character.characterWeapons[1].transform);
         particles[1].transform.localPosition = Vector3.zero;
         particles[1].Play();
+    }
+
+    private void SetBoostIcon()
+    {
+        _boostIcon.transform.SetParent(skillSettings.Character.transform);
+        _boostIcon.transform.position = new Vector3(skillSettings.Character.transform.position.x+1, skillSettings.Character.transform.position.y + 1, skillSettings.Character.transform.position.z);
+        _boostIcon.Play();
     }
 }
