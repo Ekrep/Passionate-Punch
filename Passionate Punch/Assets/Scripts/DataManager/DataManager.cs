@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using CharacterSystem;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
     public List<CharacterSettings> characterDatas;
     public CharacterSettings holderData;
+    public GameObject holdedCharacter;
 
 
    
@@ -18,6 +20,22 @@ public class DataManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Instantiate(holdedCharacter,new Vector3(0,0,-21),Quaternion.identity);
+       
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
     }
 
     public static event Action OnDataPulled;

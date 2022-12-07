@@ -10923,6 +10923,53 @@ Transform:
   m_Father: {fileID: 1989461506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &317055653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 317055655}
+  - component: {fileID: 317055654}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &317055654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317055653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace5638fe71d854b9675c3238faba5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDatas: []
+  holderData: {fileID: 0}
+  holdedCharacter: {fileID: 0}
+--- !u!4 &317055655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317055653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 545.86847, y: 212.64595, z: 11.964478}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331159018
 GameObject:
   m_ObjectHideFlags: 0
@@ -11650,7 +11697,6 @@ GameObject:
   m_Component:
   - component: {fileID: 616188298}
   - component: {fileID: 616188297}
-  - component: {fileID: 616188299}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -11674,6 +11720,9 @@ MonoBehaviour:
   characterDatas:
   - {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
   - {fileID: 11400000, guid: 10a080343eb05124fb7b955910689879, type: 2}
+  characterPrefabs:
+  - {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665, type: 3}
+  - {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221, type: 3}
   camPositions:
   - {fileID: 414364658}
   - {fileID: 2119768647}
@@ -11697,20 +11746,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &616188299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616188296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ace5638fe71d854b9675c3238faba5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterDatas: []
-  holderData: {fileID: 0}
 --- !u!1 &631166799
 GameObject:
   m_ObjectHideFlags: 0
@@ -37681,7 +37716,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946982244}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 616188297}
+        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+        m_MethodName: PressSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1946982244
 MonoBehaviour:
   m_ObjectHideFlags: 0
