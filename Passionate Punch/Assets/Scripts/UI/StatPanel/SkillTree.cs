@@ -9,6 +9,7 @@ public class SkillTree : MonoBehaviour
 {
     [SerializeField] private List<TreeSlot> skillTreeSlots;
     [SerializeField] private List<Image> skillButtons;
+    private List<SkillSettings> skills = new List<SkillSettings>();
 
     [SerializeField] private CharacterSettings _CharacterStats;
     [SerializeField] private CharacterBaseStateMachine _Character;
@@ -27,8 +28,12 @@ public class SkillTree : MonoBehaviour
         {
             skillTreeSlots[i].slotImage.sprite = _Character.characterSkills[i].skillSprite;
         }
+        for (int i = 0; i < _Character.characterSkills.Count; i++)
+        {
+            skills.Add(_Character.characterSkills[i]);
+        }
 
-        for(int i = 0; i < _Character.characterSkills.Count; i++)
+        for (int i = 0; i < _Character.characterSkills.Count; i++)
         {
             _Character.characterSkills[i].skillIndex = i;
         }
@@ -67,10 +72,28 @@ public class SkillTree : MonoBehaviour
 
     public void ChangeSkill(int skillIndex, int slotIndex)
     {
-        SkillSettings temp = _Character.characterSkills[slotIndex];
-        _Character.characterSkills[slotIndex] = _Character.characterSkills[skillIndex];
-        _Character.characterSkills[skillIndex] = temp;
-        skillIndex = slotIndex;
+             
+      //bad solution can be better.
+        if (slotIndex==0&& _Character.characterSkills[1]!=skills[skillIndex])
+        {
+            _Character.characterSkills[0]=skills[skillIndex];
+        }
+        if(slotIndex==1&&_Character.characterSkills[0] != skills[skillIndex])
+        {
+            _Character.characterSkills[1] = skills[skillIndex];
+        }
+     
+        /* if (slotIndex==0&&skillIndex>1&&skillIndex<2)
+         {
+             _Character.characterSkills[1] = _Character.characterSkills[skillIndex + 1];
+         }
+         if (slotIndex==1&&skillIndex>1&&skillIndex>2)
+         {
+             _Character.characterSkills[0] = _Character.characterSkills[skillIndex - 1];
+         }*/
+      
+        //_Character.characterSkills[skillIndex] = temp;
+        //skillIndex = slotIndex;
         UpdateSkillIndexes();
         UpdateSkillButtons();
         skillSelectionUI.SetActive(false);

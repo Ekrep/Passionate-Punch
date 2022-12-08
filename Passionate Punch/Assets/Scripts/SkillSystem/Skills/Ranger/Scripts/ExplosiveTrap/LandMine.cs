@@ -62,7 +62,7 @@ public class LandMine : MonoBehaviour
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, -0.3f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
-                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(4f, 4f, 4f), 30f * Time.deltaTime);
+                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(4f, 4f, 4f), 30f * Timing.DeltaTime);
                 if (value<=-0.3f)
                 {
                     increase = false;
@@ -74,7 +74,7 @@ public class LandMine : MonoBehaviour
                 float value = _warningFresnelMat.material.GetFloat("_Alpha");
                 value = Mathf.MoveTowards(value, 0.1f, _signSpeed);
                 _warningFresnelMat.material.SetFloat("_Alpha", value);
-                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(1f, 1f, 1f), 30f * Time.deltaTime);
+                _warningFresnelMat.transform.localScale = Vector3.MoveTowards(_warningFresnelMat.transform.localScale, new Vector3(1f, 1f, 1f), 30f * Timing.DeltaTime);
 
                 if (value>=0.1f)
                 {
@@ -109,7 +109,7 @@ public class LandMine : MonoBehaviour
             {
                 //needs vec3
                 _explodeParticle.Play();
-                enemyHealth.Hit(parentSkill.skillSettings.hitType, parentSkill.skillSettings.skillDamage, colliders[i].gameObject.transform.forward * -1, 150000f*Timing.DeltaTime);
+                enemyHealth.Hit(parentSkill.skillSettings.hitType, parentSkill.skillSettings.skillDamage, colliders[i].gameObject.transform.forward * -1, 1500f);
 
             }
 
