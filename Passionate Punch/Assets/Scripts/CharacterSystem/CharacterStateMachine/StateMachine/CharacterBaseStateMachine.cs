@@ -74,8 +74,16 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterHealth.OnHealthRecovery += CharacterHealth_OnHealthRecovery;
         CharacterExperience.OnLevelUp += CharacterExperience_OnLevelUp;
         DataManager.OnDataPulled += DataManager_OnDataPulled;
+        Respawn.OnRespawn += Respawn_OnRespawn;
       
         
+    }
+
+    private void Respawn_OnRespawn()
+    {
+        anim.SetBool("Dead", false);
+        StartCoroutine(RaiseCharacter());
+       
     }
 
     private void DataManager_OnDataPulled()
@@ -110,6 +118,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterHealth.OnHealthRecovery -= CharacterHealth_OnHealthRecovery;
         CharacterExperience.OnLevelUp -= CharacterExperience_OnLevelUp;
         DataManager.OnDataPulled -= DataManager_OnDataPulled;
+        Respawn.OnRespawn -= Respawn_OnRespawn;
 
     }
 
@@ -160,6 +169,11 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         {
             characterWeaponsParticle[1].Play();
         }
+    }
+    IEnumerator RaiseCharacter()
+    {
+        yield return new WaitForSeconds(2f);
+        ChangeState(characterIdleState);
     }
 
 

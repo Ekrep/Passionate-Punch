@@ -29,7 +29,8 @@ public class DataManager : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        Instantiate(holdedCharacter,new Vector3(0,0,-21),Quaternion.identity);
+        //Spawn point (works static can be dynamic)
+        Instantiate(holdedCharacter,new Vector3(0,0,-25),Quaternion.identity);
        
     }
 

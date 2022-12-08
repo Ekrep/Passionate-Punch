@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public static Action OnRespawn;
+    public static event Action OnRespawn;
     public GameObject respawnPanel;
     Animator respawnPanelAnimator;
     private void Start()
