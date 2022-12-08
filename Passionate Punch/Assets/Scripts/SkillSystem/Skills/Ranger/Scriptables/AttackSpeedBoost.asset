@@ -20,6 +20,7 @@ MonoBehaviour:
   hitType: 0
   animationName: 
   skillName: 
+  skillIndex: 1
   description: 
   skillSprite: {fileID: 21300000, guid: 1c18e41ee2a3438508236a9e1eae9a5b, type: 3}
   skillPureDamage: 0

@@ -20,6 +20,7 @@ MonoBehaviour:
   hitType: 0
   animationName: Assasinate
   skillName: Assasinate
+  skillIndex: 2
   description: 
   skillSprite: {fileID: 21300000, guid: 4999ae3acd9bd913db3220632424c9a6, type: 3}
   skillPureDamage: 100

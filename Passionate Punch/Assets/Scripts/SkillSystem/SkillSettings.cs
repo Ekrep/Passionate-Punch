@@ -30,6 +30,7 @@ namespace SkillSystem
         public HitType hitType;
         public string animationName;
         public string skillName;
+        public int skillIndex;
         public string description;
         public Sprite skillSprite;
         public float skillPureDamage;
