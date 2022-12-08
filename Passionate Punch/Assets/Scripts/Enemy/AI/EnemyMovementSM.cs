@@ -84,10 +84,21 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     private void OnEnable()
     {
         HealthBar.OnPlayerDead += PlayerKilled;
+        Respawn.OnRespawn += PlayerReborn;
     }
     private void OnDisable()
     {
         HealthBar.OnPlayerDead -= PlayerKilled;
+        Respawn.OnRespawn -= PlayerReborn;
+    }
+    IEnumerator PlayerRebornNumerator()
+    {
+        yield return new WaitForSeconds(2f);
+        enemySphereCollider.enabled = true;
+    }
+    void PlayerReborn()
+    {
+        StartCoroutine(PlayerRebornNumerator());
     }
     void PlayerKilled()
     {

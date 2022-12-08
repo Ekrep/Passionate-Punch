@@ -21,6 +21,7 @@ MonoBehaviour:
   hitType: 0
   animationName: GunStorm
   skillName: GunStorm
+  skillIndex: 3
   description: 
   skillSprite: {fileID: 21300000, guid: 0bd3e6991ca45db613c90dfa3ea9152b, type: 3}
   skillPureDamage: 100

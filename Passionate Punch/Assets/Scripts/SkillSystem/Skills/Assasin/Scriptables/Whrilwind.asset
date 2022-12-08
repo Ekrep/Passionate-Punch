@@ -20,6 +20,7 @@ MonoBehaviour:
   hitType: 1
   animationName: Whirlwind
   skillName: 
+  skillIndex: 1
   description: 
   skillSprite: {fileID: 21300000, guid: e980110a2e8caf0482b528206af25ca6, type: 3}
   skillPureDamage: 50

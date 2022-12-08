@@ -27,6 +27,11 @@ public class SkillTree : MonoBehaviour
         {
             skillTreeSlots[i].sprite = _Character.characterSkills[i].skillSprite;
         }
+
+        for(int i = 0; i < _Character.characterSkills.Count; i++)
+        {
+            _Character.characterSkills[i].skillIndex = i;
+        }
     }
     void OnEnable()
     {
@@ -57,33 +62,30 @@ public class SkillTree : MonoBehaviour
             skillSelectionUI.SetActive(true);
         }
 
-        firstSkillButton.onClick.AddListener(() => ChangeFirstSkill(index));
-        secondSkillButton.onClick.AddListener(() => ChangeSecondSkill(index));
+        firstSkillButton.onClick.AddListener(() => ChangeSkill(index, 0));
+        secondSkillButton.onClick.AddListener(() => ChangeSkill(index, 1));
     }
 
-    public void ChangeFirstSkill(int index)
+    public void ChangeSkill(int skillIndex, int slotIndex)
     {
-        if(index == 0)
+        Debug.Log(skillIndex);
+        if(skillIndex == 0 || skillIndex == 1)
         {
             return;
         }
-        SkillSettings temp = _Character.characterSkills[0];
-        _Character.characterSkills[0] = _Character.characterSkills[index];
-        _Character.characterSkills[index] = temp;
+        SkillSettings temp = _Character.characterSkills[slotIndex];
+        _Character.characterSkills[slotIndex] = _Character.characterSkills[skillIndex];
+        _Character.characterSkills[skillIndex] = temp;
+        UpdateSkillIndexes();
         UpdateSkillButtons();
         skillSelectionUI.SetActive(false);
     }
 
-    public void ChangeSecondSkill(int index)
+    public void UpdateSkillIndexes()
     {
-        if(index == 1)
+        for(int i = 0; i < _Character.characterSkills.Count; i++)
         {
-            return;
+            _Character.characterSkills[i].skillIndex = i;
         }
-        SkillSettings temp = _Character.characterSkills[1];
-        _Character.characterSkills[1] = _Character.characterSkills[index];
-        _Character.characterSkills[index] = temp;
-        UpdateSkillButtons();
-        skillSelectionUI.SetActive(false);
     }
 }

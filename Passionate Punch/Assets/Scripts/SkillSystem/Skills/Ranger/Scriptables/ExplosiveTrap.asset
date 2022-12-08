@@ -20,6 +20,7 @@ MonoBehaviour:
   hitType: 1
   animationName: ExplosiveTrap
   skillName: ExplosiveTrap
+  skillIndex: 2
   description: 
   skillSprite: {fileID: 21300000, guid: 4d8af5ce17e606451fd13a5a1567af17, type: 3}
   skillPureDamage: 100
