@@ -24,15 +24,15 @@ MonoBehaviour:
   moveSpeed: 5
   defence: 20
   range: 2
-  AEORange: 5
-  healthRecoveryTime: 9.550001
+  AEORange: 3
+  healthRecoveryTime: 10
   healthRecoveryPeriod: 0.1
   healthRecoveryAmount: 0.5
-  manaRecoveryTime: 7.3499994
+  manaRecoveryTime: 7
   manaRecoveryPeriod: 0.1
   manaRecoveryAmount: 0.25
   experience: 0
-  experienceThreshold: 20
+  experienceThreshold: 10
   level: 6
   money: 0
   skillList:

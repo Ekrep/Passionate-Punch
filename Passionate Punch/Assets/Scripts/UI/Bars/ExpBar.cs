@@ -45,9 +45,11 @@ public class ExpBar : MonoBehaviour
     // Experience bar is waiting for some time before levels up and update itself.
     IEnumerator LevelUp()
     {
+        UIManager.Instance.levelUpText.gameObject.SetActive(true);
         yield return new WaitForSeconds(levelUpWaitingTime);
         expBar.fillAmount = charSettings.experienceThreshold;
         expBar.fillAmount = charSettings.experience;
+        UIManager.Instance.levelUpText.gameObject.SetActive(false);
     }
     void PullChar(CharacterBaseStateMachine characterBaseStateMachine)
     {

@@ -17,14 +17,14 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: a3cd19aeb9dabfe48b41becb01da46cb, type: 3}
   attackDamage: 100
   attackSpeed: 1
-  attackRayThickness: 0
+  attackRayThickness: 1
   maxHealth: 100
-  mana: 100
+  mana: 26
   maxMana: 100
   moveSpeed: 8
   defence: 0
-  range: 10
-  AEORange: 5
+  range: 8
+  AEORange: 3
   healthRecoveryTime: 10
   healthRecoveryPeriod: 0.1
   healthRecoveryAmount: 0.5
@@ -37,18 +37,12 @@ MonoBehaviour:
   money: 0
   skillList:
   - {fileID: 11400000, guid: 093034bbde9593a488e9b1f552468fa4, type: 2}
-  - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
-  - {fileID: 11400000, guid: 1303c093c1561354797909f85be4f55c, type: 2}
   - {fileID: 11400000, guid: 99e95e8c3c0717d4d8691a6dbc2922ec, type: 2}
+  - {fileID: 11400000, guid: 1303c093c1561354797909f85be4f55c, type: 2}
+  - {fileID: 11400000, guid: dcfd284a373bfbe41b2bfefd0acda028, type: 2}
   ownedItemList:
   - {fileID: 0}
+  equippedItemList:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  equippedItemList: []
   characterStats: []
   characterClass: 1

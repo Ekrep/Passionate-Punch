@@ -108,20 +108,21 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
     public void Attack()
     {
         SetRotationWhileAttacking();
-        RaycastHit[] raycastHits = new RaycastHit[1];
-        //Physics.CapsuleCastNonAlloc()
-        Physics.RaycastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y+0.5f, sm.transform.position.z), sm.transform.forward, raycastHits, sm.characterStats.range);
+        RaycastHit raycastHit;
+        //Physics.CapsuleCastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y + 0.5f, sm.transform.position.z),sm.transform.forward, sm.characterStats.attackRayThickness,sm.transform.forward, raycastHits, sm.characterStats.range);
+        //Physics.RaycastNonAlloc(new Vector3(sm.transform.position.x, sm.transform.position.y+0.5f, sm.transform.position.z), sm.transform.forward, raycastHits, sm.characterStats.range);
+        Physics.Raycast(new Vector3(sm.transform.position.x, sm.transform.position.y + 0.5f, sm.transform.position.z), sm.transform.forward,out raycastHit, sm.characterStats.range);
         Debug.DrawRay(new Vector3(sm.transform.position.x, sm.transform.position.y + 0.5f, sm.transform.position.z), sm.transform.forward, Color.red, 20);      
-        if (raycastHits[0].collider != null)
+        if (raycastHit.collider != null&& raycastHit.collider.GetComponent<IHealth>()!=null)
         {
 
             Collider[] colliders = new Collider[50];
             int count = 0;
 
-            Debug.Log(raycastHits[0].collider.gameObject.name);
+            Debug.Log(raycastHit.collider.gameObject.name);
 
 
-            count = Physics.OverlapSphereNonAlloc(raycastHits[0].point, sm.characterStats.AEORange, colliders);
+            count = Physics.OverlapSphereNonAlloc(raycastHit.point, sm.characterStats.AEORange, colliders);
             for (int i = 0; i < count; i++)
             {
                 if (colliders[i].gameObject.TryGetComponent<Chest>(out Chest chest))
@@ -161,7 +162,8 @@ public class CharacterAttackingState : CharacterCanSkillCastableState
             Vector3 deltaPos = Vector3.zero;
             deltaPos = sm.gameObject.transform.position - sm.autoAim.targetEnemy.position;
             float target = Mathf.Atan2(-deltaPos.x, -deltaPos.z) * Mathf.Rad2Deg;
-
+            //sm.gameObject.transform.rotation.SetLookRotation(sm.autoAim.targetEnemy.position);
+            
             sm.gameObject.transform.rotation = Quaternion.Euler(sm.gameObject.transform.rotation.x, target, sm.gameObject.transform.rotation.z);
            
         }

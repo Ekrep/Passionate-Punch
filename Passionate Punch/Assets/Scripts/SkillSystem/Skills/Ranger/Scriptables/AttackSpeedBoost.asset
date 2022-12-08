@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d83ea758b385b4c89cd393ca9408cd, type: 3}
-  m_Name: LastSkill
+  m_Name: AttackSpeedBoost
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
+  skillPrefab: {fileID: 4889065934122183468, guid: f6739bf3fc00d4d45a7013204313a45e,
+    type: 3}
   skillDecal: {fileID: 0}
   skillDecalFlag: {fileID: 0}
   skillType: 0
@@ -23,12 +24,12 @@ MonoBehaviour:
   skillSprite: {fileID: 21300000, guid: 1c18e41ee2a3438508236a9e1eae9a5b, type: 3}
   skillPureDamage: 0
   percenteOfCharacterAttackDamage: 0
-  manaCost: 0
-  activeTime: 0
+  manaCost: 25
+  activeTime: 4
   castTime: 0
-  skillEffectAmount: 0
-  coolDown: 0
+  skillEffectAmount: 1.2
+  coolDown: 6
   stackCastCoolDown: 0
   baseStackCount: 0
   stackCount: 0
-  canCast: 0
+  canCast: 1

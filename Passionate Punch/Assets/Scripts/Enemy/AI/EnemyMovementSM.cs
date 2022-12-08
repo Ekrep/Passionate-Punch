@@ -108,15 +108,15 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
     public void FocusEnemy()
     {
         focusCanvas.gameObject.SetActive(true);
-        //enemyHealthBar.gameObject.SetActive(true);
         enemyHealthBarAnimator.SetTrigger("Activate");
         UpdateHealthBar();
     }
     public void NotFocusEnemy()
     {
         focusCanvas.gameObject.SetActive(false);
-        //enemyHealthBar.gameObject.SetActive(false);
         enemyHealthBarAnimator.SetBool("Animate", false);
+        enemyHealthBarAnimator.ResetTrigger("Activate");
+        enemyHealthBarAnimator.SetTrigger("Deactivate");
     }
     public void DecreaseHealth(float amount)
     {
@@ -125,12 +125,14 @@ public class EnemyMovementSM : EnemyStateMachine,IHealth
         if (currentHealth <= 0)
         {
             KillSelf();
+            NotFocusEnemy();
         }
     }
 
     public void KillSelf()
     {
         ChangeState(enemyDieState);
+        enemyHealthBarAnimator.SetBool("Animate", false);
     }
 
     public void Hit(SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount)

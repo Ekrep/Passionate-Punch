@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1377,6 +1377,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDatas: []
   holderData: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
+--- !u!114 &1114179198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4426176862154786337, guid: ae62b19ed8ae0d44897b3101ead102b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973781982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1130888528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1399,6 +1411,11 @@ PrefabInstance:
       propertyPath: enemyCampPos
       value: 
       objectReference: {fileID: 5127896}
+    - target: {fileID: -6332712240909679337, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: enemyHealthBar
+      value: 
+      objectReference: {fileID: 1114179198}
     - target: {fileID: 513810898275058744, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -3016,6 +3033,11 @@ PrefabInstance:
       propertyPath: enemyCampPos
       value: 
       objectReference: {fileID: 5127896}
+    - target: {fileID: -6332712240909679337, guid: 314c65eb9eb4fa746bac20fe877579bb,
+        type: 3}
+      propertyPath: enemyHealthBar
+      value: 
+      objectReference: {fileID: 1114179198}
     - target: {fileID: 513810898275058744, guid: 314c65eb9eb4fa746bac20fe877579bb,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -7053,6 +7075,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2888772911905933014, guid: ae62b19ed8ae0d44897b3101ead102b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888772911905933014, guid: ae62b19ed8ae0d44897b3101ead102b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3375345163117314008, guid: ae62b19ed8ae0d44897b3101ead102b0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8612,6 +8644,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 79715488133746623, guid: 8efdd474eaece0d4bad2ca3c61d97665,
+        type: 3}
+      propertyPath: characterStats
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2797501748246657058, guid: 8efdd474eaece0d4bad2ca3c61d97665,
         type: 3}
       propertyPath: m_Name

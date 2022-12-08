@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using TMPro;
+using CharacterUtilities;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class UIManager : MonoBehaviour
 
     public MiniMap miniMap;
     public Button interactionButton;
+
+    public TextMeshProUGUI levelUpText;
 
     [HideInInspector]
     public float joystickHorizontalInput;
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         interactionButton.gameObject.SetActive(false);
+        levelUpText.gameObject.SetActive(false);
     }
 
     public static event Action<MiniMapIcon> OnRefreshMiniMap;

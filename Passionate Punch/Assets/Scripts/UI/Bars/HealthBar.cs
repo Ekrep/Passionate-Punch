@@ -30,7 +30,7 @@ public class HealthBar : MonoBehaviour
     }
     void PlayerTakesHit(float health)
     {
-        Debug.Log("Health:  " + health);
+       // Debug.Log("Health:  " + health);
         // Temporary, player takes constant damage, will replace with the actual hit power
         healthBar.value = health; 
         // Player dies
