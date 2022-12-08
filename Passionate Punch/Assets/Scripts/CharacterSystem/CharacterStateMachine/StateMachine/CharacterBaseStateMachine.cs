@@ -5,6 +5,7 @@ using CharacterSystem;
 using Items;
 using SkillSystem;
 using CharacterUtilities;
+using InventorySystem;
 
 public class CharacterBaseStateMachine : CharacterStateMachine
 {
@@ -75,8 +76,15 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterExperience.OnLevelUp += CharacterExperience_OnLevelUp;
         DataManager.OnDataPulled += DataManager_OnDataPulled;
         Respawn.OnRespawn += Respawn_OnRespawn;
+        Equipment.OnEquipmentHappened += Equipment_OnEquipmentHappened;
+        
       
         
+    }
+
+    private void Equipment_OnEquipmentHappened()
+    {
+        anim.SetFloat("AttackSpeed", characterStats.attackSpeed);
     }
 
     private void Respawn_OnRespawn()
@@ -119,6 +127,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         CharacterExperience.OnLevelUp -= CharacterExperience_OnLevelUp;
         DataManager.OnDataPulled -= DataManager_OnDataPulled;
         Respawn.OnRespawn -= Respawn_OnRespawn;
+        Equipment.OnEquipmentHappened -= Equipment_OnEquipmentHappened;
 
     }
 

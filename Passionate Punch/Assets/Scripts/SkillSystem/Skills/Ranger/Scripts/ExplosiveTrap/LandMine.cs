@@ -109,7 +109,7 @@ public class LandMine : MonoBehaviour
             {
                 //needs vec3
                 _explodeParticle.Play();
-                enemyHealth.Hit(parentSkill.skillSettings.hitType, parentSkill.skillSettings.skillDamage, colliders[i].gameObject.transform.forward * -1, 3500f);
+                enemyHealth.Hit(parentSkill.skillSettings.hitType, parentSkill.skillSettings.skillDamage, colliders[i].gameObject.transform.forward * -1, 150000f*Timing.DeltaTime);
 
             }
 

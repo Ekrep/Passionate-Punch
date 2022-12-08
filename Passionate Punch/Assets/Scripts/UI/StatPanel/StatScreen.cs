@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CharacterSystem;
 using InventorySystem;
+using UnityEngine.UI;
 
 public class StatScreen : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class StatScreen : MonoBehaviour
         
 
     [SerializeField] private List<StatText> statTextList;
+    [SerializeField]
+    private Image _playerIcon;
 
     void Start()
     {
@@ -31,6 +34,7 @@ public class StatScreen : MonoBehaviour
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
     {
         _Character = obj.characterStats;
+        _playerIcon.sprite = _Character.characterImage;
         _Character.characterStats.Add(_Character.level);
         _Character.characterStats.Add(_Character.attackDamage);
         _Character.characterStats.Add(_Character.attackSpeed);
