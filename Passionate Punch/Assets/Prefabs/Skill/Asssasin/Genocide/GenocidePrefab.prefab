@@ -89,8 +89,8 @@ MonoBehaviour:
   _ambiance: {fileID: 4834107132627190464}
   _dagger: {fileID: 700272231908697792}
   _darkenSpeed: 0.35
-  _characterDissappearSpeed: 0.5
-  _silhouetteAlphaIncreaseSpeed: 4
+  _characterDissappearSpeed: 0.7
+  _silhouetteAlphaIncreaseSpeed: 7
   _silhoutteCreationDelayTime: 0.1
   _silhouetteDissappearDelay: 2
   _ambianceCreationDelay: 0

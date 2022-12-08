@@ -92,6 +92,7 @@ public class Genocide : MonoBehaviourSkill
             _assasinSilhouettes[i].SetActive(true);
         }
         _dagger.SetActive(false);
+        _nestedEnemies.Clear();
     }
     private void OnDestroy()
     {
@@ -102,7 +103,7 @@ public class Genocide : MonoBehaviourSkill
         
         for (int i = 0; i < _assasinSilhouettes.Count; i++)
         {
-            _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", -1);
+            _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", -2f);
         }
         _ambiance.sharedMaterial.SetFloat("_Dissolve", 0.85f);
         gameObject.transform.SetLocalPositionAndRotation(new Vector3(skillSettings.Character.transform.position.x, skillSettings.Character.transform.position.y, skillSettings.Character.transform.position.z-1f), Quaternion.identity);
@@ -156,7 +157,7 @@ public class Genocide : MonoBehaviourSkill
         while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != 0.3f)
         {
             float alphaValue = skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha");
-            alphaValue = Mathf.MoveTowards(alphaValue, 0.3f, _characterDissappearSpeed*1.5f * Time.deltaTime);
+            alphaValue = Mathf.MoveTowards(alphaValue, 0.3f, _characterDissappearSpeed*1.5f * Timing.DeltaTime);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", alphaValue);
             yield return Timing.WaitForOneFrame;
         }
@@ -191,7 +192,7 @@ public class Genocide : MonoBehaviourSkill
             while (_assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != 0.3f)
             {
                 GameManager.Instance.ShakeCam(_camShakeRange);
-                alphaValue = Mathf.MoveTowards(alphaValue, 0.3f, _silhouetteAlphaIncreaseSpeed * Time.deltaTime);
+                alphaValue = Mathf.MoveTowards(alphaValue, 0.3f, _silhouetteAlphaIncreaseSpeed * Timing.DeltaTime);
                 _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", alphaValue);
                 yield return Timing.WaitForOneFrame;
                 if (alphaValue == 0.3f)
@@ -228,7 +229,7 @@ public class Genocide : MonoBehaviourSkill
             float alphaValue = _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha");
             while (_assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != -1)
             {
-                alphaValue = Mathf.MoveTowards(alphaValue, -1f, _silhouetteAlphaIncreaseSpeed * Time.deltaTime);
+                alphaValue = Mathf.MoveTowards(alphaValue, -1f, _silhouetteAlphaIncreaseSpeed * Timing.DeltaTime);
                 _assasinSilhouettes[i].GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", alphaValue);
                 yield return  Timing.WaitForOneFrame;
 
@@ -246,10 +247,10 @@ public class Genocide : MonoBehaviourSkill
             skillSettings.Character.characterWeapons[i].SetActive(false);
         }
         skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = _silhoutteMat;
-        while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != -1)
+        while (skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha") != -2f)
         {
             float alphaValue = skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.GetFloat("_Alpha");
-            alphaValue = Mathf.MoveTowards(alphaValue, -1, _characterDissappearSpeed * Time.deltaTime);
+            alphaValue = Mathf.MoveTowards(alphaValue, -2f, _characterDissappearSpeed * Timing.DeltaTime);
             skillSettings.Character.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial.SetFloat("_Alpha", alphaValue);
             yield return Timing.WaitForOneFrame;
             
@@ -267,7 +268,7 @@ public class Genocide : MonoBehaviourSkill
         _ambiance.sharedMaterial.SetFloat("_Dissolve", ambianceCreationValue);
         while (_ambiance.sharedMaterial.GetFloat("_Dissolve") != 0)
         {
-            ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0, ambianceCreationSpeed * Time.deltaTime);
+            ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0, ambianceCreationSpeed * Timing.DeltaTime);
             _ambiance.sharedMaterial.SetFloat("_Dissolve", ambianceCreationValue);
             yield return Timing.WaitForOneFrame;
         }
@@ -276,7 +277,7 @@ public class Genocide : MonoBehaviourSkill
 
         while (_ambiance.sharedMaterial.GetFloat("_Dissolve") != 0.85f)
         {
-            ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0.85f, ambianceCreationSpeed * Time.deltaTime);
+            ambianceCreationValue = Mathf.MoveTowards(ambianceCreationValue, 0.85f, ambianceCreationSpeed * Timing.DeltaTime);
             _ambiance.sharedMaterial.SetFloat("_Dissolve", ambianceCreationValue);
             yield return Timing.WaitForOneFrame;
         }
