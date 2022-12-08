@@ -59,7 +59,7 @@ public class Dash : MonoBehaviourSkill
                 Debug.Log("break");
                 break;
             }
-            skillSettings.Character.gameObject.transform.position = Vector3.MoveTowards(skillSettings.Character.gameObject.transform.position, playerFirstPos + skillSettings.Character.transform.forward * _travelDistance, _travelSpeed * Time.fixedDeltaTime);
+            skillSettings.Character.gameObject.transform.position = Vector3.MoveTowards(skillSettings.Character.gameObject.transform.position, playerFirstPos + skillSettings.Character.transform.forward * _travelDistance, _travelSpeed*Timing.DeltaTime);
             gameObject.transform.position = skillSettings.Character.transform.position;
             Debug.Log("girdin");
             yield return Timing.WaitForOneFrame;
