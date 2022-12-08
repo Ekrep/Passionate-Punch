@@ -47,9 +47,7 @@ public class StatScreen : MonoBehaviour
 
         for (int i = 0; i < statTextList.Count; i++)
         {
-            //Debug.Log("jknad : " + _Character.characterStats[i].ToString());
             statTextList[i].statValueText.text = _Character.characterStats[i].ToString();
-            //Debug.Log("deneme stat text" + i + statTextList[i]);
         }
 
         _Character.characterStats.Clear();
@@ -76,9 +74,7 @@ public class StatScreen : MonoBehaviour
         _Character.characterStats.Add(_Character.experience);
 
         for(int i = 0; i < statTextList.Count; i++){
-            Debug.Log("jknad : " + _Character.characterStats[i].ToString());
             statTextList[i].statValueText.text = _Character.characterStats[i].ToString();
-            //Debug.Log("deneme stat text" + i + statTextList[i]);
         }
 
         _Character.characterStats.Clear();

@@ -36,11 +36,6 @@ namespace Items
             FillChest();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         public void FillChest()
         {
@@ -64,7 +59,6 @@ namespace Items
 
         public void OpenChestX()
         {
-            Debug.Log(chestLid.transform.rotation);
             chestLid.GetComponent<Rigidbody>().isKinematic = false;
             chestLid.GetComponent<Rigidbody>().AddForceAtPosition(Vector3.one * _explosionForce, chestLid.transform.up);
             StartCoroutine(ChestLidDissappear(_lidDissappearTime));
