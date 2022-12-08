@@ -7,7 +7,7 @@ using SkillSystem;
 
 public class SkillTree : MonoBehaviour
 {
-    [SerializeField] private List<Image> skillTreeSlots;
+    [SerializeField] private List<TreeSlot> skillTreeSlots;
     [SerializeField] private List<Image> skillButtons;
 
     [SerializeField] private CharacterSettings _CharacterStats;
@@ -25,7 +25,7 @@ public class SkillTree : MonoBehaviour
         _CharacterStats = obj.characterStats;
         for (int i = 0; i < skillTreeSlots.Count; i++)
         {
-            skillTreeSlots[i].sprite = _Character.characterSkills[i].skillSprite;
+            skillTreeSlots[i].slotImage.sprite = _Character.characterSkills[i].skillSprite;
         }
 
         for(int i = 0; i < _Character.characterSkills.Count; i++)
@@ -50,8 +50,7 @@ public class SkillTree : MonoBehaviour
             skillButtons[i].GetComponentInChildren<Image>().sprite = _Character.characterSkills[i].skillSprite;
         }
     }
-
-    public void SetSkillSelection(int index)
+    public void SetSkillSelection(TreeSlot slot)
     {
         if (skillSelectionUI.activeSelf)
         {
@@ -62,23 +61,20 @@ public class SkillTree : MonoBehaviour
             skillSelectionUI.SetActive(true);
         }
 
-        firstSkillButton.onClick.AddListener(() => ChangeSkill(index, 0));
-        secondSkillButton.onClick.AddListener(() => ChangeSkill(index, 1));
+        firstSkillButton.onClick.AddListener(() => ChangeSkill(slot.slotIndex, 0));
+        secondSkillButton.onClick.AddListener(() => ChangeSkill(slot.slotIndex, 1));
     }
 
     public void ChangeSkill(int skillIndex, int slotIndex)
     {
-        Debug.Log(skillIndex);
-        if(skillIndex == 0 || skillIndex == 1)
-        {
-            return;
-        }
         SkillSettings temp = _Character.characterSkills[slotIndex];
         _Character.characterSkills[slotIndex] = _Character.characterSkills[skillIndex];
         _Character.characterSkills[skillIndex] = temp;
+        skillIndex = slotIndex;
         UpdateSkillIndexes();
         UpdateSkillButtons();
         skillSelectionUI.SetActive(false);
+
     }
 
     public void UpdateSkillIndexes()

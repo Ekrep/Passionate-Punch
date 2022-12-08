@@ -25,11 +25,13 @@ namespace CharacterSystem
         {
             HealthBar.OnPlayerDead += KillSelf;
             GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+            Respawn.OnRespawn += RespawnPlayer;
         }
         private void OnDisable()
         {
             HealthBar.OnPlayerDead -= KillSelf;
             GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+            Respawn.OnRespawn -= RespawnPlayer;
         }
         //////////////////////////////////////////
 
@@ -84,6 +86,11 @@ namespace CharacterSystem
             }
         }
 
+        public void RespawnPlayer()
+        {
+            this.Health = _Character.characterStats.maxHealth;
+        }
+        
         public void Hit(SkillSettings.HitType hitType, float damage, Vector3 hitPos, float pushAmount)
         {
             switch (hitType)

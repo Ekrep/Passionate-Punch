@@ -1813,10 +1813,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeSlots:
-  - {fileID: 458656100}
-  - {fileID: 1999734481}
-  - {fileID: 84841573}
-  - {fileID: 1232536086}
+  - {fileID: 1881878109}
+  - {fileID: 37279212}
+  - {fileID: 2146326942}
+  - {fileID: 1280977113}
   skillButtons:
   - {fileID: 9192390152455415931}
   - {fileID: 7249882030725782215}
@@ -2370,6 +2370,7 @@ GameObject:
   - component: {fileID: 969449489}
   - component: {fileID: 969449488}
   - component: {fileID: 8307698170660788866}
+  - component: {fileID: 37279212}
   m_Layer: 5
   m_Name: Skill2
   m_TagString: Untagged
@@ -2456,15 +2457,29 @@ MonoBehaviour:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
           m_MethodName: SetSkillSelection
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 37279212}
+            m_ObjectArgumentAssemblyTypeName: TreeSlot, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &37279212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969449486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a655e16d3fc2e4395003a852f8ea7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 1
+  slotImage: {fileID: 1999734481}
 --- !u!1 &1082016726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3840,7 @@ GameObject:
   - component: {fileID: 1506249517}
   - component: {fileID: 1506249516}
   - component: {fileID: 3024228687424663388}
+  - component: {fileID: 2146326942}
   m_Layer: 5
   m_Name: Skill3
   m_TagString: Untagged
@@ -3912,15 +3928,29 @@ MonoBehaviour:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
           m_MethodName: SetSkillSelection
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2146326942}
+            m_ObjectArgumentAssemblyTypeName: TreeSlot, Assembly-CSharp
             m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2146326942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506249514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a655e16d3fc2e4395003a852f8ea7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 2
+  slotImage: {fileID: 84841573}
 --- !u!1 &1589254455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,6 +4191,7 @@ GameObject:
   - component: {fileID: 1742904643}
   - component: {fileID: 1742904642}
   - component: {fileID: 736074235837224044}
+  - component: {fileID: 1280977113}
   m_Layer: 5
   m_Name: Skill4
   m_TagString: Untagged
@@ -4248,15 +4279,29 @@ MonoBehaviour:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
           m_MethodName: SetSkillSelection
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1280977113}
+            m_ObjectArgumentAssemblyTypeName: TreeSlot, Assembly-CSharp
             m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1280977113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742904640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a655e16d3fc2e4395003a852f8ea7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 3
+  slotImage: {fileID: 1232536086}
 --- !u!1 &1779001249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,6 +4436,7 @@ GameObject:
   - component: {fileID: 1782599617}
   - component: {fileID: 1782599616}
   - component: {fileID: 816696936}
+  - component: {fileID: 1881878109}
   m_Layer: 5
   m_Name: Skill1
   m_TagString: Untagged
@@ -4477,15 +4523,29 @@ MonoBehaviour:
         - m_Target: {fileID: 831652375}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
           m_MethodName: SetSkillSelection
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1881878109}
+            m_ObjectArgumentAssemblyTypeName: TreeSlot, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1881878109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782599614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a655e16d3fc2e4395003a852f8ea7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 0
+  slotImage: {fileID: 458656100}
 --- !u!1 &1862447932
 GameObject:
   m_ObjectHideFlags: 0
@@ -9786,19 +9846,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8036266241852503990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 831652375}
-        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-        m_MethodName: SetSkillSelection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6662653602159145173
 GameObject:
   m_ObjectHideFlags: 0
@@ -9920,19 +9968,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5805543238992745596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 831652375}
-        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
-        m_MethodName: SetSkillSelection
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6681481153438445539
 GameObject:
   m_ObjectHideFlags: 0
