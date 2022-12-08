@@ -26,8 +26,6 @@ namespace CharacterSystem
             manaRecoveryAmount = _Character.characterStats.manaRecoveryAmount;
             maxMana = _Character.characterStats.maxMana;
             mana = _Character.characterStats.mana;
-
-            
         }
 
 
@@ -39,6 +37,7 @@ namespace CharacterSystem
 
         void UpdateLastManaTime(float amount)
         {
+            mana -= amount;
             lastManaUsedTime = Time.time;
         }
 
@@ -48,21 +47,15 @@ namespace CharacterSystem
             GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
         }
 
-        void Start()
-        {
-
-        }
-
         void Update()
         {
-            if (canRecover && mana < maxMana)
+            if (canRecover && this.mana < maxMana)
             {
                 if (isPeriodPassed)
                 {
-                    mana += manaRecoveryAmount;
+                    this.mana += manaRecoveryAmount;
                     OnManaRecoveryEnabled?.Invoke();
                     lastRecoveredTime = Time.time;
-
                 }
             }
 

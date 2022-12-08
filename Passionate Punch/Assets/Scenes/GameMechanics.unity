@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDatas: []
   holderData: {fileID: 11400000, guid: 8cc9027453c1a8b48ae58a715c92efc4, type: 2}
+  holdedCharacter: {fileID: 0}
 --- !u!114 &1114179198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4426176862154786337, guid: ae62b19ed8ae0d44897b3101ead102b0,
@@ -8634,6 +8635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Assasin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011180708296619035, guid: d7e374de0998e2f4fb58bcac22cae221,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e374de0998e2f4fb58bcac22cae221, type: 3}
