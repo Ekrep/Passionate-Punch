@@ -26,7 +26,6 @@ public class Respawn : MonoBehaviour
     void ActivatePanel()
     {
         respawnPanel.gameObject.SetActive(true);
-        Debug.Log("ULAN");
     }
     public void Respawning()
     {
