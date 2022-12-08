@@ -20,6 +20,7 @@ MonoBehaviour:
   hitType: 2
   animationName: Genocide
   skillName: 
+  skillIndex: 3
   description: 
   skillSprite: {fileID: 21300000, guid: ec1cbe14264cea937cc7658b9f2d5a4a, type: 3}
   skillPureDamage: 50
