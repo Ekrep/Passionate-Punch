@@ -21,12 +21,20 @@ public class HealthBar : MonoBehaviour
         CharacterHealth.OnTakeDamage += PlayerTakesHit;
         CharacterHealth.OnHealthRecovery += RegenerateHealth;
         GameManager.OnSendCharacter += PullChar;
+        Respawn.OnRespawn += HealtBarUpdate;
     }
+
+    private void HealtBarUpdate()
+    {
+        healthBar.value = charSettings.maxHealth;
+    }
+
     private void OnDisable()
     {
         CharacterHealth.OnTakeDamage -= PlayerTakesHit;
         CharacterHealth.OnHealthRecovery -= RegenerateHealth;
         GameManager.OnSendCharacter -= PullChar;
+        Respawn.OnRespawn -= HealtBarUpdate;
     }
     void PlayerTakesHit(float health)
     {
