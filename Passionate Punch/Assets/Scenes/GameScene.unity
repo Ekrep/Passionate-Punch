@@ -8146,6 +8146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bridge_Rail_Pillar_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1465292597303596, guid: 66a23e0851c0c7f40afe0a1294c12ed9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465292597303596, guid: 66a23e0851c0c7f40afe0a1294c12ed9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4007198215645810, guid: 66a23e0851c0c7f40afe0a1294c12ed9, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -10571,6 +10579,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Core_Observation_Greeble_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1599027263811120, guid: 23c35d3c3b792a44c9ae4050729e3684, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599027263811120, guid: 23c35d3c3b792a44c9ae4050729e3684, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4578834313039698, guid: 23c35d3c3b792a44c9ae4050729e3684, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -11306,6 +11322,14 @@ PrefabInstance:
     - target: {fileID: 1651456956168150, guid: 41a37afda05c08848a8d0df13474f0ed, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Corp_Control_Tower_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651456956168150, guid: 41a37afda05c08848a8d0df13474f0ed, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651456956168150, guid: 41a37afda05c08848a8d0df13474f0ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4393946564968892, guid: 41a37afda05c08848a8d0df13474f0ed, type: 3}
       propertyPath: m_RootOrder
