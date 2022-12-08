@@ -29,7 +29,13 @@ public class Respawn : MonoBehaviour
     }
     public void Respawning()
     {
-        respawnPanelAnimator.SetTrigger("Pressed");
         OnRespawn?.Invoke();
+        StartCoroutine(AnimWait());
+    }
+    IEnumerator AnimWait()
+    {
+        respawnPanelAnimator.SetTrigger("Pressed");
+        yield return new WaitForSeconds(1.5f);
+        respawnPanel.gameObject.SetActive(false);
     }
 }
