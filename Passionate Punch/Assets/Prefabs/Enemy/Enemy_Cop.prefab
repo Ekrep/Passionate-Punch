@@ -271,7 +271,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4220714119018302922
 GameObject:
@@ -5641,7 +5641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043f7961bc9bf934c81ef27acd89fd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempHealth: 1000
+  enemyHealthBar: {fileID: 0}
   enemySphereCollider: {fileID: 7687837470644327752}
   enemyMovementSpeed: {fileID: 11400000, guid: cc7a2aec29033cd409977acf9cb6ade2, type: 2}
   enemyReturningSpeed: {fileID: 11400000, guid: de7e423170081714996d205e29892f12,
