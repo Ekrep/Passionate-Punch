@@ -50,6 +50,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
 
     public ParticleSystem healthRegenParticle;
     public ParticleSystem levelUpParticle;
+    public ParticleSystem manaRegenParticle;
     
 
 
@@ -77,9 +78,15 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         DataManager.OnDataPulled += DataManager_OnDataPulled;
         Respawn.OnRespawn += Respawn_OnRespawn;
         Equipment.OnEquipmentHappened += Equipment_OnEquipmentHappened;
+        CharacterMana.OnManaRecoveryEnabled += CharacterMana_OnManaRecoveryEnabled;
         
       
         
+    }
+
+    private void CharacterMana_OnManaRecoveryEnabled()
+    {
+        manaRegenParticle.Play();
     }
 
     private void Equipment_OnEquipmentHappened()
@@ -128,6 +135,7 @@ public class CharacterBaseStateMachine : CharacterStateMachine
         DataManager.OnDataPulled -= DataManager_OnDataPulled;
         Respawn.OnRespawn -= Respawn_OnRespawn;
         Equipment.OnEquipmentHappened -= Equipment_OnEquipmentHappened;
+        CharacterMana.OnManaRecoveryEnabled -= CharacterMana_OnManaRecoveryEnabled;
 
     }
 
