@@ -74,7 +74,7 @@ public class Genocide : MonoBehaviourSkill
     [SerializeField]
     private float _camShakeRange;
 
-    private List<IHealth> _nestedEnemies=new List<IHealth>();
+    private List<EnemyMovementSM> _nestedEnemies=new List<EnemyMovementSM>();
 
 
     
@@ -117,7 +117,7 @@ public class Genocide : MonoBehaviourSkill
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out IHealth damagables))
+        if (other.gameObject.TryGetComponent(out EnemyMovementSM damagables))
         {
             _nestedEnemies.Add(damagables);
 
@@ -125,6 +125,7 @@ public class Genocide : MonoBehaviourSkill
     }
     private void OnTriggerStay(Collider other)
     {
+        //stun action begins
         if (other.gameObject.TryGetComponent(out IHealth damagables)&&other.gameObject.TryGetComponent(out EnemyMovementSM enemyState))
         {
             if (enemyState.currentEnemyState!=enemyState.enemyStunState&&enemyState.currentEnemyState!=enemyState.enemyDieState)
@@ -207,8 +208,9 @@ public class Genocide : MonoBehaviourSkill
                         _slashParticle.Play();
                         for (int j = 0; j < _nestedEnemies.Count; j++)
                         {
-                            if (_nestedEnemies[j]!=null)
+                            if (_nestedEnemies[j]!=null&&_nestedEnemies[j].currentEnemyState!=_nestedEnemies[j].enemyDieState)
                             {
+                                //hit action begins
                                 _nestedEnemies[j].Hit(SkillSystem.SkillSettings.HitType.Low, skillSettings.skillDamage, Vector3.zero, 0);
                             }
                             
