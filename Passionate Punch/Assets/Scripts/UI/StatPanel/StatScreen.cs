@@ -4,6 +4,7 @@ using UnityEngine;
 using CharacterSystem;
 using InventorySystem;
 using UnityEngine.UI;
+using CharacterUtilities;
 
 public class StatScreen : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class StatScreen : MonoBehaviour
     void OnEnable(){
         Equipment.OnEquipmentHappened += UpdateUI;
         GameManager.OnSendCharacter += GameManager_OnSendCharacter;
+        CharacterExperience.OnLevelUp += UpdateUI;
     }
 
     private void GameManager_OnSendCharacter(CharacterBaseStateMachine obj)
@@ -60,6 +62,7 @@ public class StatScreen : MonoBehaviour
     void OnDisable(){
         Equipment.OnEquipmentHappened -= UpdateUI;
         GameManager.OnSendCharacter -= GameManager_OnSendCharacter;
+        CharacterExperience.OnLevelUp -= UpdateUI;
     }
 
     public void UpdateUI(){
